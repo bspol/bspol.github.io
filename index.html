@@ -78,32 +78,36 @@
         .pharm-call-1330 { top: 36.0%; left: 65.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .pharm-late-link { top: 61.5%; left: 3.5%; width: 30.0%; height: 21.0%; z-index: 100; }
 
+        /* 6. 병원 페이지 전용 버튼 */
+        .hosp-call-112   { top: 36.0%; left: 5.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
+        .hosp-call-119   { top: 36.0%; left: 35.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
+        .hosp-call-1330  { top: 36.0%; left: 65.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
+
+        .hosp-find-map   { top: 51.0%; left: 6.5%; width: 27.0%; height: 12.0%; z-index: 100; }
+        .hosp-emergency  { top: 51.0%; left: 36.5%; width: 27.0%; height: 12.0%; z-index: 100; }
+        .hosp-medinfo    { top: 51.0%; left: 66.5%; width: 27.0%; height: 12.0%; z-index: 100; }
+
         /* =========================================
-           6. 병원 페이지 전용 버튼 (스크린샷 기준 완벽 교정)
+           7. 의료정보 페이지 하단 전화 버튼 (112, 119, 1330)
         ========================================= */
-        /* 상단 전화 버튼 3개 (Call 112, 119, 1330) */
-        .hosp-call-112   { top: 46.5%; left: 5.5%; width: 29.0%; height: 12.0%; z-index: 999999 !important; }
-        .hosp-call-119   { top: 46.5%; left: 35.5%; width: 29.0%; height: 12.0%; z-index: 999999 !important; }
-        .hosp-call-1330  { top: 46.5%; left: 65.5%; width: 29.0%; height: 12.0%; z-index: 999999 !important; }
+        .med-call-112    { top: 89.0%; left: 5.5%; width: 29.0%; height: 8.5%; z-index: 999999 !important; }
+        .med-call-119    { top: 89.0%; left: 35.5%; width: 29.0%; height: 8.5%; z-index: 999999 !important; }
+        .med-call-1330   { top: 89.0%; left: 65.5%; width: 29.0%; height: 8.5%; z-index: 999999 !important; }
 
-        /* 하단 3대 카드 메뉴 (Find Hospitals, Find Emergency Rooms, Medical Information) */
-        .hosp-find-map   { top: 61.5%; left: 3.5%; width: 30.0%; height: 21.0%; z-index: 100; }
-        .hosp-emergency  { top: 61.5%; left: 35.0%; width: 30.0%; height: 21.0%; z-index: 100; }
-        .hosp-medinfo    { top: 61.5%; left: 66.5%; width: 30.0%; height: 21.0%; z-index: 100; }
+        /* 8. 영사관 페이지 (embassy.png) 전용 버튼 좌표 */
+        .emb-row1 { top: 31.5%; height: 9.8%; }
+        .emb-row2 { top: 42.8%; height: 9.8%; }
+        .emb-row3 { top: 54.2%; height: 9.8%; }
+        .emb-row4 { top: 65.5%; height: 9.8%; }
 
-        /* 7. 영사관 페이지 버튼 */
-        .emb-row1 { top: 31.8%; height: 11.5%; }
-        .emb-row2 { top: 45.3%; height: 11.5%; }
-        .emb-row3 { top: 58.8%; height: 11.5%; }
-        .emb-row4 { top: 72.3%; height: 11.5%; }
+        .emb-col1 { left: 4.0%; width: 29.5%; }
+        .emb-col2 { left: 35.2%; width: 29.5%; }
+        .emb-col3 { left: 66.5%; width: 29.5%; }
 
-        .emb-col1 { left: 4.5%; width: 29.0%; }
-        .emb-col2 { left: 35.5%; width: 29.0%; }
-        .emb-col3 { left: 66.5%; width: 29.0%; }
-
-        .e-call  { position: absolute; bottom: 5%; left: 5%; width: 28%; height: 32%; z-index: 999999 !important; background: transparent; border: none; }
-        .e-map   { position: absolute; bottom: 5%; left: 36%; width: 28%; height: 32%; z-index: 100; background: transparent; border: none; }
-        .e-home  { position: absolute; bottom: 5%; left: 67%; width: 28%; height: 32%; z-index: 100; background: transparent; border: none; }
+        /* 각 카드 내부 [전화하기 / 길찾기 / 홈페이지] 버튼 */
+        .e-call  { position: absolute; bottom: 6%; left: 4%; width: 29%; height: 35%; z-index: 999999 !important; background: transparent; border: none; }
+        .e-map   { position: absolute; bottom: 6%; left: 35%; width: 29%; height: 35%; z-index: 100; background: transparent; border: none; }
+        .e-home  { position: absolute; bottom: 6%; left: 67%; width: 29%; height: 35%; z-index: 100; background: transparent; border: none; }
 
         /* 지구본 드롭다운 메뉴 스타일 */
         .dropdown-menu {
@@ -215,8 +219,13 @@
         <a id="hp-119" href="tel:119" class="touch-link hosp-call-119"></a>
         <a id="hp-1330" href="tel:1330" class="touch-link hosp-call-1330"></a>
 
+        <!-- [7. 의료정보 페이지 하단 전화 버튼] -->
+        <a id="med-112" href="tel:112" class="touch-link med-call-112"></a>
+        <a id="med-119" href="tel:119" class="touch-link med-call-119"></a>
+        <a id="med-1330" href="tel:1330" class="touch-link med-call-1330"></a>
 
-        <!-- [7. 영사관 페이지 (embassy.png) 11개국 버튼 그룹] -->
+
+        <!-- [8. 영사관 페이지 (embassy.png) 11개국 버튼 그룹] -->
         <div id="emb-1" class="touch-link emb-row1 emb-col1">
             <a href="tel:051-465-5101" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map"></a>
@@ -256,7 +265,7 @@
         <div id="emb-7" class="touch-link emb-row3 emb-col1">
             <a href="tel:051-469-7003" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산카자흐스탄영사관" target="_blank" class="e-map"></a>
-            <a href="https://www.embassypp.com/ko/%EC%B9%B4%EC%9E%90%ED%9D%5C스탄-영사관-부산" target="_blank" class="e-home"></a>
+            <a href="https://www.embassypp.com" target="_blank" class="e-home"></a>
         </div>
 
         <div id="emb-8" class="touch-link emb-row3 emb-col2">
@@ -280,7 +289,7 @@
         <div id="emb-11" class="touch-link emb-row4 emb-col2">
             <a href="tel:02-3701-7700" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주한뉴질랜드대사관" target="_blank" class="e-map"></a>
-            <a href="https://www.mfat.govt.nz/en/countries-and-regions/korea/new-zealand-embassy/" target="_blank" class="e-home"></a>
+            <a href="https://www.mfat.govt.nz" target="_blank" class="e-home"></a>
         </div>
 
     </div>
@@ -320,6 +329,7 @@
             var isMainLang = (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn');
             var isPharmacySub = pageId.indexOf('pharmacy') !== -1;
             var isHospitalSub = pageId.indexOf('hospital') !== -1;
+            var isMedInfoSub = pageId.indexOf('medinfo') !== -1;
             var isEmbassySub = (pageId === 'sub-embassy');
 
             setDisplay('area-en', isHome);
@@ -353,6 +363,10 @@
             setDisplay('hp-find', isHospitalSub);
             setDisplay('hp-emer', isHospitalSub);
             setDisplay('hp-med', isHospitalSub);
+
+            setDisplay('med-112', isMedInfoSub);
+            setDisplay('med-119', isMedInfoSub);
+            setDisplay('med-1330', isMedInfoSub);
 
             for (var i = 1; i <= 11; i++) {
                 setDisplay('emb-' + i, isEmbassySub);
