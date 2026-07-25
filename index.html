@@ -32,7 +32,7 @@
             display: block;
         }
         
-        /* 🚨 터치 레이어 공통 스타일 (투명 처리 및 좌표 최우선 보장) */
+        /* 터치 레이어 공통 (투명 처리 및 클릭 투과 방지) */
         .touch-link {
             position: absolute;
             cursor: pointer;
@@ -43,7 +43,7 @@
             pointer-events: auto;
         }
 
-        /* [1. 홈 메인 화면 전용 버튼] */
+        /* [1. 대표 메인 홈 화면 전용 버튼] */
         .btn-en { top: 55.6%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 2000; }
         .btn-cn { top: 62.4%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 2000; }
         .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 2000; }
@@ -54,24 +54,26 @@
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 65.8%; width: 27.5%; }
 
-        /* [2. 상단 지구본 드롭다운 버튼] */
+        /* [2. 상단 지구본 드롭다운] */
         .btn-lang-dropdown { top: 0.5%; left: 2.0%; width: 25.0%; height: 5.0%; z-index: 90000; } 
 
-        /* [3. 언어별 메인 화면 중간 6대 메뉴] */
-        .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 12.0%; z-index: 1000; }
-        .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 12.0%; z-index: 1000; }
-        .click-embassy   { top: 59.0%; left: 2.5%; width: 46.5%; height: 12.0%; z-index: 1000; }
-        .click-lost      { top: 59.0%; left: 51.0%; width: 46.5%; height: 12.0%; z-index: 1000; }
-        .click-rules     { top: 72.5%; left: 2.5%; width: 46.5%; height: 10.0%; z-index: 1000; }
-        .click-spots     { top: 72.5%; left: 51.0%; width: 46.5%; height: 10.0%; z-index: 1000; }
+        /* [3. 언어별 메인 화면 6대 메뉴 - 높이를 정돈하여 하단 버튼 클릭 방해 방지] */
+        .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 11.0%; z-index: 1000; }
+        .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 11.0%; z-index: 1000; }
+        .click-embassy   { top: 58.0%; left: 2.5%; width: 46.5%; height: 11.0%; z-index: 1000; }
+        .click-lost      { top: 58.0%; left: 51.0%; width: 46.5%; height: 11.0%; z-index: 1000; }
+        .click-rules     { top: 70.0%; left: 2.5%; width: 46.5%; height: 10.0%; z-index: 1000; }
+        .click-spots     { top: 70.0%; left: 51.0%; width: 46.5%; height: 10.0%; z-index: 1000; }
 
-        /* [4. 🔥 모든 서브/약국/병원 화면 최상단 강제 고정 긴급신고 전화 버튼 (z-index 999999)] */
-        .sub-call-112  { top: 84.5%; left: 4.0%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
-        .sub-call-119  { top: 84.5%; left: 28.0%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
-        .sub-call-1330 { top: 84.5%; left: 52.0%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        /* [4. 🔥 긴급전화 112, 119, 1330 최상단 보장 (z-index: 999999)] */
+        .sub-call-112  { top: 84.5%; left: 3.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        .sub-call-119  { top: 84.5%; left: 27.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        .sub-call-1330 { top: 84.5%; left: 51.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
 
-        /* [5. 약국 페이지 전용 심야약국 / 병원 외부 링크] */
-        .click-late-pharmacy { top: 84.5%; left: 75.0%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        /* [5. 🔥 약국 페이지 상단 4번째 'Late-Night Pharmacies(심야약국)' 버튼 최상단 보장] */
+        .click-late-pharmacy { top: 84.5%; left: 74.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+
+        /* [6. 하단 기타 외부 연결 링크] */
         .hospital-ext-link   { top: 82.0%; left: 5.0%; width: 90.0%; height: 10.0%; z-index: 2000; }
         .pharmacy-ext-link   { top: 82.0%; left: 5.0%; width: 90.0%; height: 10.0%; z-index: 2000; }
 
@@ -132,7 +134,7 @@
 
         <!-- ▣ 터치 레이어 배포 구역 -->
         
-        <!-- [1. 홈 메인 버튼] -->
+        <!-- [1. 홈 메인 화면 버튼] -->
         <a id="area-en" href="javascript:void(0)" class="touch-link btn-en" onclick="goPage('en')"></a>
         <a id="area-cn" href="javascript:void(0)" class="touch-link btn-cn" onclick="goPage('cn')"></a>
         <a id="area-jp" href="javascript:void(0)" class="touch-link btn-jp" onclick="goPage('jp')"></a>
@@ -153,12 +155,12 @@
             <a href="javascript:void(0)" onclick="goPage('vn')">🇻🇳 Tiếng Việt</a>
         </div>
 
-        <!-- [3. 서브 및 약국/병원 화면 공통 전화 걸기 버튼] -->
+        <!-- [3. 영어/서브/약국/병원 화면 공통 전화 걸기 버튼 (우선순위 최고)] -->
         <a id="c-112" href="tel:112" class="touch-link sub-call-112"></a>
         <a id="c-119" href="tel:119" class="touch-link sub-call-119"></a>
         <a id="c-1330" href="tel:1330" class="touch-link sub-call-1330"></a>
 
-        <!-- [4. 약국 화면 전용 심야약국 외부 링크 버튼] -->
+        <!-- [4. 약국 화면 전용 심야약국 외부 연결 버튼] -->
         <a id="click-late-pharm" href="https://www.pharm114.or.kr/" target="_blank" class="touch-link click-late-pharmacy"></a>
 
         <!-- [5. 언어별 메인 화면 6대 메뉴] -->
@@ -210,7 +212,7 @@
             var isHospitalSub = pageId.indexOf('hospital') !== -1;
             var isPharmacySub = pageId.indexOf('pharmacy') !== -1;
 
-            // 홈 화면 버튼 제어
+            // 홈 화면 버튼 설정
             setDisplay('area-en', isHome);
             setDisplay('area-cn', isHome);
             setDisplay('area-jp', isHome);
@@ -219,16 +221,16 @@
             setDisplay('h-119', isHome);
             setDisplay('h-1330', isHome);
 
-            // 서브/약국/병원 공통 긴급전화버튼 노출 (홈 화면만 제외)
+            // 홈 화면 제외, 모든 페이지에서 드롭다운 및 112/119/1330 활성화
             setDisplay('area-lang-dropdown', !isHome);
             setDisplay('c-112', !isHome);
             setDisplay('c-119', !isHome);
             setDisplay('c-1330', !isHome);
 
-            // 약국 화면 전용 심야약국 버튼 노출
+            // 약국 화면 전용 심야약국 링크 활성화
             setDisplay('click-late-pharm', isPharmacySub);
 
-            // 메인 6개 메뉴
+            // 언어별 메인 6개 메뉴
             setDisplay('click-hosp', isMainLang);
             setDisplay('click-phar', isMainLang);
             setDisplay('click-emba', isMainLang);
@@ -236,7 +238,7 @@
             setDisplay('click-rule', isMainLang);
             setDisplay('click-spot', isMainLang);
 
-            // 하단 상세 연결
+            // 하단 외부 연결 버튼
             setDisplay('go-ext-hospital', isHospitalSub);
             setDisplay('go-ext-pharmacy', isPharmacySub);
         }
