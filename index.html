@@ -32,7 +32,7 @@
             display: block;
         }
         
-        /* 🛠 디버깅 확인용 가이드 색상 (위치가 딱 맞으면 background와 border를 제거하세요) */
+        /* 터치 링크 기본 설정 (배경 및 테두리 완전 투명화) */
         .touch-link {
             position: absolute;
             cursor: pointer;
@@ -41,59 +41,59 @@
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto;
             box-sizing: border-box;
-            background-color: rgba(255, 0, 0, 0.4); /* 반투명 빨간색 */
-            border: 2px solid yellow; /* 노란색 테두리 */
+            background-color: transparent;
+            border: none;
             z-index: 999999 !important;
         }
 
-        /* 1. 홈 화면 (나라별 칸 및 하단 긴급전화 완벽 일치) */
-        .btn-en { top: 57.0%; left: 6.5%; width: 87.0%; height: 6.8%; }
-        .btn-cn { top: 65.5%; left: 6.5%; width: 87.0%; height: 6.8%; }
-        .btn-jp { top: 74.0%; left: 6.5%; width: 87.0%; height: 6.8%; }
-        .btn-vn { top: 82.5%; left: 6.5%; width: 87.0%; height: 6.8%; }
+        /* 1. 홈 화면 (나라별 칸 및 하단 긴급전화 위치 재조정) */
+        .btn-en { top: 56.2%; left: 6.5%; width: 87.0%; height: 7.2%; }
+        .btn-cn { top: 65.0%; left: 6.5%; width: 87.0%; height: 7.2%; }
+        .btn-jp { top: 73.8%; left: 6.5%; width: 87.0%; height: 7.2%; }
+        .btn-vn { top: 82.6%; left: 6.5%; width: 87.0%; height: 7.2%; }
 
-        .home-phone { top: 92.5%; height: 6.5%; }
+        .home-phone { top: 92.2%; height: 6.0%; }
         .home-112 { left: 6.5%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 66.0%; width: 27.5%; }
 
         /* 2. 상단 지구본 드롭다운 버튼 */
-        .btn-lang-dropdown { top: 1.0%; left: 2.0%; width: 27.0%; height: 4.5%; } 
+        .btn-lang-dropdown { top: 1.5%; left: 2.5%; width: 26.0%; height: 5.5%; } 
 
-        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 (아이콘 전체 포함) */
-        .main-call-112  { top: 18.0%; left: 6.0%; width: 28.0%; height: 16.5%; }
-        .main-call-119  { top: 18.0%; left: 36.0%; width: 28.0%; height: 16.5%; }
-        .main-call-1330 { top: 18.0%; left: 66.0%; width: 28.0%; height: 16.5%; }
+        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 */
+        .main-call-112  { top: 41.5%; left: 3.0%; width: 30.0%; height: 8.5%; }
+        .main-call-119  { top: 41.5%; left: 35.0%; width: 30.0%; height: 8.5%; }
+        .main-call-1330 { top: 41.5%; left: 67.0%; width: 30.0%; height: 8.5%; }
 
-        /* 4. 언어 메인 화면 - 6대 카드 메뉴 (기초질서 포함 완벽 정렬) */
-        .click-hospital  { top: 37.0%; left: 3.0%; width: 46.5%; height: 14.5%; }
-        .click-pharmacy  { top: 37.0%; left: 50.5%; width: 46.5%; height: 14.5%; }
-        .click-embassy   { top: 53.0%; left: 3.0%; width: 46.5%; height: 14.5%; }
-        .click-lost      { top: 53.0%; left: 50.5%; width: 46.5%; height: 14.5%; }
-        .click-rules     { top: 69.0%; left: 3.0%; width: 46.5%; height: 14.5%; }
-        .click-spots     { top: 69.0%; left: 50.5%; width: 46.5%; height: 14.5%; }
+        /* 4. 언어 메인 화면 - 6대 카드 메뉴 */
+        .click-hospital  { top: 52.5%; left: 3.0%; width: 46.5%; height: 16.5%; }
+        .click-pharmacy  { top: 52.5%; left: 50.5%; width: 46.5%; height: 16.5%; }
+        .click-embassy   { top: 71.0%; left: 3.0%; width: 46.5%; height: 16.5%; }
+        .click-lost      { top: 71.0%; left: 50.5%; width: 46.5%; height: 16.5%; }
+        .click-rules     { top: 89.5%; left: 3.0%; width: 46.5%; height: 7.5%; }
+        .click-spots     { top: 89.5%; left: 50.5%; width: 46.5%; height: 7.5%; }
 
-        /* 5. 약국 페이지 버튼 (아이콘부터 글자까지 정확히 커버) */
-        .pharm-call-112  { top: 18.5%; left: 4.5%; width: 21.5%; height: 14.5%; }
-        .pharm-call-119  { top: 18.5%; left: 28.0%; width: 21.5%; height: 14.5%; }
-        .pharm-call-1330 { top: 18.5%; left: 51.5%; width: 21.5%; height: 14.5%; }
-        .pharm-late-link { top: 18.5%; left: 75.0%; width: 21.5%; height: 14.5%; }
+        /* 5. 약국 페이지 버튼 */
+        .pharm-call-112  { top: 41.5%; left: 3.5%; width: 22.0%; height: 9.0%; }
+        .pharm-call-119  { top: 41.5%; left: 27.5%; width: 22.0%; height: 9.0%; }
+        .pharm-call-1330 { top: 41.5%; left: 51.5%; width: 22.0%; height: 9.0%; }
+        .pharm-late-link { top: 41.5%; left: 75.5%; width: 22.0%; height: 9.0%; }
 
         /* 6. 병원 페이지 버튼 (상단 전화 3개, 하단 기능 3개) */
-        .hosp-call-112   { top: 18.5%; left: 6.0%; width: 26.0%; height: 14.5%; }
-        .hosp-call-119   { top: 18.5%; left: 37.0%; width: 26.0%; height: 14.5%; }
-        .hosp-call-1330  { top: 18.5%; left: 68.0%; width: 26.0%; height: 14.5%; }
+        .hosp-call-112   { top: 45.0%; left: 5.0%; width: 28.0%; height: 9.5%; }
+        .hosp-call-119   { top: 45.0%; left: 36.0%; width: 28.0%; height: 9.5%; }
+        .hosp-call-1330  { top: 45.0%; left: 67.0%; width: 28.0%; height: 9.5%; }
 
-        .hosp-find-map   { top: 36.0%; left: 6.0%; width: 27.5%; height: 16.0%; }
-        .hosp-emergency  { top: 36.0%; left: 36.2%; width: 27.5%; height: 16.0%; }
-        .hosp-medinfo    { top: 36.0%; left: 66.5%; width: 27.5%; height: 16.0%; }
+        .hosp-find-map   { top: 61.5%; left: 4.5%; width: 29.0%; height: 23.0%; }
+        .hosp-emergency  { top: 61.5%; left: 35.5%; width: 29.0%; height: 23.0%; }
+        .hosp-medinfo    { top: 61.5%; left: 66.5%; width: 29.0%; height: 23.0%; }
 
         /* 7. 의료정보 페이지 하단 전화 버튼 */
         .med-call-112    { top: 89.0%; left: 5.5%; width: 29.0%; height: 8.5%; }
         .med-call-119    { top: 89.0%; left: 35.5%; width: 29.0%; height: 8.5%; }
         .med-call-1330   { top: 89.0%; left: 65.5%; width: 29.0%; height: 8.5%; }
 
-        /* 8. 영사관 페이지 전용 버튼 (11개국 카드 칸에 정확히 일치) */
+        /* 8. 영사관 페이지 전용 버튼 */
         .emb-row1 { top: 22.0%; height: 11.2%; }
         .emb-row2 { top: 34.5%; height: 11.2%; }
         .emb-row3 { top: 47.0%; height: 11.2%; }
@@ -113,8 +113,8 @@
         .dropdown-menu {
             display: none;
             position: absolute;
-            top: 5.5%; 
-            left: 2.0%;
+            top: 7.5%; 
+            left: 2.5%;
             width: 150px;
             background-color: #12284c;
             border: 1px solid #234375;
