@@ -32,7 +32,7 @@
             display: block;
         }
         
-        /* 터치 레이어 공통 (테스트용 빨간/초록/파란 테두리 표시) */
+        /* 터치 레이어 공통 (배경색 및 테두리 완전히 투명화) */
         .touch-link {
             position: absolute;
             cursor: pointer;
@@ -41,42 +41,44 @@
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto;
             box-sizing: border-box;
+            background-color: transparent;
+            border: none;
         }
 
-        /* [1. 홈 화면 버튼] */
-        .btn-en { top: 56.5%; left: 6.7%; width: 86.6%; height: 5.8%; z-index: 2000; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
-        .btn-cn { top: 63.3%; left: 6.7%; width: 86.6%; height: 5.8%; z-index: 2000; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
-        .btn-jp { top: 70.0%; left: 6.7%; width: 86.6%; height: 5.8%; z-index: 2000; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
-        .btn-vn { top: 76.8%; left: 6.7%; width: 86.6%; height: 5.8%; z-index: 2000; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
+        /* [1. 홈 메인 화면 (home.png) - 4개 국기 버튼 & 하단 3개 전화 버튼 정밀 교정] */
+        .btn-en { top: 58.2%; left: 7.0%; width: 86.0%; height: 5.6%; z-index: 2000; }
+        .btn-cn { top: 64.8%; left: 7.0%; width: 86.0%; height: 5.6%; z-index: 2000; }
+        .btn-jp { top: 71.4%; left: 7.0%; width: 86.0%; height: 5.6%; z-index: 2000; }
+        .btn-vn { top: 78.0%; left: 7.0%; width: 86.0%; height: 5.6%; z-index: 2000; }
 
-        .home-phone { top: 83.5%; height: 10.5%; z-index: 2000; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
-        .home-112 { left: 6.7%; width: 27.5%; }
+        .home-phone { top: 87.0%; height: 10.0%; z-index: 2000; }
+        .home-112 { left: 7.0%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
-        .home-1330 { left: 65.8%; width: 27.5%; }
+        .home-1330 { left: 65.5%; width: 27.5%; }
 
-        /* [2. 상단 지구본] */
-        .btn-lang-dropdown { top: 1.0%; left: 2.0%; width: 27.0%; height: 4.5%; z-index: 90000; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; } 
+        /* [2. 상단 지구본 언어 선택 드롭다운 버튼] */
+        .btn-lang-dropdown { top: 1.0%; left: 2.0%; width: 27.0%; height: 4.5%; z-index: 90000; } 
 
-        /* [3. 영어 메인 전용 CALL 버튼 (top: 32.5% ~ 35.5% 정밀 탑재)] */
-        .main-call-112  { top: 32.5%; left: 8.0%; width: 22.0%; height: 3.2%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.4); border: 2px solid green; }
-        .main-call-119  { top: 32.5%; left: 39.0%; width: 22.0%; height: 3.2%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.4); border: 2px solid green; }
-        .main-call-1330 { top: 32.5%; left: 70.0%; width: 22.0%; height: 3.2%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.4); border: 2px solid green; }
+        /* [3. 언어 메인 화면 (main_en) - CALL 버튼 3개 정밀 좌표 및 높이 확장] */
+        .main-call-112  { top: 35.8%; left: 6.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
+        .main-call-119  { top: 35.8%; left: 37.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
+        .main-call-1330 { top: 35.8%; left: 68.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
 
-        /* [4. 영어 메인 전용 6대 메뉴 (위치 정밀 조절)] */
-        .click-hospital  { top: 37.0%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
-        .click-pharmacy  { top: 37.0%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
+        /* [4. 언어 메인 화면 - 6대 카드 메뉴 위치 정밀 교정] */
+        .click-hospital  { top: 41.8%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; }
+        .click-pharmacy  { top: 41.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
         
-        .click-embassy   { top: 56.0%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
-        .click-lost      { top: 56.0%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
+        .click-embassy   { top: 60.8%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; }
+        .click-lost      { top: 60.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
         
-        .click-rules     { top: 75.0%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
-        .click-spots     { top: 75.0%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; background-color: rgba(255, 0, 0, 0.2); border: 1px solid red; }
+        .click-rules     { top: 79.8%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; }
+        .click-spots     { top: 79.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
 
-        /* [5. 약국 페이지 전용: 4개 카드 (Call 112/119/1330/Late-Night) (top: 36.5%)] */
-        .pharm-call-112  { top: 36.5%; left: 3.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.4); border: 2px solid green; }
-        .pharm-call-119  { top: 36.5%; left: 27.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.4); border: 2px solid green; }
-        .pharm-call-1330 { top: 36.5%; left: 50.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.4); border: 2px solid green; }
-        .pharm-late-link { top: 36.5%; left: 74.0%; width: 22.5%; height: 12.0%; z-index: 999999 !important; background-color: rgba(0, 0, 255, 0.4); border: 2px solid blue; }
+        /* [5. 약국 페이지 (pharmacy_en) - 카드 4개 정밀 좌표 (검증 완료된 설정)] */
+        .pharm-call-112  { top: 38.0%; left: 3.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        .pharm-call-119  { top: 38.0%; left: 27.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        .pharm-call-1330 { top: 38.0%; left: 50.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        .pharm-late-link { top: 38.0%; left: 74.0%; width: 22.5%; height: 12.0%; z-index: 999999 !important; }
 
         /* 드롭다운 메뉴 스타일 */
         .dropdown-menu {
@@ -223,7 +225,7 @@
             // 2. 상단 지구본
             setDisplay('area-lang-dropdown', !isHome);
 
-            // 3. 언어 메인 전용 버튼들 (홈이나 약국 화면에서는 완벽히 끔)
+            // 3. 언어 메인 전용 버튼들
             setDisplay('m-112', isMainLang);
             setDisplay('m-119', isMainLang);
             setDisplay('m-1330', isMainLang);
@@ -234,7 +236,7 @@
             setDisplay('click-rule', isMainLang);
             setDisplay('click-spot', isMainLang);
 
-            // 4. 약국 페이지 전용 버튼들 (메인 화면에서는 완벽히 끔)
+            // 4. 약국 페이지 전용 버튼들
             setDisplay('p-112', isPharmacySub);
             setDisplay('p-119', isPharmacySub);
             setDisplay('p-1330', isPharmacySub);
