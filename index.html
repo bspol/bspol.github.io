@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Busan Foreigner Safety Platform</title>
-    <!-- 이미지 맵 반응형 자동 계산 라이브러리 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
     <style>
         html, body {
             margin: 0;
@@ -24,6 +21,7 @@
             max-width: 600px;
             margin: 0 auto;
             position: relative;
+            padding-bottom: 20px;
         }
         .main-img {
             width: 100%;
@@ -33,14 +31,75 @@
         .main-img.active {
             display: block;
         }
+        
+        /* 터치 레이어 공통 (투명 처리) */
+        .touch-link {
+            position: absolute;
+            cursor: pointer;
+            display: none; /* 스크립트에서 제어 */
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            pointer-events: auto;
+            box-sizing: border-box;
+            background-color: transparent;
+            border: none;
+        }
 
-        /* 드롭다운 메뉴 스타일 */
+        /* =========================================
+           [1. 홈 화면 (home.png)]
+           순서: 영어 -> 중국어 -> 일본어 -> 베트남어
+           높이(height)를 5.8%로 제한하여 절대 겹치지 않음!
+        ========================================= */
+        .btn-en { top: 57.5%; left: 7.0%; width: 86.0%; height: 5.8%; z-index: 2000; }
+        .btn-cn { top: 64.5%; left: 7.0%; width: 86.0%; height: 5.8%; z-index: 2000; }
+        .btn-jp { top: 71.5%; left: 7.0%; width: 86.0%; height: 5.8%; z-index: 2000; }
+        .btn-vn { top: 78.5%; left: 7.0%; width: 86.0%; height: 5.8%; z-index: 2000; }
+
+        /* 하단 긴급전화 3개 버튼 (언어 버튼과 간격 분리) */
+        .home-phone { top: 88.0%; height: 8.5%; z-index: 2000; }
+        .home-112 { left: 7.0%; width: 27.5%; }
+        .home-119 { left: 36.2%; width: 27.5%; }
+        .home-1330 { left: 65.5%; width: 27.5%; }
+
+        /* =========================================
+           [2. 상단 지구본 언어 선택 드롭다운 버튼] 
+        ========================================= */
+        .btn-lang-dropdown { top: 1.0%; left: 2.0%; width: 27.0%; height: 4.5%; z-index: 90000; } 
+
+        /* =========================================
+           [3. 언어 메인 화면 (main_en) - CALL 버튼 3개] 
+        ========================================= */
+        .main-call-112  { top: 35.8%; left: 6.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
+        .main-call-119  { top: 35.8%; left: 37.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
+        .main-call-1330 { top: 35.8%; left: 68.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
+
+        /* =========================================
+           [4. 언어 메인 화면 - 6대 카드 메뉴] 
+        ========================================= */
+        .click-hospital  { top: 41.8%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; }
+        .click-pharmacy  { top: 41.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
+        
+        .click-embassy   { top: 60.8%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; }
+        .click-lost      { top: 60.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
+        
+        .click-rules     { top: 79.8%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; }
+        .click-spots     { top: 79.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
+
+        /* =========================================
+           [5. 약국 페이지 - 심야약국 링크 적용] 
+        ========================================= */
+        .pharm-call-112  { top: 38.0%; left: 3.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        .pharm-call-119  { top: 38.0%; left: 27.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        .pharm-call-1330 { top: 38.0%; left: 50.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
+        .pharm-late-link { top: 38.0%; left: 74.0%; width: 22.5%; height: 12.0%; z-index: 999999 !important; }
+
+        /* 지구본 드롭다운 메뉴 스타일 */
         .dropdown-menu {
             display: none;
             position: absolute;
-            top: 50px; 
-            left: 10px;
-            width: 160px;
+            top: 5.5%; 
+            left: 2.0%;
+            width: 150px;
             background-color: #12284c;
             border: 1px solid #234375;
             border-radius: 8px;
@@ -65,76 +124,42 @@
 <body>
 
     <div class="container">
-        <!-- ▣ 이미지 & 정밀 이미지 맵 바인딩 -->
+        <!-- ▣ 이미지 보관함 -->
+        <img id="img-home" class="main-img active" src="home.png" alt="Home">
+        <img id="img-en" class="main-img" src="main_en.png" alt="English">
+        <img id="img-cn" class="main-img" src="main_cn.png" alt="Chinese">
+        <img id="img-jp" class="main-img" src="main_jp.png" alt="Japanese">
+        <img id="img-vn" class="main-img" src="main_vn.png" alt="Vietnamese">
+
+        <img id="img-sub-rules" class="main-img" src="basicrules.png" alt="Basic Rules">
+        <img id="img-sub-embassy" class="main-img" src="embassy.png" alt="Embassies">
+
+        <img id="img-sub-hospital-en" class="main-img" src="hospital_en.png" alt="Hospital EN">
+        <img id="img-sub-hospital-cn" class="main-img" src="hospital_cn.png" alt="Hospital CN">
+        <img id="img-sub-hospital-jp" class="main-img" src="hospital_jp.png" alt="Hospital JP">
+        <img id="img-sub-hospital-vn" class="main-img" src="hospital_vn.png" alt="Hospital VN">
+
+        <img id="img-sub-pharmacy-en" class="main-img" src="pharmacy_en.png" alt="Pharmacy EN">
+        <img id="img-sub-pharmacy-cn" class="main-img" src="pharmacy_cn.png" alt="Pharmacy CN">
+        <img id="img-sub-pharmacy-jp" class="main-img" src="pharmacy_jp.png" alt="Pharmacy JP">
+        <img id="img-sub-pharmacy-vn" class="main-img" src="pharmacy_vn.png" alt="Pharmacy VN">
+
+
+        <!-- ▣ 터치 레이어 (버튼 구역) -->
         
-        <!-- 1. 홈 화면 -->
-        <img id="img-home" class="main-img active" src="home.png" alt="Home" usemap="#map-home">
-        <map name="map-home">
-            <!-- 4개 언어 버튼 -->
-            <area shape="rect" coords="72,1125,928,1240" href="javascript:void(0)" onclick="goPage('en')" alt="English">
-            <area shape="rect" coords="72,1255,928,1370" href="javascript:void(0)" onclick="goPage('cn')" alt="Chinese">
-            <area shape="rect" coords="72,1385,928,1500" href="javascript:void(0)" onclick="goPage('jp')" alt="Japanese">
-            <area shape="rect" coords="72,1515,928,1630" href="javascript:void(0)" onclick="goPage('vn')" alt="Vietnamese">
-            <!-- 하단 긴급전화 3개 -->
-            <area shape="rect" coords="72,1680,335,1880" href="tel:112" alt="112">
-            <area shape="rect" coords="368,1680,631,1880" href="tel:119" alt="119">
-            <area shape="rect" coords="664,1680,928,1880" href="tel:1330" alt="1330">
-        </map>
+        <!-- [1. 홈 화면] -->
+        <a id="area-en" href="javascript:void(0)" class="touch-link btn-en" onclick="goPage('en')"></a>
+        <a id="area-cn" href="javascript:void(0)" class="touch-link btn-cn" onclick="goPage('cn')"></a>
+        <a id="area-jp" href="javascript:void(0)" class="touch-link btn-jp" onclick="goPage('jp')"></a>
+        <a id="area-vn" href="javascript:void(0)" class="touch-link btn-vn" onclick="goPage('vn')"></a>
 
-        <!-- 2. 메인 화면들 -->
-        <img id="img-en" class="main-img" src="main_en.png" alt="English" usemap="#map-main">
-        <img id="img-cn" class="main-img" src="main_cn.png" alt="Chinese" usemap="#map-main">
-        <img id="img-jp" class="main-img" src="main_jp.png" alt="Japanese" usemap="#map-main">
-        <img id="img-vn" class="main-img" src="main_vn.png" alt="Vietnamese" usemap="#map-main">
+        <a id="h-112" href="tel:112" class="touch-link home-phone home-112"></a>
+        <a id="h-119" href="tel:119" class="touch-link home-phone home-119"></a>
+        <a id="h-1330" href="tel:1330" class="touch-link home-phone home-1330"></a>
 
-        <map name="map-main">
-            <!-- 상단 지구본 버튼 -->
-            <area shape="rect" coords="20,15,300,90" href="javascript:void(0)" onclick="toggleDropdown(event)" alt="Language">
-            <!-- CALL 버튼 3개 -->
-            <area shape="rect" coords="60,695,330,785" href="tel:112" alt="112">
-            <area shape="rect" coords="365,695,635,785" href="tel:119" alt="119">
-            <area shape="rect" coords="670,695,940,785" href="tel:1330" alt="1330">
-            <!-- 6대 카테고리 메뉴 -->
-            <area shape="rect" coords="30,810,485,1160" href="javascript:void(0)" onclick="clickSubMenu('hospital')" alt="Hospitals">
-            <area shape="rect" coords="515,810,970,1160" href="javascript:void(0)" onclick="clickSubMenu('pharmacy')" alt="Pharmacies">
-            <area shape="rect" coords="30,1185,485,1535" href="javascript:void(0)" onclick="goPage('sub-embassy')" alt="Embassies">
-            <area shape="rect" coords="515,1185,970,1535" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" alt="Lost&Found">
-            <area shape="rect" coords="30,1560,485,1910" href="javascript:void(0)" onclick="goPage('sub-rules')" alt="Basic Rules">
-            <area shape="rect" coords="515,1560,970,1910" href="https://www.google.com/maps/search/Busan+tourist+map" target="_blank" alt="Tourist Spots">
-        </map>
+        <!-- [2. 상단 지구본] -->
+        <a id="area-lang-dropdown" href="javascript:void(0)" class="touch-link btn-lang-dropdown" onclick="toggleDropdown(event)"></a>
 
-        <!-- 3. 서브 화면 (기본수칙, 영사관) -->
-        <img id="img-sub-rules" class="main-img" src="basicrules.png" alt="Basic Rules" usemap="#map-sub-common">
-        <img id="img-sub-embassy" class="main-img" src="embassy.png" alt="Embassies" usemap="#map-sub-common">
-
-        <!-- 4. 병원 서브 화면들 -->
-        <img id="img-sub-hospital-en" class="main-img" src="hospital_en.png" alt="Hospital EN" usemap="#map-sub-common">
-        <img id="img-sub-hospital-cn" class="main-img" src="hospital_cn.png" alt="Hospital CN" usemap="#map-sub-common">
-        <img id="img-sub-hospital-jp" class="main-img" src="hospital_jp.png" alt="Hospital JP" usemap="#map-sub-common">
-        <img id="img-sub-hospital-vn" class="main-img" src="hospital_vn.png" alt="Hospital VN" usemap="#map-sub-common">
-
-        <!-- 5. 약국 서브 화면들 -->
-        <img id="img-sub-pharmacy-en" class="main-img" src="pharmacy_en.png" alt="Pharmacy EN" usemap="#map-pharmacy">
-        <img id="img-sub-pharmacy-cn" class="main-img" src="pharmacy_cn.png" alt="Pharmacy CN" usemap="#map-pharmacy">
-        <img id="img-sub-pharmacy-jp" class="main-img" src="pharmacy_jp.png" alt="Pharmacy JP" usemap="#map-pharmacy">
-        <img id="img-sub-pharmacy-vn" class="main-img" src="pharmacy_vn.png" alt="Pharmacy VN" usemap="#map-pharmacy">
-
-        <map name="map-pharmacy">
-            <!-- 상단 지구본 버튼 -->
-            <area shape="rect" coords="20,15,300,90" href="javascript:void(0)" onclick="toggleDropdown(event)" alt="Language">
-            <!-- 약국 상단 4개 카트 (112, 119, 1330, 심야약국 부산시 공식링크) -->
-            <area shape="rect" coords="35,700,250,930" href="tel:112" alt="112">
-            <area shape="rect" coords="275,700,490,930" href="tel:119" alt="119">
-            <area shape="rect" coords="510,700,725,930" href="tel:1330" alt="1330">
-            <area shape="rect" coords="745,700,960,930" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" alt="Late-Night Pharmacies">
-        </map>
-
-        <map name="map-sub-common">
-            <!-- 일반 서브페이지 상단 지구본 -->
-            <area shape="rect" coords="20,15,300,90" href="javascript:void(0)" onclick="toggleDropdown(event)" alt="Language">
-        </map>
-
-        <!-- 지구본 드롭다운 레이어 -->
         <div id="langDropdown" class="dropdown-menu">
             <a href="javascript:void(0)" onclick="goPage('home')">🏠 메인 (Home)</a>
             <a href="javascript:void(0)" onclick="goPage('en')">🇺🇸 English</a>
@@ -143,40 +168,86 @@
             <a href="javascript:void(0)" onclick="goPage('vn')">🇻🇳 Tiếng Việt</a>
         </div>
 
+        <!-- [3. 언어 메인 전용 CALL 버튼] -->
+        <a id="m-112" href="tel:112" class="touch-link main-call-112"></a>
+        <a id="m-119" href="tel:119" class="touch-link main-call-119"></a>
+        <a id="m-1330" href="tel:1330" class="touch-link main-call-1330"></a>
+
+        <!-- [4. 언어 메인 전용 6대 메뉴] -->
+        <a id="click-hosp" href="javascript:void(0)" class="touch-link click-hospital" onclick="clickSubMenu('hospital')"></a>
+        <a id="click-phar" href="javascript:void(0)" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')"></a>
+        <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="goPage('sub-embassy')"></a>
+        <a id="click-lost" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" class="touch-link click-lost"></a>
+        <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="goPage('sub-rules')"></a>
+        <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map" target="_blank" class="touch-link click-spots"></a>
+
+        <!-- [5. 약국 페이지 전용 버튼 (부산시 심야약국 링크)] -->
+        <a id="p-112" href="tel:112" class="touch-link pharm-call-112"></a>
+        <a id="p-119" href="tel:119" class="touch-link pharm-call-119"></a>
+        <a id="p-1330" href="tel:1330" class="touch-link pharm-call-1330"></a>
+        <a id="p-late" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" class="touch-link pharm-late-link"></a>
     </div>
 
     <script>
         var currentLang = 'en';
 
+        function setDisplay(id, show) {
+            var el = document.getElementById(id);
+            if (el) {
+                el.style.display = show ? 'block' : 'none';
+            }
+        }
+
         function goPage(pageId) {
             if (!pageId) return;
 
-            // 드롭다운 닫기
             var dropdown = document.getElementById('langDropdown');
             if (dropdown) dropdown.style.display = 'none';
 
-            // 모든 이미지 숨기기
             var images = document.getElementsByClassName('main-img');
             for (var i = 0; i < images.length; i++) {
                 images[i].classList.remove('active');
             }
 
-            // Target 이미지 표시
             var targetImg = document.getElementById('img-' + pageId);
             if (targetImg) {
                 targetImg.classList.add('active');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // 언어 정보 갱신
             if (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn') {
                 currentLang = pageId;
             }
 
-            // 이미지 맵 크기 재계산 (반응형 핵심)
-            setTimeout(function() {
-                $('img[usemap]').rwdImageMaps();
-            }, 100);
+            var isHome = (pageId === 'home');
+            var isMainLang = (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn');
+            var isPharmacySub = pageId.indexOf('pharmacy') !== -1;
+
+            // 디스플레이 제어
+            setDisplay('area-en', isHome);
+            setDisplay('area-cn', isHome);
+            setDisplay('area-jp', isHome);
+            setDisplay('area-vn', isHome);
+            setDisplay('h-112', isHome);
+            setDisplay('h-119', isHome);
+            setDisplay('h-1330', isHome);
+
+            setDisplay('area-lang-dropdown', !isHome);
+
+            setDisplay('m-112', isMainLang);
+            setDisplay('m-119', isMainLang);
+            setDisplay('m-1330', isMainLang);
+            setDisplay('click-hosp', isMainLang);
+            setDisplay('click-phar', isMainLang);
+            setDisplay('click-emba', isMainLang);
+            setDisplay('click-lost', isMainLang);
+            setDisplay('click-rule', isMainLang);
+            setDisplay('click-spot', isMainLang);
+
+            setDisplay('p-112', isPharmacySub);
+            setDisplay('p-119', isPharmacySub);
+            setDisplay('p-1330', isPharmacySub);
+            setDisplay('p-late', isPharmacySub);
         }
 
         function toggleDropdown(event) {
@@ -189,7 +260,8 @@
 
         document.addEventListener('click', function(e) {
             var dropdown = document.getElementById('langDropdown');
-            if (dropdown && !dropdown.contains(e.target)) {
+            var dropdownBtn = document.getElementById('area-lang-dropdown');
+            if (dropdown && e.target !== dropdownBtn && !dropdown.contains(e.target)) {
                 dropdown.style.display = 'none';
             }
         });
@@ -202,9 +274,9 @@
             }
         }
 
-        $(document).ready(function() {
+        window.onload = function() {
             goPage('home');
-        });
+        };
     </script>
 
 </body>
