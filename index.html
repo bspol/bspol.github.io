@@ -113,7 +113,7 @@
         .emb-col2 { left: 35.6%; width: 28.8%; }
         .emb-col3 { left: 67.0%; width: 28.8%; }
 
-        /* 각 카드 내부의 [전화하기] / [길찾기] / [홈페이지] 버튼 영역 */
+        /* 각 버튼 영역의 정확한 위치 좌표 분할 */
         .e-call-btn {
             position: absolute;
             top: 67%;
@@ -125,7 +125,7 @@
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto !important;
-            z-index: 10000000 !important;
+            z-index: 10000002 !important;
         }
 
         .e-map-btn {
@@ -139,21 +139,36 @@
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto !important;
-            z-index: 10000000 !important;
+            z-index: 10000002 !important;
         }
 
         .e-home-btn {
             position: absolute;
-            top: 15%;
-            left: 3%;
-            width: 94%;
-            height: 50%;
+            top: 67%;
+            left: 68%;
+            width: 30%;
+            height: 29%;
             background: transparent;
             border: none;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto !important;
-            z-index: 10000000 !important;
+            z-index: 10000002 !important;
+        }
+
+        /* 국가명 및 국기 영역 전체를 누르면 홈페이지로 이동하도록 상단부 전체 영역 추가 */
+        .e-title-home-btn {
+            position: absolute;
+            top: 10%;
+            left: 2%;
+            width: 96%;
+            height: 54%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            pointer-events: auto !important;
+            z-index: 10000001 !important;
         }
 
         .emb-back-btn { top: 1.5%; left: 2.0%; width: 22.0%; height: 4.5%; }
@@ -257,64 +272,75 @@
 
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
 
-        <!-- 영사관 11개국 개별 카드별 독립 버튼 매핑 (국가명/국기 영역 = 홈페이지, 하단 = 전화/길찾기) -->
+        <!-- 영사관 11개국 개별 카드별 버튼 오버랩 수정 (전화하기, 길찾기, 홈페이지, 나라명/국기) -->
         <div id="emb-1" class="emb-card emb-row1 emb-col1">
             <a href="tel:051-465-5101" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map-btn"></a>
             <a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-home-btn"></a>
+            <a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-title-home-btn"></a>
         </div>
         <div id="emb-2" class="emb-card emb-row1 emb-col2">
             <a href="tel:051-743-7990" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산중국총영사관" target="_blank" class="e-map-btn"></a>
             <a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-home-btn"></a>
+            <a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-title-home-btn"></a>
         </div>
         <div id="emb-3" class="emb-card emb-row1 emb-col3">
             <a href="tel:051-715-8689" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산베트남총영사관" target="_blank" class="e-map-btn"></a>
             <a href="https://vnconsulate-busan.org" target="_blank" class="e-home-btn"></a>
+            <a href="https://vnconsulate-busan.org" target="_blank" class="e-title-home-btn"></a>
         </div>
         
         <div id="emb-4" class="emb-card emb-row2 emb-col1">
             <a href="tel:051-441-9904" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산러시아총영사관" target="_blank" class="e-map-btn"></a>
             <a href="https://pusan.mid.ru" target="_blank" class="e-home-btn"></a>
+            <a href="https://pusan.mid.ru" target="_blank" class="e-title-home-btn"></a>
         </div>
         <div id="emb-5" class="emb-card emb-row2 emb-col2">
             <a href="tel:051-465-9996" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산몽골영사관" target="_blank" class="e-map-btn"></a>
             <a href="https://busan.consul.mn" target="_blank" class="e-home-btn"></a>
+            <a href="https://busan.consul.mn" target="_blank" class="e-title-home-btn"></a>
         </div>
         <div id="emb-6" class="emb-card emb-row2 emb-col3">
             <a href="tel:051-463-7965" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산타이베이대표부" target="_blank" class="e-map-btn"></a>
             <a href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="e-home-btn"></a>
+            <a href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="e-title-home-btn"></a>
         </div>
         
         <div id="emb-7" class="emb-card emb-row3 emb-col1">
             <a href="tel:051-469-7003" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산카자흐스탄영사관" target="_blank" class="e-map-btn"></a>
             <a href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="e-home-btn"></a>
+            <a href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="e-title-home-btn"></a>
         </div>
         <div id="emb-8" class="emb-card emb-row3 emb-col2">
             <a href="tel:02-397-4114" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주한미국대사관" target="_blank" class="e-map-btn"></a>
             <a href="https://kr.usembassy.gov/ko/" target="_blank" class="e-home-btn"></a>
+            <a href="https://kr.usembassy.gov/ko/" target="_blank" class="e-title-home-btn"></a>
         </div>
         <div id="emb-9" class="emb-card emb-row3 emb-col3">
             <a href="tel:02-748-4114" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주한독일대사관" target="_blank" class="e-map-btn"></a>
             <a href="https://seoul.diplo.de/kr-ko" target="_blank" class="e-home-btn"></a>
+            <a href="https://seoul.diplo.de/kr-ko" target="_blank" class="e-title-home-btn"></a>
         </div>
         
         <div id="emb-10" class="emb-card emb-row4 emb-col1">
             <a href="tel:051-244-9697" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산포르투갈명예영사관" target="_blank" class="e-map-btn"></a>
             <a href="https://vistos.mne.gov.pt" target="_blank" class="e-home-btn"></a>
+            <a href="https://vistos.mne.gov.pt" target="_blank" class="e-title-home-btn"></a>
         </div>
         <div id="emb-11" class="emb-card emb-row4 emb-col2">
             <a href="tel:02-3701-7700" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주한뉴질랜드대사관" target="_blank" class="e-map-btn"></a>
             <a href="https://www.mfat.govt.nz" target="_blank" class="e-home-btn"></a>
+            <a href="https://www.mfat.govt.nz" target="_blank" class="e-title-home-btn"></a>
         </div>
 
     </div>
