@@ -98,8 +98,6 @@
             position: absolute;
             display: none;
             box-sizing: border-box;
-            z-index: 9999999 !important;
-            pointer-events: auto !important;
         }
 
         /* 4개 행 위치 */
@@ -113,50 +111,49 @@
         .emb-col2 { left: 35.6%; width: 28.8%; }
         .emb-col3 { left: 67.0%; width: 28.8%; }
 
-        /* 각 버튼 영역의 정확한 위치 좌표 분할 */
+        /* 영사관 카드 내부 하단 버튼 3분할 좌표 정밀 교정 (겹침 원인 완전 차단) */
         .e-call-btn {
             position: absolute;
             top: 67%;
             left: 2%;
-            width: 30%;
+            width: 31%;
             height: 29%;
             background: transparent;
             border: none;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+            z-index: 9999999 !important;
             pointer-events: auto !important;
-            z-index: 10000002 !important;
         }
 
         .e-map-btn {
             position: absolute;
             top: 67%;
-            left: 35%;
-            width: 30%;
+            left: 34.5%;
+            width: 31%;
             height: 29%;
             background: transparent;
             border: none;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+            z-index: 9999999 !important;
             pointer-events: auto !important;
-            z-index: 10000002 !important;
         }
 
         .e-home-btn {
             position: absolute;
             top: 67%;
-            left: 68%;
-            width: 30%;
+            left: 67%;
+            width: 31%;
             height: 29%;
             background: transparent;
             border: none;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+            z-index: 9999999 !important;
             pointer-events: auto !important;
-            z-index: 10000002 !important;
         }
 
-        /* 국가명 및 국기 영역 전체를 누르면 홈페이지로 이동하도록 상단부 전체 영역 추가 */
         .e-title-home-btn {
             position: absolute;
             top: 10%;
@@ -167,8 +164,8 @@
             border: none;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+            z-index: 9999998 !important;
             pointer-events: auto !important;
-            z-index: 10000001 !important;
         }
 
         .emb-back-btn { top: 1.5%; left: 2.0%; width: 22.0%; height: 4.5%; }
@@ -272,7 +269,7 @@
 
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
 
-        <!-- 영사관 11개국 개별 카드별 버튼 오버랩 수정 (전화하기, 길찾기, 홈페이지, 나라명/국기) -->
+        <!-- 영사관 카드 영역: 1번 일본부터 11번 뉴질랜드까지 각각 독립된 전화/길찾기/홈페이지 좌표 적용 -->
         <div id="emb-1" class="emb-card emb-row1 emb-col1">
             <a href="tel:051-465-5101" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map-btn"></a>
