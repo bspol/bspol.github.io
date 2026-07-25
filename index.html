@@ -32,7 +32,7 @@
             display: block;
         }
         
-        /* 🛠 디버깅용 가이드 색상 (터치 영역 확인 후 나중에 background와 border를 제거하시면 됩니다) */
+        /* 🛠 디버깅 확인용 가이드 색상 (위치가 딱 맞으면 background와 border를 제거하세요) */
         .touch-link {
             position: absolute;
             cursor: pointer;
@@ -41,70 +41,73 @@
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto;
             box-sizing: border-box;
-            background-color: rgba(255, 0, 0, 0.3); /* 반투명 빨간색 */
+            background-color: rgba(255, 0, 0, 0.4); /* 반투명 빨간색 */
             border: 2px solid yellow; /* 노란색 테두리 */
             z-index: 999999 !important;
         }
 
-        /* 1. 홈 화면 */
-        .btn-en { top: 53.8%; left: 7.0%; width: 86.0%; height: 5.5%; }
-        .btn-cn { top: 60.8%; left: 7.0%; width: 86.0%; height: 5.5%; }
-        .btn-jp { top: 67.8%; left: 7.0%; width: 86.0%; height: 5.5%; }
-        .btn-vn { top: 74.8%; left: 7.0%; width: 86.0%; height: 5.5%; }
+        /* 1. 홈 화면 (나라별 칸 및 하단 긴급전화 완벽 일치) */
+        .btn-en { top: 57.0%; left: 6.5%; width: 87.0%; height: 6.8%; }
+        .btn-cn { top: 65.5%; left: 6.5%; width: 87.0%; height: 6.8%; }
+        .btn-jp { top: 74.0%; left: 6.5%; width: 87.0%; height: 6.8%; }
+        .btn-vn { top: 82.5%; left: 6.5%; width: 87.0%; height: 6.8%; }
 
-        .home-phone { top: 84.5%; height: 8.5%; }
-        .home-112 { left: 7.0%; width: 27.5%; }
+        .home-phone { top: 92.5%; height: 6.5%; }
+        .home-112 { left: 6.5%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
-        .home-1330 { left: 65.5%; width: 27.5%; }
+        .home-1330 { left: 66.0%; width: 27.5%; }
 
         /* 2. 상단 지구본 드롭다운 버튼 */
         .btn-lang-dropdown { top: 1.0%; left: 2.0%; width: 27.0%; height: 4.5%; } 
 
-        /* 3. 언어 메인 화면 - CALL 버튼 3개 */
-        .main-call-112  { top: 51.5%; left: 6.0%; width: 26.0%; height: 6.0%; }
-        .main-call-119  { top: 51.5%; left: 37.0%; width: 26.0%; height: 6.0%; }
-        .main-call-1330 { top: 51.5%; left: 68.0%; width: 26.0%; height: 6.0%; }
+        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 (아이콘 전체 포함) */
+        .main-call-112  { top: 18.0%; left: 6.0%; width: 28.0%; height: 16.5%; }
+        .main-call-119  { top: 18.0%; left: 36.0%; width: 28.0%; height: 16.5%; }
+        .main-call-1330 { top: 18.0%; left: 66.0%; width: 28.0%; height: 16.5%; }
 
-        /* 4. 언어 메인 화면 - 6대 카드 메뉴 */
-        .click-hospital  { top: 60.0%; left: 2.5%; width: 46.5%; height: 18.0%; }
-        .click-pharmacy  { top: 60.0%; left: 51.0%; width: 46.5%; height: 18.0%; }
-        .click-embassy   { top: 79.0%; left: 2.5%; width: 46.5%; height: 18.0%; }
-        .click-lost      { top: 79.0%; left: 51.0%; width: 46.5%; height: 18.0%; }
-        .click-rules     { top: 98.0%; left: 2.5%; width: 46.5%; height: 18.0%; }
-        .click-spots     { top: 98.0%; left: 51.0%; width: 46.5%; height: 18.0%; }
+        /* 4. 언어 메인 화면 - 6대 카드 메뉴 (기초질서 포함 완벽 정렬) */
+        .click-hospital  { top: 37.0%; left: 3.0%; width: 46.5%; height: 14.5%; }
+        .click-pharmacy  { top: 37.0%; left: 50.5%; width: 46.5%; height: 14.5%; }
+        .click-embassy   { top: 53.0%; left: 3.0%; width: 46.5%; height: 14.5%; }
+        .click-lost      { top: 53.0%; left: 50.5%; width: 46.5%; height: 14.5%; }
+        .click-rules     { top: 69.0%; left: 3.0%; width: 46.5%; height: 14.5%; }
+        .click-spots     { top: 69.0%; left: 50.5%; width: 46.5%; height: 14.5%; }
 
-        /* 5. 약국 페이지 버튼 (4개 버튼 정확히 1열 배치) */
-        .pharm-call-112  { top: 45.2%; left: 4.5%; width: 21.5%; height: 11.5%; }
-        .pharm-call-119  { top: 45.2%; left: 28.0%; width: 21.5%; height: 11.5%; }
-        .pharm-call-1330 { top: 45.2%; left: 51.5%; width: 21.5%; height: 11.5%; }
-        .pharm-late-link { top: 45.2%; left: 75.0%; width: 21.5%; height: 11.5%; }
+        /* 5. 약국 페이지 버튼 (아이콘부터 글자까지 정확히 커버) */
+        .pharm-call-112  { top: 18.5%; left: 4.5%; width: 21.5%; height: 14.5%; }
+        .pharm-call-119  { top: 18.5%; left: 28.0%; width: 21.5%; height: 14.5%; }
+        .pharm-call-1330 { top: 18.5%; left: 51.5%; width: 21.5%; height: 14.5%; }
+        .pharm-late-link { top: 18.5%; left: 75.0%; width: 21.5%; height: 14.5%; }
 
-        /* 6. 병원 페이지 버튼 (상단 3개, 하단 3개 완벽 분리 매핑) */
-        .hosp-call-112   { top: 52.0%; left: 6.0%; width: 26.0%; height: 6.0%; }
-        .hosp-call-119   { top: 52.0%; left: 37.0%; width: 26.0%; height: 6.0%; }
-        .hosp-call-1330  { top: 52.0%; left: 68.0%; width: 26.0%; height: 6.0%; }
+        /* 6. 병원 페이지 버튼 (상단 전화 3개, 하단 기능 3개) */
+        .hosp-call-112   { top: 18.5%; left: 6.0%; width: 26.0%; height: 14.5%; }
+        .hosp-call-119   { top: 18.5%; left: 37.0%; width: 26.0%; height: 14.5%; }
+        .hosp-call-1330  { top: 18.5%; left: 68.0%; width: 26.0%; height: 14.5%; }
 
-        .hosp-find-map   { top: 66.5%; left: 6.0%; width: 27.5%; height: 14.0%; }
-        .hosp-emergency  { top: 66.5%; left: 36.2%; width: 27.5%; height: 14.0%; }
-        .hosp-medinfo    { top: 66.5%; left: 66.5%; width: 27.5%; height: 14.0%; }
+        .hosp-find-map   { top: 36.0%; left: 6.0%; width: 27.5%; height: 16.0%; }
+        .hosp-emergency  { top: 36.0%; left: 36.2%; width: 27.5%; height: 16.0%; }
+        .hosp-medinfo    { top: 36.0%; left: 66.5%; width: 27.5%; height: 16.0%; }
 
         /* 7. 의료정보 페이지 하단 전화 버튼 */
         .med-call-112    { top: 89.0%; left: 5.5%; width: 29.0%; height: 8.5%; }
         .med-call-119    { top: 89.0%; left: 35.5%; width: 29.0%; height: 8.5%; }
         .med-call-1330   { top: 89.0%; left: 65.5%; width: 29.0%; height: 8.5%; }
 
-        /* 8. 영사관 페이지 전용 버튼 */
-        .emb-row1 { top: 31.2%; height: 10.2%; }
-        .emb-row2 { top: 42.2%; height: 10.2%; }
-        .emb-row3 { top: 53.2%; height: 10.2%; }
-        .emb-row4 { top: 64.2%; height: 10.2%; }
+        /* 8. 영사관 페이지 전용 버튼 (11개국 카드 칸에 정확히 일치) */
+        .emb-row1 { top: 22.0%; height: 11.2%; }
+        .emb-row2 { top: 34.5%; height: 11.2%; }
+        .emb-row3 { top: 47.0%; height: 11.2%; }
+        .emb-row4 { top: 59.5%; height: 11.2%; }
+        
         .emb-col1 { left: 3.5%; width: 30.0%; }
         .emb-col2 { left: 35.0%; width: 30.0%; }
         .emb-col3 { left: 66.5%; width: 30.0%; }
 
-        .e-call  { position: absolute; bottom: 4%; left: 3%; width: 30%; height: 40%; background: transparent; border: none; }
-        .e-map   { position: absolute; bottom: 4%; left: 35%; width: 30%; height: 40%; background: transparent; border: none; }
-        .e-home  { position: absolute; bottom: 4%; left: 67%; width: 30%; height: 40%; background: transparent; border: none; }
+        .e-call  { position: absolute; bottom: 4%; left: 3%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
+        .e-map   { position: absolute; bottom: 4%; left: 35%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
+        .e-home  { position: absolute; bottom: 4%; left: 67%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
+
+        .emb-back-btn { top: 1.5%; left: 2.0%; width: 22.0%; height: 4.5%; }
 
         /* 지구본 드롭다운 메뉴 스타일 */
         .dropdown-menu {
@@ -193,13 +196,13 @@
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="goPage('sub-rules')"></a>
         <a id="click-spots" href="https://www.google.com/maps/search/Busan+tourist+map" target="_blank" class="touch-link click-spots"></a>
 
-        <!-- 약국 4개 버튼 (112, 119, 1330, 심야약국 링크) -->
+        <!-- 약국 4개 버튼 -->
         <a id="p-112" href="tel:112" class="touch-link pharm-call-112"></a>
         <a id="p-119" href="tel:119" class="touch-link pharm-call-119"></a>
         <a id="p-1330" href="tel:1330" class="touch-link pharm-call-1330"></a>
         <a id="p-late" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" class="touch-link pharm-late-link"></a>
 
-        <!-- 병원 버튼 (상단 전화 3개, 하단 기능 3개) -->
+        <!-- 병원 버튼 -->
         <a id="hp-112" href="tel:112" class="touch-link hosp-call-112"></a>
         <a id="hp-119" href="tel:119" class="touch-link hosp-call-119"></a>
         <a id="hp-1330" href="tel:1330" class="touch-link hosp-call-1330"></a>
@@ -211,7 +214,10 @@
         <a id="med-119" href="tel:119" class="touch-link med-call-119"></a>
         <a id="med-1330" href="tel:1330" class="touch-link med-call-1330"></a>
 
-        <!-- 영사관 생략 없이 유지 -->
+        <!-- 영사관 페이지 상단 Back 버튼 -->
+        <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
+
+        <!-- 영사관 11개국 버튼 그룹 -->
         <div id="emb-1" class="touch-link emb-row1 emb-col1"><a href="tel:051-465-5101" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map"></a><a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-home"></a></div>
         <div id="emb-2" class="touch-link emb-row1 emb-col2"><a href="tel:051-743-7990" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산중국총영사관" target="_blank" class="e-map"></a><a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-home"></a></div>
         <div id="emb-3" class="touch-link emb-row1 emb-col3"><a href="tel:051-715-8689" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산베트남총영사관" target="_blank" class="e-map"></a><a href="https://vnconsulate-busan.org" target="_blank" class="e-home"></a></div>
@@ -259,6 +265,7 @@
             var isHospitalSub = pageId.indexOf('hospital') !== -1;
             var isMedInfoSub = pageId.indexOf('medinfo') !== -1;
             var isEmbassySub = (pageId === 'sub-embassy');
+            var isRulesSub = (pageId === 'sub-rules');
 
             setDisplay('area-en', isHome);
             setDisplay('area-cn', isHome);
@@ -295,6 +302,8 @@
             setDisplay('med-112', isMedInfoSub);
             setDisplay('med-119', isMedInfoSub);
             setDisplay('med-1330', isMedInfoSub);
+
+            setDisplay('emb-back', isEmbassySub || isRulesSub);
 
             for (var i = 1; i <= 11; i++) {
                 setDisplay('emb-' + i, isEmbassySub);
