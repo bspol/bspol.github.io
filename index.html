@@ -60,12 +60,12 @@
         /* 2. 상단 지구본 드롭다운 버튼 */
         .btn-lang-dropdown { top: 1.5%; left: 2.5%; width: 26.0%; height: 5.5%; } 
 
-        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 (위치와 높이를 이미지 시안에 정확히 일치시킴) */
+        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 */
         .main-call-112  { top: 38.5%; left: 3.5%; width: 29.5%; height: 10.0%; }
         .main-call-119  { top: 38.5%; left: 35.2%; width: 29.5%; height: 10.0%; }
         .main-call-1330 { top: 38.5%; left: 67.0%; width: 29.5%; height: 10.0%; }
 
-        /* 4. 언어 메인 화면 - 6대 카드 메뉴 */
+        /* 4. 언어 메인 화면 - 6대 카드 메뉴 (위치와 링크 완벽 정렬) */
         .click-hospital  { top: 52.5%; left: 3.0%; width: 46.5%; height: 16.5%; }
         .click-pharmacy  { top: 52.5%; left: 50.5%; width: 46.5%; height: 16.5%; }
         .click-embassy   { top: 71.0%; left: 3.0%; width: 46.5%; height: 16.5%; }
@@ -183,6 +183,7 @@
         <a id="m-119" href="tel:119" class="touch-link main-call-119"></a>
         <a id="m-1330" href="tel:1330" class="touch-link main-call-1330"></a>
 
+        <!-- 6대 메뉴 정확한 함수 매핑 -->
         <a id="click-hosp" href="javascript:void(0)" class="touch-link click-hospital" onclick="clickSubMenu('hospital')"></a>
         <a id="click-phar" href="javascript:void(0)" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')"></a>
         <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="goPage('sub-embassy')"></a>
