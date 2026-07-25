@@ -76,36 +76,31 @@
         .pharm-call-112  { top: 36.0%; left: 5.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .pharm-call-119  { top: 36.0%; left: 35.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .pharm-call-1330 { top: 36.0%; left: 65.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
-        .pharm-late-link { top: 51.0%; left: 6.5%; width: 27.0%; height: 12.0%; z-index: 100; }
-
-        /* 6. 병원 페이지 버튼 */
-        .hosp-find-map   { top: 51.0%; left: 6.5%; width: 27.0%; height: 12.0%; z-index: 100; }
-        .hosp-emergency  { top: 51.0%; left: 36.5%; width: 27.0%; height: 12.0%; z-index: 100; }
-        .hosp-medinfo    { top: 51.0%; left: 66.5%; width: 27.0%; height: 12.0%; z-index: 100; }
-        .hosp-call-112   { top: 36.0%; left: 5.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
-        .hosp-call-119   { top: 36.0%; left: 35.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
-        .hosp-call-1330  { top: 36.0%; left: 65.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
+        .pharm-late-link { top: 61.5%; left: 3.5%; width: 30.0%; height: 21.0%; z-index: 100; }
 
         /* =========================================
-           7. 영사관 페이지 (embassy.png) 전용 버튼 
-           (스크린샷 1번부터 11번까지 3열 배치 정밀 맞춤)
+           6. 병원 페이지 전용 버튼 (스크린샷 기준 완벽 교정)
         ========================================= */
-        /* 행 1 (1:일본, 2:중국, 3:베트남) -> top: 31.8% */
+        /* 상단 전화 버튼 3개 (Call 112, 119, 1330) */
+        .hosp-call-112   { top: 46.5%; left: 5.5%; width: 29.0%; height: 12.0%; z-index: 999999 !important; }
+        .hosp-call-119   { top: 46.5%; left: 35.5%; width: 29.0%; height: 12.0%; z-index: 999999 !important; }
+        .hosp-call-1330  { top: 46.5%; left: 65.5%; width: 29.0%; height: 12.0%; z-index: 999999 !important; }
+
+        /* 하단 3대 카드 메뉴 (Find Hospitals, Find Emergency Rooms, Medical Information) */
+        .hosp-find-map   { top: 61.5%; left: 3.5%; width: 30.0%; height: 21.0%; z-index: 100; }
+        .hosp-emergency  { top: 61.5%; left: 35.0%; width: 30.0%; height: 21.0%; z-index: 100; }
+        .hosp-medinfo    { top: 61.5%; left: 66.5%; width: 30.0%; height: 21.0%; z-index: 100; }
+
+        /* 7. 영사관 페이지 버튼 */
         .emb-row1 { top: 31.8%; height: 11.5%; }
-        /* 행 2 (4:러시아, 5:몽골, 6:타이베이) -> top: 45.3% */
         .emb-row2 { top: 45.3%; height: 11.5%; }
-        /* 행 3 (7:카자흐스탄, 8:미국, 9:독일) -> top: 58.8% */
         .emb-row3 { top: 58.8%; height: 11.5%; }
-        /* 행 4 (10:포르투갈, 11:뉴질랜드) -> top: 72.3% */
         .emb-row4 { top: 72.3%; height: 11.5%; }
 
-        /* 열 공통 X좌표 및 너비 */
         .emb-col1 { left: 4.5%; width: 29.0%; }
         .emb-col2 { left: 35.5%; width: 29.0%; }
         .emb-col3 { left: 66.5%; width: 29.0%; }
 
-        /* 각 카드 내부의 [전화하기 / 길찾기 / 홈페이지] 터치 영역 분할 */
-        /* 전화하기: 왼쪽 하단 / 길찾기: 중앙 하단 / 홈페이지: 오른쪽 하단 */
         .e-call  { position: absolute; bottom: 5%; left: 5%; width: 28%; height: 32%; z-index: 999999 !important; background: transparent; border: none; }
         .e-map   { position: absolute; bottom: 5%; left: 36%; width: 28%; height: 32%; z-index: 100; background: transparent; border: none; }
         .e-home  { position: absolute; bottom: 5%; left: 67%; width: 28%; height: 32%; z-index: 100; background: transparent; border: none; }
@@ -222,78 +217,66 @@
 
 
         <!-- [7. 영사관 페이지 (embassy.png) 11개국 버튼 그룹] -->
-
-        <!-- 1. 일본 (Japan) -->
         <div id="emb-1" class="touch-link emb-row1 emb-col1">
             <a href="tel:051-465-5101" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map"></a>
             <a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 2. 중국 (China) -->
         <div id="emb-2" class="touch-link emb-row1 emb-col2">
             <a href="tel:051-743-7990" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산중국총영사관" target="_blank" class="e-map"></a>
             <a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 3. 베트남 (Vietnam) -->
         <div id="emb-3" class="touch-link emb-row1 emb-col3">
             <a href="tel:051-715-8689" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산베트남총영사관" target="_blank" class="e-map"></a>
             <a href="https://vnconsulate-busan.org" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 4. 러시아 (Russia) -->
         <div id="emb-4" class="touch-link emb-row2 emb-col1">
             <a href="tel:051-441-9904" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산러시아총영사관" target="_blank" class="e-map"></a>
             <a href="https://pusan.mid.ru" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 5. 몽골 (Mongolia) -->
         <div id="emb-5" class="touch-link emb-row2 emb-col2">
             <a href="tel:051-465-9996" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산몽골영사관" target="_blank" class="e-map"></a>
             <a href="https://busan.consul.mn" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 6. 타이베이 (Taipei) -->
         <div id="emb-6" class="touch-link emb-row2 emb-col3">
             <a href="tel:051-463-7965" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산타이베이대표부" target="_blank" class="e-map"></a>
             <a href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 7. 카자흐스탄 (Kazakhstan) - 부산 영사관 번호 적용 -->
         <div id="emb-7" class="touch-link emb-row3 emb-col1">
             <a href="tel:051-469-7003" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산카자흐스탄영사관" target="_blank" class="e-map"></a>
             <a href="https://www.embassypp.com/ko/%EC%B9%B4%EC%9E%90%ED%9D%5C스탄-영사관-부산" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 8. 미국 (USA) - 서울 본사 영사관 번호(02-397-4114) 적용 -->
         <div id="emb-8" class="touch-link emb-row3 emb-col2">
             <a href="tel:02-397-4114" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주한미국대사관" target="_blank" class="e-map"></a>
             <a href="https://kr.usembassy.gov/ko/" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 9. 독일 (Germany) -->
         <div id="emb-9" class="touch-link emb-row3 emb-col3">
             <a href="tel:02-748-4114" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주한독일대사관" target="_blank" class="e-map"></a>
             <a href="https://seoul.diplo.de/kr-ko" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 10. 포르투갈 (Portugal) -->
         <div id="emb-10" class="touch-link emb-row4 emb-col1">
             <a href="tel:051-244-9697" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산포르투갈명예영사관" target="_blank" class="e-map"></a>
             <a href="https://vistos.mne.gov.pt" target="_blank" class="e-home"></a>
         </div>
 
-        <!-- 11. 뉴질랜드 (New Zealand) -->
         <div id="emb-11" class="touch-link emb-row4 emb-col2">
             <a href="tel:02-3701-7700" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주한뉴질랜드대사관" target="_blank" class="e-map"></a>
