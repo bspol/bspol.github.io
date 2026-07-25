@@ -78,21 +78,21 @@
         .pharm-call-1330 { top: 36.0%; left: 65.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .pharm-late-link { top: 61.5%; left: 3.5%; width: 30.0%; height: 21.0%; z-index: 100; }
 
-        /* 6. 병원 페이지 전용 버튼 (독립적 좌표 확보로 꼬임 방지) */
-        .hosp-call-112   { top: 36.0%; left: 6.0%; width: 27.0%; height: 11.5%; z-index: 999999 !important; }
-        .hosp-call-119   { top: 36.0%; left: 36.5%; width: 27.0%; height: 11.5%; z-index: 999999 !important; }
-        .hosp-call-1330  { top: 36.0%; left: 67.0%; width: 27.0%; height: 11.5%; z-index: 999999 !important; }
+        /* 6. 병원 페이지 버튼 (안전 고정) */
+        .hosp-call-112   { top: 36.0%; left: 5.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
+        .hosp-call-119   { top: 36.0%; left: 35.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
+        .hosp-call-1330  { top: 36.0%; left: 65.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
 
-        .hosp-find-map   { top: 52.0%; left: 6.0%; width: 27.0%; height: 11.5%; z-index: 100; }
-        .hosp-emergency  { top: 52.0%; left: 36.5%; width: 27.0%; height: 11.5%; z-index: 100; }
-        .hosp-medinfo    { top: 52.0%; left: 67.0%; width: 27.0%; height: 11.5%; z-index: 100; }
+        .hosp-find-map   { top: 51.0%; left: 6.5%; width: 27.0%; height: 12.0%; z-index: 100; }
+        .hosp-emergency  { top: 51.0%; left: 36.5%; width: 27.0%; height: 12.0%; z-index: 100; }
+        .hosp-medinfo    { top: 51.0%; left: 66.5%; width: 27.0%; height: 12.0%; z-index: 100; }
 
         /* 7. 의료정보 페이지 하단 전화 버튼 */
         .med-call-112    { top: 89.0%; left: 5.5%; width: 29.0%; height: 8.5%; z-index: 999999 !important; }
         .med-call-119    { top: 89.0%; left: 35.5%; width: 29.0%; height: 8.5%; z-index: 999999 !important; }
         .med-call-1330   { top: 89.0%; left: 65.5%; width: 29.0%; height: 8.5%; z-index: 999999 !important; }
 
-        /* 8. 영사관 페이지 (embassy.png) 전용 버튼 완벽 교정 */
+        /* 8. 영사관 페이지 (embassy.png) 전용 버튼 위치 및 개별 버튼 영역 분리 */
         .emb-row1 { top: 31.2%; height: 10.2%; }
         .emb-row2 { top: 42.2%; height: 10.2%; }
         .emb-row3 { top: 53.2%; height: 10.2%; }
@@ -103,9 +103,9 @@
         .emb-col3 { left: 66.5%; width: 30.0%; }
 
         /* 각 카드 내부 [전화하기 / 길찾기 / 홈페이지] 개별 터치 영역 */
-        .e-call  { position: absolute; bottom: 5%; left: 3%; width: 30%; height: 38%; z-index: 999999 !important; background: transparent; border: none; }
-        .e-map   { position: absolute; bottom: 5%; left: 35%; width: 30%; height: 38%; z-index: 100; background: transparent; border: none; }
-        .e-home  { position: absolute; bottom: 5%; left: 67%; width: 30%; height: 38%; z-index: 100; background: transparent; border: none; }
+        .e-call  { position: absolute; bottom: 4%; left: 3%; width: 30%; height: 40%; z-index: 999999 !important; background: transparent; border: none; }
+        .e-map   { position: absolute; bottom: 4%; left: 35%; width: 30%; height: 40%; z-index: 999999 !important; background: transparent; border: none; }
+        .e-home  { position: absolute; bottom: 4%; left: 67%; width: 30%; height: 40%; z-index: 999999 !important; background: transparent; border: none; }
 
         /* 지구본 드롭다운 메뉴 스타일 */
         .dropdown-menu {
@@ -263,7 +263,7 @@
         <div id="emb-7" class="touch-link emb-row3 emb-col1">
             <a href="tel:051-469-7003" class="e-call"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산카자흐스탄영사관" target="_blank" class="e-map"></a>
-            <a href="https://www.embassypp.com" target="_blank" class="e-home"></a>
+            <a href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="e-home"></a>
         </div>
 
         <div id="emb-8" class="touch-link emb-row3 emb-col2">
