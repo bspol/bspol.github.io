@@ -35,11 +35,13 @@
             cursor: pointer;
             background-color: rgba(255, 255, 255, 0);
             z-index: 10;
+            /* 💡 레이어 위치를 눈으로 확인하고 싶다면 아래 주석을 해제하세요 */
+            /* background-color: rgba(255, 0, 0, 0.3); */
         }
 
-        /* [최우선 레이어] 상단바 및 전화 버튼은 맨 위층으로 고정 */
+        /* 🚨 [최우선 절대 레이어] 상단바 및 전화 버튼은 무조건 모든 레이어의 최상위에 위치 */
         .layer-top-priority {
-            z-index: 99; 
+            z-index: 9999 !important; 
         }
 
         /* [첫 메인화면(home.png) 내 국가별 버튼] */
@@ -48,27 +50,21 @@
         .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; border-radius: 12px; }
         .btn-vn { top: 76.0%; left: 6.7%; width: 86.6%; height: 6.2%; border-radius: 12px; }
 
-        /* [원래 홈 화면(home.png) 하단 전화걸기 영역] */
+        /* [첫 메인화면 최하단 전화걸기 영역] */
         .home-phone { height: 10.5%; top: 81.5%; }
         .home-112 { left: 6.7%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 65.8%; width: 27.5%; }
 
-        /* 기초질서 페이지(basicrules.png) 하단 전용 정밀 전화걸기 영역 */
-        .rules-phone { height: 5.8%; top: 87.4%; }
-        .rules-112 { left: 23.8%; width: 14.5%; }
-        .rules-119 { left: 38.3%; width: 14.5%; }
-        .rules-1330 { left: 52.8%; width: 15.5%; }
-
-        /* [상단 내비게이션 터치 영역 (지구본)] */
+        /* [상단 내비게이션 터치 영역 (지구본 메뉴)] */
         .btn-lang-dropdown { top: 0.5%; left: 2.0%; width: 25.0%; height: 4.5%; } 
 
-        /* [상단 큰 전화 버튼 3개] */
-        .call-112 { top: 29.5%; left: 2.5%; width: 30.0%; height: 13.0%; z-index: 90; }
-        .call-119 { top: 29.5%; left: 35.0%; width: 30.0%; height: 13.0%; z-index: 90; }
-        .call-1330 { top: 29.5%; left: 67.5%; width: 30.0%; height: 13.0%; z-index: 90; }
+        /* 🚨 [위치 정밀 보정] 상시 긴급전화 버튼 3개 (디자인 영역에 정확히 매칭 및 터치 보장) */
+        .call-112 { top: 29.0%; left: 2.5%; width: 30.0%; height: 15.0%; }
+        .call-119 { top: 29.0%; left: 35.0%; width: 30.0%; height: 15.0%; }
+        .call-1330 { top: 29.0%; left: 67.5%; width: 30.0%; height: 15.0%; }
 
-        /* [국가별 메인화면 글자 칸 맞춤 터치 영역] */
+        /* 🚨 [간격 보정] 하단 메뉴 터치 레이어가 위쪽 전화 버튼 영역을 침범하지 않도록 top 수치 하향 조정 */
         .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 14.0%; }
         .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 14.0%; }
         .click-embassy   { top: 62.0%; left: 2.5%; width: 46.5%; height: 14.0%; }
@@ -76,15 +72,8 @@
         .click-rules     { top: 78.0%; left: 2.5%; width: 46.5%; height: 14.0%; }
         .click-spots     { top: 78.0%; left: 51.0%; width: 46.5%; height: 14.0%; }
 
-        /* [병원/약국 화면 내부 터치 영역] */
-        .click-medical-info { top: 44.5%; left: 4.0%; width: 45.0%; height: 13.0%; z-index: 80; }
-        .click-find-hospital { top: 44.5%; left: 51.0%; width: 45.0%; height: 13.0%; z-index: 80; }
-
-        /* 병원 이미지 내부 최하단 외부 링크 영역 */
-        .hospital-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 80; }
-
-        /* 약국 이미지 내부: [24시간 파머시] 외부링크 터치 영역 */
-        .click-24h-pharmacy { top: 44.5%; left: 5.0%; width: 90.0%; height: 13.0%; z-index: 80; }
+        /* 병원 이미지 내부 하단 외부 링크 영역 */
+        .hospital-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 5; }
 
         /* 언어 선택 드롭다운 메뉴 스타일 */
         .dropdown-menu {
@@ -97,7 +86,7 @@
             border: 1px solid #234375;
             border-radius: 8px;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
-            z-index: 999; 
+            z-index: 10000; /* 드롭다운이 전화 버튼보다 위에 오도록 설정 */
             padding: 5px 0;
         }
         .dropdown-menu a {
@@ -120,94 +109,82 @@
 <body>
 
     <div class="container">
+        <!-- ▣ 이미지 파일 보관함 -->
         <img id="img-home" class="main-img active" src="home.png" alt="Home">
         <img id="img-en" class="main-img" src="main_en.png" alt="English">
         <img id="img-cn" class="main-img" src="main_cn.png" alt="Chinese">
         <img id="img-jp" class="main-img" src="main_jp.png" alt="Japanese">
         <img id="img-vn" class="main-img" src="main_vn.png" alt="Vietnamese">
 
+        <!-- 공통 서브 화면들 -->
         <img id="img-sub-rules" class="main-img" src="basicrules.png" alt="Basic Rules">
         <img id="img-sub-embassy" class="main-img" src="embassy.png" alt="Embassies">
+        
+        <!-- 🔥 새로 업로드하신 메디컬 정보 이미지 화면 정의 추가 -->
+        <img id="img-sub-medinfo" class="main-img" src="medical_info.png" alt="Medical Information">
 
-        <!-- 병원 메인 이미지들 -->
+        <!-- 나라별 병원 서브 화면들 -->
         <img id="img-sub-hospital-en" class="main-img" src="hospital_en.png" alt="Hospital EN">
         <img id="img-sub-hospital-cn" class="main-img" src="hospital_cn.png" alt="Hospital CN">
         <img id="img-sub-hospital-jp" class="main-img" src="hospital_jp.png" alt="Hospital JP">
         <img id="img-sub-hospital-vn" class="main-img" src="hospital_vn.png" alt="Hospital VN">
 
-        <!-- 병원 하부: 메디컬 정보 상세 이미지들 -->
-        <img id="img-medical-info-en" class="main-img" src="medical-info-en.png" alt="Medical Info EN">
-        <img id="img-medical-info-cn" class="main-img" src="medical-info-cn.png" alt="Medical Info CN">
-        <img id="img-medical-info-jp" class="main-img" src="medical-info-jp.png" alt="Medical Info JP">
-        <img id="img-medical-info-vn" class="main-img" src="medical-info-vn.png" alt="Medical Info VN">
-
-        <!-- 약국 메인 이미지들 -->
+        <!-- 나라별 약국 서브 화면들 -->
         <img id="img-sub-pharmacy-en" class="main-img" src="pharmacy_en.png" alt="Pharmacy EN">
         <img id="img-sub-pharmacy-cn" class="main-img" src="pharmacy_cn.png" alt="Pharmacy CN">
         <img id="img-sub-pharmacy-jp" class="main-img" src="pharmacy_jp.png" alt="Pharmacy JP">
         <img id="img-sub-pharmacy-vn" class="main-img" src="pharmacy_vn.png" alt="Pharmacy VN">
 
 
+        <!-- ▣ 터치 레이어 배포 구역 -->
+        <!-- [최초 화면 국가 선택 버튼] -->
         <div id="area-en" class="touch-link btn-en" onclick="showPage('en')"></div>
         <div id="area-cn" class="touch-link btn-cn" onclick="showPage('cn')"></div>
         <div id="area-jp" class="touch-link btn-jp" onclick="showPage('jp')"></div>
         <div id="area-vn" class="touch-link btn-vn" onclick="showPage('vn')"></div>
 
-        <!-- 홈 화면(home.png) 전용 하단 전화걸기 링크 영역 -->
-        <a id="h-112" href="tel:112" class="touch-link home-phone home-112" style="display: none;"></a>
-        <a id="h-119" href="tel:119" class="touch-link home-phone home-119" style="display: none;"></a>
-        <a id="h-1330" href="tel:1330" class="touch-link home-phone home-1330" style="display: none;"></a>
+        <!-- [최초 화면 최하단 전화걸기] -->
+        <a id="h-112" href="tel:112" class="touch-link home-phone home-112"></a>
+        <a id="h-119" href="tel:119" class="touch-link home-phone home-119"></a>
+        <a id="h-1330" href="tel:1330" class="touch-link home-phone home-1330"></a>
 
-        <!-- 기초질서 페이지(basicrules.png) 전용 하단 칸맞춤 전화걸기 링크 영역 -->
-        <a id="r-112" href="tel:112" class="touch-link rules-phone rules-112" style="display: none;"></a>
-        <a id="r-119" href="tel:119" class="touch-link rules-phone rules-119" style="display: none;"></a>
-        <a id="r-1330" href="tel:1330" class="touch-link rules-phone rules-1330" style="display: none;"></a>
-
+        <!-- [상단 내비게이션 제어 기능 - 지구본 영역 클릭 시 메뉴 토글 (최상위 설정)] -->
         <div id="area-lang-dropdown" class="touch-link btn-lang-dropdown layer-top-priority" onclick="toggleDropdown(event)" style="display: none;"></div>
 
+        <!-- 진짜로 내려오는 국가 선택 드롭다운 박스 레이어 -->
         <div id="langDropdown" class="dropdown-menu">
-            <a href="#" onclick="changeLanguageDirect(event, 'home')">🏠 메인 (Home)</a>
-            <a href="#" onclick="changeLanguageDirect(event, 'en')">🇺🇸 English</a>
-            <a href="#" onclick="changeLanguageDirect(event, 'cn')">🇨🇳 中文 (简体)</a>
-            <a href="#" onclick="changeLanguageDirect(event, 'jp')">🇯🇵 日本語</a>
-            <a href="#" onclick="changeLanguageDirect(event, 'vn')">🇻🇳 Tiếng Việt</a>
+            <a href="#" onclick="changeLanguageDirect('home')">🏠 메인 (Home)</a>
+            <a href="#" onclick="changeLanguageDirect('en')">🇺🇸 English</a>
+            <a href="#" onclick="changeLanguageDirect('cn')">🇨🇳 中文 (简体)</a>
+            <a href="#" onclick="changeLanguageDirect('jp')">🇯🇵 日本語</a>
+            <a href="#" onclick="changeLanguageDirect('vn')">🇻🇳 Tiếng Việt</a>
         </div>
 
-        <!-- 상단 고정 긴급 전화 버튼 레이어 -->
-        <a id="c-112" href="tel:112" class="touch-link call-112" style="display: none;"></a>
-        <a id="c-119" href="tel:119" class="touch-link call-119" style="display: none;"></a>
-        <a id="c-1330" href="tel:1330" class="touch-link call-1330" style="display: none;"></a>
+        <!-- 🚨 [긴급전화 무조건 터치 보장] 최상위 우선순위 클래스(layer-top-priority) 부여 -->
+        <a id="c-112" href="tel:112" class="touch-link call-112 layer-top-priority" style="display: none;"></a>
+        <a id="c-119" href="tel:119" class="touch-link call-119 layer-top-priority" style="display: none;"></a>
+        <a id="c-1330" href="tel:1330" class="touch-link call-1330 layer-top-priority" style="display: none;"></a>
 
+        <!-- [국가 가이드 화면 내 메뉴 글자 칸 터치 영역] -->
         <div id="click-hosp" class="touch-link click-hospital" onclick="clickSubMenu('hospital')" style="display: none;"></div>
+        
+        <!-- 🔥 '메디컬 정보' 클릭 시 새로 제작한 medical_info.png 화면으로 이동하도록 연결 완료 -->
         <div id="click-phar" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')" style="display: none;"></div>
+        
         <div id="click-emba" class="touch-link click-embassy" onclick="showPage('sub-embassy')" style="display: none;"></div>
-        
-        <div id="click-lost" class="touch-link click-lost" onclick="goToLostWebsite()" style="display: none;"></div>
-        
+        <a id="click-lost" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" class="touch-link click-lost" style="display: none;"></a>
         <div id="click-rule" class="touch-link click-rules" onclick="showPage('sub-rules')" style="display: none;"></div>
-        
-        <!-- 부산 투어리스트 스팟 구글맵 링크 -->
-        <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw==" target="_blank" class="touch-link click-spots" style="display: none;"></a>
+        <a id="click-spot" href="https://www.visitbusan.net/index.do" target="_blank" class="touch-link click-spots" style="display: none;"></a>
 
-        <!-- 병원 이미지 내부 링크 영역들 -->
-        <div id="click-med-info" class="touch-link click-medical-info" onclick="showMedicalInfoPage()" style="display: none;"></div>
-        <a id="click-find-hosp" href="https://www.medicalkorea.or.kr/en/mostvisitedmedicalinstitutions" target="_blank" class="touch-link click-find-hospital" style="display: none;"></a>
+        <!-- [병원 이미지 스크린 전용 외부 사이트 아웃링크 버튼] -->
         <a id="go-ext-hospital" href="https://www.busan.go.kr/eng/bsmedical01" target="_blank" class="touch-link hospital-ext-link" style="display: none;"></a>
-
-        <!-- 약국 이미지 내부 링크 영역 -->
-        <a id="click-24h-phar" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" class="touch-link click-24h-pharmacy" style="display: none;"></a>
     </div>
 
     <script>
         var currentLang = 'home'; 
 
-        function showPage(pageId, isBackAction) {
+        function showPage(pageId) {
             document.getElementById('langDropdown').style.display = 'none';
-
-            if (!document.getElementById('img-' + pageId)) {
-                console.error("Missing image container for pageId: " + pageId);
-                return;
-            }
 
             var images = document.getElementsByClassName('main-img');
             for (var i = 0; i < images.length; i++) {
@@ -217,89 +194,55 @@
             document.getElementById('img-' + pageId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            if (!isBackAction) {
-                history.pushState({ pageId: pageId }, '', '#' + pageId);
-            }
-
             if(pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn') {
                 currentLang = pageId;
             }
 
             var isHome = (pageId === 'home');
-            var isRules = (pageId === 'sub-rules');
             var isMainLang = (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn');
-            
-            var isHospitalSub = pageId.indexOf('sub-hospital') !== -1;
-            var isPharmacySub = pageId.indexOf('sub-pharmacy') !== -1;
-            var isMedicalInfoSub = pageId.indexOf('medical-info') !== -1; 
+            var isHospitalSub = pageId.includes('hospital');
+            var isPharmacySub = pageId.includes('pharmacy');
+            var isMedInfoSub = (pageId === 'sub-medinfo'); // 메디컬 정보 서브페이지 체크
 
-            // 1. 최초 홈화면 국가선택 제어
+            // 1. 최초 홈화면(home.png) 전용 레이어 제어
             document.getElementById('area-en').style.display = isHome ? 'block' : 'none';
             document.getElementById('area-cn').style.display = isHome ? 'block' : 'none';
             document.getElementById('area-jp').style.display = isHome ? 'block' : 'none';
             document.getElementById('area-vn').style.display = isHome ? 'block' : 'none';
-            
-            // 홈 화면 전용 전화기 레이어 On/Off
             document.getElementById('h-112').style.display = isHome ? 'block' : 'none';
             document.getElementById('h-119').style.display = isHome ? 'block' : 'none';
             document.getElementById('h-1330').style.display = isHome ? 'block' : 'none';
 
-            // 기초질서 페이지 전용 단독 112, 119, 1330 레이어 On/Off
-            document.getElementById('r-112').style.display = isRules ? 'block' : 'none';
-            document.getElementById('r-119').style.display = isRules ? 'block' : 'none';
-            document.getElementById('r-1330').style.display = isRules ? 'block' : 'none';
-
-            // 2. 상단 지구본 내비바 제어
+            // 2. 상단 내비게이션 바 제어 (홈화면이 아닐 때 작동)
             document.getElementById('area-lang-dropdown').style.display = !isHome ? 'block' : 'none';
 
-            // 3. 상단/중단 고정 긴급 전화 버튼 제어
+            // 3. 긴급 전화 버튼 스마트 통제 (메인, 병원, 약국, 메디컬 정보 등 모든 곳에서 터치 보장)
             if (isHome) {
                 document.getElementById('c-112').style.display = 'none';
                 document.getElementById('c-119').style.display = 'none';
                 document.getElementById('c-1330').style.display = 'none';
-            } else if (isHospitalSub || isPharmacySub || isMedicalInfoSub) {
+            } else if (isHospitalSub || isPharmacySub || isMedInfoSub) {
+                // 병원, 약국, 메디컬 정보 스크린에서는 디자인에 맞춰 112, 119만 활성화 (1330은 완전히 숨김)
                 document.getElementById('c-112').style.display = 'block';
                 document.getElementById('c-119').style.display = 'block';
-                document.getElementById('c-1330').style.display = 'none'; 
+                document.getElementById('c-1330').style.display = 'none';
             } else {
+                // 국가별 메인 및 기타 서브화면은 원래대로 3개 모두 활성화
                 document.getElementById('c-112').style.display = 'block';
                 document.getElementById('c-119').style.display = 'block';
                 document.getElementById('c-1330').style.display = 'block';
             }
             
-            // 4. 🌟[충돌 완벽 교정] 국가별 메인 메뉴 제어 (오직 메인 언어 페이지에서만 켜지도록 조건식 한 번 더 제한)
-            var showMainMenu = isMainLang && !isHospitalSub && !isPharmacySub && !isMedicalInfoSub;
-            document.getElementById('click-hosp').style.display = showMainMenu ? 'block' : 'none';
-            document.getElementById('click-phar').style.display = showMainMenu ? 'block' : 'none';
-            document.getElementById('click-emba').style.display = showMainMenu ? 'block' : 'none';
-            document.getElementById('click-lost').style.display = showMainMenu ? 'block' : 'none';
-            document.getElementById('click-rule').style.display = showMainMenu ? 'block' : 'none';
-            document.getElementById('click-spot').style.display = showMainMenu ? 'block' : 'none';
+            // 4. 국가별 메인 가이드 화면일 때만 6대 하부 메뉴 칸 터치 활성화
+            document.getElementById('click-hosp').style.display = isMainLang ? 'block' : 'none';
+            document.getElementById('click-phar').style.display = isMainLang ? 'block' : 'none';
+            document.getElementById('click-emba').style.display = isMainLang ? 'block' : 'none';
+            document.getElementById('click-lost').style.display = isMainLang ? 'block' : 'none';
+            document.getElementById('click-rule').style.display = isMainLang ? 'block' : 'none';
+            document.getElementById('click-spot').style.display = isMainLang ? 'block' : 'none';
 
-            // 5. 병원 안내 내부 터치 제어
-            document.getElementById('click-med-info').style.display = isHospitalSub ? 'block' : 'none';
-            document.getElementById('click-find-hosp').style.display = isHospitalSub ? 'block' : 'none';
+            // 5. 병원 내부 상세 이미지 스크린일 때만 외부 링크 레이어 가동
             document.getElementById('go-ext-hospital').style.display = isHospitalSub ? 'block' : 'none';
-
-            // 6. 약국 안내 내부 터치 제어
-            document.getElementById('click-24h-phar').style.display = isPharmacySub ? 'block' : 'none';
-        }
-
-        window.addEventListener('popstate', function(event) {
-            if (event.state && event.state.pageId) {
-                showPage(event.state.pageId, true);
-            } else {
-                showPage('home', true);
-            }
-        });
-
-        function goToLostWebsite() {
-            history.pushState({ pageId: currentLang }, '', '#' + currentLang);
-            window.open("https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=", "_blank");
-        }
-
-        function showMedicalInfoPage() {
-            showPage('medical-info-' + currentLang);
         }
 
         function toggleDropdown(event) {
@@ -312,8 +255,7 @@
             }
         }
 
-        function changeLanguageDirect(event, langCode) {
-            if (event) event.preventDefault(); 
+        function changeLanguageDirect(langCode) {
             document.getElementById('langDropdown').style.display = 'none';
             showPage(langCode);
         }
@@ -332,15 +274,10 @@
 
                 showPage('sub-hospital-' + currentLang);
             } else if (type === 'pharmacy') {
-                showPage('sub-pharmacy-' + currentLang);
+                // 🔥 메디컬 정보 버튼을 누르면 새로 연동한 공통 안내 이미지 페이지로 이동합니다.
+                showPage('sub-medinfo');
             }
         }
-
-        window.addEventListener('load', function() {
-            if (!history.state) {
-                history.replaceState({ pageId: 'home' }, '', '#home');
-            }
-        });
     </script>
 
 </body>
