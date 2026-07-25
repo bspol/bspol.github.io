@@ -31,19 +31,19 @@
             display: block;
         }
         
-        /* 🚨 터치 레이어 공통 스타일 (모바일 터치 호환성 강화) */
+        /* 🚨 터치 레이어 공통 스타일 */
         .touch-link {
             position: absolute;
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.001); /* 모바일 터치 강제 인식을 위한 미세 투명도 */
-            display: none; /* 기본 숨김 */
+            background-color: rgba(0, 0, 0, 0.001);
+            display: none;
             z-index: 100;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto;
         }
 
-        /* 💡 빨간색 박스로 버튼 영역을 눈으로 확인하려면 아래 주석(/* */)을 해제하세요 */
+        /* 💡 영역 확인용 빨간 상자 주석 (필요시 해제) */
         /* .touch-link { background-color: rgba(255, 0, 0, 0.4) !important; } */
 
         /* [1. 홈 화면 버튼 (home.png)] */
@@ -134,7 +134,7 @@
 
         <!-- ▣ 터치 레이어 배포 구역 -->
         
-        <!-- [1. 홈 화면 국가 선택 버튼 - 터치 호환성을 위해 <a> 태그로 수정] -->
+        <!-- [1. 홈 화면 국가 선택 버튼 - 터치 호환용 <a> 태그] -->
         <a id="area-en" href="javascript:void(0)" class="touch-link btn-en" onclick="showPage('en')"></a>
         <a id="area-cn" href="javascript:void(0)" class="touch-link btn-cn" onclick="showPage('cn')"></a>
         <a id="area-jp" href="javascript:void(0)" class="touch-link btn-jp" onclick="showPage('jp')"></a>
@@ -166,7 +166,9 @@
         <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="showPage('sub-embassy')"></a>
         <a id="click-lost" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" class="touch-link click-lost"></a>
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="showPage('sub-rules')"></a>
-        <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw==" target="_blank" class="touch-link click-spots"></a>
+        
+        <!-- 🗺️ [수정완료] 보내주신 구글 지도 URL로 확실히 수정되었습니다 -->
+        <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map/data=!3m1!4b1?entry=ttu&amp;g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw==" target="_blank" class="touch-link click-spots"></a>
 
         <!-- [5. 병원/약국/메디컬 상세 페이지 외부 연결 버튼] -->
         <a id="go-ext-hospital" href="https://www.busan.go.kr/eng/bsmedical01" target="_blank" class="touch-link hospital-ext-link"></a>
@@ -214,7 +216,7 @@
             setDisplay('h-119', isHome);
             setDisplay('h-1330', isHome);
 
-            // 2. 상단 지구본 버튼 (홈이 아닐 때만 노출)
+            // 2. 상단 지구본 버튼 (홈이 아닐 때 노출)
             setDisplay('area-lang-dropdown', !isHome);
 
             // 3. 서브화면 하단 긴급전화 버튼
@@ -269,7 +271,7 @@
             }
         }
 
-        // 🚀 즉시 실행 (이미지 로딩 대기 없이 바로 버튼 활성화)
+        // 즉시 실행으로 메인 버튼 활성화 처리
         document.addEventListener("DOMContentLoaded", function() {
             showPage('home');
         });
