@@ -32,7 +32,7 @@
             display: block;
         }
         
-        /* 터치 링크 투명화 (필요시 배경색 임시 확인용으로 사용) */
+        /* 터치 링크 설정 (완벽한 투명 처리 및 오작동 방지) */
         .touch-link {
             position: absolute;
             cursor: pointer;
@@ -41,19 +41,19 @@
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto;
             box-sizing: border-box;
-            background-color: transparent;
-            border: none;
+            background-color: transparent !important;
+            border: none !important;
             z-index: 999999 !important;
         }
 
-        /* 1. 홈 화면 - 4개국 버튼 위치 완벽 분리 및 조정 */
-        .btn-en { top: 54.5%; left: 6.5%; width: 87.0%; height: 6.5%; }
-        .btn-cn { top: 62.0%; left: 6.5%; width: 87.0%; height: 6.5%; }
-        .btn-jp { top: 69.5%; left: 6.5%; width: 87.0%; height: 6.5%; }
-        .btn-vn { top: 77.0%; left: 6.5%; width: 87.0%; height: 6.5%; }
+        /* 1. 홈 화면 - 4개국 버튼 위치 정밀 수정 (간격 및 높이 최적화) */
+        .btn-en { top: 54.2%; left: 6.5%; width: 87.0%; height: 5.6%; }
+        .btn-cn { top: 60.5%; left: 6.5%; width: 87.0%; height: 5.6%; }
+        .btn-jp { top: 66.8%; left: 6.5%; width: 87.0%; height: 5.6%; }
+        .btn-vn { top: 73.1%; left: 6.5%; width: 87.0%; height: 5.6%; }
 
-        /* 홈 화면 하단 긴급전화 (겹침 방지위해 아래로 완전히 분리) */
-        .home-phone { top: 88.5%; height: 8.0%; }
+        /* 홈 화면 하단 긴급전화 (4개국 버튼과 겹치지 않게 안전한 위치 확보) */
+        .home-phone { top: 83.2%; height: 7.2%; }
         .home-112 { left: 6.5%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 66.0%; width: 27.5%; }
@@ -219,7 +219,7 @@
         <div id="emb-8" class="touch-link emb-row3 emb-col2"><a href="tel:02-397-4114" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한미국대사관" target="_blank" class="e-map"></a><a href="https://kr.usembassy.gov/ko/" target="_blank" class="e-home"></a></div>
         <div id="emb-9" class="touch-link emb-row3 emb-col3"><a href="tel:02-748-4114" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한독일대사관" target="_blank" class="e-map"></a><a href="https://seoul.diplo.de/kr-ko" target="_blank" class="e-home"></a></div>
         <div id="emb-10" class="touch-link emb-row4 emb-col1"><a href="tel:051-244-9697" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산포르투갈명예영사관" target="_blank" class="e-map"></a><a href="https://vistos.mne.gov.pt" target="_blank" class="e-home"></a></div>
-        <div id="emb-11" class="touch-link emb-row4 emb-col2"><a href="tel:02-3701-7700" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한뉴질랜드대사관" target="_blank" class="e-map"></a><a href="https://www.mfat.govt.nz" target="_blank" class="e-home"></a></div>
+        <div id="emb-11" class="touch-link emb-row4 emb-col2"><a href="tel:02-3701-7700" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한미국대사관" target="_blank" class="e-map"></a><a href="https://www.mfat.govt.nz" target="_blank" class="e-home"></a></div>
 
     </div>
 
