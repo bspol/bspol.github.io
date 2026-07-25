@@ -31,27 +31,28 @@
             display: block;
         }
         
-        /* 🚨 터치 레이어 공통 스타일 */
+        /* 🚨 터치 레이어 공통 스타일 (모바일 터치 호환성 강화) */
         .touch-link {
             position: absolute;
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.001); /* 모바일 터치 강제 인식 */
-            display: none; /* 기본 비활성화 */
+            background-color: rgba(0, 0, 0, 0.001); /* 모바일 터치 강제 인식을 위한 미세 투명도 */
+            display: none; /* 기본 숨김 */
             z-index: 100;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
+            pointer-events: auto;
         }
 
-        /* 💡 영역 위치를 빨간 상자로 보면서 수정하고 싶다면 아래 주석을 풀어보세요 */
+        /* 💡 빨간색 박스로 버튼 영역을 눈으로 확인하려면 아래 주석(/* */)을 해제하세요 */
         /* .touch-link { background-color: rgba(255, 0, 0, 0.4) !important; } */
 
         /* [1. 홈 화면 버튼 (home.png)] */
-        .btn-en { top: 55.6%; left: 6.7%; width: 86.6%; height: 6.2%; }
-        .btn-cn { top: 62.4%; left: 6.7%; width: 86.6%; height: 6.2%; }
-        .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; }
-        .btn-vn { top: 76.0%; left: 6.7%; width: 86.6%; height: 6.2%; }
+        .btn-en { top: 55.6%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
+        .btn-cn { top: 62.4%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
+        .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
+        .btn-vn { top: 76.0%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
 
-        .home-phone { top: 81.5%; height: 10.5%; }
+        .home-phone { top: 81.5%; height: 10.5%; z-index: 300; }
         .home-112 { left: 6.7%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 65.8%; width: 27.5%; }
@@ -60,14 +61,14 @@
         .btn-lang-dropdown { top: 0.5%; left: 2.0%; width: 25.0%; height: 5.0%; z-index: 500; } 
 
         /* [3. 메인 언어별 화면(main_en/cn/jp/vn) 중간 메뉴 6개] */
-        .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 14.0%; }
-        .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 14.0%; }
-        .click-embassy   { top: 62.0%; left: 2.5%; width: 46.5%; height: 14.0%; }
-        .click-lost      { top: 62.0%; left: 51.0%; width: 46.5%; height: 14.0%; }
-        .click-rules     { top: 78.0%; left: 2.5%; width: 46.5%; height: 14.0%; }
-        .click-spots     { top: 78.0%; left: 51.0%; width: 46.5%; height: 14.0%; }
+        .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 14.0%; z-index: 200; }
+        .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 14.0%; z-index: 200; }
+        .click-embassy   { top: 62.0%; left: 2.5%; width: 46.5%; height: 14.0%; z-index: 200; }
+        .click-lost      { top: 62.0%; left: 51.0%; width: 46.5%; height: 14.0%; z-index: 200; }
+        .click-rules     { top: 78.0%; left: 2.5%; width: 46.5%; height: 14.0%; z-index: 200; }
+        .click-spots     { top: 78.0%; left: 51.0%; width: 46.5%; height: 14.0%; z-index: 200; }
 
-        /* [4. 기초질서/서브화면 하단 긴급전화 버튼 정밀 보정 (이미지 맨 아래 112, 119, 1330 위치)] */
+        /* [4. 기초질서/서브화면 하단 긴급전화 버튼] */
         .sub-call-112  { top: 86.5%; left: 26.5%; width: 14.0%; height: 7.5%; z-index: 300; }
         .sub-call-119  { top: 86.5%; left: 41.5%; width: 14.0%; height: 7.5%; z-index: 300; }
         .sub-call-1330 { top: 86.5%; left: 56.5%; width: 14.0%; height: 7.5%; z-index: 300; }
@@ -133,18 +134,18 @@
 
         <!-- ▣ 터치 레이어 배포 구역 -->
         
-        <!-- [1. 홈 화면 버튼] -->
-        <div id="area-en" class="touch-link btn-en" onclick="showPage('en')"></div>
-        <div id="area-cn" class="touch-link btn-cn" onclick="showPage('cn')"></div>
-        <div id="area-jp" class="touch-link btn-jp" onclick="showPage('jp')"></div>
-        <div id="area-vn" class="touch-link btn-vn" onclick="showPage('vn')"></div>
+        <!-- [1. 홈 화면 국가 선택 버튼 - 터치 호환성을 위해 <a> 태그로 수정] -->
+        <a id="area-en" href="javascript:void(0)" class="touch-link btn-en" onclick="showPage('en')"></a>
+        <a id="area-cn" href="javascript:void(0)" class="touch-link btn-cn" onclick="showPage('cn')"></a>
+        <a id="area-jp" href="javascript:void(0)" class="touch-link btn-jp" onclick="showPage('jp')"></a>
+        <a id="area-vn" href="javascript:void(0)" class="touch-link btn-vn" onclick="showPage('vn')"></a>
 
         <a id="h-112" href="tel:112" class="touch-link home-phone home-112"></a>
         <a id="h-119" href="tel:119" class="touch-link home-phone home-119"></a>
         <a id="h-1330" href="tel:1330" class="touch-link home-phone home-1330"></a>
 
         <!-- [2. 상단 메뉴 드롭다운] -->
-        <div id="area-lang-dropdown" class="touch-link btn-lang-dropdown" onclick="toggleDropdown(event)"></div>
+        <a id="area-lang-dropdown" href="javascript:void(0)" class="touch-link btn-lang-dropdown" onclick="toggleDropdown(event)"></a>
 
         <div id="langDropdown" class="dropdown-menu">
             <a href="javascript:void(0)" onclick="changeLanguageDirect('home')">🏠 메인 (Home)</a>
@@ -160,13 +161,11 @@
         <a id="c-1330" href="tel:1330" class="touch-link sub-call-1330"></a>
 
         <!-- [4. 국가별 메인 화면 하부 6대 메뉴] -->
-        <div id="click-hosp" class="touch-link click-hospital" onclick="clickSubMenu('hospital')"></div>
-        <div id="click-phar" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')"></div>
-        <div id="click-emba" class="touch-link click-embassy" onclick="showPage('sub-embassy')"></div>
+        <a id="click-hosp" href="javascript:void(0)" class="touch-link click-hospital" onclick="clickSubMenu('hospital')"></a>
+        <a id="click-phar" href="javascript:void(0)" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')"></a>
+        <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="showPage('sub-embassy')"></a>
         <a id="click-lost" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" class="touch-link click-lost"></a>
-        <div id="click-rule" class="touch-link click-rules" onclick="showPage('sub-rules')"></div>
-        
-        <!-- 🗺️ [수정 완료] 전달해주신 구글 지도 URL 반영 -->
+        <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="showPage('sub-rules')"></a>
         <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw==" target="_blank" class="touch-link click-spots"></a>
 
         <!-- [5. 병원/약국/메디컬 상세 페이지 외부 연결 버튼] -->
@@ -176,10 +175,6 @@
     <script>
         var currentLang = 'en';
 
-        window.onload = function() {
-            showPage('home');
-        };
-
         function setDisplay(id, show) {
             var el = document.getElementById(id);
             if (el) {
@@ -188,7 +183,8 @@
         }
 
         function showPage(pageId) {
-            document.getElementById('langDropdown').style.display = 'none';
+            var dropdown = document.getElementById('langDropdown');
+            if (dropdown) dropdown.style.display = 'none';
 
             var images = document.getElementsByClassName('main-img');
             for (var i = 0; i < images.length; i++) {
@@ -218,7 +214,7 @@
             setDisplay('h-119', isHome);
             setDisplay('h-1330', isHome);
 
-            // 2. 상단 지구본 버튼 (홈 아닐 때)
+            // 2. 상단 지구본 버튼 (홈이 아닐 때만 노출)
             setDisplay('area-lang-dropdown', !isHome);
 
             // 3. 서브화면 하단 긴급전화 버튼
@@ -241,7 +237,9 @@
         function toggleDropdown(event) {
             if (event) event.stopPropagation(); 
             var dropdown = document.getElementById('langDropdown');
-            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            if (dropdown) {
+                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            }
         }
 
         function changeLanguageDirect(langCode) {
@@ -270,6 +268,12 @@
                 showPage('sub-pharmacy-' + currentLang);
             }
         }
+
+        // 🚀 즉시 실행 (이미지 로딩 대기 없이 바로 버튼 활성화)
+        document.addEventListener("DOMContentLoaded", function() {
+            showPage('home');
+        });
+        showPage('home');
     </script>
 
 </body>
