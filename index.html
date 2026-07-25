@@ -72,13 +72,13 @@
         .click-rules     { top: 79.8%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; }
         .click-spots     { top: 79.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
 
-        /* 5. 약국 페이지 버튼 (완벽 고정 및 오류 수정) */
+        /* 5. 약국 페이지 버튼 (완벽 분리 고정) */
         .pharm-call-112  { top: 36.0%; left: 5.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .pharm-call-119  { top: 36.0%; left: 35.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .pharm-call-1330 { top: 36.0%; left: 65.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .pharm-late-link { top: 61.5%; left: 3.5%; width: 30.0%; height: 21.0%; z-index: 100; }
 
-        /* 6. 병원 페이지 버튼 (안전 고정) */
+        /* 6. 병원 페이지 버튼 (좌표 및 기능 완벽 분리 고정) */
         .hosp-call-112   { top: 36.0%; left: 5.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .hosp-call-119   { top: 36.0%; left: 35.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
         .hosp-call-1330  { top: 36.0%; left: 65.5%; width: 29.0%; height: 13.0%; z-index: 999999 !important; }
@@ -203,19 +203,19 @@
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="goPage('sub-rules')"></a>
         <a id="click-spots" href="https://www.google.com/maps/search/Busan+tourist+map" target="_blank" class="touch-link click-spots"></a>
 
-        <!-- [5. 약국 페이지 전용 버튼 (1330 정상 연결 및 심야약국 링크 수정 완료)] -->
+        <!-- [5. 약국 페이지 전용 버튼 (112, 119, 1330, 심야약국 링크 완벽 분리)] -->
         <a id="p-112" href="tel:112" class="touch-link pharm-call-112"></a>
         <a id="p-119" href="tel:119" class="touch-link pharm-call-119"></a>
         <a id="p-1330" href="tel:1330" class="touch-link pharm-call-1330"></a>
         <a id="p-late" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" class="touch-link pharm-late-link"></a>
 
-        <!-- [6. 병원 페이지 전용 버튼] -->
-        <a id="hp-find" href="https://www.google.com/maps/search/?api=1&query=hospital" target="_blank" class="touch-link hosp-find-map"></a>
-        <a id="hp-emer" href="https://www.google.com/maps/search/?api=1&query=emergency+room" target="_blank" class="touch-link hosp-emergency"></a>
-        <a id="hp-med" href="javascript:void(0)" class="touch-link hosp-medinfo" onclick="goPage('sub-medinfo-' + currentLang)"></a>
+        <!-- [6. 병원 페이지 전용 버튼 (112, 119, 1330, 길찾기, 응급실, 의료정보 순서 및 기능 완벽 복구)] -->
         <a id="hp-112" href="tel:112" class="touch-link hosp-call-112"></a>
         <a id="hp-119" href="tel:119" class="touch-link hosp-call-119"></a>
         <a id="hp-1330" href="tel:1330" class="touch-link hosp-call-1330"></a>
+        <a id="hp-find" href="https://www.google.com/maps/search/?api=1&query=hospital" target="_blank" class="touch-link hosp-find-map"></a>
+        <a id="hp-emer" href="https://www.google.com/maps/search/?api=1&query=emergency+room" target="_blank" class="touch-link hosp-emergency"></a>
+        <a id="hp-med" href="javascript:void(0)" class="touch-link hosp-medinfo" onclick="goPage('sub-medinfo-' + currentLang)"></a>
 
         <!-- [7. 의료정보 페이지 하단 전화 버튼] -->
         <a id="med-112" href="tel:112" class="touch-link med-call-112"></a>
