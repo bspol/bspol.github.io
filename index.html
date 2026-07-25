@@ -100,7 +100,7 @@
             box-sizing: border-box;
         }
 
-        /* 4개 행 위치 */
+        /* 4개 행 간격 및 높이 오차를 철저히 맞추어 수정 */
         .emb-row1 { top: 31.8%; height: 11.2%; }
         .emb-row2 { top: 44.8%; height: 11.2%; }
         .emb-row3 { top: 57.8%; height: 11.2%; }
@@ -111,13 +111,13 @@
         .emb-col2 { left: 35.6%; width: 28.8%; }
         .emb-col3 { left: 67.0%; width: 28.8%; }
 
-        /* 영사관 카드 내부 버튼 영역: 영역 겹침 및 간섭 원인(z-index 및 크기 오류) 전면 수정 */
+        /* [핵심 수정] 영사관 카드 내부 하단 버튼 세로 위치(top)와 높이(height)를 이미지의 실제 버튼 위치에 딱 맞게 정밀 조정 */
         .e-call-btn {
             position: absolute;
-            top: 55%;
-            left: 0%;
-            width: 36%;
-            height: 45%;
+            top: 64%;
+            left: 2%;
+            width: 31%;
+            height: 33%;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -128,10 +128,10 @@
 
         .e-map-btn {
             position: absolute;
-            top: 55%;
-            left: 36%;
-            width: 32%;
-            height: 45%;
+            top: 64%;
+            left: 34.5%;
+            width: 31%;
+            height: 33%;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -142,10 +142,10 @@
 
         .e-home-btn {
             position: absolute;
-            top: 55%;
-            left: 68%;
-            width: 32%;
-            height: 45%;
+            top: 64%;
+            left: 67%;
+            width: 31%;
+            height: 33%;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -154,13 +154,12 @@
             pointer-events: auto !important;
         }
 
-        /* [수정] 상단 타이틀 영역이 전화 버튼 영역을 침범하지 않도록 높이 조정 및 z-index 정리 */
         .e-title-home-btn {
             position: absolute;
-            top: 0%;
-            left: 0%;
-            width: 100%;
-            height: 50%;
+            top: 5%;
+            left: 2%;
+            width: 96%;
+            height: 56%;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -270,7 +269,7 @@
 
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
 
-        <!-- 영사관 카드 영역: 오버랩 및 터치 간섭 현상 완전 해결 -->
+        <!-- 영사관 카드 영역: 버튼 터치 위치와 범위 완벽 동기화 수정 -->
         <div id="emb-1" class="emb-card emb-row1 emb-col1">
             <a href="tel:051-465-5101" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map-btn"></a>
