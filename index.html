@@ -21,6 +21,7 @@
             max-width: 600px;
             margin: 0 auto;
             position: relative;
+            padding-bottom: 20px;
         }
         .main-img {
             width: 100%;
@@ -43,10 +44,10 @@
             pointer-events: auto;
         }
 
-        /* 💡 빨간색 박스로 버튼 영역을 눈으로 확인하려면 아래 주석(/* */)을 해제하세요 */
+        /* 💡 영역 위치를 확인해보려면 아래 주석(/* */)을 해제하세요 */
         /* .touch-link { background-color: rgba(255, 0, 0, 0.4) !important; } */
 
-        /* [1. 홈 화면 버튼 (home.png)] */
+        /* [1. 홈 화면 버튼 (home.png) - 🚨 btn-en 복구 완료!] */
         .btn-en { top: 55.6%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
         .btn-cn { top: 62.4%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
         .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
@@ -68,12 +69,12 @@
         .click-rules     { top: 78.0%; left: 2.5%; width: 46.5%; height: 14.0%; z-index: 200; }
         .click-spots     { top: 78.0%; left: 51.0%; width: 46.5%; height: 14.0%; z-index: 200; }
 
-        /* [4. 기초질서/병원/약국 등 서브화면 하단 긴급전화 버튼] */
+        /* [4. 서브화면 동일 위치 고정 긴급신고 버튼 (112, 119, 1330)] */
         .sub-call-112  { top: 86.5%; left: 26.5%; width: 14.0%; height: 7.5%; z-index: 300; }
         .sub-call-119  { top: 86.5%; left: 41.5%; width: 14.0%; height: 7.5%; z-index: 300; }
         .sub-call-1330 { top: 86.5%; left: 56.5%; width: 14.0%; height: 7.5%; z-index: 300; }
 
-        /* [5. 병원 및 약국 상세 페이지 하단 외부 링크] */
+        /* [5. 병원 및 약국 상세 페이지 외부 연결 버튼] */
         .hospital-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 200; }
         .pharmacy-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 200; }
 
@@ -145,7 +146,7 @@
         <a id="h-119" href="tel:119" class="touch-link home-phone home-119"></a>
         <a id="h-1330" href="tel:1330" class="touch-link home-phone home-1330"></a>
 
-        <!-- [2. 상단 메뉴 드롭다운] -->
+        <!-- [2. 상단 지구본 메뉴 드롭다운] -->
         <a id="area-lang-dropdown" href="javascript:void(0)" class="touch-link btn-lang-dropdown" onclick="toggleDropdown(event)"></a>
 
         <div id="langDropdown" class="dropdown-menu">
@@ -156,7 +157,7 @@
             <a href="javascript:void(0)" onclick="changeLanguageDirect('vn')">🇻🇳 Tiếng Việt</a>
         </div>
 
-        <!-- [3. 하단 112, 119, 1330 신고 버튼 영역 (약국/병원/기초질서 공통)] -->
+        <!-- [3. 서브화면 긴급전화 (112, 119, 1330)] -->
         <a id="c-112" href="tel:112" class="touch-link sub-call-112"></a>
         <a id="c-119" href="tel:119" class="touch-link sub-call-119"></a>
         <a id="c-1330" href="tel:1330" class="touch-link sub-call-1330"></a>
@@ -167,11 +168,9 @@
         <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="showPage('sub-embassy')"></a>
         <a id="click-lost" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" class="touch-link click-lost"></a>
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="showPage('sub-rules')"></a>
-        
-        <!-- 구글 지도 URL 그대로 유지 -->
         <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map/data=!3m1!4b1?entry=ttu&amp;g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw==" target="_blank" class="touch-link click-spots"></a>
 
-        <!-- [5. 병원 및 약국 상세 페이지 외부 연결 버튼] -->
+        <!-- [5. 상세화면 외부 연결 버튼] -->
         <a id="go-ext-hospital" href="https://www.busan.go.kr/eng/bsmedical01" target="_blank" class="touch-link hospital-ext-link"></a>
         <a id="go-ext-pharmacy" href="https://www.pharm114.or.kr/" target="_blank" class="touch-link pharmacy-ext-link"></a>
     </div>
@@ -210,7 +209,7 @@
             var isHospitalSub = pageId.includes('hospital');
             var isPharmacySub = pageId.includes('pharmacy');
 
-            // 1. 홈 화면 전용 버튼
+            // 1. 홈 화면 버튼
             setDisplay('area-en', isHome);
             setDisplay('area-cn', isHome);
             setDisplay('area-jp', isHome);
@@ -219,15 +218,15 @@
             setDisplay('h-119', isHome);
             setDisplay('h-1330', isHome);
 
-            // 2. 상단 지구본 버튼 (홈이 아닐 때 노출)
+            // 2. 상단 지구본 버튼
             setDisplay('area-lang-dropdown', !isHome);
 
-            // 3. 서브화면 하단 긴급전화 버튼 (약국/병원/기초질서 등 홈이 아닐 때 일괄 노출)
+            // 3. 서브화면 긴급전화 버튼
             setDisplay('c-112', !isHome);
             setDisplay('c-119', !isHome);
             setDisplay('c-1330', !isHome);
 
-            // 4. 언어별 메인 가이드 6개 버튼
+            // 4. 메인 6대 메뉴 버튼
             setDisplay('click-hosp', isMainLang);
             setDisplay('click-phar', isMainLang);
             setDisplay('click-emba', isMainLang);
@@ -235,7 +234,7 @@
             setDisplay('click-rule', isMainLang);
             setDisplay('click-spot', isMainLang);
 
-            // 5. 외부 링크 버튼 (병원/약국 상세 페이지별)
+            // 5. 외부 링크 버튼
             setDisplay('go-ext-hospital', isHospitalSub);
             setDisplay('go-ext-pharmacy', isPharmacySub);
         }
@@ -272,7 +271,6 @@
                 showPage('sub-hospital-' + currentLang);
             } else if (type === 'pharmacy') {
                 var extPharmacy = document.getElementById('go-ext-pharmacy');
-                // 휴일지킴이약국(심야약국 안내) 사이트 연동
                 extPharmacy.href = "https://www.pharm114.or.kr/";
 
                 showPage('sub-pharmacy-' + currentLang);
