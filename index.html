@@ -36,7 +36,7 @@
         .touch-link {
             position: absolute;
             cursor: pointer;
-            display: none; /* 스크립트에서 제어 */
+            display: none;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto;
@@ -46,17 +46,16 @@
         }
 
         /* =========================================
-           [1. 홈 화면 (home.png)]
-           순서: 영어 -> 중국어 -> 일본어 -> 베트남어
-           높이(height)를 5.8%로 제한하여 절대 겹치지 않음!
+           [1. 홈 화면 (home.png) - Y축 높이 및 간격 정밀 조정]
+           영어 -> 중국어 -> 일본어 -> 베트남어 순서
         ========================================= */
-        .btn-en { top: 57.5%; left: 7.0%; width: 86.0%; height: 5.8%; z-index: 2000; }
-        .btn-cn { top: 64.5%; left: 7.0%; width: 86.0%; height: 5.8%; z-index: 2000; }
-        .btn-jp { top: 71.5%; left: 7.0%; width: 86.0%; height: 5.8%; z-index: 2000; }
-        .btn-vn { top: 78.5%; left: 7.0%; width: 86.0%; height: 5.8%; z-index: 2000; }
+        .btn-en { top: 53.8%; left: 7.0%; width: 86.0%; height: 5.5%; z-index: 2000; }
+        .btn-cn { top: 60.8%; left: 7.0%; width: 86.0%; height: 5.5%; z-index: 2000; }
+        .btn-jp { top: 67.8%; left: 7.0%; width: 86.0%; height: 5.5%; z-index: 2000; }
+        .btn-vn { top: 74.8%; left: 7.0%; width: 86.0%; height: 5.5%; z-index: 2000; }
 
-        /* 하단 긴급전화 3개 버튼 (언어 버튼과 간격 분리) */
-        .home-phone { top: 88.0%; height: 8.5%; z-index: 2000; }
+        /* 하단 긴급전화 3개 버튼 (112, 119, 1330) */
+        .home-phone { top: 84.5%; height: 8.5%; z-index: 2000; }
         .home-112 { left: 7.0%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 65.5%; width: 27.5%; }
@@ -67,7 +66,7 @@
         .btn-lang-dropdown { top: 1.0%; left: 2.0%; width: 27.0%; height: 4.5%; z-index: 90000; } 
 
         /* =========================================
-           [3. 언어 메인 화면 (main_en) - CALL 버튼 3개] 
+           [3. 언어 메인 화면 - CALL 버튼 3개] 
         ========================================= */
         .main-call-112  { top: 35.8%; left: 6.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
         .main-call-119  { top: 35.8%; left: 37.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
@@ -86,7 +85,7 @@
         .click-spots     { top: 79.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
 
         /* =========================================
-           [5. 약국 페이지 - 심야약국 링크 적용] 
+           [5. 약국 페이지 - 심야약국 부산시 링크] 
         ========================================= */
         .pharm-call-112  { top: 38.0%; left: 3.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
         .pharm-call-119  { top: 38.0%; left: 27.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
@@ -157,7 +156,7 @@
         <a id="h-119" href="tel:119" class="touch-link home-phone home-119"></a>
         <a id="h-1330" href="tel:1330" class="touch-link home-phone home-1330"></a>
 
-        <!-- [2. 상단 지구본] -->
+        <!-- [2. 상단 지구본 드롭다운] -->
         <a id="area-lang-dropdown" href="javascript:void(0)" class="touch-link btn-lang-dropdown" onclick="toggleDropdown(event)"></a>
 
         <div id="langDropdown" class="dropdown-menu">
@@ -181,7 +180,7 @@
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="goPage('sub-rules')"></a>
         <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map" target="_blank" class="touch-link click-spots"></a>
 
-        <!-- [5. 약국 페이지 전용 버튼 (부산시 심야약국 링크)] -->
+        <!-- [5. 약국 페이지 전용 버튼] -->
         <a id="p-112" href="tel:112" class="touch-link pharm-call-112"></a>
         <a id="p-119" href="tel:119" class="touch-link pharm-call-119"></a>
         <a id="p-1330" href="tel:1330" class="touch-link pharm-call-1330"></a>
@@ -223,7 +222,6 @@
             var isMainLang = (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn');
             var isPharmacySub = pageId.indexOf('pharmacy') !== -1;
 
-            // 디스플레이 제어
             setDisplay('area-en', isHome);
             setDisplay('area-cn', isHome);
             setDisplay('area-jp', isHome);
