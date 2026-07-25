@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Busan Foreigner Safety Platform</title>
-    <!-- 이미지 맵 반응형 자동 계산 라이브러리 (필수) -->
+    <!-- 이미지 맵 반응형 자동 계산 라이브러리 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
     <style>
@@ -70,7 +70,7 @@
         <!-- 1. 홈 화면 -->
         <img id="img-home" class="main-img active" src="home.png" alt="Home" usemap="#map-home">
         <map name="map-home">
-            <!-- 4개 언어 버튼 (절대 안밀림) -->
+            <!-- 4개 언어 버튼 -->
             <area shape="rect" coords="72,1125,928,1240" href="javascript:void(0)" onclick="goPage('en')" alt="English">
             <area shape="rect" coords="72,1255,928,1370" href="javascript:void(0)" onclick="goPage('cn')" alt="Chinese">
             <area shape="rect" coords="72,1385,928,1500" href="javascript:void(0)" onclick="goPage('jp')" alt="Japanese">
@@ -81,7 +81,7 @@
             <area shape="rect" coords="664,1680,928,1880" href="tel:1330" alt="1330">
         </map>
 
-        <!-- 2. 메인 화면들 (지구본 드롭다운 상단 배치) -->
+        <!-- 2. 메인 화면들 -->
         <img id="img-en" class="main-img" src="main_en.png" alt="English" usemap="#map-main">
         <img id="img-cn" class="main-img" src="main_cn.png" alt="Chinese" usemap="#map-main">
         <img id="img-jp" class="main-img" src="main_jp.png" alt="Japanese" usemap="#map-main">
@@ -122,11 +122,11 @@
         <map name="map-pharmacy">
             <!-- 상단 지구본 버튼 -->
             <area shape="rect" coords="20,15,300,90" href="javascript:void(0)" onclick="toggleDropdown(event)" alt="Language">
-            <!-- 약국 상단 4개 카트 (112, 119, 1330, 야간약국) -->
+            <!-- 약국 상단 4개 카트 (112, 119, 1330, 심야약국 부산시 공식링크) -->
             <area shape="rect" coords="35,700,250,930" href="tel:112" alt="112">
             <area shape="rect" coords="275,700,490,930" href="tel:119" alt="119">
             <area shape="rect" coords="510,700,725,930" href="tel:1330" alt="1330">
-            <area shape="rect" coords="745,700,960,930" href="https://www.pharm114.or.kr/" target="_blank" alt="Late Pharmacy">
+            <area shape="rect" coords="745,700,960,930" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" alt="Late-Night Pharmacies">
         </map>
 
         <map name="map-sub-common">
