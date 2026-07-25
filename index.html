@@ -43,7 +43,7 @@
             pointer-events: auto;
         }
 
-        /* 💡 영역 확인용 빨간 상자 주석 (필요시 해제) */
+        /* 💡 빨간색 박스로 버튼 영역을 눈으로 확인하려면 아래 주석(/* */)을 해제하세요 */
         /* .touch-link { background-color: rgba(255, 0, 0, 0.4) !important; } */
 
         /* [1. 홈 화면 버튼 (home.png)] */
@@ -68,13 +68,14 @@
         .click-rules     { top: 78.0%; left: 2.5%; width: 46.5%; height: 14.0%; z-index: 200; }
         .click-spots     { top: 78.0%; left: 51.0%; width: 46.5%; height: 14.0%; z-index: 200; }
 
-        /* [4. 기초질서/서브화면 하단 긴급전화 버튼] */
+        /* [4. 기초질서/병원/약국 등 서브화면 하단 긴급전화 버튼] */
         .sub-call-112  { top: 86.5%; left: 26.5%; width: 14.0%; height: 7.5%; z-index: 300; }
         .sub-call-119  { top: 86.5%; left: 41.5%; width: 14.0%; height: 7.5%; z-index: 300; }
         .sub-call-1330 { top: 86.5%; left: 56.5%; width: 14.0%; height: 7.5%; z-index: 300; }
 
-        /* [5. 병원 상세 페이지 하단 외부 링크] */
+        /* [5. 병원 및 약국 상세 페이지 하단 외부 링크] */
         .hospital-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 200; }
+        .pharmacy-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 200; }
 
         /* 언어 선택 드롭다운 스타일 */
         .dropdown-menu {
@@ -134,11 +135,11 @@
 
         <!-- ▣ 터치 레이어 배포 구역 -->
         
-        <!-- [1. 홈 화면 국가 선택 버튼 - 터치 호환용 <a> 태그] -->
-        <a id="area-en" href="javascript:void(0)" class="touch-link btn-en" onclick="showPage('en')"></a>
-        <a id="area-cn" href="javascript:void(0)" class="touch-link btn-cn" onclick="showPage('cn')"></a>
-        <a id="area-jp" href="javascript:void(0)" class="touch-link btn-jp" onclick="showPage('jp')"></a>
-        <a id="area-vn" href="javascript:void(0)" class="touch-link btn-vn" onclick="showPage('vn')"></a>
+        <!-- [1. 홈 화면 국가 선택 버튼] -->
+        <a id="area-en" href="javascript:void(0)" class="touch-link btn-en" onclick="showPage('en'); return false;"></a>
+        <a id="area-cn" href="javascript:void(0)" class="touch-link btn-cn" onclick="showPage('cn'); return false;"></a>
+        <a id="area-jp" href="javascript:void(0)" class="touch-link btn-jp" onclick="showPage('jp'); return false;"></a>
+        <a id="area-vn" href="javascript:void(0)" class="touch-link btn-vn" onclick="showPage('vn'); return false;"></a>
 
         <a id="h-112" href="tel:112" class="touch-link home-phone home-112"></a>
         <a id="h-119" href="tel:119" class="touch-link home-phone home-119"></a>
@@ -155,7 +156,7 @@
             <a href="javascript:void(0)" onclick="changeLanguageDirect('vn')">🇻🇳 Tiếng Việt</a>
         </div>
 
-        <!-- [3. 하단 112, 119, 1330 신고 버튼 영역] -->
+        <!-- [3. 하단 112, 119, 1330 신고 버튼 영역 (약국/병원/기초질서 공통)] -->
         <a id="c-112" href="tel:112" class="touch-link sub-call-112"></a>
         <a id="c-119" href="tel:119" class="touch-link sub-call-119"></a>
         <a id="c-1330" href="tel:1330" class="touch-link sub-call-1330"></a>
@@ -167,11 +168,12 @@
         <a id="click-lost" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" class="touch-link click-lost"></a>
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="showPage('sub-rules')"></a>
         
-        <!-- 🗺️ [수정완료] 보내주신 구글 지도 URL로 확실히 수정되었습니다 -->
+        <!-- 구글 지도 URL 그대로 유지 -->
         <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map/data=!3m1!4b1?entry=ttu&amp;g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw==" target="_blank" class="touch-link click-spots"></a>
 
-        <!-- [5. 병원/약국/메디컬 상세 페이지 외부 연결 버튼] -->
+        <!-- [5. 병원 및 약국 상세 페이지 외부 연결 버튼] -->
         <a id="go-ext-hospital" href="https://www.busan.go.kr/eng/bsmedical01" target="_blank" class="touch-link hospital-ext-link"></a>
+        <a id="go-ext-pharmacy" href="https://www.pharm114.or.kr/" target="_blank" class="touch-link pharmacy-ext-link"></a>
     </div>
 
     <script>
@@ -206,6 +208,7 @@
             var isHome = (pageId === 'home');
             var isMainLang = (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn');
             var isHospitalSub = pageId.includes('hospital');
+            var isPharmacySub = pageId.includes('pharmacy');
 
             // 1. 홈 화면 전용 버튼
             setDisplay('area-en', isHome);
@@ -219,7 +222,7 @@
             // 2. 상단 지구본 버튼 (홈이 아닐 때 노출)
             setDisplay('area-lang-dropdown', !isHome);
 
-            // 3. 서브화면 하단 긴급전화 버튼
+            // 3. 서브화면 하단 긴급전화 버튼 (약국/병원/기초질서 등 홈이 아닐 때 일괄 노출)
             setDisplay('c-112', !isHome);
             setDisplay('c-119', !isHome);
             setDisplay('c-1330', !isHome);
@@ -232,8 +235,9 @@
             setDisplay('click-rule', isMainLang);
             setDisplay('click-spot', isMainLang);
 
-            // 5. 병원 상세화면 외부 링크
+            // 5. 외부 링크 버튼 (병원/약국 상세 페이지별)
             setDisplay('go-ext-hospital', isHospitalSub);
+            setDisplay('go-ext-pharmacy', isPharmacySub);
         }
 
         function toggleDropdown(event) {
@@ -259,19 +263,22 @@
 
         function clickSubMenu(type) {
             if (type === 'hospital') {
-                var extLink = document.getElementById('go-ext-hospital');
-                if (currentLang === 'en') extLink.href = "https://www.busan.go.kr/eng/bsmedical01";
-                if (currentLang === 'cn') extLink.href = "https://www.busan.go.kr/chn/bsmedical01";
-                if (currentLang === 'jp') extLink.href = "https://www.busan.go.kr/jap/bsmedical01";
-                if (currentLang === 'vn') extLink.href = "https://www.busan.go.kr/eng/bsmedical01";
+                var extHospital = document.getElementById('go-ext-hospital');
+                if (currentLang === 'en') extHospital.href = "https://www.busan.go.kr/eng/bsmedical01";
+                if (currentLang === 'cn') extHospital.href = "https://www.busan.go.kr/chn/bsmedical01";
+                if (currentLang === 'jp') extHospital.href = "https://www.busan.go.kr/jap/bsmedical01";
+                if (currentLang === 'vn') extHospital.href = "https://www.busan.go.kr/eng/bsmedical01";
 
                 showPage('sub-hospital-' + currentLang);
             } else if (type === 'pharmacy') {
+                var extPharmacy = document.getElementById('go-ext-pharmacy');
+                // 휴일지킴이약국(심야약국 안내) 사이트 연동
+                extPharmacy.href = "https://www.pharm114.or.kr/";
+
                 showPage('sub-pharmacy-' + currentLang);
             }
         }
 
-        // 즉시 실행으로 메인 버튼 활성화 처리
         document.addEventListener("DOMContentLoaded", function() {
             showPage('home');
         });
