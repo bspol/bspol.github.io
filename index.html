@@ -32,13 +32,10 @@
             display: block;
         }
         
-        /* 터치 레이어 공통 (위치 확인용 테스트 빨간 테두리) */
+        /* 터치 레이어 공통 (위치 확인용 테스트 색상 적용 중) */
         .touch-link {
             position: absolute;
             cursor: pointer;
-            /* 💡 위치 맞춘 후 아래 background를 rgba(0,0,0,0.001)로 바꾸면 투명해집니다 */
-            background-color: rgba(255, 0, 0, 0.25);
-            border: 1px solid red;
             display: none;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
@@ -60,21 +57,23 @@
         /* [2. 상단 지구본 드롭다운] */
         .btn-lang-dropdown { top: 0.5%; left: 2.0%; width: 25.0%; height: 5.0%; z-index: 90000; } 
 
-        /* [3. 언어별 메인 화면 6대 메뉴 - 위치 및 높이 대폭 축소] */
-        .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 11.0%; z-index: 100; }
-        .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 11.0%; z-index: 100; }
-        .click-embassy   { top: 58.0%; left: 2.5%; width: 46.5%; height: 11.0%; z-index: 100; }
-        .click-lost      { top: 58.0%; left: 51.0%; width: 46.5%; height: 11.0%; z-index: 100; }
-        .click-rules     { top: 70.0%; left: 2.5%; width: 46.5%; height: 9.0%; z-index: 100; }
-        .click-spots     { top: 70.0%; left: 51.0%; width: 46.5%; height: 9.0%; z-index: 100; }
+        /* [3. 붉은색 박스: 언어별 메인 화면 6대 메뉴 위치 정밀 수정] */
+        .click-hospital  { top: 45.5%; left: 3.0%; width: 45.5%; height: 10.5%; z-index: 100; background-color: rgba(255, 0, 0, 0.25); border: 1px solid red; }
+        .click-pharmacy  { top: 45.5%; left: 51.5%; width: 45.5%; height: 10.5%; z-index: 100; background-color: rgba(255, 0, 0, 0.25); border: 1px solid red; }
+        
+        .click-embassy   { top: 57.5%; left: 3.0%; width: 45.5%; height: 10.5%; z-index: 100; background-color: rgba(255, 0, 0, 0.25); border: 1px solid red; }
+        .click-lost      { top: 57.5%; left: 51.5%; width: 45.5%; height: 10.5%; z-index: 100; background-color: rgba(255, 0, 0, 0.25); border: 1px solid red; }
+        
+        .click-rules     { top: 69.5%; left: 3.0%; width: 45.5%; height: 10.5%; z-index: 100; background-color: rgba(255, 0, 0, 0.25); border: 1px solid red; }
+        .click-spots     { top: 69.5%; left: 51.5%; width: 45.5%; height: 10.5%; z-index: 100; background-color: rgba(255, 0, 0, 0.25); border: 1px solid red; }
 
-        /* [4. 🔥 긴급전화 112, 119, 1330 위치 - 메인/약국 상단 4개 카드 위치로 맞춤] */
-        .sub-call-112  { top: 40.0%; left: 4.0%; width: 21.0%; height: 12.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.3); border: 2px solid green; }
-        .sub-call-119  { top: 40.0%; left: 27.5%; width: 21.0%; height: 12.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.3); border: 2px solid green; }
-        .sub-call-1330 { top: 40.0%; left: 51.0%; width: 21.0%; height: 12.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.3); border: 2px solid green; }
+        /* [4. 🔥 초록색 박스: 긴급전화 112, 119, 1330 맨 아래쪽 위치로 이동] */
+        .sub-call-112  { top: 82.5%; left: 3.5%; width: 22.0%; height: 11.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.3); border: 2px solid green; }
+        .sub-call-119  { top: 82.5%; left: 27.5%; width: 22.0%; height: 11.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.3); border: 2px solid green; }
+        .sub-call-1330 { top: 82.5%; left: 51.5%; width: 22.0%; height: 11.0%; z-index: 999999 !important; background-color: rgba(0, 255, 0, 0.3); border: 2px solid green; }
 
-        /* [5. 🔥 약국 페이지 4번째 'Late-Night Pharmacies' 위치] */
-        .click-late-pharmacy { top: 40.0%; left: 74.5%; width: 21.0%; height: 12.0%; z-index: 999999 !important; background-color: rgba(0, 0, 255, 0.3); border: 2px solid blue; }
+        /* [5. 🔥 파란색 박스: 약국 페이지 상단 4번째 심야약국 위치] */
+        .click-late-pharmacy { top: 82.5%; left: 75.0%; width: 22.0%; height: 11.0%; z-index: 999999 !important; background-color: rgba(0, 0, 255, 0.3); border: 2px solid blue; }
 
         /* 드롭다운 메뉴 스타일 */
         .dropdown-menu {
