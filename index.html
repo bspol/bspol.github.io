@@ -31,21 +31,21 @@
             display: block;
         }
         
-        /* 🚨 터치 레이어 공통 스타일 (모바일 터치 완벽 지원) */
+        /* 🚨 터치 레이어 공통 스타일 */
         .touch-link {
             position: absolute;
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.001); /* 모바일 브라우저 터치 강제 인식용 */
-            display: none; /* 기본은 안 보이게 숨김 (터치 차단) */
+            background-color: rgba(0, 0, 0, 0.001); /* 모바일 터치 강제 인식 */
+            display: none; /* 기본 비활성화 */
             z-index: 100;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* 💡 테스트할 때 위치를 빨간 상자로 확인하고 싶다면 아래 주석(//)을 제거하세요 */
-        /* .touch-link { background-color: rgba(255, 0, 0, 0.3) !important; } */
+        /* 💡 영역 위치를 눈으로 확인하려면 아래 주석(/* */)을 풀어보세요 */
+        /* .touch-link { background-color: rgba(255, 0, 0, 0.4) !important; } */
 
-        /* [1. 홈 화면 버튼] */
+        /* [1. 홈 화면 버튼 (home.png)] */
         .btn-en { top: 55.6%; left: 6.7%; width: 86.6%; height: 6.2%; }
         .btn-cn { top: 62.4%; left: 6.7%; width: 86.6%; height: 6.2%; }
         .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; }
@@ -56,14 +56,10 @@
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 65.8%; width: 27.5%; }
 
-        /* [2. 상단 내비게이션 / 긴급전화] */
+        /* [2. 상단 지구본 메뉴 (홈이 아닐 때)] */
         .btn-lang-dropdown { top: 0.5%; left: 2.0%; width: 25.0%; height: 5.0%; z-index: 500; } 
 
-        .call-112 { top: 6.0%; left: 2.5%; width: 30.0%; height: 6.0%; z-index: 300; }
-        .call-119 { top: 6.0%; left: 35.0%; width: 30.0%; height: 6.0%; z-index: 300; }
-        .call-1330 { top: 6.0%; left: 67.5%; width: 30.0%; height: 6.0%; z-index: 300; }
-
-        /* [3. 메인 언어별 화면 하부 6개 메뉴] */
+        /* [3. 메인 언어별 화면(main_en/cn/jp/vn) 중간 메뉴 6개] */
         .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 14.0%; }
         .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 14.0%; }
         .click-embassy   { top: 62.0%; left: 2.5%; width: 46.5%; height: 14.0%; }
@@ -71,10 +67,15 @@
         .click-rules     { top: 78.0%; left: 2.5%; width: 46.5%; height: 14.0%; }
         .click-spots     { top: 78.0%; left: 51.0%; width: 46.5%; height: 14.0%; }
 
-        /* [4. 병원 및 메디컬 화면 외부 링크 영역] */
+        /* [4. 🎯 기초질서/서브화면 하단 긴급전화 버튼 정밀 보정 (이미지 맨 아래 112, 119, 1330 위치)] */
+        .sub-call-112  { top: 86.5%; left: 26.5%; width: 14.0%; height: 7.5%; z-index: 300; }
+        .sub-call-119  { top: 86.5%; left: 41.5%; width: 14.0%; height: 7.5%; z-index: 300; }
+        .sub-call-1330 { top: 86.5%; left: 56.5%; width: 14.0%; height: 7.5%; z-index: 300; }
+
+        /* [5. 병원 상세 페이지 하단 외부 링크 (병원찾기 / 정보 연동)] */
         .hospital-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 200; }
 
-        /* 언어 선택 드롭다운 메뉴 스타일 */
+        /* 언어 선택 드롭다운 스타일 */
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -132,7 +133,7 @@
 
         <!-- ▣ 터치 레이어 배포 구역 -->
         
-        <!-- [홈 화면 전용 버튼] -->
+        <!-- [1. 홈 화면 버튼] -->
         <div id="area-en" class="touch-link btn-en" onclick="showPage('en')"></div>
         <div id="area-cn" class="touch-link btn-cn" onclick="showPage('cn')"></div>
         <div id="area-jp" class="touch-link btn-jp" onclick="showPage('jp')"></div>
@@ -142,7 +143,7 @@
         <a id="h-119" href="tel:119" class="touch-link home-phone home-119"></a>
         <a id="h-1330" href="tel:1330" class="touch-link home-phone home-1330"></a>
 
-        <!-- [상단 메뉴 드롭다운 및 전화 버튼] -->
+        <!-- [2. 상단 메뉴 드롭다운] -->
         <div id="area-lang-dropdown" class="touch-link btn-lang-dropdown" onclick="toggleDropdown(event)"></div>
 
         <div id="langDropdown" class="dropdown-menu">
@@ -153,11 +154,12 @@
             <a href="javascript:void(0)" onclick="changeLanguageDirect('vn')">🇻🇳 Tiếng Việt</a>
         </div>
 
-        <a id="c-112" href="tel:112" class="touch-link call-112"></a>
-        <a id="c-119" href="tel:119" class="touch-link call-119"></a>
-        <a id="c-1330" href="tel:1330" class="touch-link call-1330"></a>
+        <!-- [3. 하단에 위치한 112, 119, 1330 신고 버튼 영역] -->
+        <a id="c-112" href="tel:112" class="touch-link sub-call-112"></a>
+        <a id="c-119" href="tel:119" class="touch-link sub-call-119"></a>
+        <a id="c-1330" href="tel:1330" class="touch-link sub-call-1330"></a>
 
-        <!-- [메인 가이드 화면 하부 6대 메뉴] -->
+        <!-- [4. 국가별 메인 화면 하부 6대 메뉴] -->
         <div id="click-hosp" class="touch-link click-hospital" onclick="clickSubMenu('hospital')"></div>
         <div id="click-phar" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')"></div>
         <div id="click-emba" class="touch-link click-embassy" onclick="showPage('sub-embassy')"></div>
@@ -165,14 +167,13 @@
         <div id="click-rule" class="touch-link click-rules" onclick="showPage('sub-rules')"></div>
         <a id="click-spot" href="https://www.visitbusan.net/index.do" target="_blank" class="touch-link click-spots"></a>
 
-        <!-- [병원 상세 페이지 하단 외부 링크] -->
+        <!-- [5. 병원/약국/메디컬 상세 페이지 외부 연결 버튼] -->
         <a id="go-ext-hospital" href="https://www.busan.go.kr/eng/bsmedical01" target="_blank" class="touch-link hospital-ext-link"></a>
     </div>
 
     <script>
-        var currentLang = 'en'; // 기본 언어 설정
+        var currentLang = 'en'; // 기본 언어
 
-        // 페이지 로드 시 첫 화면 세팅
         window.onload = function() {
             showPage('home');
         };
@@ -187,13 +188,13 @@
         function showPage(pageId) {
             document.getElementById('langDropdown').style.display = 'none';
 
-            // 모든 화면 숨기기
+            // 모든 이미지 활성화 해제
             var images = document.getElementsByClassName('main-img');
             for (var i = 0; i < images.length; i++) {
                 images[i].classList.remove('active');
             }
 
-            // Target 화면 표시
+            // 요청된 이미지 활성화
             var targetImg = document.getElementById('img-' + pageId);
             if (targetImg) {
                 targetImg.classList.add('active');
@@ -209,7 +210,7 @@
             var isMainLang = (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn');
             var isHospitalSub = pageId.includes('hospital');
 
-            // 1. 홈 화면 전용 버튼 제어
+            // 1. 홈 화면 버튼 제어
             setDisplay('area-en', isHome);
             setDisplay('area-cn', isHome);
             setDisplay('area-jp', isHome);
@@ -218,15 +219,15 @@
             setDisplay('h-119', isHome);
             setDisplay('h-1330', isHome);
 
-            // 2. 상단 지구본(드롭다운 버튼) 제어 (홈이 아닐 때만 노출)
+            // 2. 상단 지구본 버튼 (홈 아닐 때 노출)
             setDisplay('area-lang-dropdown', !isHome);
 
-            // 3. 서브화면 긴급전화 버튼 제어 (홈이 아닐 때만 노출)
+            // 3. 서브화면(기초질서, 병원, 약국 등) 하단 112/119/1330 버튼 노출
             setDisplay('c-112', !isHome);
             setDisplay('c-119', !isHome);
             setDisplay('c-1330', !isHome);
 
-            // 4. 국가별 메인 화면일 때만 6개 메뉴 버튼 활성화
+            // 4. 언어별 메인 가이드 화면 하부 6개 버튼 활성화
             setDisplay('click-hosp', isMainLang);
             setDisplay('click-phar', isMainLang);
             setDisplay('click-emba', isMainLang);
@@ -234,7 +235,7 @@
             setDisplay('click-rule', isMainLang);
             setDisplay('click-spot', isMainLang);
 
-            // 5. 병원 상세화면 하단 외부 링크 활성화
+            // 5. 병원 화면 하단 링크 활성화
             setDisplay('go-ext-hospital', isHospitalSub);
         }
 
@@ -257,9 +258,9 @@
             }
         });
 
+        // 🎯 서브메뉴(병원, 약국) 클릭 처리
         function clickSubMenu(type) {
             if (type === 'hospital') {
-                // 언어별 부산시 의료 정보 링크 설정
                 var extLink = document.getElementById('go-ext-hospital');
                 if (currentLang === 'en') extLink.href = "https://www.busan.go.kr/eng/bsmedical01";
                 if (currentLang === 'cn') extLink.href = "https://www.busan.go.kr/chn/bsmedical01";
@@ -268,6 +269,7 @@
 
                 showPage('sub-hospital-' + currentLang);
             } else if (type === 'pharmacy') {
+                // 약국 이미지(pharmacy_en.png 등)로 정상 전환
                 showPage('sub-pharmacy-' + currentLang);
             }
         }
