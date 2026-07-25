@@ -46,7 +46,7 @@
             z-index: 999999 !important;
         }
 
-        /* 1. 홈 화면 (완전 고정) */
+        /* 1. 홈 화면 */
         .btn-en { top: 54.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
         .btn-cn { top: 60.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
         .btn-jp { top: 66.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
@@ -93,11 +93,11 @@
         .med-call-119    { top: 89.0%; left: 35.5%; width: 29.0%; height: 8.5%; }
         .med-call-1330   { top: 89.0%; left: 65.5%; width: 29.0%; height: 8.5%; }
 
-        /* 8. 영사관 페이지 전체 카드 배치 (4개 행, 3개 열 정밀 매칭) */
-        .emb-row1 { top: 31.8%; height: 11.8%; }
-        .emb-row2 { top: 46.2%; height: 11.8%; }
-        .emb-row3 { top: 60.6%; height: 11.8%; }
-        .emb-row4 { top: 75.0%; height: 11.8%; }
+        /* 8. 영사관 페이지 전체 카드 배치 (행별 높이와 간격 독립 세부 조정) */
+        .emb-row1 { top: 31.8%; height: 11.2%; }
+        .emb-row2 { top: 44.8%; height: 11.2%; }
+        .emb-row3 { top: 57.8%; height: 11.2%; }
+        .emb-row4 { top: 70.8%; height: 11.2%; }
         
         .emb-col1 { left: 4.2%; width: 29.0%; }
         .emb-col2 { left: 35.5%; width: 29.0%; }
@@ -209,7 +209,7 @@
 
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
 
-        <!-- 영사관 11개국 (전화하기 / 길찾기 / 홈페이지 3분할 완벽 탑재) -->
+        <!-- 영사관 11개국 (행별 위치 완벽 보정) -->
         <div id="emb-1" class="touch-link emb-row1 emb-col1"><a href="tel:051-465-5101" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map"></a><a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-home"></a></div>
         <div id="emb-2" class="touch-link emb-row1 emb-col2"><a href="tel:051-743-7990" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산중국총영사관" target="_blank" class="e-map"></a><a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-home"></a></div>
         <div id="emb-3" class="touch-link emb-row1 emb-col3"><a href="tel:051-715-8689" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산베트남총영사관" target="_blank" class="e-map"></a><a href="https://vnconsulate-busan.org" target="_blank" class="e-home"></a></div>
