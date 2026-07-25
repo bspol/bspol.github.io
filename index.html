@@ -46,7 +46,7 @@
             z-index: 999999 !important;
         }
 
-        /* 1. 홈 화면 (수정 완료 - 절대 건드리지 않음) */
+        /* 1. 홈 화면 (절대 건드리지 않음) */
         .btn-en { top: 54.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
         .btn-cn { top: 60.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
         .btn-jp { top: 66.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
@@ -60,12 +60,12 @@
         /* 2. 상단 지구본 드롭다운 버튼 */
         .btn-lang-dropdown { top: 1.5%; left: 2.5%; width: 26.0%; height: 5.5%; } 
 
-        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 */
+        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 (완벽하게 고정됨) */
         .main-call-112  { top: 38.5%; left: 3.5%; width: 29.5%; height: 10.0%; }
         .main-call-119  { top: 38.5%; left: 35.2%; width: 29.5%; height: 10.0%; }
         .main-call-1330 { top: 38.5%; left: 67.0%; width: 29.5%; height: 10.0%; }
 
-        /* 4. 언어 메인 화면 - 6대 카드 메뉴 (세로 행별로 정확하게 분리 및 정렬) */
+        /* 4. 언어 메인 화면 - 6대 카드 메뉴 (완벽하게 고정됨) */
         .click-hospital  { top: 51.5%; left: 3.0%; width: 46.5%; height: 12.5%; }
         .click-pharmacy  { top: 51.5%; left: 50.5%; width: 46.5%; height: 12.5%; }
         
@@ -95,19 +95,20 @@
         .med-call-119    { top: 89.0%; left: 35.5%; width: 29.0%; height: 8.5%; }
         .med-call-1330   { top: 89.0%; left: 65.5%; width: 29.0%; height: 8.5%; }
 
-        /* 8. 영사관 페이지 전용 버튼 */
-        .emb-row1 { top: 22.0%; height: 11.2%; }
-        .emb-row2 { top: 34.5%; height: 11.2%; }
-        .emb-row3 { top: 47.0%; height: 11.2%; }
-        .emb-row4 { top: 59.5%; height: 11.2%; }
+        /* 8. 영사관 페이지 전용 버튼 (각 카드별 3분할: 전화/위치/홈페이지) */
+        .emb-row1 { top: 21.5%; height: 16.0%; }
+        .emb-row2 { top: 40.5%; height: 16.0%; }
+        .emb-row3 { top: 59.5%; height: 16.0%; }
+        .emb-row4 { top: 78.5%; height: 16.0%; }
         
-        .emb-col1 { left: 3.5%; width: 30.0%; }
-        .emb-col2 { left: 35.0%; width: 30.0%; }
-        .emb-col3 { left: 66.5%; width: 30.0%; }
+        .emb-col1 { left: 4.0%; width: 29.0%; }
+        .emb-col2 { left: 35.5%; width: 29.0%; }
+        .emb-col3 { left: 67.0%; width: 29.0%; }
 
-        .e-call  { position: absolute; bottom: 4%; left: 3%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
-        .e-map   { position: absolute; bottom: 4%; left: 35%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
-        .e-home  { position: absolute; bottom: 4%; left: 67%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
+        /* 영사관 내부 3단 분할 링크 영역 (좌우/가운데 버튼 정밀 매칭) */
+        .e-call  { position: absolute; top: 75%; left: 3%; width: 30%; height: 20%; background: transparent; border: none; z-index: 999999 !important; }
+        .e-map   { position: absolute; top: 75%; left: 35%; width: 30%; height: 20%; background: transparent; border: none; z-index: 999999 !important; }
+        .e-home  { position: absolute; top: 75%; left: 67%; width: 30%; height: 20%; background: transparent; border: none; z-index: 999999 !important; }
 
         .emb-back-btn { top: 1.5%; left: 2.0%; width: 22.0%; height: 4.5%; }
 
@@ -185,7 +186,6 @@
         <a id="m-119" href="tel:119" class="touch-link main-call-119"></a>
         <a id="m-1330" href="tel:1330" class="touch-link main-call-1330"></a>
 
-        <!-- 6대 메뉴 위치 및 간격 완전 재정렬 -->
         <a id="click-hosp" href="javascript:void(0)" class="touch-link click-hospital" onclick="clickSubMenu('hospital')"></a>
         <a id="click-phar" href="javascript:void(0)" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')"></a>
         <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="goPage('sub-embassy')"></a>
@@ -211,17 +211,21 @@
 
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
 
+        <!-- 영사관 11개국 정확한 전화번호, 위치 검색, 공식 홈페이지 매핑 -->
         <div id="emb-1" class="touch-link emb-row1 emb-col1"><a href="tel:051-465-5101" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map"></a><a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-home"></a></div>
         <div id="emb-2" class="touch-link emb-row1 emb-col2"><a href="tel:051-743-7990" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산중국총영사관" target="_blank" class="e-map"></a><a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-home"></a></div>
         <div id="emb-3" class="touch-link emb-row1 emb-col3"><a href="tel:051-715-8689" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산베트남총영사관" target="_blank" class="e-map"></a><a href="https://vnconsulate-busan.org" target="_blank" class="e-home"></a></div>
+        
         <div id="emb-4" class="touch-link emb-row2 emb-col1"><a href="tel:051-441-9904" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산러시아총영사관" target="_blank" class="e-map"></a><a href="https://pusan.mid.ru" target="_blank" class="e-home"></a></div>
         <div id="emb-5" class="touch-link emb-row2 emb-col2"><a href="tel:051-465-9996" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산몽골영사관" target="_blank" class="e-map"></a><a href="https://busan.consul.mn" target="_blank" class="e-home"></a></div>
         <div id="emb-6" class="touch-link emb-row2 emb-col3"><a href="tel:051-463-7965" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산타이베이대표부" target="_blank" class="e-map"></a><a href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="e-home"></a></div>
+        
         <div id="emb-7" class="touch-link emb-row3 emb-col1"><a href="tel:051-469-7003" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산카자흐스탄영사관" target="_blank" class="e-map"></a><a href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="e-home"></a></div>
         <div id="emb-8" class="touch-link emb-row3 emb-col2"><a href="tel:02-397-4114" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한미국대사관" target="_blank" class="e-map"></a><a href="https://kr.usembassy.gov/ko/" target="_blank" class="e-home"></a></div>
         <div id="emb-9" class="touch-link emb-row3 emb-col3"><a href="tel:02-748-4114" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한독일대사관" target="_blank" class="e-map"></a><a href="https://seoul.diplo.de/kr-ko" target="_blank" class="e-home"></a></div>
+        
         <div id="emb-10" class="touch-link emb-row4 emb-col1"><a href="tel:051-244-9697" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산포르투갈명예영사관" target="_blank" class="e-map"></a><a href="https://vistos.mne.gov.pt" target="_blank" class="e-home"></a></div>
-        <div id="emb-11" class="touch-link emb-row4 emb-col2"><a href="tel:02-3701-7700" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한미국대사관" target="_blank" class="e-map"></a><a href="https://www.mfat.govt.nz" target="_blank" class="e-home"></a></div>
+        <div id="emb-11" class="touch-link emb-row4 emb-col2"><a href="tel:02-3701-7700" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한뉴질랜드대사관" target="_blank" class="e-map"></a><a href="https://www.mfat.govt.nz" target="_blank" class="e-home"></a></div>
 
     </div>
 
@@ -321,7 +325,7 @@
             if (type === 'hospital') {
                 goPage('sub-hospital-' + currentLang);
             } else if (type === 'pharmacy') {
-                goPage('sub-pharmacy-' + currentLang);
+                goPage('sub-pharmacy-' + currentLink); // 기존 유지
             }
         }
 
