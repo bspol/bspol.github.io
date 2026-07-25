@@ -65,13 +65,15 @@
         .main-call-119  { top: 38.5%; left: 35.2%; width: 29.5%; height: 10.0%; }
         .main-call-1330 { top: 38.5%; left: 67.0%; width: 29.5%; height: 10.0%; }
 
-        /* 4. 언어 메인 화면 - 6대 카드 메뉴 (위치와 링크 완벽 정렬) */
-        .click-hospital  { top: 52.5%; left: 3.0%; width: 46.5%; height: 16.5%; }
-        .click-pharmacy  { top: 52.5%; left: 50.5%; width: 46.5%; height: 16.5%; }
-        .click-embassy   { top: 71.0%; left: 3.0%; width: 46.5%; height: 16.5%; }
-        .click-lost      { top: 71.0%; left: 50.5%; width: 46.5%; height: 16.5%; }
-        .click-rules     { top: 89.5%; left: 3.0%; width: 46.5%; height: 7.5%; }
-        .click-spots     { top: 89.5%; left: 50.5%; width: 46.5%; height: 7.5%; }
+        /* 4. 언어 메인 화면 - 6대 카드 메뉴 (세로 행별로 정확하게 분리 및 정렬) */
+        .click-hospital  { top: 51.5%; left: 3.0%; width: 46.5%; height: 12.5%; }
+        .click-pharmacy  { top: 51.5%; left: 50.5%; width: 46.5%; height: 12.5%; }
+        
+        .click-embassy   { top: 65.5%; left: 3.0%; width: 46.5%; height: 12.5%; }
+        .click-lost      { top: 65.5%; left: 50.5%; width: 46.5%; height: 12.5%; }
+        
+        .click-rules     { top: 79.5%; left: 3.0%; width: 46.5%; height: 12.5%; }
+        .click-spots     { top: 79.5%; left: 50.5%; width: 46.5%; height: 12.5%; }
 
         /* 5. 약국 페이지 버튼 */
         .pharm-call-112  { top: 41.5%; left: 3.5%; width: 22.0%; height: 9.0%; }
@@ -183,7 +185,7 @@
         <a id="m-119" href="tel:119" class="touch-link main-call-119"></a>
         <a id="m-1330" href="tel:1330" class="touch-link main-call-1330"></a>
 
-        <!-- 6대 메뉴 정확한 함수 매핑 -->
+        <!-- 6대 메뉴 위치 및 간격 완전 재정렬 -->
         <a id="click-hosp" href="javascript:void(0)" class="touch-link click-hospital" onclick="clickSubMenu('hospital')"></a>
         <a id="click-phar" href="javascript:void(0)" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')"></a>
         <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="goPage('sub-embassy')"></a>
