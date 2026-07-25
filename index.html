@@ -32,25 +32,24 @@
             display: block;
         }
         
-        /* 🚨 터치 레이어 공통 스타일 (투명 처리 및 클릭 터치 최우선 보장) */
+        /* 터치 레이어 공통 (투명 설정) */
         .touch-link {
             position: absolute;
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.001); /* 투명하게 변경 완료 */
+            background-color: rgba(0, 0, 0, 0.001);
             display: none;
-            z-index: 1000;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto;
         }
 
         /* [1. 대표 메인 홈 화면 버튼 (home.png)] */
-        .btn-en { top: 55.6%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 9999; }
-        .btn-cn { top: 62.4%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 9999; }
-        .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 9999; }
-        .btn-vn { top: 76.0%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 9999; }
+        .btn-en { top: 55.6%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 2000; }
+        .btn-cn { top: 62.4%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 2000; }
+        .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 2000; }
+        .btn-vn { top: 76.0%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 2000; }
 
-        .home-phone { top: 81.5%; height: 10.5%; z-index: 9999; }
+        .home-phone { top: 81.5%; height: 10.5%; z-index: 2000; }
         .home-112 { left: 6.7%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 65.8%; width: 27.5%; }
@@ -58,22 +57,22 @@
         /* [2. 상단 지구본 드롭다운 메뉴 버튼] */
         .btn-lang-dropdown { top: 0.5%; left: 2.0%; width: 25.0%; height: 5.0%; z-index: 9000; } 
 
-        /* [3. 언어별 메인 화면(main_en/cn/jp/vn) 중간 6대 메뉴] */
-        .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 14.0%; z-index: 5000; }
-        .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 14.0%; z-index: 5000; }
-        .click-embassy   { top: 62.0%; left: 2.5%; width: 46.5%; height: 14.0%; z-index: 5000; }
-        .click-lost      { top: 62.0%; left: 51.0%; width: 46.5%; height: 14.0%; z-index: 5000; }
-        .click-rules     { top: 78.0%; left: 2.5%; width: 46.5%; height: 14.0%; z-index: 5000; }
-        .click-spots     { top: 78.0%; left: 51.0%; width: 46.5%; height: 14.0%; z-index: 5000; }
+        /* [3. 언어별 메인 화면 중간 6대 메뉴 - 높이 조정하여 하단 버튼 방해 금지] */
+        .click-hospital  { top: 45.4%; left: 2.5%; width: 46.5%; height: 12.0%; z-index: 1000; }
+        .click-pharmacy  { top: 45.4%; left: 51.0%; width: 46.5%; height: 12.0%; z-index: 1000; }
+        .click-embassy   { top: 60.0%; left: 2.5%; width: 46.5%; height: 12.0%; z-index: 1000; }
+        .click-lost      { top: 60.0%; left: 51.0%; width: 46.5%; height: 12.0%; z-index: 1000; }
+        .click-rules     { top: 74.0%; left: 2.5%; width: 46.5%; height: 10.0%; z-index: 1000; }
+        .click-spots     { top: 74.0%; left: 51.0%; width: 46.5%; height: 10.0%; z-index: 1000; }
 
-        /* [4. 🚓 최하단 고정 긴급신고 버튼 (어느 서브 화면에서든 최우선 터치)] */
-        .sub-call-112  { top: 86.5%; left: 26.5%; width: 14.0%; height: 7.5%; z-index: 9999; }
-        .sub-call-119  { top: 86.5%; left: 41.5%; width: 14.0%; height: 7.5%; z-index: 9999; }
-        .sub-call-1330 { top: 86.5%; left: 56.5%; width: 14.0%; height: 7.5%; z-index: 9999; }
+        /* [4. 🚓 최하단 고정 긴급신고 버튼 (z-index 99999로 최상단 강제 지정)] */
+        .sub-call-112  { top: 86.5%; left: 26.5%; width: 14.0%; height: 7.5%; z-index: 99999 !important; }
+        .sub-call-119  { top: 86.5%; left: 41.5%; width: 14.0%; height: 7.5%; z-index: 99999 !important; }
+        .sub-call-1330 { top: 86.5%; left: 56.5%; width: 14.0%; height: 7.5%; z-index: 99999 !important; }
 
         /* [5. 병원/약국 외부 상세 링크] */
-        .hospital-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 5000; }
-        .pharmacy-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 5000; }
+        .hospital-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 2000; }
+        .pharmacy-ext-link { top: 82.0%; left: 5.0%; width: 90.0%; height: 12.0%; z-index: 2000; }
 
         /* 언어 선택 드롭다운 스타일 */
         .dropdown-menu {
@@ -116,7 +115,6 @@
         <!-- 서브 화면들 -->
         <img id="img-sub-rules" class="main-img" src="basicrules.png" alt="Basic Rules">
         <img id="img-sub-embassy" class="main-img" src="embassy.png" alt="Embassies">
-        <img id="img-sub-medinfo" class="main-img" src="medical_info.png" alt="Medical Info">
 
         <!-- 병원 서브 화면들 -->
         <img id="img-sub-hospital-en" class="main-img" src="hospital_en.png" alt="Hospital EN">
@@ -165,7 +163,7 @@
         <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="goPage('sub-embassy')"></a>
         <a id="click-lost" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" class="touch-link click-lost"></a>
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="goPage('sub-rules')"></a>
-        <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map/data=!3m1!4b1?entry=ttu&amp;g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw==" target="_blank" class="touch-link click-spots"></a>
+        <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map" target="_blank" class="touch-link click-spots"></a>
 
         <!-- [5. 상세화면 외부 연결 버튼] -->
         <a id="go-ext-hospital" href="https://www.e-gen.or.kr/egen/main.do" target="_blank" class="touch-link hospital-ext-link"></a>
@@ -182,15 +180,12 @@
             }
         }
 
-        function goPage(targetPage) {
-            if (!targetPage) return;
-            var pageId = String(targetPage).toLowerCase();
+        function goPage(pageId) {
+            if (!pageId) return;
 
-            // 1. 드롭다운 닫기
             var dropdown = document.getElementById('langDropdown');
             if (dropdown) dropdown.style.display = 'none';
 
-            // 2. 모든 이미지 숨기기 후 Target 이미지만 노출
             var images = document.getElementsByClassName('main-img');
             for (var i = 0; i < images.length; i++) {
                 images[i].classList.remove('active');
@@ -202,7 +197,6 @@
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // 3. 언어 상태 저장
             if (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn') {
                 currentLang = pageId;
             }
@@ -212,7 +206,6 @@
             var isHospitalSub = pageId.indexOf('hospital') !== -1;
             var isPharmacySub = pageId.indexOf('pharmacy') !== -1;
 
-            // 4. 메인 홈 화면 전용 버튼
             setDisplay('area-en', isHome);
             setDisplay('area-cn', isHome);
             setDisplay('area-jp', isHome);
@@ -221,13 +214,11 @@
             setDisplay('h-119', isHome);
             setDisplay('h-1330', isHome);
 
-            // 5. 서브페이지 공통 버튼 (홈이 아닐 때 항시 노출)
             setDisplay('area-lang-dropdown', !isHome);
             setDisplay('c-112', !isHome);
             setDisplay('c-119', !isHome);
             setDisplay('c-1330', !isHome);
 
-            // 6. 언어별 메인(main_en/cn/jp/vn) 6개 메뉴
             setDisplay('click-hosp', isMainLang);
             setDisplay('click-phar', isMainLang);
             setDisplay('click-emba', isMainLang);
@@ -235,7 +226,6 @@
             setDisplay('click-rule', isMainLang);
             setDisplay('click-spot', isMainLang);
 
-            // 7. 외부 링크 버튼 (병원/약국 상세 전용)
             setDisplay('go-ext-hospital', isHospitalSub);
             setDisplay('go-ext-pharmacy', isPharmacySub);
         }
@@ -258,17 +248,12 @@
 
         function clickSubMenu(type) {
             if (type === 'hospital') {
-                var extHospital = document.getElementById('go-ext-hospital');
-                if(extHospital) extHospital.href = "https://www.e-gen.or.kr/egen/main.do";
                 goPage('sub-hospital-' + currentLang);
             } else if (type === 'pharmacy') {
-                var extPharmacy = document.getElementById('go-ext-pharmacy');
-                if(extPharmacy) extPharmacy.href = "https://www.pharm114.or.kr/";
                 goPage('sub-pharmacy-' + currentLang);
             }
         }
 
-        // 초기 시작
         window.onload = function() {
             goPage('home');
         };
