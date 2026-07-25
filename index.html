@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Busan Foreigner Safety Platform</title>
+    <title>Busan Foreigner Safety Platform - Debug</title>
     <style>
         html, body {
             margin: 0;
@@ -32,7 +32,7 @@
             display: block;
         }
         
-        /* 터치 링크 기본 설정 (배경 및 테두리 완전 투명화) */
+        /* 🛠 디버깅 확인용 가이드 색상 재적용 (위치를 눈으로 확인 후 투명화 가능) */
         .touch-link {
             position: absolute;
             cursor: pointer;
@@ -41,12 +41,12 @@
             -webkit-tap-highlight-color: transparent;
             pointer-events: auto;
             box-sizing: border-box;
-            background-color: transparent;
-            border: none;
+            background-color: rgba(255, 0, 0, 0.4); /* 반투명 빨간색 */
+            border: 2px solid yellow; /* 노란색 테두리 */
             z-index: 999999 !important;
         }
 
-        /* 1. 홈 화면 (나라별 칸 및 하단 긴급전화 위치 재조정) */
+        /* 1. 홈 화면 */
         .btn-en { top: 56.2%; left: 6.5%; width: 87.0%; height: 7.2%; }
         .btn-cn { top: 65.0%; left: 6.5%; width: 87.0%; height: 7.2%; }
         .btn-jp { top: 73.8%; left: 6.5%; width: 87.0%; height: 7.2%; }
@@ -79,7 +79,7 @@
         .pharm-call-1330 { top: 41.5%; left: 51.5%; width: 22.0%; height: 9.0%; }
         .pharm-late-link { top: 41.5%; left: 75.5%; width: 22.0%; height: 9.0%; }
 
-        /* 6. 병원 페이지 버튼 (상단 전화 3개, 하단 기능 3개) */
+        /* 6. 병원 페이지 버튼 */
         .hosp-call-112   { top: 45.0%; left: 5.0%; width: 28.0%; height: 9.5%; }
         .hosp-call-119   { top: 45.0%; left: 36.0%; width: 28.0%; height: 9.5%; }
         .hosp-call-1330  { top: 45.0%; left: 67.0%; width: 28.0%; height: 9.5%; }
@@ -103,13 +103,12 @@
         .emb-col2 { left: 35.0%; width: 30.0%; }
         .emb-col3 { left: 66.5%; width: 30.0%; }
 
-        .e-call  { position: absolute; bottom: 4%; left: 3%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
-        .e-map   { position: absolute; bottom: 4%; left: 35%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
-        .e-home  { position: absolute; bottom: 4%; left: 67%; width: 30%; height: 45%; background: transparent; border: none; z-index: 999999 !important; }
+        .e-call  { position: absolute; bottom: 4%; left: 3%; width: 30%; height: 45%; background: rgba(0, 255, 0, 0.3); border: 1px dashed white; z-index: 999999 !important; }
+        .e-map   { position: absolute; bottom: 4%; left: 35%; width: 30%; height: 45%; background: rgba(0, 255, 0, 0.3); border: 1px dashed white; z-index: 999999 !important; }
+        .e-home  { position: absolute; bottom: 4%; left: 67%; width: 30%; height: 45%; background: rgba(0, 255, 0, 0.3); border: 1px dashed white; z-index: 999999 !important; }
 
         .emb-back-btn { top: 1.5%; left: 2.0%; width: 22.0%; height: 4.5%; }
 
-        /* 지구본 드롭다운 메뉴 스타일 */
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -137,7 +136,6 @@
 <body>
 
     <div class="container">
-        <!-- 이미지 보관함 -->
         <img id="img-home" class="main-img active" src="home.png" alt="Home">
         <img id="img-en" class="main-img" src="main_en.png" alt="English">
         <img id="img-cn" class="main-img" src="main_cn.png" alt="Chinese">
@@ -147,25 +145,21 @@
         <img id="img-sub-rules" class="main-img" src="basicrules.png" alt="Basic Rules">
         <img id="img-sub-embassy" class="main-img" src="embassy.png" alt="Embassies">
 
-        <!-- 병원 서브 화면들 -->
         <img id="img-sub-hospital-en" class="main-img" src="hospital_en.png" alt="Hospital EN">
         <img id="img-sub-hospital-cn" class="main-img" src="hospital_cn.png" alt="Hospital CN">
         <img id="img-sub-hospital-jp" class="main-img" src="hospital_jp.png" alt="Hospital JP">
         <img id="img-sub-hospital-vn" class="main-img" src="hospital_vn.png" alt="Hospital VN">
 
-        <!-- 의료정보 세부 화면들 -->
         <img id="img-sub-medinfo-en" class="main-img" src="medical-info-en.png" alt="Medical Info EN">
         <img id="img-sub-medinfo-cn" class="main-img" src="medical-info-cn.png" alt="Medical Info CN">
         <img id="img-sub-medinfo-jp" class="main-img" src="medical-info-jp.png" alt="Medical Info JP">
         <img id="img-sub-medinfo-vn" class="main-img" src="medical-info-vn.png" alt="Medical Info VN">
 
-        <!-- 약국 서브 화면들 -->
         <img id="img-sub-pharmacy-en" class="main-img" src="pharmacy_en.png" alt="Pharmacy EN">
         <img id="img-sub-pharmacy-cn" class="main-img" src="pharmacy_cn.png" alt="Pharmacy CN">
         <img id="img-sub-pharmacy-jp" class="main-img" src="pharmacy_jp.png" alt="Pharmacy JP">
         <img id="img-sub-pharmacy-vn" class="main-img" src="pharmacy_vn.png" alt="Pharmacy VN">
 
-        <!-- 터치 레이어 -->
         <a id="area-en" href="javascript:void(0)" class="touch-link btn-en" onclick="goPage('en')"></a>
         <a id="area-cn" href="javascript:void(0)" class="touch-link btn-cn" onclick="goPage('cn')"></a>
         <a id="area-jp" href="javascript:void(0)" class="touch-link btn-jp" onclick="goPage('jp')"></a>
@@ -196,13 +190,11 @@
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="goPage('sub-rules')"></a>
         <a id="click-spots" href="https://www.google.com/maps/search/Busan+tourist+map" target="_blank" class="touch-link click-spots"></a>
 
-        <!-- 약국 4개 버튼 -->
         <a id="p-112" href="tel:112" class="touch-link pharm-call-112"></a>
         <a id="p-119" href="tel:119" class="touch-link pharm-call-119"></a>
         <a id="p-1330" href="tel:1330" class="touch-link pharm-call-1330"></a>
         <a id="p-late" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" class="touch-link pharm-late-link"></a>
 
-        <!-- 병원 버튼 -->
         <a id="hp-112" href="tel:112" class="touch-link hosp-call-112"></a>
         <a id="hp-119" href="tel:119" class="touch-link hosp-call-119"></a>
         <a id="hp-1330" href="tel:1330" class="touch-link hosp-call-1330"></a>
@@ -214,10 +206,8 @@
         <a id="med-119" href="tel:119" class="touch-link med-call-119"></a>
         <a id="med-1330" href="tel:1330" class="touch-link med-call-1330"></a>
 
-        <!-- 영사관 페이지 상단 Back 버튼 -->
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
 
-        <!-- 영사관 11개국 버튼 그룹 -->
         <div id="emb-1" class="touch-link emb-row1 emb-col1"><a href="tel:051-465-5101" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map"></a><a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-home"></a></div>
         <div id="emb-2" class="touch-link emb-row1 emb-col2"><a href="tel:051-743-7990" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산중국총영사관" target="_blank" class="e-map"></a><a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-home"></a></div>
         <div id="emb-3" class="touch-link emb-row1 emb-col3"><a href="tel:051-715-8689" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산베트남총영사관" target="_blank" class="e-map"></a><a href="https://vnconsulate-busan.org" target="_blank" class="e-home"></a></div>
