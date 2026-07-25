@@ -46,15 +46,13 @@
         }
 
         /* =========================================
-           [1. 홈 화면 (home.png) - Y축 높이 및 간격 정밀 조정]
-           영어 -> 중국어 -> 일본어 -> 베트남어 순서
+           [1. 홈 화면 (home.png) - 완벽 고정]
         ========================================= */
         .btn-en { top: 53.8%; left: 7.0%; width: 86.0%; height: 5.5%; z-index: 2000; }
         .btn-cn { top: 60.8%; left: 7.0%; width: 86.0%; height: 5.5%; z-index: 2000; }
         .btn-jp { top: 67.8%; left: 7.0%; width: 86.0%; height: 5.5%; z-index: 2000; }
         .btn-vn { top: 74.8%; left: 7.0%; width: 86.0%; height: 5.5%; z-index: 2000; }
 
-        /* 하단 긴급전화 3개 버튼 (112, 119, 1330) */
         .home-phone { top: 84.5%; height: 8.5%; z-index: 2000; }
         .home-112 { left: 7.0%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
@@ -66,14 +64,14 @@
         .btn-lang-dropdown { top: 1.0%; left: 2.0%; width: 27.0%; height: 4.5%; z-index: 90000; } 
 
         /* =========================================
-           [3. 언어 메인 화면 - CALL 버튼 3개] 
+           [3. 언어 메인 화면 - CALL 버튼 3개 - 완벽 고정] 
         ========================================= */
         .main-call-112  { top: 35.8%; left: 6.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
         .main-call-119  { top: 35.8%; left: 37.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
         .main-call-1330 { top: 35.8%; left: 68.0%; width: 26.0%; height: 4.8%; z-index: 999999 !important; }
 
         /* =========================================
-           [4. 언어 메인 화면 - 6대 카드 메뉴] 
+           [4. 언어 메인 화면 - 6대 카드 메뉴 - 완벽 고정] 
         ========================================= */
         .click-hospital  { top: 41.8%; left: 2.5%; width: 46.5%; height: 18.0%; z-index: 100; }
         .click-pharmacy  { top: 41.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
@@ -85,12 +83,23 @@
         .click-spots     { top: 79.8%; left: 51.0%; width: 46.5%; height: 18.0%; z-index: 100; }
 
         /* =========================================
-           [5. 약국 페이지 - 심야약국 부산시 링크] 
+           [5. 약국 페이지 버튼] 
         ========================================= */
         .pharm-call-112  { top: 38.0%; left: 3.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
         .pharm-call-119  { top: 38.0%; left: 27.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
         .pharm-call-1330 { top: 38.0%; left: 50.5%; width: 22.0%; height: 12.0%; z-index: 999999 !important; }
         .pharm-late-link { top: 38.0%; left: 74.0%; width: 22.5%; height: 12.0%; z-index: 999999 !important; }
+
+        /* =========================================
+           [6. 병원 페이지 전용 버튼 (신규 추가)] 
+        ========================================= */
+        .hosp-call-112   { top: 37.0%; left: 6.5%; width: 27.0%; height: 11.5%; z-index: 999999 !important; }
+        .hosp-call-119   { top: 37.0%; left: 36.5%; width: 27.0%; height: 11.5%; z-index: 999999 !important; }
+        .hosp-call-1330  { top: 37.0%; left: 66.5%; width: 27.0%; height: 11.5%; z-index: 999999 !important; }
+
+        .hosp-find-map   { top: 51.5%; left: 5.5%; width: 29.0%; height: 26.5%; z-index: 100; }
+        .hosp-emergency  { top: 51.5%; left: 35.5%; width: 29.0%; height: 26.5%; z-index: 100; }
+        .hosp-medinfo    { top: 51.5%; left: 65.5%; width: 29.0%; height: 26.5%; z-index: 100; }
 
         /* 지구본 드롭다운 메뉴 스타일 */
         .dropdown-menu {
@@ -133,11 +142,19 @@
         <img id="img-sub-rules" class="main-img" src="basicrules.png" alt="Basic Rules">
         <img id="img-sub-embassy" class="main-img" src="embassy.png" alt="Embassies">
 
+        <!-- 병원 서브 화면들 -->
         <img id="img-sub-hospital-en" class="main-img" src="hospital_en.png" alt="Hospital EN">
         <img id="img-sub-hospital-cn" class="main-img" src="hospital_cn.png" alt="Hospital CN">
         <img id="img-sub-hospital-jp" class="main-img" src="hospital_jp.png" alt="Hospital JP">
         <img id="img-sub-hospital-vn" class="main-img" src="hospital_vn.png" alt="Hospital VN">
 
+        <!-- 의료정보 세부 화면들 -->
+        <img id="img-sub-medinfo-en" class="main-img" src="medical-info-en.png" alt="Medical Info EN">
+        <img id="img-sub-medinfo-cn" class="main-img" src="medical-info-cn.png" alt="Medical Info CN">
+        <img id="img-sub-medinfo-jp" class="main-img" src="medical-info-jp.png" alt="Medical Info JP">
+        <img id="img-sub-medinfo-vn" class="main-img" src="medical-info-vn.png" alt="Medical Info VN">
+
+        <!-- 약국 서브 화면들 -->
         <img id="img-sub-pharmacy-en" class="main-img" src="pharmacy_en.png" alt="Pharmacy EN">
         <img id="img-sub-pharmacy-cn" class="main-img" src="pharmacy_cn.png" alt="Pharmacy CN">
         <img id="img-sub-pharmacy-jp" class="main-img" src="pharmacy_jp.png" alt="Pharmacy JP">
@@ -185,6 +202,14 @@
         <a id="p-119" href="tel:119" class="touch-link pharm-call-119"></a>
         <a id="p-1330" href="tel:1330" class="touch-link pharm-call-1330"></a>
         <a id="p-late" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" class="touch-link pharm-late-link"></a>
+
+        <!-- [6. 병원 페이지 전용 버튼] -->
+        <a id="hp-112" href="tel:112" class="touch-link hosp-call-112"></a>
+        <a id="hp-119" href="tel:119" class="touch-link hosp-call-119"></a>
+        <a id="hp-1330" href="tel:1330" class="touch-link hosp-call-1330"></a>
+        <a id="hp-find" href="https://www.google.com/maps/search/?api=1&query=hospital" target="_blank" class="touch-link hosp-find-map"></a>
+        <a id="hp-emer" href="https://www.google.com/maps/search/?api=1&query=emergency+room" target="_blank" class="touch-link hosp-emergency"></a>
+        <a id="hp-med" href="javascript:void(0)" class="touch-link hosp-medinfo" onclick="goPage('sub-medinfo-' + currentLang)"></a>
     </div>
 
     <script>
@@ -221,6 +246,7 @@
             var isHome = (pageId === 'home');
             var isMainLang = (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn');
             var isPharmacySub = pageId.indexOf('pharmacy') !== -1;
+            var isHospitalSub = pageId.indexOf('hospital') !== -1;
 
             setDisplay('area-en', isHome);
             setDisplay('area-cn', isHome);
@@ -246,6 +272,13 @@
             setDisplay('p-119', isPharmacySub);
             setDisplay('p-1330', isPharmacySub);
             setDisplay('p-late', isPharmacySub);
+
+            setDisplay('hp-112', isHospitalSub);
+            setDisplay('hp-119', isHospitalSub);
+            setDisplay('hp-1330', isHospitalSub);
+            setDisplay('hp-find', isHospitalSub);
+            setDisplay('hp-emer', isHospitalSub);
+            setDisplay('hp-med', isHospitalSub);
         }
 
         function toggleDropdown(event) {
