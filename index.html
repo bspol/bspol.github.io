@@ -47,7 +47,7 @@
         /* 💡 영역 위치를 확인해보려면 아래 주석(/* */)을 해제하세요 */
         /* .touch-link { background-color: rgba(255, 0, 0, 0.4) !important; } */
 
-        /* [1. 홈 화면 버튼 (home.png) - 🚨 btn-en 복구 완료!] */
+        /* [1. 홈 화면 버튼 (home.png)] */
         .btn-en { top: 55.6%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
         .btn-cn { top: 62.4%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
         .btn-jp { top: 69.2%; left: 6.7%; width: 86.6%; height: 6.2%; z-index: 300; }
@@ -170,8 +170,8 @@
         <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="showPage('sub-rules')"></a>
         <a id="click-spot" href="https://www.google.com/maps/search/Busan+tourist+map/data=!3m1!4b1?entry=ttu&amp;g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw==" target="_blank" class="touch-link click-spots"></a>
 
-        <!-- [5. 상세화면 외부 연결 버튼] -->
-        <a id="go-ext-hospital" href="https://www.busan.go.kr/eng/bsmedical01" target="_blank" class="touch-link hospital-ext-link"></a>
+        <!-- [5. 상세화면 외부 연결 버튼 - 병원 주소 정정 완료!] -->
+        <a id="go-ext-hospital" href="https://www.e-gen.or.kr/egen/main.do" target="_blank" class="touch-link hospital-ext-link"></a>
         <a id="go-ext-pharmacy" href="https://www.pharm114.or.kr/" target="_blank" class="touch-link pharmacy-ext-link"></a>
     </div>
 
@@ -263,10 +263,8 @@
         function clickSubMenu(type) {
             if (type === 'hospital') {
                 var extHospital = document.getElementById('go-ext-hospital');
-                if (currentLang === 'en') extHospital.href = "https://www.busan.go.kr/eng/bsmedical01";
-                if (currentLang === 'cn') extHospital.href = "https://www.busan.go.kr/chn/bsmedical01";
-                if (currentLang === 'jp') extHospital.href = "https://www.busan.go.kr/jap/bsmedical01";
-                if (currentLang === 'vn') extHospital.href = "https://www.busan.go.kr/eng/bsmedical01";
+                // 🚨 응급의료포털(E-Gen) 및 부산 공식 의료기관 검색 링크로 정정
+                extHospital.href = "https://www.e-gen.or.kr/egen/main.do";
 
                 showPage('sub-hospital-' + currentLang);
             } else if (type === 'pharmacy') {
