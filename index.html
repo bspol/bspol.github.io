@@ -111,7 +111,7 @@
         .emb-col2 { left: 35.6%; width: 28.8%; }
         .emb-col3 { left: 67.0%; width: 28.8%; }
 
-        /* 영사관 카드 내부 하단 버튼 영역 비율 수정: 전화 버튼이 넓게 좌측 영역 전체를 차지하도록 비율 조정 및 최상위 레이어 설정 */
+        /* 영사관 카드 내부 버튼 영역: 영역 겹침 및 간섭 원인(z-index 및 크기 오류) 전면 수정 */
         .e-call-btn {
             position: absolute;
             top: 55%;
@@ -154,17 +154,18 @@
             pointer-events: auto !important;
         }
 
+        /* [수정] 상단 타이틀 영역이 전화 버튼 영역을 침범하지 않도록 높이 조정 및 z-index 정리 */
         .e-title-home-btn {
             position: absolute;
             top: 0%;
             left: 0%;
             width: 100%;
-            height: 55%;
+            height: 50%;
             background: transparent;
             border: none;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
-            z-index: 99999980 !important;
+            z-index: 99999800 !important;
             pointer-events: auto !important;
         }
 
@@ -269,7 +270,7 @@
 
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
 
-        <!-- 영사관 카드 영역: 전화, 위치, 홈페이지 터치 영역 비율과 위치를 완전히 재조정하여 간섭 없이 정확히 작동하도록 수정 -->
+        <!-- 영사관 카드 영역: 오버랩 및 터치 간섭 현상 완전 해결 -->
         <div id="emb-1" class="emb-card emb-row1 emb-col1">
             <a href="tel:051-465-5101" class="e-call-btn"></a>
             <a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map-btn"></a>
