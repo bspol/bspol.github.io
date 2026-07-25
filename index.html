@@ -93,20 +93,47 @@
         .med-call-119    { top: 89.0%; left: 35.5%; width: 29.0%; height: 8.5%; }
         .med-call-1330   { top: 89.0%; left: 65.5%; width: 29.0%; height: 8.5%; }
 
-        /* 8. 영사관 페이지 전체 카드 배치 (행별 높이와 간격 독립 세부 조정) */
+        /* 8. 영사관 페이지 카드 레이아웃 (정밀 그리드 지정) */
+        .emb-card {
+            position: absolute;
+            display: none;
+            box-sizing: border-box;
+            z-index: 999999 !important;
+        }
+
+        /* 행 배치 (4개 줄) */
         .emb-row1 { top: 31.8%; height: 11.2%; }
         .emb-row2 { top: 44.8%; height: 11.2%; }
         .emb-row3 { top: 57.8%; height: 11.2%; }
         .emb-row4 { top: 70.8%; height: 11.2%; }
         
-        .emb-col1 { left: 4.2%; width: 29.0%; }
-        .emb-col2 { left: 35.5%; width: 29.0%; }
-        .emb-col3 { left: 66.8%; width: 29.0%; }
+        /* 열 배치 (3개 칸) */
+        .emb-col1 { left: 4.2%; width: 28.8%; }
+        .emb-col2 { left: 35.6%; width: 28.8%; }
+        .emb-col3 { left: 67.0%; width: 28.8%; }
 
-        /* 각 카드 내부의 3가지 버튼(전화하기 / 길찾기 / 홈페이지) 위치 및 간격 완벽 분할 */
-        .e-call  { position: absolute; top: 68%; left: 2%; width: 30%; height: 28%; background: transparent; border: none; z-index: 999999 !important; }
-        .e-map   { position: absolute; top: 68%; left: 35%; width: 30%; height: 28%; background: transparent; border: none; z-index: 999999 !important; }
-        .e-home  { position: absolute; top: 68%; left: 68%; width: 30%; height: 28%; background: transparent; border: none; z-index: 999999 !important; }
+        /* 카드 내부 하단 버튼 3분할 (Flexbox 정렬로 밀착 및 빈틈 차단) */
+        .emb-buttons-wrap {
+            position: absolute;
+            top: 67%;
+            left: 2%;
+            width: 96%;
+            height: 29%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .e-btn {
+            display: block;
+            width: 32%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         .emb-back-btn { top: 1.5%; left: 2.0%; width: 22.0%; height: 4.5%; }
 
@@ -209,21 +236,21 @@
 
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
 
-        <!-- 영사관 11개국 (행별 위치 완벽 보정) -->
-        <div id="emb-1" class="touch-link emb-row1 emb-col1"><a href="tel:051-465-5101" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-map"></a><a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-home"></a></div>
-        <div id="emb-2" class="touch-link emb-row1 emb-col2"><a href="tel:051-743-7990" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산중국총영사관" target="_blank" class="e-map"></a><a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-home"></a></div>
-        <div id="emb-3" class="touch-link emb-row1 emb-col3"><a href="tel:051-715-8689" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산베트남총영사관" target="_blank" class="e-map"></a><a href="https://vnconsulate-busan.org" target="_blank" class="e-home"></a></div>
+        <!-- 영사관 11개국 (플렉스박스 3분할 적용 카드) -->
+        <div id="emb-1" class="emb-card emb-row1 emb-col1"><div class="emb-buttons-wrap"><a href="tel:051-465-5101" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산일본국총영사관" target="_blank" class="e-btn"></a><a href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="e-btn"></a></div></div>
+        <div id="emb-2" class="emb-card emb-row1 emb-col2"><div class="emb-buttons-wrap"><a href="tel:051-743-7990" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산중국총영사관" target="_blank" class="e-btn"></a><a href="http://busan.china-consulate.gov.cn" target="_blank" class="e-btn"></a></div></div>
+        <div id="emb-3" class="emb-card emb-row1 emb-col3"><div class="emb-buttons-wrap"><a href="tel:051-715-8689" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산베트남총영사관" target="_blank" class="e-btn"></a><a href="https://vnconsulate-busan.org" target="_blank" class="e-btn"></a></div></div>
         
-        <div id="emb-4" class="touch-link emb-row2 emb-col1"><a href="tel:051-441-9904" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산러시아총영사관" target="_blank" class="e-map"></a><a href="https://pusan.mid.ru" target="_blank" class="e-home"></a></div>
-        <div id="emb-5" class="touch-link emb-row2 emb-col2"><a href="tel:051-465-9996" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산몽골영사관" target="_blank" class="e-map"></a><a href="https://busan.consul.mn" target="_blank" class="e-home"></a></div>
-        <div id="emb-6" class="touch-link emb-row2 emb-col3"><a href="tel:051-463-7965" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산타이베이대표부" target="_blank" class="e-map"></a><a href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="e-home"></a></div>
+        <div id="emb-4" class="emb-card emb-row2 emb-col1"><div class="emb-buttons-wrap"><a href="tel:051-441-9904" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산러시아총영사관" target="_blank" class="e-btn"></a><a href="https://pusan.mid.ru" target="_blank" class="e-btn"></a></div></div>
+        <div id="emb-5" class="emb-card emb-row2 emb-col2"><div class="emb-buttons-wrap"><a href="tel:051-465-9996" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산몽골영사관" target="_blank" class="e-btn"></a><a href="https://busan.consul.mn" target="_blank" class="e-btn"></a></div></div>
+        <div id="emb-6" class="emb-card emb-row2 emb-col3"><div class="emb-buttons-wrap"><a href="tel:051-463-7965" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산타이베이대표부" target="_blank" class="e-btn"></a><a href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="e-btn"></a></div></div>
         
-        <div id="emb-7" class="touch-link emb-row3 emb-col1"><a href="tel:051-469-7003" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산카자흐스탄영사관" target="_blank" class="e-map"></a><a href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="e-home"></a></div>
-        <div id="emb-8" class="touch-link emb-row3 emb-col2"><a href="tel:02-397-4114" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한미국대사관" target="_blank" class="e-map"></a><a href="https://kr.usembassy.gov/ko/" target="_blank" class="e-home"></a></div>
-        <div id="emb-9" class="touch-link emb-row3 emb-col3"><a href="tel:02-748-4114" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한독일대사관" target="_blank" class="e-map"></a><a href="https://seoul.diplo.de/kr-ko" target="_blank" class="e-home"></a></div>
+        <div id="emb-7" class="emb-card emb-row3 emb-col1"><div class="emb-buttons-wrap"><a href="tel:051-469-7003" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산카자흐스탄영사관" target="_blank" class="e-btn"></a><a href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="e-btn"></a></div></div>
+        <div id="emb-8" class="emb-card emb-row3 emb-col2"><div class="emb-buttons-wrap"><a href="tel:02-397-4114" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주한미국대사관" target="_blank" class="e-btn"></a><a href="https://kr.usembassy.gov/ko/" target="_blank" class="e-btn"></a></div></div>
+        <div id="emb-9" class="emb-card emb-row3 emb-col3"><div class="emb-buttons-wrap"><a href="tel:02-748-4114" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주한독일대사관" target="_blank" class="e-btn"></a><a href="https://seoul.diplo.de/kr-ko" target="_blank" class="e-btn"></a></div></div>
         
-        <div id="emb-10" class="touch-link emb-row4 emb-col1"><a href="tel:051-244-9697" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산포르투갈명예영사관" target="_blank" class="e-map"></a><a href="https://vistos.mne.gov.pt" target="_blank" class="e-home"></a></div>
-        <div id="emb-11" class="touch-link emb-row4 emb-col2"><a href="tel:02-3701-7700" class="e-call"></a><a href="https://www.google.com/maps/search/?api=1&query=주한뉴질랜드대사관" target="_blank" class="e-map"></a><a href="https://www.mfat.govt.nz" target="_blank" class="e-home"></a></div>
+        <div id="emb-10" class="emb-card emb-row4 emb-col1"><div class="emb-buttons-wrap"><a href="tel:051-244-9697" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주부산포르투갈명예영사관" target="_blank" class="e-btn"></a><a href="https://vistos.mne.gov.pt" target="_blank" class="e-btn"></a></div></div>
+        <div id="emb-11" class="emb-card emb-row4 emb-col2"><div class="emb-buttons-wrap"><a href="tel:02-3701-7700" class="e-btn"></a><a href="https://www.google.com/maps/search/?api=1&query=주한뉴질랜드대사관" target="_blank" class="e-btn"></a><a href="https://www.mfat.govt.nz" target="_blank" class="e-btn"></a></div></div>
 
     </div>
 
