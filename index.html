@@ -46,14 +46,13 @@
             z-index: 999999 !important;
         }
 
-        /* 1. 홈 화면 - 4개국 버튼 위치 정밀 수정 (간격 및 높이 최적화) */
-        .btn-en { top: 54.2%; left: 6.5%; width: 87.0%; height: 5.6%; }
-        .btn-cn { top: 60.5%; left: 6.5%; width: 87.0%; height: 5.6%; }
-        .btn-jp { top: 66.8%; left: 6.5%; width: 87.0%; height: 5.6%; }
-        .btn-vn { top: 73.1%; left: 6.5%; width: 87.0%; height: 5.6%; }
+        /* 1. 홈 화면 (수정 완료 - 건드리지 않음) */
+        .btn-en { top: 54.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
+        .btn-cn { top: 60.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
+        .btn-jp { top: 66.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
+        .btn-vn { top: 72.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
 
-        /* 홈 화면 하단 긴급전화 (4개국 버튼과 겹치지 않게 안전한 위치 확보) */
-        .home-phone { top: 83.2%; height: 7.2%; }
+        .home-phone { top: 82.5%; height: 7.5%; }
         .home-112 { left: 6.5%; width: 27.5%; }
         .home-119 { left: 36.2%; width: 27.5%; }
         .home-1330 { left: 66.0%; width: 27.5%; }
@@ -61,18 +60,18 @@
         /* 2. 상단 지구본 드롭다운 버튼 */
         .btn-lang-dropdown { top: 1.5%; left: 2.5%; width: 26.0%; height: 5.5%; } 
 
-        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 */
-        .main-call-112  { top: 41.5%; left: 3.0%; width: 30.0%; height: 8.5%; }
-        .main-call-119  { top: 41.5%; left: 35.0%; width: 30.0%; height: 8.5%; }
-        .main-call-1330 { top: 41.5%; left: 67.0%; width: 30.0%; height: 8.5%; }
+        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 (위로 밀려있던 문제 수정) */
+        .main-call-112  { top: 35.0%; left: 3.0%; width: 30.0%; height: 7.5%; }
+        .main-call-119  { top: 35.0%; left: 35.0%; width: 30.0%; height: 7.5%; }
+        .main-call-1330 { top: 35.0%; left: 67.0%; width: 30.0%; height: 7.5%; }
 
         /* 4. 언어 메인 화면 - 6대 카드 메뉴 */
-        .click-hospital  { top: 52.5%; left: 3.0%; width: 46.5%; height: 16.5%; }
-        .click-pharmacy  { top: 52.5%; left: 50.5%; width: 46.5%; height: 16.5%; }
-        .click-embassy   { top: 71.0%; left: 3.0%; width: 46.5%; height: 16.5%; }
-        .click-lost      { top: 71.0%; left: 50.5%; width: 46.5%; height: 16.5%; }
-        .click-rules     { top: 89.5%; left: 3.0%; width: 46.5%; height: 7.5%; }
-        .click-spots     { top: 89.5%; left: 50.5%; width: 46.5%; height: 7.5%; }
+        .click-hospital  { top: 45.0%; left: 3.0%; width: 46.5%; height: 16.5%; }
+        .click-pharmacy  { top: 45.0%; left: 50.5%; width: 46.5%; height: 16.5%; }
+        .click-embassy   { top: 63.5%; left: 3.0%; width: 46.5%; height: 16.5%; }
+        .click-lost      { top: 63.5%; left: 50.5%; width: 46.5%; height: 16.5%; }
+        .click-rules     { top: 82.0%; left: 3.0%; width: 46.5%; height: 7.5%; }
+        .click-spots     { top: 82.0%; left: 50.5%; width: 46.5%; height: 7.5%; }
 
         /* 5. 약국 페이지 버튼 */
         .pharm-call-112  { top: 41.5%; left: 3.5%; width: 22.0%; height: 9.0%; }
