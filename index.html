@@ -103,7 +103,7 @@
         .emb-call-119  { top: 89.8%; left: 49.8%; width: 20.2%; height: 8.5%; }
         .emb-call-1330 { top: 89.8%; left: 70.2%; width: 27.0%; height: 8.5%; }
 
-        /* 9. 영사관 페이지 카드 개별 배치 및 내부 버튼 구조 (div 제거 후 개별 링크로 정밀 타겟팅) */
+        /* 9. 영사관 페이지 11개국 버튼 정밀 좌표 스타일 */
         .emb-btn-call {
             position: absolute;
             display: none;
@@ -239,50 +239,50 @@
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
         <a id="med-back" href="javascript:void(0)" class="touch-link med-back-btn" onclick="goPage('sub-hospital-' + currentLang)"></a>
 
-        <!-- 영사관 11개 나라별 전화하기 / 홈페이지 개별 독립 버튼 -->
+        <!-- 영사관 11개 나라별 전화하기 / 홈페이지 개별 독립 버튼 (좌표 정밀 수정 완료) -->
         <!-- 1. 일본 -->
-        <a id="e1-call" href="tel:051-465-5101" class="emb-btn-call" style="top: 39.8%; left: 6.2%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e1-home" href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="emb-btn-home" style="top: 39.8%; left: 20.2%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e1-call" href="tel:051-465-5101" class="emb-btn-call" style="top: 35.8%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e1-home" href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="emb-btn-home" style="top: 35.8%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 2. 중국 -->
-        <a id="e2-call" href="tel:051-743-7990" class="emb-btn-call" style="top: 39.8%; left: 37.6%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e2-home" href="http://busan.china-consulate.gov.cn" target="_blank" class="emb-btn-home" style="top: 39.8%; left: 51.6%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e2-call" href="tel:051-743-7990" class="emb-btn-call" style="top: 41.5%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e2-home" href="http://busan.china-consulate.gov.cn" target="_blank" class="emb-btn-home" style="top: 41.5%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 3. 베트남 -->
-        <a id="e3-call" href="tel:051-715-8689" class="emb-btn-call" style="top: 39.8%; left: 69.0%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e3-home" href="https://vnconsulate-busan.org" target="_blank" class="emb-btn-home" style="top: 39.8%; left: 83.0%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e3-call" href="tel:051-715-8689" class="emb-btn-call" style="top: 47.1%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e3-home" href="https://vnconsulate-busan.org" target="_blank" class="emb-btn-home" style="top: 47.1%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 4. 러시아 -->
-        <a id="e4-call" href="tel:051-441-9904" class="emb-btn-call" style="top: 52.8%; left: 6.2%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e4-home" href="https://pusan.mid.ru" target="_blank" class="emb-btn-home" style="top: 52.8%; left: 20.2%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e4-call" href="tel:051-441-9904" class="emb-btn-call" style="top: 52.8%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e4-home" href="https://pusan.mid.ru" target="_blank" class="emb-btn-home" style="top: 52.8%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 5. 몽골 -->
-        <a id="e5-call" href="tel:051-465-9996" class="emb-btn-call" style="top: 52.8%; left: 37.6%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e5-home" href="https://busan.consul.mn" target="_blank" class="emb-btn-home" style="top: 52.8%; left: 51.6%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e5-call" href="tel:051-465-9996" class="emb-btn-call" style="top: 58.5%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e5-home" href="https://busan.consul.mn" target="_blank" class="emb-btn-home" style="top: 58.5%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 6. 타이베이 -->
-        <a id="e6-call" href="tel:051-463-7965" class="emb-btn-call" style="top: 52.8%; left: 69.0%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e6-home" href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="emb-btn-home" style="top: 52.8%; left: 83.0%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e6-call" href="tel:051-463-7965" class="emb-btn-call" style="top: 64.2%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e6-home" href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="emb-btn-home" style="top: 64.2%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 7. 카자흐스탄 -->
-        <a id="e7-call" href="tel:051-469-7003" class="emb-btn-call" style="top: 65.8%; left: 6.2%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e7-home" href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="emb-btn-home" style="top: 65.8%; left: 20.2%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e7-call" href="tel:051-469-7003" class="emb-btn-call" style="top: 69.8%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e7-home" href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="emb-btn-home" style="top: 69.8%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 8. 미국 -->
-        <a id="e8-call" href="tel:02-397-4114" class="emb-btn-call" style="top: 65.8%; left: 37.6%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e8-home" href="https://kr.usembassy.gov/ko/" target="_blank" class="emb-btn-home" style="top: 65.8%; left: 51.6%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e8-call" href="tel:02-397-4114" class="emb-btn-call" style="top: 75.5%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e8-home" href="https://kr.usembassy.gov/ko/" target="_blank" class="emb-btn-home" style="top: 75.5%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 9. 독일 -->
-        <a id="e9-call" href="tel:02-748-4114" class="emb-btn-call" style="top: 65.8%; left: 69.0%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e9-home" href="https://seoul.diplo.de/kr-ko" target="_blank" class="emb-btn-home" style="top: 65.8%; left: 83.0%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e9-call" href="tel:02-748-4114" class="emb-btn-call" style="top: 81.2%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e9-home" href="https://seoul.diplo.de/kr-ko" target="_blank" class="emb-btn-home" style="top: 81.2%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 10. 포르투갈 -->
-        <a id="e10-call" href="tel:051-244-9697" class="emb-btn-call" style="top: 78.8%; left: 22.0%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e10-home" href="https://vistos.mne.gov.pt" target="_blank" class="emb-btn-home" style="top: 78.8%; left: 36.0%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e10-call" href="tel:051-244-9697" class="emb-btn-call" style="top: 86.9%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e10-home" href="https://vistos.mne.gov.pt" target="_blank" class="emb-btn-home" style="top: 86.9%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
         <!-- 11. 뉴질랜드 -->
-        <a id="e11-call" href="tel:02-3701-7700" class="emb-btn-call" style="top: 78.8%; left: 53.5%; width: 12.0%; height: 2.8%;"></a>
-        <a id="e11-home" href="https://www.mfat.govt.nz" target="_blank" class="emb-btn-home" style="top: 78.8%; left: 67.5%; width: 12.0%; height: 2.8%;"></a>
+        <a id="e11-call" href="tel:02-3701-7700" class="emb-btn-call" style="top: 92.6%; left: 5.2%; width: 40.5%; height: 4.8%;"></a>
+        <a id="e11-home" href="https://www.mfat.govt.nz" target="_blank" class="emb-btn-home" style="top: 92.6%; left: 53.5%; width: 40.5%; height: 4.8%;"></a>
 
     </div>
 
