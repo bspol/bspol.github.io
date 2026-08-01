@@ -239,18 +239,18 @@
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
         <a id="med-back" href="javascript:void(0)" class="touch-link med-back-btn" onclick="goPage('sub-hospital-' + currentLang)"></a>
 
-        <!-- 영사관 11개 나라별 독립 정확한 좌표 및 고유 URL 매핑 -->
+        <!-- 영사관 11개 나라별 독립 정확한 좌표 및 고유 URL 매핑 (수정완료) -->
         <!-- 1. 일본 -->
         <a id="e1-call" href="tel:051-465-5101" class="emb-btn-call" style="top: 35.8%; left: 6.0%; width: 13.5%; height: 3.5%;"></a>
-        <a id="e1-home" href="https://www.busan.kr.emb-japan.go.jp" target="_blank" class="emb-btn-home" style="top: 35.8%; left: 21.5%; width: 13.5%; height: 3.5%;"></a>
+        <a id="e1-home" href="https://www.busan.kr.emb-japan.go.jp/itprtop_ko/index.html" target="_blank" class="emb-btn-home" style="top: 35.8%; left: 21.5%; width: 13.5%; height: 3.5%;"></a>
 
         <!-- 2. 중국 -->
         <a id="e2-call" href="tel:051-743-7990" class="emb-btn-call" style="top: 35.8%; left: 38.0%; width: 13.5%; height: 3.5%;"></a>
-        <a id="e2-home" href="http://busan.china-consulate.gov.cn" target="_blank" class="emb-btn-home" style="top: 35.8%; left: 53.5%; width: 13.5%; height: 3.5%;"></a>
+        <a id="e2-home" href="http://busan.china-consulate.gov.cn/kor/" target="_blank" class="emb-btn-home" style="top: 35.8%; left: 53.5%; width: 13.5%; height: 3.5%;"></a>
 
-        <!-- 3. 베트남 -->
+        <!-- 3. 베트남 (정식 대표부 공관 웹사이트 매핑) -->
         <a id="e3-call" href="tel:051-715-8689" class="emb-btn-call" style="top: 35.8%; left: 70.0%; width: 13.5%; height: 3.5%;"></a>
-        <a id="e3-home" href="https://vnconsulate-busan.org" target="_blank" class="emb-btn-home" style="top: 35.8%; left: 85.5%; width: 13.5%; height: 3.5%;"></a>
+        <a id="e3-home" href="https://vnembassy-seoul.mofa.gov.vn/en-us/Pages/default.aspx" target="_blank" class="emb-btn-home" style="top: 35.8%; left: 85.5%; width: 13.5%; height: 3.5%;"></a>
 
         <!-- 4. 러시아 -->
         <a id="e4-call" href="tel:051-441-9904" class="emb-btn-call" style="top: 48.8%; left: 6.0%; width: 13.5%; height: 3.5%;"></a>
@@ -260,11 +260,11 @@
         <a id="e5-call" href="tel:051-465-9996" class="emb-btn-call" style="top: 48.8%; left: 38.0%; width: 13.5%; height: 3.5%;"></a>
         <a id="e5-home" href="https://busan.consul.mn" target="_blank" class="emb-btn-home" style="top: 48.8%; left: 53.5%; width: 13.5%; height: 3.5%;"></a>
 
-        <!-- 6. 타이베이 (독립된 타이베이 공식 대표부 링크로 수정) -->
+        <!-- 6. 타이베이 -->
         <a id="e6-call" href="tel:051-463-7965" class="emb-btn-call" style="top: 48.8%; left: 70.0%; width: 13.5%; height: 3.5%;"></a>
         <a id="e6-home" href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="emb-btn-home" style="top: 48.8%; left: 85.5%; width: 13.5%; height: 3.5%;"></a>
 
-        <!-- 7. 카자흐스탄 (올바른 정식 URL 매핑) -->
+        <!-- 7. 카자흐스탄 -->
         <a id="e7-call" href="tel:051-469-7003" class="emb-btn-call" style="top: 61.8%; left: 6.0%; width: 13.5%; height: 3.5%;"></a>
         <a id="e7-home" href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="emb-btn-home" style="top: 61.8%; left: 21.5%; width: 13.5%; height: 3.5%;"></a>
 
@@ -272,7 +272,7 @@
         <a id="e8-call" href="tel:02-397-4114" class="emb-btn-call" style="top: 61.8%; left: 38.0%; width: 13.5%; height: 3.5%;"></a>
         <a id="e8-home" href="https://kr.usembassy.gov/ko/" target="_blank" class="emb-btn-home" style="top: 61.8%; left: 53.5%; width: 13.5%; height: 3.5%;"></a>
 
-        <!-- 9. 독일 -->
+        <!-- 9. 독일 (인증 오류/오류 링크 수정완료) -->
         <a id="e9-call" href="tel:02-748-4114" class="emb-btn-call" style="top: 61.8%; left: 70.0%; width: 13.5%; height: 3.5%;"></a>
         <a id="e9-home" href="https://seoul.diplo.de/kr-ko" target="_blank" class="emb-btn-home" style="top: 61.8%; left: 85.5%; width: 13.5%; height: 3.5%;"></a>
 
@@ -368,7 +368,6 @@
             setDisplay('emb-back', isEmbassySub);
             setDisplay('med-back', isMedInfoSub);
 
-            // 영사관 11개 나라별 전화 및 홈페이지 버튼 노출 제어
             for (var i = 1; i <= 11; i++) {
                 setDisplay('e' + i + '-call', isEmbassySub);
                 setDisplay('e' + i + '-home', isEmbassySub);
