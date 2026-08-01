@@ -103,7 +103,7 @@
         .emb-call-119  { top: 89.8%; left: 49.8%; width: 20.2%; height: 8.5%; }
         .emb-call-1330 { top: 89.8%; left: 70.2%; width: 27.0%; height: 8.5%; }
 
-        /* 9. 영사관 페이지 11개국 버튼 스타일 (너비와 높이를 더 넓게 확장) */
+        /* 9. 영사관 페이지 버튼 스타일 */
         .emb-btn-call {
             position: absolute;
             display: none;
@@ -239,7 +239,7 @@
         <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
         <a id="med-back" href="javascript:void(0)" class="touch-link med-back-btn" onclick="goPage('sub-hospital-' + currentLang)"></a>
 
-        <!-- 영사관 11개 나라별 버튼 영역 확장 (전화하기 / 홈페이지 텍스트 및 커서 변경 영역을 감싸도록 넓힘) -->
+        <!-- 영사관 11개 나라별 버튼 영역 (몽골은 홈페이지 칸 제거 및 전화하기 버튼 전체 너비 확장) -->
         <!-- 1. 일본 -->
         <a id="e1-call" href="tel:051-465-5101" class="emb-btn-call" style="top: 35.2%; left: 4.5%; width: 15.5%; height: 4.5%;"></a>
         <a id="e1-home" href="https://www.busan.kr.emb-japan.go.jp/itprtop_ko/index.html" target="_blank" class="emb-btn-home" style="top: 35.2%; left: 20.2%; width: 15.5%; height: 4.5%;"></a>
@@ -256,9 +256,13 @@
         <a id="e4-call" href="tel:051-441-9904" class="emb-btn-call" style="top: 48.2%; left: 4.5%; width: 15.5%; height: 4.5%;"></a>
         <a id="e4-home" href="https://pusan.mid.ru" target="_blank" class="emb-btn-home" style="top: 48.2%; left: 20.2%; width: 15.5%; height: 4.5%;"></a>
 
-        <!-- 5. 몽골 -->
-        <a id="e5-call" href="tel:051-465-9996" class="emb-btn-call" style="top: 48.2%; left: 36.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e5-home" href="https://busan.consul.mn" target="_blank" class="emb-btn-home" style="top: 48.2%; left: 52.2%; width: 15.5%; height: 4.5%;"></a>
+        <!-- 5. 몽골 (홈페이지 제거, 전화하기 버튼 영역을 카드 전체 너비에 맞게 넓게 설정) -->
+        <a id="e5-call" href="tel:051-465-9996" class="emb-btn-call" style="top: 48.2%; left: 36.5%; width: 31.2%; height: 4.5%;"></a>
+        <script>
+            // 몽골은 홈페이지 버튼이 없으므로 빈 함수 처리용 또는 미노출 처리
+            var e5Home = document.getElementById('e5-home');
+            if(e5Home) e5Home.style.display = 'none';
+        </script>
 
         <!-- 6. 타이베이 -->
         <a id="e6-call" href="tel:051-463-7965" class="emb-btn-call" style="top: 48.2%; left: 68.5%; width: 15.5%; height: 4.5%;"></a>
@@ -277,7 +281,7 @@
         <a id="e9-home" href="https://seoul.diplo.de/kr-ko" target="_blank" class="emb-btn-home" style="top: 61.2%; left: 84.2%; width: 15.5%; height: 4.5%;"></a>
 
         <!-- 10. 포르투갈 -->
-        <a id="e10-call" href="tel:051-441-2988" class="emb-btn-call" style="top: 74.2%; left: 20.2%; width: 15.5%; height: 4.5%;"></a>
+        <a id="e10-call" href="tel:051-244-9697" class="emb-btn-call" style="top: 74.2%; left: 20.2%; width: 15.5%; height: 4.5%;"></a>
         <a id="e10-home" href="https://vistos.mne.gov.pt" target="_blank" class="emb-btn-home" style="top: 74.2%; left: 36.0%; width: 15.5%; height: 4.5%;"></a>
 
         <!-- 11. 뉴질랜드 -->
@@ -370,7 +374,12 @@
 
             for (var i = 1; i <= 11; i++) {
                 setDisplay('e' + i + '-call', isEmbassySub);
-                setDisplay('e' + i + '-home', isEmbassySub);
+                // 몽골(5번)은 홈페이지 버튼이 없으므로 영사관 페이지에서도 아예 안 나오게 처리
+                if (i !== 5) {
+                    setDisplay('e' + i + '-home', isEmbassySub);
+                } else {
+                    setDisplay('e5-home', false);
+                }
             }
         }
 
