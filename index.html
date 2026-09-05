@@ -13,10 +13,6 @@
 
 <style>
 
-/* =========================================================
-   기본
-   ========================================================= */
-
 html,
 body {
     margin: 0;
@@ -87,9 +83,7 @@ body {
 
 /* =========================================================
    HOME
-   ★ home.png는 수정하지 않음
-   ★ 실제 이미지에 보이는 버튼 위치에 맞춤
-   ★ 7개 언어 버튼 서로 겹치지 않음
+   ★ 기존 HOME 그대로
    ========================================================= */
 
 /* ENGLISH */
@@ -151,7 +145,6 @@ body {
 
 /* =========================================================
    HOME 전화
-   ★ 언어 버튼과 절대 겹치지 않음
    ========================================================= */
 
 .home-phone {
@@ -176,14 +169,21 @@ body {
 
 
 /* =========================================================
-   작은 지구본
+   지구본 + 나라명
+   ★ 이미지에 이미 들어있는 것을 사용
+   ★ HTML에는 아무것도 보이지 않음
    ========================================================= */
 
 .btn-lang-dropdown {
-    top: 1.2%;
+    top: 1.0%;
     left: 2%;
-    width: 11%;
-    height: 4%;
+    width: 35%;
+    height: 6%;
+
+    background: transparent !important;
+    border: none !important;
+
+    z-index: 99999999;
 }
 
 
@@ -196,7 +196,7 @@ body {
 
     position: absolute;
 
-    top: 5.5%;
+    top: 6.5%;
     left: 2%;
 
     width: 145px;
@@ -209,7 +209,7 @@ body {
     box-shadow:
         0 4px 15px rgba(0,0,0,0.5);
 
-    z-index: 99999999;
+    z-index: 999999999;
 
     padding: 4px 0;
 }
@@ -885,6 +885,7 @@ body {
 
 <!-- =====================================================
      HOME 7개 언어 버튼
+     ★ HOME 그대로
      ===================================================== -->
 
 <a id="area-en"
@@ -932,6 +933,7 @@ body {
 
 <!-- =====================================================
      HOME 전화
+     ★ HOME 그대로
      ===================================================== -->
 
 <a id="h-112"
@@ -952,6 +954,8 @@ body {
 
 <!-- =====================================================
      지구본
+     ★ 투명 터치영역만 존재
+     ★ 이미지에 있는 지구본/나라명을 그대로 사용
      ===================================================== -->
 
 <a id="area-lang-dropdown"
@@ -963,47 +967,43 @@ body {
 
 <!-- =====================================================
      언어 메뉴
+     ★ 7개 언어만
      ===================================================== -->
 
 <div id="langDropdown" class="dropdown-menu">
 
     <a href="javascript:void(0)"
-       onclick="goPage('home')">
-       🏠 Home
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="goPage('en')">
+       onclick="selectLanguage('en')">
        🇺🇸 English
     </a>
 
     <a href="javascript:void(0)"
-       onclick="goPage('jp')">
+       onclick="selectLanguage('jp')">
        🇯🇵 日本語
     </a>
 
     <a href="javascript:void(0)"
-       onclick="goPage('cn')">
+       onclick="selectLanguage('cn')">
        🇨🇳 中文
     </a>
 
     <a href="javascript:void(0)"
-       onclick="goPage('vn')">
+       onclick="selectLanguage('vn')">
        🇻🇳 Tiếng Việt
     </a>
 
     <a href="javascript:void(0)"
-       onclick="goPage('ru')">
+       onclick="selectLanguage('ru')">
        🇷🇺 Русский
     </a>
 
     <a href="javascript:void(0)"
-       onclick="goPage('mn')">
+       onclick="selectLanguage('mn')">
        🇲🇳 Монгол
     </a>
 
     <a href="javascript:void(0)"
-       onclick="goPage('ph')">
+       onclick="selectLanguage('ph')">
        🇵🇭 Filipino
     </a>
 
@@ -1042,8 +1042,7 @@ body {
 
 <a id="click-phar"
    href="javascript:void(0)"
-   class="touch-link click-pharmacy"
-   onclick="clickSubMenu('pharmacy')">
+   class="touch-link click-pharmacy">
 </a>
 
 <a id="click-emba"
@@ -1227,7 +1226,6 @@ body {
    class="emb-btn-home">
 </a>
 
-
 <a id="e2-call"
    href="tel:051-743-7990"
    class="emb-btn-call">
@@ -1238,7 +1236,6 @@ body {
    target="_blank"
    class="emb-btn-home">
 </a>
-
 
 <a id="e3-call"
    href="tel:051-715-8689"
@@ -1251,7 +1248,6 @@ body {
    class="emb-btn-home">
 </a>
 
-
 <a id="e4-call"
    href="tel:051-441-9904"
    class="emb-btn-call">
@@ -1263,12 +1259,10 @@ body {
    class="emb-btn-home">
 </a>
 
-
 <a id="e5-call"
    href="tel:051-465-9996"
    class="emb-btn-call">
 </a>
-
 
 <a id="e6-call"
    href="tel:051-463-7965"
@@ -1281,7 +1275,6 @@ body {
    class="emb-btn-home">
 </a>
 
-
 <a id="e7-call"
    href="tel:051-469-7003"
    class="emb-btn-call">
@@ -1292,7 +1285,6 @@ body {
    target="_blank"
    class="emb-btn-home">
 </a>
-
 
 <a id="e8-call"
    href="tel:02-397-4114"
@@ -1305,7 +1297,6 @@ body {
    class="emb-btn-home">
 </a>
 
-
 <a id="e9-call"
    href="tel:02-748-4114"
    class="emb-btn-call">
@@ -1317,7 +1308,6 @@ body {
    class="emb-btn-home">
 </a>
 
-
 <a id="e10-call"
    href="tel:051-441-2988"
    class="emb-btn-call">
@@ -1328,7 +1318,6 @@ body {
    target="_blank"
    class="emb-btn-home">
 </a>
-
 
 <a id="e11-call"
    href="tel:02-3701-7700"
@@ -1366,11 +1355,6 @@ function setDisplay(id, show) {
 
         el.style.display =
             show ? "block" : "none";
-
-        /*
-         * 화면에 보이지 않는 버튼은
-         * 터치를 절대 가로채지 않음
-         */
 
         el.style.pointerEvents =
             show ? "auto" : "none";
@@ -1426,10 +1410,6 @@ function goPage(pageId) {
         target.classList.add("active");
 
     } else {
-
-        /*
-         * 잘못된 페이지가 들어오는 것을 방지
-         */
 
         console.log(
             "페이지를 찾을 수 없습니다:",
@@ -1500,65 +1480,33 @@ function goPage(pageId) {
        HOME
        ===================================================== */
 
-    setDisplay(
-        "area-en",
-        isHome
-    );
+    setDisplay("area-en", isHome);
+    setDisplay("area-jp", isHome);
+    setDisplay("area-cn", isHome);
+    setDisplay("area-vn", isHome);
+    setDisplay("area-mn", isHome);
+    setDisplay("area-ph", isHome);
+    setDisplay("area-ru", isHome);
 
-    setDisplay(
-        "area-jp",
-        isHome
-    );
-
-    setDisplay(
-        "area-cn",
-        isHome
-    );
-
-    setDisplay(
-        "area-vn",
-        isHome
-    );
-
-    setDisplay(
-        "area-mn",
-        isHome
-    );
-
-    setDisplay(
-        "area-ph",
-        isHome
-    );
-
-    setDisplay(
-        "area-ru",
-        isHome
-    );
-
-
-    setDisplay(
-        "h-112",
-        isHome
-    );
-
-    setDisplay(
-        "h-119",
-        isHome
-    );
-
-    setDisplay(
-        "h-1330",
-        isHome
-    );
+    setDisplay("h-112", isHome);
+    setDisplay("h-119", isHome);
+    setDisplay("h-1330", isHome);
 
 
     /* =====================================================
        지구본
+       ★ HOME에서는 숨김
+       ★ MAIN / 병원 / 약국에서만 표시
        ===================================================== */
+
+    var showLanguageSelector =
+        isMainLang ||
+        isHospitalSub ||
+        isPharmacySub;
 
     setDisplay(
         "area-lang-dropdown",
-        !isHome
+        showLanguageSelector
     );
 
 
@@ -1566,182 +1514,68 @@ function goPage(pageId) {
        MAIN
        ===================================================== */
 
-    setDisplay(
-        "m-112",
-        isMainLang
-    );
+    setDisplay("m-112", isMainLang);
+    setDisplay("m-119", isMainLang);
+    setDisplay("m-1330", isMainLang);
 
-    setDisplay(
-        "m-119",
-        isMainLang
-    );
-
-    setDisplay(
-        "m-1330",
-        isMainLang
-    );
-
-
-    setDisplay(
-        "click-hosp",
-        isMainLang
-    );
-
-    setDisplay(
-        "click-phar",
-        isMainLang
-    );
-
-    setDisplay(
-        "click-emba",
-        isMainLang
-    );
-
-    setDisplay(
-        "click-lost",
-        isMainLang
-    );
-
-    setDisplay(
-        "click-rule",
-        isMainLang
-    );
-
-    setDisplay(
-        "click-spots",
-        isMainLang
-    );
+    setDisplay("click-hosp", isMainLang);
+    setDisplay("click-phar", isMainLang);
+    setDisplay("click-emba", isMainLang);
+    setDisplay("click-lost", isMainLang);
+    setDisplay("click-rule", isMainLang);
+    setDisplay("click-spots", isMainLang);
 
 
     /* =====================================================
        PHARMACY
        ===================================================== */
 
-    setDisplay(
-        "p-112",
-        isPharmacySub
-    );
-
-    setDisplay(
-        "p-119",
-        isPharmacySub
-    );
-
-    setDisplay(
-        "p-1330",
-        isPharmacySub
-    );
-
-    setDisplay(
-        "p-late",
-        isPharmacySub
-    );
+    setDisplay("p-112", isPharmacySub);
+    setDisplay("p-119", isPharmacySub);
+    setDisplay("p-1330", isPharmacySub);
+    setDisplay("p-late", isPharmacySub);
 
 
     /* =====================================================
        HOSPITAL
        ===================================================== */
 
-    setDisplay(
-        "hp-112",
-        isHospitalSub
-    );
-
-    setDisplay(
-        "hp-119",
-        isHospitalSub
-    );
-
-    setDisplay(
-        "hp-1330",
-        isHospitalSub
-    );
-
-    setDisplay(
-        "hp-find",
-        isHospitalSub
-    );
-
-    setDisplay(
-        "hp-emer",
-        isHospitalSub
-    );
-
-    setDisplay(
-        "hp-med",
-        isHospitalSub
-    );
+    setDisplay("hp-112", isHospitalSub);
+    setDisplay("hp-119", isHospitalSub);
+    setDisplay("hp-1330", isHospitalSub);
+    setDisplay("hp-find", isHospitalSub);
+    setDisplay("hp-emer", isHospitalSub);
+    setDisplay("hp-med", isHospitalSub);
 
 
     /* =====================================================
        MEDICAL
        ===================================================== */
 
-    setDisplay(
-        "med-112",
-        isMedInfoSub
-    );
-
-    setDisplay(
-        "med-119",
-        isMedInfoSub
-    );
-
-    setDisplay(
-        "med-1330",
-        isMedInfoSub
-    );
+    setDisplay("med-112", isMedInfoSub);
+    setDisplay("med-119", isMedInfoSub);
+    setDisplay("med-1330", isMedInfoSub);
 
 
     /* =====================================================
        RULES
        ===================================================== */
 
-    setDisplay(
-        "rules-112",
-        isRulesSub
-    );
-
-    setDisplay(
-        "rules-119",
-        isRulesSub
-    );
-
-    setDisplay(
-        "rules-1330",
-        isRulesSub
-    );
+    setDisplay("rules-112", isRulesSub);
+    setDisplay("rules-119", isRulesSub);
+    setDisplay("rules-1330", isRulesSub);
 
 
     /* =====================================================
        EMBASSY
        ===================================================== */
 
-    setDisplay(
-        "emb-112",
-        isEmbassySub
-    );
+    setDisplay("emb-112", isEmbassySub);
+    setDisplay("emb-119", isEmbassySub);
+    setDisplay("emb-1330", isEmbassySub);
 
-    setDisplay(
-        "emb-119",
-        isEmbassySub
-    );
-
-    setDisplay(
-        "emb-1330",
-        isEmbassySub
-    );
-
-
-    setDisplay(
-        "emb-back",
-        isEmbassySub
-    );
-
-    setDisplay(
-        "med-back",
-        isMedInfoSub
-    );
+    setDisplay("emb-back", isEmbassySub);
+    setDisplay("med-back", isMedInfoSub);
 
 
     /* =====================================================
@@ -1754,7 +1588,6 @@ function goPage(pageId) {
             "e" + i + "-call",
             isEmbassySub
         );
-
 
         if (i !== 5) {
 
@@ -1785,27 +1618,45 @@ function goPage(pageId) {
 
 
 /* =========================================================
+   언어 선택
+   ========================================================= */
+
+function selectLanguage(lang) {
+
+    if (!lang) {
+        return;
+    }
+
+    var dropdown =
+        document.getElementById("langDropdown");
+
+    if (dropdown) {
+        dropdown.style.display = "none";
+    }
+
+    goPage(lang);
+}
+
+
+/* =========================================================
    지구본 메뉴
    ========================================================= */
 
 function toggleDropdown(event) {
 
     if (event) {
-
+        event.preventDefault();
         event.stopPropagation();
     }
-
 
     var dropdown =
         document.getElementById(
             "langDropdown"
         );
 
-
     if (!dropdown) {
         return;
     }
-
 
     if (
         dropdown.style.display === "block"
@@ -1839,7 +1690,6 @@ document.addEventListener(
             document.getElementById(
                 "area-lang-dropdown"
             );
-
 
         if (
             dropdown &&
