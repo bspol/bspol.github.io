@@ -13,6 +13,10 @@
 
 <style>
 
+/* =========================================================
+   기본
+   ========================================================= */
+
 html,
 body {
     margin: 0;
@@ -82,97 +86,92 @@ body {
 
 
 /* =========================================================
-   HOME - 7개 언어
-   ★ 전화버튼과 절대 겹치지 않도록 수정
+   HOME
+   ★ home.png는 수정하지 않음
+   ★ 실제 이미지에 보이는 버튼 위치에 맞춤
+   ★ 7개 언어 버튼 서로 겹치지 않음
    ========================================================= */
 
-/*
-   실제 HOME 화면의 언어 버튼 순서:
-
-   ENGLISH
-   日本語
-   中文
-   TIẾNG VIỆT
-   МОНГОЛ
-   FILIPINO
-   РУССКИЙ
-
-   7개 버튼을 모두 82% 위에서 끝나도록 배치.
-*/
-
+/* ENGLISH */
 .btn-en {
-    top: 51%;
-    left: 6.5%;
-    width: 87%;
-    height: 4.0%;
+    top: 58.5%;
+    left: 7.3%;
+    width: 19.2%;
+    height: 11.5%;
 }
 
+/* 日本語 */
 .btn-jp {
-    top: 55.4%;
-    left: 6.5%;
-    width: 87%;
-    height: 4.0%;
+    top: 58.5%;
+    left: 29.2%;
+    width: 19.0%;
+    height: 11.5%;
 }
 
+/* 中文 */
 .btn-cn {
-    top: 59.8%;
-    left: 6.5%;
-    width: 87%;
-    height: 4.0%;
+    top: 58.5%;
+    left: 50.9%;
+    width: 19.0%;
+    height: 11.5%;
 }
 
+/* TIẾNG VIỆT */
 .btn-vn {
-    top: 64.2%;
-    left: 6.5%;
-    width: 87%;
-    height: 4.0%;
+    top: 58.5%;
+    left: 72.7%;
+    width: 19.0%;
+    height: 11.5%;
 }
 
+/* МОНГОЛ */
 .btn-mn {
-    top: 68.6%;
-    left: 6.5%;
-    width: 87%;
-    height: 4.0%;
+    top: 71.3%;
+    left: 11.9%;
+    width: 22.4%;
+    height: 12.0%;
 }
 
+/* FILIPINO */
 .btn-ph {
-    top: 73.0%;
-    left: 6.5%;
-    width: 87%;
-    height: 4.0%;
+    top: 71.3%;
+    left: 37.2%;
+    width: 23.0%;
+    height: 12.0%;
 }
 
+/* РУССКИЙ */
 .btn-ru {
-    top: 77.4%;
-    left: 6.5%;
-    width: 87%;
-    height: 4.0%;
+    top: 71.3%;
+    left: 63.0%;
+    width: 23.5%;
+    height: 12.0%;
 }
 
 
 /* =========================================================
    HOME 전화
-   ★ 언어 영역과 겹치지 않음
+   ★ 언어 버튼과 절대 겹치지 않음
    ========================================================= */
 
 .home-phone {
-    top: 82.5%;
-    height: 7.5%;
+    top: 88.8%;
+    height: 8.8%;
 }
 
 .home-112 {
-    left: 6.5%;
+    left: 5.0%;
     width: 27.5%;
 }
 
 .home-119 {
-    left: 36.2%;
+    left: 35.0%;
     width: 27.5%;
 }
 
 .home-1330 {
-    left: 66%;
-    width: 27.5%;
+    left: 65.0%;
+    width: 29.5%;
 }
 
 
@@ -698,7 +697,10 @@ body {
 <div class="container">
 
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME
+     ★ 원본 home.png 그대로
+     ===================================================== -->
 
 <img id="img-home"
      class="main-img active"
@@ -706,54 +708,179 @@ body {
      alt="Home">
 
 
-<!-- 7개 언어 MAIN -->
+<!-- =====================================================
+     7개 언어 MAIN
+     ===================================================== -->
 
-<img id="img-en" class="main-img" src="main_en.png" alt="English">
-<img id="img-cn" class="main-img" src="main_cn.png" alt="Chinese">
-<img id="img-jp" class="main-img" src="main_jp.png" alt="Japanese">
-<img id="img-vn" class="main-img" src="main_vn.png" alt="Vietnamese">
-<img id="img-ru" class="main-img" src="main_ru.png" alt="Russian">
-<img id="img-mn" class="main-img" src="main_mn.png" alt="Mongolian">
-<img id="img-ph" class="main-img" src="main_ph.png" alt="Filipino">
+<img id="img-en"
+     class="main-img"
+     src="main_en.png"
+     alt="English">
+
+<img id="img-cn"
+     class="main-img"
+     src="main_cn.png"
+     alt="Chinese">
+
+<img id="img-jp"
+     class="main-img"
+     src="main_jp.png"
+     alt="Japanese">
+
+<img id="img-vn"
+     class="main-img"
+     src="main_vn.png"
+     alt="Vietnamese">
+
+<img id="img-ru"
+     class="main-img"
+     src="main_ru.png"
+     alt="Russian">
+
+<img id="img-mn"
+     class="main-img"
+     src="main_mn.png"
+     alt="Mongolian">
+
+<img id="img-ph"
+     class="main-img"
+     src="main_ph.png"
+     alt="Filipino">
 
 
-<!-- 공통 SUB -->
+<!-- =====================================================
+     공통 SUB
+     ===================================================== -->
 
-<img id="img-sub-rules" class="main-img" src="basicrules.png" alt="Basic Rules">
-<img id="img-sub-embassy" class="main-img" src="embassy.png" alt="Embassy">
+<img id="img-sub-rules"
+     class="main-img"
+     src="basicrules.png"
+     alt="Basic Rules">
 
-
-<!-- HOSPITAL -->
-
-<img id="img-sub-hospital-en" class="main-img" src="hospital_en.png" alt="Hospital English">
-<img id="img-sub-hospital-cn" class="main-img" src="hospital_cn.png" alt="Hospital Chinese">
-<img id="img-sub-hospital-jp" class="main-img" src="hospital_jp.png" alt="Hospital Japanese">
-<img id="img-sub-hospital-vn" class="main-img" src="hospital_vn.png" alt="Hospital Vietnamese">
-<img id="img-sub-hospital-ru" class="main-img" src="hospital_ru.png" alt="Hospital Russian">
-<img id="img-sub-hospital-mn" class="main-img" src="hospital_mn.png" alt="Hospital Mongolian">
-<img id="img-sub-hospital-ph" class="main-img" src="hospital_ph.png" alt="Hospital Filipino">
+<img id="img-sub-embassy"
+     class="main-img"
+     src="embassy.png"
+     alt="Embassy">
 
 
-<!-- MEDICAL -->
+<!-- =====================================================
+     HOSPITAL
+     ===================================================== -->
 
-<img id="img-sub-medinfo-en" class="main-img" src="medical-info-en.png" alt="Medical English">
-<img id="img-sub-medinfo-cn" class="main-img" src="medical-info-cn.png" alt="Medical Chinese">
-<img id="img-sub-medinfo-jp" class="main-img" src="medical-info-jp.png" alt="Medical Japanese">
-<img id="img-sub-medinfo-vn" class="main-img" src="medical-info-vn.png" alt="Medical Vietnamese">
-<img id="img-sub-medinfo-ru" class="main-img" src="medical-info-ru.png" alt="Medical Russian">
-<img id="img-sub-medinfo-mn" class="main-img" src="medical-info-mn.png" alt="Medical Mongolian">
-<img id="img-sub-medinfo-ph" class="main-img" src="medical-info-ph.png" alt="Medical Filipino">
+<img id="img-sub-hospital-en"
+     class="main-img"
+     src="hospital_en.png"
+     alt="Hospital English">
+
+<img id="img-sub-hospital-cn"
+     class="main-img"
+     src="hospital_cn.png"
+     alt="Hospital Chinese">
+
+<img id="img-sub-hospital-jp"
+     class="main-img"
+     src="hospital_jp.png"
+     alt="Hospital Japanese">
+
+<img id="img-sub-hospital-vn"
+     class="main-img"
+     src="hospital_vn.png"
+     alt="Hospital Vietnamese">
+
+<img id="img-sub-hospital-ru"
+     class="main-img"
+     src="hospital_ru.png"
+     alt="Hospital Russian">
+
+<img id="img-sub-hospital-mn"
+     class="main-img"
+     src="hospital_mn.png"
+     alt="Hospital Mongolian">
+
+<img id="img-sub-hospital-ph"
+     class="main-img"
+     src="hospital_ph.png"
+     alt="Hospital Filipino">
 
 
-<!-- PHARMACY -->
+<!-- =====================================================
+     MEDICAL
+     ===================================================== -->
 
-<img id="img-sub-pharmacy-en" class="main-img" src="pharmacy_en.png" alt="Pharmacy English">
-<img id="img-sub-pharmacy-cn" class="main-img" src="pharmacy_cn.png" alt="Pharmacy Chinese">
-<img id="img-sub-pharmacy-jp" class="main-img" src="pharmacy_jp.png" alt="Pharmacy Japanese">
-<img id="img-sub-pharmacy-vn" class="main-img" src="pharmacy_vn.png" alt="Pharmacy Vietnamese">
-<img id="img-sub-pharmacy-ru" class="main-img" src="pharmacy_ru.png" alt="Pharmacy Russian">
-<img id="img-sub-pharmacy-mn" class="main-img" src="pharmacy_mn.png" alt="Pharmacy Mongolian">
-<img id="img-sub-pharmacy-ph" class="main-img" src="pharmacy_ph.png" alt="Pharmacy Filipino">
+<img id="img-sub-medinfo-en"
+     class="main-img"
+     src="medical-info-en.png"
+     alt="Medical English">
+
+<img id="img-sub-medinfo-cn"
+     class="main-img"
+     src="medical-info-cn.png"
+     alt="Medical Chinese">
+
+<img id="img-sub-medinfo-jp"
+     class="main-img"
+     src="medical-info-jp.png"
+     alt="Medical Japanese">
+
+<img id="img-sub-medinfo-vn"
+     class="main-img"
+     src="medical-info-vn.png"
+     alt="Medical Vietnamese">
+
+<img id="img-sub-medinfo-ru"
+     class="main-img"
+     src="medical-info-ru.png"
+     alt="Medical Russian">
+
+<img id="img-sub-medinfo-mn"
+     class="main-img"
+     src="medical-info-mn.png"
+     alt="Medical Mongolian">
+
+<img id="img-sub-medinfo-ph"
+     class="main-img"
+     src="medical-info-ph.png"
+     alt="Medical Filipino">
+
+
+<!-- =====================================================
+     PHARMACY
+     ===================================================== -->
+
+<img id="img-sub-pharmacy-en"
+     class="main-img"
+     src="pharmacy_en.png"
+     alt="Pharmacy English">
+
+<img id="img-sub-pharmacy-cn"
+     class="main-img"
+     src="pharmacy_cn.png"
+     alt="Pharmacy Chinese">
+
+<img id="img-sub-pharmacy-jp"
+     class="main-img"
+     src="pharmacy_jp.png"
+     alt="Pharmacy Japanese">
+
+<img id="img-sub-pharmacy-vn"
+     class="main-img"
+     src="pharmacy_vn.png"
+     alt="Pharmacy Vietnamese">
+
+<img id="img-sub-pharmacy-ru"
+     class="main-img"
+     src="pharmacy_ru.png"
+     alt="Pharmacy Russian">
+
+<img id="img-sub-pharmacy-mn"
+     class="main-img"
+     src="pharmacy_mn.png"
+     alt="Pharmacy Mongolian">
+
+<img id="img-sub-pharmacy-ph"
+     class="main-img"
+     src="pharmacy_ph.png"
+     alt="Pharmacy Filipino">
 
 
 <!-- =====================================================
@@ -763,227 +890,456 @@ body {
 <a id="area-en"
    href="javascript:void(0)"
    class="touch-link btn-en"
-   onclick="goPage('en')"></a>
-
-<a id="area-cn"
-   href="javascript:void(0)"
-   class="touch-link btn-cn"
-   onclick="goPage('cn')"></a>
+   onclick="goPage('en')">
+</a>
 
 <a id="area-jp"
    href="javascript:void(0)"
    class="touch-link btn-jp"
-   onclick="goPage('jp')"></a>
+   onclick="goPage('jp')">
+</a>
+
+<a id="area-cn"
+   href="javascript:void(0)"
+   class="touch-link btn-cn"
+   onclick="goPage('cn')">
+</a>
 
 <a id="area-vn"
    href="javascript:void(0)"
    class="touch-link btn-vn"
-   onclick="goPage('vn')"></a>
-
-<a id="area-ru"
-   href="javascript:void(0)"
-   class="touch-link btn-ru"
-   onclick="goPage('ru')"></a>
+   onclick="goPage('vn')">
+</a>
 
 <a id="area-mn"
    href="javascript:void(0)"
    class="touch-link btn-mn"
-   onclick="goPage('mn')"></a>
+   onclick="goPage('mn')">
+</a>
 
 <a id="area-ph"
    href="javascript:void(0)"
    class="touch-link btn-ph"
-   onclick="goPage('ph')"></a>
+   onclick="goPage('ph')">
+</a>
+
+<a id="area-ru"
+   href="javascript:void(0)"
+   class="touch-link btn-ru"
+   onclick="goPage('ru')">
+</a>
 
 
-<!-- HOME 전화 -->
+<!-- =====================================================
+     HOME 전화
+     ===================================================== -->
 
 <a id="h-112"
    href="tel:112"
-   class="touch-link home-phone home-112"></a>
+   class="touch-link home-phone home-112">
+</a>
 
 <a id="h-119"
    href="tel:119"
-   class="touch-link home-phone home-119"></a>
+   class="touch-link home-phone home-119">
+</a>
 
 <a id="h-1330"
    href="tel:1330"
-   class="touch-link home-phone home-1330"></a>
+   class="touch-link home-phone home-1330">
+</a>
 
 
-<!-- 지구본 -->
+<!-- =====================================================
+     지구본
+     ===================================================== -->
 
 <a id="area-lang-dropdown"
    href="javascript:void(0)"
    class="touch-link btn-lang-dropdown"
-   onclick="toggleDropdown(event)"></a>
+   onclick="toggleDropdown(event)">
+</a>
 
 
-<!-- 언어 메뉴 -->
+<!-- =====================================================
+     언어 메뉴
+     ===================================================== -->
 
 <div id="langDropdown" class="dropdown-menu">
 
-<a href="javascript:void(0)" onclick="goPage('home')">🏠 Home</a>
-<a href="javascript:void(0)" onclick="goPage('en')">🇺🇸 English</a>
-<a href="javascript:void(0)" onclick="goPage('jp')">🇯🇵 日本語</a>
-<a href="javascript:void(0)" onclick="goPage('cn')">🇨🇳 中文</a>
-<a href="javascript:void(0)" onclick="goPage('vn')">🇻🇳 Tiếng Việt</a>
-<a href="javascript:void(0)" onclick="goPage('ru')">🇷🇺 Русский</a>
-<a href="javascript:void(0)" onclick="goPage('mn')">🇲🇳 Монгол</a>
-<a href="javascript:void(0)" onclick="goPage('ph')">🇵🇭 Filipino</a>
+    <a href="javascript:void(0)"
+       onclick="goPage('home')">
+       🏠 Home
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="goPage('en')">
+       🇺🇸 English
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="goPage('jp')">
+       🇯🇵 日本語
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="goPage('cn')">
+       🇨🇳 中文
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="goPage('vn')">
+       🇻🇳 Tiếng Việt
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="goPage('ru')">
+       🇷🇺 Русский
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="goPage('mn')">
+       🇲🇳 Монгол
+    </a>
+
+    <a href="javascript:void(0)"
+       onclick="goPage('ph')">
+       🇵🇭 Filipino
+    </a>
 
 </div>
 
 
-<!-- MAIN 하단 112 / 119 / 1330 -->
+<!-- =====================================================
+     MAIN 하단 112 / 119 / 1330
+     ===================================================== -->
 
 <a id="m-112"
    href="tel:112"
-   class="touch-link main-call-112"></a>
+   class="touch-link main-call-112">
+</a>
 
 <a id="m-119"
    href="tel:119"
-   class="touch-link main-call-119"></a>
+   class="touch-link main-call-119">
+</a>
 
 <a id="m-1330"
    href="tel:1330"
-   class="touch-link main-call-1330"></a>
+   class="touch-link main-call-1330">
+</a>
 
 
-<!-- MAIN 6개 메뉴 -->
+<!-- =====================================================
+     MAIN 6개 메뉴
+     ===================================================== -->
 
 <a id="click-hosp"
    href="javascript:void(0)"
    class="touch-link click-hospital"
-   onclick="clickSubMenu('hospital')"></a>
+   onclick="clickSubMenu('hospital')">
+</a>
 
 <a id="click-phar"
    href="javascript:void(0)"
    class="touch-link click-pharmacy"
-   onclick="clickSubMenu('pharmacy')"></a>
+   onclick="clickSubMenu('pharmacy')">
+</a>
 
 <a id="click-emba"
    href="javascript:void(0)"
    class="touch-link click-embassy"
-   onclick="goPage('sub-embassy')"></a>
+   onclick="goPage('sub-embassy')">
+</a>
 
 <a id="click-lost"
    href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword="
    target="_blank"
-   class="touch-link click-lost"></a>
+   class="touch-link click-lost">
+</a>
 
 <a id="click-rule"
    href="javascript:void(0)"
    class="touch-link click-rules"
-   onclick="goPage('sub-rules')"></a>
+   onclick="goPage('sub-rules')">
+</a>
 
 <a id="click-spots"
    href="https://www.google.com/maps/search/Busan+tourist+map"
    target="_blank"
-   class="touch-link click-spots"></a>
+   class="touch-link click-spots">
+</a>
 
 
-<!-- PHARMACY -->
+<!-- =====================================================
+     PHARMACY
+     ===================================================== -->
 
-<a id="p-112" href="tel:112" class="touch-link pharm-call-112"></a>
-<a id="p-119" href="tel:119" class="touch-link pharm-call-119"></a>
-<a id="p-1330" href="tel:1330" class="touch-link pharm-call-1330"></a>
+<a id="p-112"
+   href="tel:112"
+   class="touch-link pharm-call-112">
+</a>
+
+<a id="p-119"
+   href="tel:119"
+   class="touch-link pharm-call-119">
+</a>
+
+<a id="p-1330"
+   href="tel:1330"
+   class="touch-link pharm-call-1330">
+</a>
 
 <a id="p-late"
    href="https://www.busan.go.kr/eng/bsmedical06"
    target="_blank"
-   class="touch-link pharm-late-link"></a>
+   class="touch-link pharm-late-link">
+</a>
 
 
-<!-- HOSPITAL -->
+<!-- =====================================================
+     HOSPITAL
+     ===================================================== -->
 
-<a id="hp-112" href="tel:112" class="touch-link hosp-call-112"></a>
-<a id="hp-119" href="tel:119" class="touch-link hosp-call-119"></a>
-<a id="hp-1330" href="tel:1330" class="touch-link hosp-call-1330"></a>
+<a id="hp-112"
+   href="tel:112"
+   class="touch-link hosp-call-112">
+</a>
+
+<a id="hp-119"
+   href="tel:119"
+   class="touch-link hosp-call-119">
+</a>
+
+<a id="hp-1330"
+   href="tel:1330"
+   class="touch-link hosp-call-1330">
+</a>
 
 <a id="hp-find"
    href="https://www.google.com/maps/search/?api=1&query=hospital"
    target="_blank"
-   class="touch-link hosp-find-map"></a>
+   class="touch-link hosp-find-map">
+</a>
 
 <a id="hp-emer"
    href="https://www.google.com/maps/search/?api=1&query=emergency+room"
    target="_blank"
-   class="touch-link hosp-emergency"></a>
+   class="touch-link hosp-emergency">
+</a>
 
 <a id="hp-med"
    href="javascript:void(0)"
    class="touch-link hosp-medinfo"
-   onclick="goPage('sub-medinfo-' + currentLang)"></a>
+   onclick="goPage('sub-medinfo-' + currentLang)">
+</a>
 
 
-<!-- MEDICAL -->
+<!-- =====================================================
+     MEDICAL
+     ===================================================== -->
 
-<a id="med-112" href="tel:112" class="touch-link med-call-112"></a>
-<a id="med-119" href="tel:119" class="touch-link med-call-119"></a>
-<a id="med-1330" href="tel:1330" class="touch-link med-call-1330"></a>
+<a id="med-112"
+   href="tel:112"
+   class="touch-link med-call-112">
+</a>
+
+<a id="med-119"
+   href="tel:119"
+   class="touch-link med-call-119">
+</a>
+
+<a id="med-1330"
+   href="tel:1330"
+   class="touch-link med-call-1330">
+</a>
 
 
-<!-- RULES -->
+<!-- =====================================================
+     RULES
+     ===================================================== -->
 
-<a id="rules-112" href="tel:112" class="touch-link rules-call-112"></a>
-<a id="rules-119" href="tel:119" class="touch-link rules-call-119"></a>
-<a id="rules-1330" href="tel:1330" class="touch-link rules-call-1330"></a>
+<a id="rules-112"
+   href="tel:112"
+   class="touch-link rules-call-112">
+</a>
+
+<a id="rules-119"
+   href="tel:119"
+   class="touch-link rules-call-119">
+</a>
+
+<a id="rules-1330"
+   href="tel:1330"
+   class="touch-link rules-call-1330">
+</a>
 
 
-<!-- EMBASSY -->
+<!-- =====================================================
+     EMBASSY
+     ===================================================== -->
 
-<a id="emb-112" href="tel:112" class="touch-link emb-call-112"></a>
-<a id="emb-119" href="tel:119" class="touch-link emb-call-119"></a>
-<a id="emb-1330" href="tel:1330" class="touch-link emb-call-1330"></a>
+<a id="emb-112"
+   href="tel:112"
+   class="touch-link emb-call-112">
+</a>
+
+<a id="emb-119"
+   href="tel:119"
+   class="touch-link emb-call-119">
+</a>
+
+<a id="emb-1330"
+   href="tel:1330"
+   class="touch-link emb-call-1330">
+</a>
 
 
-<!-- BACK -->
+<!-- =====================================================
+     BACK
+     ===================================================== -->
 
 <a id="emb-back"
    href="javascript:void(0)"
    class="touch-link emb-back-btn"
-   onclick="goPage(currentLang)"></a>
+   onclick="goPage(currentLang)">
+</a>
 
 <a id="med-back"
    href="javascript:void(0)"
    class="touch-link med-back-btn"
-   onclick="goPage('sub-hospital-' + currentLang)"></a>
+   onclick="goPage('sub-hospital-' + currentLang)">
+</a>
 
 
-<!-- EMBASSY BUTTONS -->
+<!-- =====================================================
+     EMBASSY BUTTONS
+     ===================================================== -->
 
-<a id="e1-call" href="tel:051-465-5101" class="emb-btn-call"></a>
-<a id="e1-home" href="https://www.busan.kr.emb-japan.go.jp/itprtop_ko/index.html" target="_blank" class="emb-btn-home"></a>
+<a id="e1-call"
+   href="tel:051-465-5101"
+   class="emb-btn-call">
+</a>
 
-<a id="e2-call" href="tel:051-743-7990" class="emb-btn-call"></a>
-<a id="e2-home" href="http://busan.china-consulate.gov.cn/kor/" target="_blank" class="emb-btn-home"></a>
+<a id="e1-home"
+   href="https://www.busan.kr.emb-japan.go.jp/itprtop_ko/index.html"
+   target="_blank"
+   class="emb-btn-home">
+</a>
 
-<a id="e3-call" href="tel:051-715-8689" class="emb-btn-call"></a>
-<a id="e3-home" href="https://vnembassy-seoul.mofa.gov.vn/en-us/Pages/default.aspx" target="_blank" class="emb-btn-home"></a>
 
-<a id="e4-call" href="tel:051-441-9904" class="emb-btn-call"></a>
-<a id="e4-home" href="https://pusan.mid.ru" target="_blank" class="emb-btn-home"></a>
+<a id="e2-call"
+   href="tel:051-743-7990"
+   class="emb-btn-call">
+</a>
 
-<a id="e5-call" href="tel:051-465-9996" class="emb-btn-call"></a>
+<a id="e2-home"
+   href="http://busan.china-consulate.gov.cn/kor/"
+   target="_blank"
+   class="emb-btn-home">
+</a>
 
-<a id="e6-call" href="tel:051-463-7965" class="emb-btn-call"></a>
-<a id="e6-home" href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="emb-btn-home"></a>
 
-<a id="e7-call" href="tel:051-469-7003" class="emb-btn-call"></a>
-<a id="e7-home" href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="emb-btn-home"></a>
+<a id="e3-call"
+   href="tel:051-715-8689"
+   class="emb-btn-call">
+</a>
 
-<a id="e8-call" href="tel:02-397-4114" class="emb-btn-call"></a>
-<a id="e8-home" href="https://kr.usembassy.gov/ko/" target="_blank" class="emb-btn-home"></a>
+<a id="e3-home"
+   href="https://vnembassy-seoul.mofa.gov.vn/en-us/Pages/default.aspx"
+   target="_blank"
+   class="emb-btn-home">
+</a>
 
-<a id="e9-call" href="tel:02-748-4114" class="emb-btn-call"></a>
-<a id="e9-home" href="https://seoul.diplo.de/kr-ko" target="_blank" class="emb-btn-home"></a>
 
-<a id="e10-call" href="tel:051-441-2988" class="emb-btn-call"></a>
-<a id="e10-home" href="https://vistos.mne.gov.pt" target="_blank" class="emb-btn-home"></a>
+<a id="e4-call"
+   href="tel:051-441-9904"
+   class="emb-btn-call">
+</a>
 
-<a id="e11-call" href="tel:02-3701-7700" class="emb-btn-call"></a>
-<a id="e11-home" href="https://www.mfat.govt.nz" target="_blank" class="emb-btn-home"></a>
+<a id="e4-home"
+   href="https://pusan.mid.ru"
+   target="_blank"
+   class="emb-btn-home">
+</a>
+
+
+<a id="e5-call"
+   href="tel:051-465-9996"
+   class="emb-btn-call">
+</a>
+
+
+<a id="e6-call"
+   href="tel:051-463-7965"
+   class="emb-btn-call">
+</a>
+
+<a id="e6-home"
+   href="https://www.roc-taiwan.org/krpus_ko/index.html"
+   target="_blank"
+   class="emb-btn-home">
+</a>
+
+
+<a id="e7-call"
+   href="tel:051-469-7003"
+   class="emb-btn-call">
+</a>
+
+<a id="e7-home"
+   href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en"
+   target="_blank"
+   class="emb-btn-home">
+</a>
+
+
+<a id="e8-call"
+   href="tel:02-397-4114"
+   class="emb-btn-call">
+</a>
+
+<a id="e8-home"
+   href="https://kr.usembassy.gov/ko/"
+   target="_blank"
+   class="emb-btn-home">
+</a>
+
+
+<a id="e9-call"
+   href="tel:02-748-4114"
+   class="emb-btn-call">
+</a>
+
+<a id="e9-home"
+   href="https://seoul.diplo.de/kr-ko"
+   target="_blank"
+   class="emb-btn-home">
+</a>
+
+
+<a id="e10-call"
+   href="tel:051-441-2988"
+   class="emb-btn-call">
+</a>
+
+<a id="e10-home"
+   href="https://vistos.mne.gov.pt"
+   target="_blank"
+   class="emb-btn-home">
+</a>
+
+
+<a id="e11-call"
+   href="tel:02-3701-7700"
+   class="emb-btn-call">
+</a>
+
+<a id="e11-home"
+   href="https://www.mfat.govt.nz"
+   target="_blank"
+   class="emb-btn-home">
+</a>
 
 
 </div>
@@ -1007,12 +1363,17 @@ function setDisplay(id, show) {
     var el = document.getElementById(id);
 
     if (el) {
-        el.style.display = show ? "block" : "none";
+
+        el.style.display =
+            show ? "block" : "none";
 
         /*
-         * 숨겨진 버튼은 절대 터치를 가로채지 못하게 함
+         * 화면에 보이지 않는 버튼은
+         * 터치를 절대 가로채지 않음
          */
-        el.style.pointerEvents = show ? "auto" : "none";
+
+        el.style.pointerEvents =
+            show ? "auto" : "none";
     }
 }
 
@@ -1028,7 +1389,9 @@ function goPage(pageId) {
     }
 
 
-    /* 언어 메뉴 닫기 */
+    /* -----------------------------------------------------
+       언어 메뉴 닫기
+       ----------------------------------------------------- */
 
     var dropdown =
         document.getElementById("langDropdown");
@@ -1038,27 +1401,48 @@ function goPage(pageId) {
     }
 
 
-    /* 모든 이미지 숨기기 */
+    /* -----------------------------------------------------
+       모든 이미지 숨기기
+       ----------------------------------------------------- */
 
     var images =
         document.getElementsByClassName("main-img");
 
     for (var i = 0; i < images.length; i++) {
+
         images[i].classList.remove("active");
     }
 
 
-    /* 선택 이미지 */
+    /* -----------------------------------------------------
+       선택 이미지 표시
+       ----------------------------------------------------- */
 
     var target =
         document.getElementById("img-" + pageId);
 
     if (target) {
+
         target.classList.add("active");
+
+    } else {
+
+        /*
+         * 잘못된 페이지가 들어오는 것을 방지
+         */
+
+        console.log(
+            "페이지를 찾을 수 없습니다:",
+            pageId
+        );
+
+        return;
     }
 
 
-    /* 언어 저장 */
+    /* -----------------------------------------------------
+       언어 저장
+       ----------------------------------------------------- */
 
     if (
         pageId === "en" ||
@@ -1069,14 +1453,18 @@ function goPage(pageId) {
         pageId === "mn" ||
         pageId === "ph"
     ) {
+
         currentLang = pageId;
     }
 
 
-    /* 페이지 종류 */
+    /* -----------------------------------------------------
+       페이지 종류
+       ----------------------------------------------------- */
 
     var isHome =
         pageId === "home";
+
 
     var isMainLang =
         pageId === "en" ||
@@ -1087,17 +1475,22 @@ function goPage(pageId) {
         pageId === "mn" ||
         pageId === "ph";
 
+
     var isPharmacySub =
         pageId.indexOf("pharmacy") !== -1;
+
 
     var isHospitalSub =
         pageId.indexOf("hospital") !== -1;
 
+
     var isMedInfoSub =
         pageId.indexOf("medinfo") !== -1;
 
+
     var isEmbassySub =
         pageId === "sub-embassy";
+
 
     var isRulesSub =
         pageId === "sub-rules";
@@ -1107,17 +1500,56 @@ function goPage(pageId) {
        HOME
        ===================================================== */
 
-    setDisplay("area-en", isHome);
-    setDisplay("area-cn", isHome);
-    setDisplay("area-jp", isHome);
-    setDisplay("area-vn", isHome);
-    setDisplay("area-ru", isHome);
-    setDisplay("area-mn", isHome);
-    setDisplay("area-ph", isHome);
+    setDisplay(
+        "area-en",
+        isHome
+    );
 
-    setDisplay("h-112", isHome);
-    setDisplay("h-119", isHome);
-    setDisplay("h-1330", isHome);
+    setDisplay(
+        "area-jp",
+        isHome
+    );
+
+    setDisplay(
+        "area-cn",
+        isHome
+    );
+
+    setDisplay(
+        "area-vn",
+        isHome
+    );
+
+    setDisplay(
+        "area-mn",
+        isHome
+    );
+
+    setDisplay(
+        "area-ph",
+        isHome
+    );
+
+    setDisplay(
+        "area-ru",
+        isHome
+    );
+
+
+    setDisplay(
+        "h-112",
+        isHome
+    );
+
+    setDisplay(
+        "h-119",
+        isHome
+    );
+
+    setDisplay(
+        "h-1330",
+        isHome
+    );
 
 
     /* =====================================================
@@ -1134,72 +1566,186 @@ function goPage(pageId) {
        MAIN
        ===================================================== */
 
-    setDisplay("m-112", isMainLang);
-    setDisplay("m-119", isMainLang);
-    setDisplay("m-1330", isMainLang);
+    setDisplay(
+        "m-112",
+        isMainLang
+    );
 
-    setDisplay("click-hosp", isMainLang);
-    setDisplay("click-phar", isMainLang);
-    setDisplay("click-emba", isMainLang);
-    setDisplay("click-lost", isMainLang);
-    setDisplay("click-rule", isMainLang);
-    setDisplay("click-spots", isMainLang);
+    setDisplay(
+        "m-119",
+        isMainLang
+    );
+
+    setDisplay(
+        "m-1330",
+        isMainLang
+    );
+
+
+    setDisplay(
+        "click-hosp",
+        isMainLang
+    );
+
+    setDisplay(
+        "click-phar",
+        isMainLang
+    );
+
+    setDisplay(
+        "click-emba",
+        isMainLang
+    );
+
+    setDisplay(
+        "click-lost",
+        isMainLang
+    );
+
+    setDisplay(
+        "click-rule",
+        isMainLang
+    );
+
+    setDisplay(
+        "click-spots",
+        isMainLang
+    );
 
 
     /* =====================================================
        PHARMACY
        ===================================================== */
 
-    setDisplay("p-112", isPharmacySub);
-    setDisplay("p-119", isPharmacySub);
-    setDisplay("p-1330", isPharmacySub);
-    setDisplay("p-late", isPharmacySub);
+    setDisplay(
+        "p-112",
+        isPharmacySub
+    );
+
+    setDisplay(
+        "p-119",
+        isPharmacySub
+    );
+
+    setDisplay(
+        "p-1330",
+        isPharmacySub
+    );
+
+    setDisplay(
+        "p-late",
+        isPharmacySub
+    );
 
 
     /* =====================================================
        HOSPITAL
        ===================================================== */
 
-    setDisplay("hp-112", isHospitalSub);
-    setDisplay("hp-119", isHospitalSub);
-    setDisplay("hp-1330", isHospitalSub);
-    setDisplay("hp-find", isHospitalSub);
-    setDisplay("hp-emer", isHospitalSub);
-    setDisplay("hp-med", isHospitalSub);
+    setDisplay(
+        "hp-112",
+        isHospitalSub
+    );
+
+    setDisplay(
+        "hp-119",
+        isHospitalSub
+    );
+
+    setDisplay(
+        "hp-1330",
+        isHospitalSub
+    );
+
+    setDisplay(
+        "hp-find",
+        isHospitalSub
+    );
+
+    setDisplay(
+        "hp-emer",
+        isHospitalSub
+    );
+
+    setDisplay(
+        "hp-med",
+        isHospitalSub
+    );
 
 
     /* =====================================================
        MEDICAL
        ===================================================== */
 
-    setDisplay("med-112", isMedInfoSub);
-    setDisplay("med-119", isMedInfoSub);
-    setDisplay("med-1330", isMedInfoSub);
+    setDisplay(
+        "med-112",
+        isMedInfoSub
+    );
+
+    setDisplay(
+        "med-119",
+        isMedInfoSub
+    );
+
+    setDisplay(
+        "med-1330",
+        isMedInfoSub
+    );
 
 
     /* =====================================================
        RULES
        ===================================================== */
 
-    setDisplay("rules-112", isRulesSub);
-    setDisplay("rules-119", isRulesSub);
-    setDisplay("rules-1330", isRulesSub);
+    setDisplay(
+        "rules-112",
+        isRulesSub
+    );
+
+    setDisplay(
+        "rules-119",
+        isRulesSub
+    );
+
+    setDisplay(
+        "rules-1330",
+        isRulesSub
+    );
 
 
     /* =====================================================
        EMBASSY
        ===================================================== */
 
-    setDisplay("emb-112", isEmbassySub);
-    setDisplay("emb-119", isEmbassySub);
-    setDisplay("emb-1330", isEmbassySub);
+    setDisplay(
+        "emb-112",
+        isEmbassySub
+    );
 
-    setDisplay("emb-back", isEmbassySub);
-    setDisplay("med-back", isMedInfoSub);
+    setDisplay(
+        "emb-119",
+        isEmbassySub
+    );
+
+    setDisplay(
+        "emb-1330",
+        isEmbassySub
+    );
+
+
+    setDisplay(
+        "emb-back",
+        isEmbassySub
+    );
+
+    setDisplay(
+        "med-back",
+        isMedInfoSub
+    );
 
 
     /* =====================================================
-       영사관 버튼
+       영사관 국가 버튼
        ===================================================== */
 
     for (var i = 1; i <= 11; i++) {
@@ -1208,6 +1754,7 @@ function goPage(pageId) {
             "e" + i + "-call",
             isEmbassySub
         );
+
 
         if (i !== 5) {
 
@@ -1226,7 +1773,14 @@ function goPage(pageId) {
     }
 
 
-    window.scrollTo(0, 0);
+    /* -----------------------------------------------------
+       페이지 맨 위
+       ----------------------------------------------------- */
+
+    window.scrollTo(
+        0,
+        0
+    );
 }
 
 
@@ -1237,20 +1791,33 @@ function goPage(pageId) {
 function toggleDropdown(event) {
 
     if (event) {
+
         event.stopPropagation();
     }
 
+
     var dropdown =
-        document.getElementById("langDropdown");
+        document.getElementById(
+            "langDropdown"
+        );
+
 
     if (!dropdown) {
         return;
     }
 
-    if (dropdown.style.display === "block") {
-        dropdown.style.display = "none";
+
+    if (
+        dropdown.style.display === "block"
+    ) {
+
+        dropdown.style.display =
+            "none";
+
     } else {
-        dropdown.style.display = "block";
+
+        dropdown.style.display =
+            "block";
     }
 }
 
@@ -1259,23 +1826,33 @@ function toggleDropdown(event) {
    메뉴 바깥 클릭
    ========================================================= */
 
-document.addEventListener("click", function(e) {
+document.addEventListener(
+    "click",
+    function(e) {
 
-    var dropdown =
-        document.getElementById("langDropdown");
+        var dropdown =
+            document.getElementById(
+                "langDropdown"
+            );
 
-    var button =
-        document.getElementById("area-lang-dropdown");
+        var button =
+            document.getElementById(
+                "area-lang-dropdown"
+            );
 
-    if (
-        dropdown &&
-        e.target !== button &&
-        !dropdown.contains(e.target)
-    ) {
-        dropdown.style.display = "none";
+
+        if (
+            dropdown &&
+            e.target !== button &&
+            !dropdown.contains(e.target)
+        ) {
+
+            dropdown.style.display =
+                "none";
+        }
+
     }
-
-});
+);
 
 
 /* =========================================================
@@ -1287,13 +1864,15 @@ function clickSubMenu(type) {
     if (type === "hospital") {
 
         goPage(
-            "sub-hospital-" + currentLang
+            "sub-hospital-" +
+            currentLang
         );
 
     } else if (type === "pharmacy") {
 
         goPage(
-            "sub-pharmacy-" + currentLang
+            "sub-pharmacy-" +
+            currentLang
         );
     }
 }
@@ -1303,11 +1882,18 @@ function clickSubMenu(type) {
    초기 화면
    ========================================================= */
 
-window.addEventListener("load", function() {
+window.addEventListener(
+    "load",
+    function() {
 
-    goPage("home");
+        /*
+         * 반드시 HOME부터 시작
+         */
 
-});
+        goPage("home");
+
+    }
+);
 
 </script>
 
