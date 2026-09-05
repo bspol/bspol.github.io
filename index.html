@@ -92,6 +92,8 @@ body {
     user-select: none;
 
     -webkit-user-drag: none;
+
+    z-index: 1;
 }
 
 
@@ -125,7 +127,6 @@ body {
 
 /* ==================================================
    112 POLICE
-   사진 속 왼쪽 파란색 긴급전화 박스
    ================================================== */
 
 .call112 {
@@ -142,7 +143,6 @@ body {
 
 /* ==================================================
    119 EMERGENCY
-   사진 속 가운데 빨간색 긴급전화 박스
    ================================================== */
 
 .call119 {
@@ -159,7 +159,6 @@ body {
 
 /* ==================================================
    1330 TOURIST INFORMATION
-   사진 속 오른쪽 초록색 긴급전화 박스
    ================================================== */
 
 .call1330 {
@@ -176,7 +175,6 @@ body {
 
 /* ==================================================
    HOSPITAL
-   사진 속 왼쪽 첫 번째 카드
    ================================================== */
 
 .hospital {
@@ -193,7 +191,6 @@ body {
 
 /* ==================================================
    PHARMACY
-   사진 속 오른쪽 첫 번째 카드
    ================================================== */
 
 .pharmacy {
@@ -219,6 +216,7 @@ body {
         width: 540px;
 
         height: 960px;
+
     }
 
 }
@@ -237,6 +235,7 @@ body {
         height: 100vh;
 
         aspect-ratio: auto;
+
     }
 
 }
@@ -252,7 +251,7 @@ body {
 
 
     <!-- =================================
-         영어 메인 이미지
+         메인 이미지
          ================================= -->
 
     <img
@@ -270,7 +269,8 @@ body {
     <a
         href="tel:112"
         class="touch-button call112"
-        aria-label="Call Police 112">
+        aria-label="Call Police 112"
+        onclick="callNumber('112'); return false;">
     </a>
 
 
@@ -281,7 +281,8 @@ body {
     <a
         href="tel:119"
         class="touch-button call119"
-        aria-label="Call Emergency 119">
+        aria-label="Call Emergency 119"
+        onclick="callNumber('119'); return false;">
     </a>
 
 
@@ -292,7 +293,8 @@ body {
     <a
         href="tel:1330"
         class="touch-button call1330"
-        aria-label="Call Tourist Information 1330">
+        aria-label="Call Tourist Information 1330"
+        onclick="callNumber('1330'); return false;">
     </a>
 
 
@@ -319,6 +321,37 @@ body {
 
 
 </div>
+
+
+<script>
+
+/* =========================================
+   긴급전화 연결
+   ========================================= */
+
+function callNumber(number) {
+
+    window.location.href = "tel:" + number;
+
+}
+
+
+/* =========================================
+   이미지 오류 확인
+   ========================================= */
+
+document
+    .getElementById("mainImage")
+    .addEventListener("error", function () {
+
+        console.error(
+            "이미지 로딩 실패: " + this.src
+        );
+
+    });
+
+</script>
+
 
 </body>
 
