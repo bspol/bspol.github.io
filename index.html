@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,6 +84,158 @@ body {
 
     width: 24%;
     height: 7%;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    z-index: 1000;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ==================================================
+   ★ 하단 긴급신고 터치 영역
+   ================================================== */
+
+#call112 {
+
+    position: absolute;
+
+    left: 2%;
+    top: 32.3%;
+
+    width: 31%;
+    height: 13.7%;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    z-index: 1000;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+#call119 {
+
+    position: absolute;
+
+    left: 34%;
+    top: 32.3%;
+
+    width: 31%;
+    height: 13.7%;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    z-index: 1000;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+#call1330 {
+
+    position: absolute;
+
+    left: 66%;
+    top: 32.3%;
+
+    width: 32%;
+    height: 13.7%;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    z-index: 1000;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ==================================================
+   ★ 병원 터치 영역
+   ================================================== */
+
+#hospitalButton {
+
+    position: absolute;
+
+    left: 2%;
+    top: 47%;
+
+    width: 47.8%;
+    height: 16.8%;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    z-index: 1000;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ==================================================
+   ★ 약국 터치 영역
+   ================================================== */
+
+#pharmacyButton {
+
+    position: absolute;
+
+    left: 50.2%;
+    top: 47%;
+
+    width: 47.8%;
+    height: 16.8%;
 
     padding: 0;
     margin: 0;
@@ -254,6 +407,46 @@ body {
         aria-label="Select language">
     </button>
 
+
+    <!-- ==================================================
+         하단 긴급신고
+         ================================================== -->
+
+    <button
+        id="call112"
+        type="button"
+        aria-label="112">
+    </button>
+
+    <button
+        id="call119"
+        type="button"
+        aria-label="119">
+    </button>
+
+    <button
+        id="call1330"
+        type="button"
+        aria-label="1330">
+    </button>
+
+
+    <!-- ==================================================
+         병원 / 약국
+         ================================================== -->
+
+    <button
+        id="hospitalButton"
+        type="button"
+        aria-label="Hospital">
+    </button>
+
+    <button
+        id="pharmacyButton"
+        type="button"
+        aria-label="Pharmacy">
+    </button>
+
 </div>
 
 
@@ -281,7 +474,7 @@ body {
     <button
         type="button"
         class="language-button"
-        data-url="../main_en/">
+        data-url="main_en/">
         English
     </button>
 
@@ -291,7 +484,7 @@ body {
     <button
         type="button"
         class="language-button"
-        data-url="../main_cn/">
+        data-url="main_cn/">
         中文
     </button>
 
@@ -301,7 +494,7 @@ body {
     <button
         type="button"
         class="language-button"
-        data-url="../main_jp/">
+        data-url="main_jp/">
         日本語
     </button>
 
@@ -311,7 +504,7 @@ body {
     <button
         type="button"
         class="language-button"
-        data-url="../main_vn/">
+        data-url="main_vn/">
         Tiếng Việt
     </button>
 
@@ -321,7 +514,7 @@ body {
     <button
         type="button"
         class="language-button"
-        data-url="../main_mn/">
+        data-url="main_mn/">
         Монгол
     </button>
 
@@ -331,7 +524,7 @@ body {
     <button
         type="button"
         class="language-button"
-        data-url="../main_ph/">
+        data-url="main_ph/">
         Filipino
     </button>
 
@@ -341,7 +534,7 @@ body {
     <button
         type="button"
         class="language-button"
-        data-url="../main_ru/">
+        data-url="main_ru/">
         Русский
     </button>
 
@@ -404,6 +597,7 @@ closeArea.addEventListener("click", function(e) {
 
 /* ==================================================
    언어 선택
+   ★ ../ 제거
    ================================================== */
 
 document
@@ -430,6 +624,71 @@ document
 
 
 /* ==================================================
+   112
+   ================================================== */
+
+document
+.getElementById("call112")
+.addEventListener("click", function() {
+
+    window.location.href = "tel:112";
+
+});
+
+
+/* ==================================================
+   119
+   ================================================== */
+
+document
+.getElementById("call119")
+.addEventListener("click", function() {
+
+    window.location.href = "tel:119";
+
+});
+
+
+/* ==================================================
+   1330
+   ================================================== */
+
+document
+.getElementById("call1330")
+.addEventListener("click", function() {
+
+    window.location.href = "tel:1330";
+
+});
+
+
+/* ==================================================
+   병원
+   ================================================== */
+
+document
+.getElementById("hospitalButton")
+.addEventListener("click", function() {
+
+    window.location.href = "hospital_en/";
+
+});
+
+
+/* ==================================================
+   약국
+   ================================================== */
+
+document
+.getElementById("pharmacyButton")
+.addEventListener("click", function() {
+
+    window.location.href = "pharmacy_en/";
+
+});
+
+
+/* ==================================================
    ESC 닫기
    ================================================== */
 
@@ -450,3 +709,4 @@ document.addEventListener("keydown", function(e) {
 </body>
 
 </html>
+```
