@@ -74,12 +74,6 @@ body {
    MAIN 화면
    ================================================== */
 
-/*
-   PNG 안에 이미 있는
-   지구본 + 나라 이름 부분
-
-   HTML에서는 아무것도 표시하지 않음.
-*/
 .main-language-button {
     left: 0%;
     top: 0%;
@@ -87,8 +81,6 @@ body {
     height: 10%;
 }
 
-
-/* 112 */
 .main-112 {
     left: 2%;
     top: 32.3%;
@@ -96,8 +88,6 @@ body {
     height: 13.7%;
 }
 
-
-/* 119 */
 .main-119 {
     left: 34%;
     top: 32.3%;
@@ -105,8 +95,6 @@ body {
     height: 13.7%;
 }
 
-
-/* 1330 */
 .main-1330 {
     left: 66%;
     top: 32.3%;
@@ -114,8 +102,6 @@ body {
     height: 13.7%;
 }
 
-
-/* 병원 */
 .main-hospital {
     left: 2%;
     top: 47%;
@@ -123,8 +109,6 @@ body {
     height: 16.8%;
 }
 
-
-/* 약국 */
 .main-pharmacy {
     left: 50.2%;
     top: 47%;
@@ -141,12 +125,6 @@ body {
     display: none;
 }
 
-
-/*
-   병원 PNG에 이미 있는
-   지구본 + 나라 이름 위에
-   투명 버튼만 설치
-*/
 .hospital-language-button {
     left: 0%;
     top: 0%;
@@ -154,8 +132,6 @@ body {
     height: 10%;
 }
 
-
-/* 112 */
 .hospital-112 {
     left: 4%;
     top: 45%;
@@ -163,8 +139,6 @@ body {
     height: 14%;
 }
 
-
-/* 119 */
 .hospital-119 {
     left: 36%;
     top: 45%;
@@ -172,8 +146,6 @@ body {
     height: 14%;
 }
 
-
-/* 1330 */
 .hospital-1330 {
     left: 68%;
     top: 45%;
@@ -181,8 +153,6 @@ body {
     height: 14%;
 }
 
-
-/* 병원 찾기 */
 .find-hospital {
     left: 4%;
     top: 61%;
@@ -190,8 +160,6 @@ body {
     height: 26%;
 }
 
-
-/* 응급실 찾기 */
 .find-emergency {
     left: 36%;
     top: 61%;
@@ -199,8 +167,6 @@ body {
     height: 26%;
 }
 
-
-/* 의료정보 */
 .medical-info {
     left: 68%;
     top: 61%;
@@ -220,8 +186,7 @@ body {
 
 /*
    약국 PNG에 이미 있는
-   지구본 + 나라 이름 위에
-   투명 버튼만 설치
+   지구본 + 나라 이름을 누르는 투명 영역
 */
 .pharmacy-language-button {
     left: 0%;
@@ -232,14 +197,9 @@ body {
 
 
 /* ==================================================
-   언어 선택 BACKDROP
+   언어 선택 바깥 영역
    ================================================== */
 
-/*
-   언어 메뉴가 열리면 화면 전체를 덮는다.
-
-   메뉴 바깥을 누르면 닫힘.
-*/
 #languageClose {
     position: fixed;
 
@@ -250,16 +210,14 @@ body {
 
     display: none;
 
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.25);
 
     z-index: 900;
-
-    cursor: pointer;
 }
 
 
 /* ==================================================
-   언어 선택 메뉴
+   작은 언어 선택창
    ================================================== */
 
 #languageMenu {
@@ -267,51 +225,60 @@ body {
 
     display: none;
 
-    left: 5%;
-    top: 8%;
+    left: 15%;
+    top: 12%;
 
-    width: 90%;
+    width: 70%;
 
     background: rgba(255,255,255,0.98);
 
-    border-radius: 20px;
+    border-radius: 18px;
 
-    padding: 20px;
+    padding: 15px;
 
     z-index: 1000;
 
     box-shadow:
-        0 8px 30px rgba(0,0,0,0.4);
+        0 6px 25px rgba(0,0,0,0.4);
 }
 
 
 .language-title {
     text-align: center;
 
-    font-size: 26px;
+    font-size: 23px;
 
     font-weight: bold;
 
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+}
+
+
+/*
+   7개 언어를 작은 창 안에서
+   2열로 표시
+*/
+.language-list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
 }
 
 
 .language-button {
-    display: block;
-
     width: 100%;
 
-    min-height: 60px;
-
-    margin-bottom: 10px;
+    min-height: 50px;
 
     border: none;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     background: #f0f0f0;
 
-    font-size: 21px;
+    font-size: 18px;
 
     font-weight: bold;
 
@@ -319,13 +286,8 @@ body {
 }
 
 
-.language-button:last-child {
-    margin-bottom: 0;
-}
-
-
 .language-button:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
 }
 
 </style>
@@ -349,13 +311,7 @@ body {
              alt="SAFE IN BUSAN">
 
 
-        <!--
-            PNG에 이미 있는
-            지구본 + 나라 이름
-
-            HTML에는 아무 글자도 만들지 않음.
-            투명 터치 영역만 존재.
-        -->
+        <!-- PNG 안의 지구본 + 나라 이름 -->
         <button
             type="button"
             class="touch main-language-button"
@@ -420,10 +376,7 @@ body {
              alt="Hospital">
 
 
-        <!--
-            병원 PNG에 이미 있는
-            지구본 + 나라 이름
-        -->
+        <!-- 병원 PNG 안의 지구본 + 나라 이름 -->
         <button
             type="button"
             class="touch hospital-language-button"
@@ -497,13 +450,7 @@ body {
              alt="Pharmacy">
 
 
-        <!--
-            약국 PNG에 이미 있는
-            지구본 + 나라 이름
-
-            HTML에서는 지구본이나 나라 이름을
-            새로 표시하지 않음.
-        -->
+        <!-- 약국 PNG 안의 지구본 + 나라 이름 -->
         <button
             type="button"
             class="touch pharmacy-language-button"
@@ -516,7 +463,7 @@ body {
 
 
     <!-- ==================================================
-         언어 선택 BACKDROP
+         언어 선택 바깥 영역
          ================================================== -->
 
     <div id="languageClose"
@@ -526,72 +473,75 @@ body {
 
 
     <!-- ==================================================
-         언어 선택 메뉴
+         작은 언어 선택창
          ================================================== -->
 
     <div id="languageMenu"
          onclick="event.stopPropagation()">
-
 
         <div class="language-title">
             Select Language
         </div>
 
 
-        <button
-            type="button"
-            class="language-button"
-            onclick="selectLanguage('en')">
-            English
-        </button>
+        <div class="language-list">
+
+            <button
+                type="button"
+                class="language-button"
+                onclick="selectLanguage('en')">
+                English
+            </button>
 
 
-        <button
-            type="button"
-            class="language-button"
-            onclick="selectLanguage('jp')">
-            日本語
-        </button>
+            <button
+                type="button"
+                class="language-button"
+                onclick="selectLanguage('jp')">
+                日本語
+            </button>
 
 
-        <button
-            type="button"
-            class="language-button"
-            onclick="selectLanguage('cn')">
-            中文
-        </button>
+            <button
+                type="button"
+                class="language-button"
+                onclick="selectLanguage('cn')">
+                中文
+            </button>
 
 
-        <button
-            type="button"
-            class="language-button"
-            onclick="selectLanguage('ru')">
-            Русский
-        </button>
+            <button
+                type="button"
+                class="language-button"
+                onclick="selectLanguage('ru')">
+                Русский
+            </button>
 
 
-        <button
-            type="button"
-            class="language-button"
-            onclick="selectLanguage('vn')">
-            Tiếng Việt
-        </button>
+            <button
+                type="button"
+                class="language-button"
+                onclick="selectLanguage('vn')">
+                Tiếng Việt
+            </button>
 
 
-        <button
-            type="button"
-            class="language-button"
-            onclick="selectLanguage('mn')">
-            Монгол
-        </button>
+            <button
+                type="button"
+                class="language-button"
+                onclick="selectLanguage('mn')">
+                Монгол
+            </button>
 
 
-        <button
-            type="button"
-            class="language-button"
-            onclick="selectLanguage('ph')">
-            Filipino
-        </button>
+            <button
+                type="button"
+                class="language-button"
+                onclick="selectLanguage('ph')">
+                Filipino
+            </button>
+
+        </div>
 
     </div>
 
@@ -601,7 +551,7 @@ body {
 <script>
 
 /* ==================================================
-   7개 언어 파일 설정
+   7개 언어 파일
    ================================================== */
 
 const languages = {
@@ -666,14 +616,7 @@ let currentLanguage = "en";
 
 
 /* ==================================================
-   현재 화면
-   ================================================== */
-
-let currentPage = "main";
-
-
-/* ==================================================
-   언어 메뉴 열기
+   언어 선택창 열기
    ================================================== */
 
 function openLanguageMenu(event) {
@@ -682,27 +625,29 @@ function openLanguageMenu(event) {
         event.stopPropagation();
     }
 
-    document.getElementById("languageClose").style.display = "block";
+    document.getElementById("languageClose").style.display =
+        "block";
 
-    document.getElementById("languageMenu").style.display = "block";
+    document.getElementById("languageMenu").style.display =
+        "block";
 }
 
 
 /* ==================================================
-   언어 메뉴 닫기
+   언어 선택창 닫기
    ================================================== */
 
 function closeLanguageMenu(event) {
 
     if (event) {
-
         event.stopPropagation();
-
     }
 
-    document.getElementById("languageMenu").style.display = "none";
+    document.getElementById("languageMenu").style.display =
+        "none";
 
-    document.getElementById("languageClose").style.display = "none";
+    document.getElementById("languageClose").style.display =
+        "none";
 }
 
 
@@ -722,35 +667,35 @@ function selectLanguage(lang) {
 
 
     /*
-       MAIN 이미지 변경
+       MAIN
     */
     document.getElementById("mainImage").src =
         data.main;
 
 
     /*
-       HOSPITAL 이미지 변경
+       HOSPITAL
     */
     document.getElementById("hospitalImage").src =
         data.hospital;
 
 
     /*
-       PHARMACY 이미지 변경
+       PHARMACY
     */
     document.getElementById("pharmacyImage").src =
         data.pharmacy;
 
 
     /*
-       메뉴 닫기
+       언어창 닫기
     */
     closeLanguageMenu();
 
 
     /*
-       언어를 선택하면
-       해당 국가 MAIN 화면으로 이동
+       기존 방식대로
+       언어 선택 후 해당 언어 MAIN 화면
     */
     showMain();
 }
@@ -770,23 +715,19 @@ function showMain() {
 
     document.getElementById("pharmacyPage").style.display =
         "none";
-
-    currentPage = "main";
 }
 
 
 /* ==================================================
-   병원 페이지
+   HOSPITAL 화면
    ================================================== */
 
 function openHospital() {
 
     const data = languages[currentLanguage];
 
-
     document.getElementById("hospitalImage").src =
         data.hospital;
-
 
     document.getElementById("mainPage").style.display =
         "none";
@@ -796,24 +737,19 @@ function openHospital() {
 
     document.getElementById("hospitalPage").style.display =
         "block";
-
-
-    currentPage = "hospital";
 }
 
 
 /* ==================================================
-   약국 페이지
+   PHARMACY 화면
    ================================================== */
 
 function openPharmacy() {
 
     const data = languages[currentLanguage];
 
-
     document.getElementById("pharmacyImage").src =
         data.pharmacy;
-
 
     document.getElementById("mainPage").style.display =
         "none";
@@ -823,9 +759,6 @@ function openPharmacy() {
 
     document.getElementById("pharmacyPage").style.display =
         "block";
-
-
-    currentPage = "pharmacy";
 }
 
 
@@ -869,47 +802,48 @@ function openMedicalInfo() {
 
 
 /* ==================================================
-   화면 전체 클릭 처리
+   언어창 바깥을 누르면 닫기
    ================================================== */
 
-/*
-   혹시 backdrop 클릭 이벤트가
-   브라우저나 모바일에서 제대로 전달되지 않는 경우에도
-   언어 메뉴 바깥을 누르면 닫히도록 처리.
-*/
 document.addEventListener("click", function(event) {
 
     const menu =
         document.getElementById("languageMenu");
 
-    const close =
+    const backdrop =
         document.getElementById("languageClose");
 
 
-    if (menu.style.display === "block") {
-
-        if (!menu.contains(event.target) &&
-            event.target !== close) {
-
-            closeLanguageMenu();
-
-        }
-
+    if (menu.style.display !== "block") {
+        return;
     }
+
+
+    /*
+       언어창 안쪽을 누른 경우
+       아무것도 하지 않음
+    */
+    if (menu.contains(event.target)) {
+        return;
+    }
+
+
+    /*
+       언어창 바깥을 누르면 닫음
+    */
+    closeLanguageMenu();
 
 });
 
 
 /* ==================================================
-   ESC 키
+   ESC로 닫기
    ================================================== */
 
 document.addEventListener("keydown", function(event) {
 
     if (event.key === "Escape") {
-
         closeLanguageMenu();
-
     }
 
 });
@@ -927,10 +861,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("mainImage").src =
         data.main;
 
-
     document.getElementById("hospitalImage").src =
         data.hospital;
-
 
     document.getElementById("pharmacyImage").src =
         data.pharmacy;
