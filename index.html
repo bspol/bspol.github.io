@@ -12,13 +12,9 @@
       maximum-scale=1.0,
       user-scalable=no">
 
-<title>BUSAN SAFETY GUIDE</title>
+<title>Hospital</title>
 
 <style>
-
-/* ==================================================
-   기본
-   ================================================== */
 
 html,
 body {
@@ -37,13 +33,7 @@ body {
     box-sizing: border-box;
 }
 
-
-/* ==================================================
-   영어 메인 화면
-   ★ main_en.png 그대로 사용
-   ================================================== */
-
-.home-container {
+.page-container {
     position: relative;
 
     width: 100%;
@@ -53,7 +43,7 @@ body {
     line-height: 0;
 }
 
-.home-image {
+.page-image {
     display: block;
 
     width: 100%;
@@ -69,314 +59,123 @@ body {
 }
 
 
-/* ==================================================
-   왼쪽 상단
-   🌐 English
-   ================================================== */
-
-#languageTrigger {
-
-    position: absolute;
-
-    left: 2%;
-    top: 0;
-
-    width: 24%;
-    height: 7%;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
-
-    border: none;
-    outline: none;
-
-    z-index: 1000;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-
-/* ==================================================
+/* ================================
    112
-   ================================================== */
+   ================================ */
 
 #call112 {
-
     position: absolute;
 
-    left: 2%;
-    top: 32.3%;
+    left: 4%;
+    top: 45%;
 
-    width: 31%;
-    height: 13.7%;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
+    width: 28%;
+    height: 14%;
 
     border: none;
-    outline: none;
+    background: transparent;
 
     z-index: 1000;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* ==================================================
+/* ================================
    119
-   ================================================== */
+   ================================ */
 
 #call119 {
-
     position: absolute;
 
-    left: 34%;
-    top: 32.3%;
+    left: 36%;
+    top: 45%;
 
-    width: 31%;
-    height: 13.7%;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
+    width: 28%;
+    height: 14%;
 
     border: none;
-    outline: none;
+    background: transparent;
 
     z-index: 1000;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* ==================================================
+/* ================================
    1330
-   ================================================== */
+   ================================ */
 
 #call1330 {
-
     position: absolute;
 
-    left: 66%;
-    top: 32.3%;
+    left: 68%;
+    top: 45%;
 
-    width: 32%;
-    height: 13.7%;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
+    width: 28%;
+    height: 14%;
 
     border: none;
-    outline: none;
+    background: transparent;
 
     z-index: 1000;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* ==================================================
-   병원
-   ================================================== */
+/* ================================
+   가까운 병원 찾기
+   ================================ */
 
-#hospitalButton {
-
+#findHospital {
     position: absolute;
 
-    left: 2%;
-    top: 47%;
+    left: 4%;
+    top: 61%;
 
-    width: 47.8%;
-    height: 16.8%;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
+    width: 28%;
+    height: 26%;
 
     border: none;
-    outline: none;
+    background: transparent;
 
     z-index: 1000;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* ==================================================
-   약국
-   ================================================== */
+/* ================================
+   응급실 찾기
+   ================================ */
 
-#pharmacyButton {
-
+#findEmergency {
     position: absolute;
 
-    left: 50.2%;
-    top: 47%;
+    left: 36%;
+    top: 61%;
 
-    width: 47.8%;
-    height: 16.8%;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
+    width: 28%;
+    height: 26%;
 
     border: none;
-    outline: none;
+    background: transparent;
 
     z-index: 1000;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* ==================================================
-   언어창 바깥
-   ================================================== */
+/* ================================
+   의료정보
+   ================================ */
 
-#languageClose {
+#medicalInfo {
+    position: absolute;
 
-    position: fixed;
+    left: 68%;
+    top: 61%;
 
-    inset: 0;
-
-    display: none;
-
-    background: transparent;
-
-    z-index: 9998;
-}
-
-
-/* ==================================================
-   작은 언어창
-   ================================================== */
-
-#languageMenu {
-
-    position: fixed;
-
-    top: 58px;
-    left: 10px;
-
-    width: 155px;
-
-    display: none;
-
-    padding: 9px;
-
-    background: rgba(255,255,255,0.98);
-
-    border-radius: 11px;
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,0.30);
-
-    z-index: 9999;
-
-    line-height: normal;
-}
-
-
-/* ==================================================
-   언어 제목
-   ================================================== */
-
-.language-title {
-
-    margin: 0 0 7px 0;
-
-    padding: 0;
-
-    text-align: center;
-
-    font-size: 15px;
-
-    line-height: 21px;
-
-    font-weight: bold;
-
-    color: #111;
-}
-
-
-/* ==================================================
-   언어 버튼
-   ================================================== */
-
-.language-button {
-
-    display: block;
-
-    width: 100%;
-
-    height: 35px;
-
-    margin: 0 0 5px 0;
-
-    padding: 0;
+    width: 28%;
+    height: 26%;
 
     border: none;
+    background: transparent;
 
-    border-radius: 8px;
-
-    background: #f0f0f0;
-
-    color: #111;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    line-height: 35px;
-
-    text-align: center;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-.language-button:last-child {
-    margin-bottom: 0;
-}
-
-.language-button:active {
-    transform: scale(0.97);
+    z-index: 1000;
 }
 
 </style>
@@ -387,30 +186,14 @@ body {
 <body>
 
 
-<!-- ==================================================
-     HOME
-     ★ main_en.png
-     ================================================== -->
-
-<div class="home-container">
+<div class="page-container">
 
     <img
-        src="main_en.png"
-        class="home-image"
-        alt="BUSAN SAFETY GUIDE"
+        src="../hospital_en.png"
+        class="page-image"
+        alt="Hospital"
     >
 
-
-    <!-- 언어 -->
-
-    <button
-        id="languageTrigger"
-        type="button"
-        aria-label="Select language">
-    </button>
-
-
-    <!-- 112 -->
 
     <button
         id="call112"
@@ -419,16 +202,12 @@ body {
     </button>
 
 
-    <!-- 119 -->
-
     <button
         id="call119"
         type="button"
         aria-label="119">
     </button>
 
-
-    <!-- 1330 -->
 
     <button
         id="call1330"
@@ -437,97 +216,24 @@ body {
     </button>
 
 
-    <!-- 병원 -->
-
     <button
-        id="hospitalButton"
+        id="findHospital"
         type="button"
-        aria-label="Hospital">
-    </button>
-
-
-    <!-- 약국 -->
-
-    <button
-        id="pharmacyButton"
-        type="button"
-        aria-label="Pharmacy">
-    </button>
-
-</div>
-
-
-<!-- ==================================================
-     언어창 바깥
-     ================================================== -->
-
-<div id="languageClose"></div>
-
-
-<!-- ==================================================
-     언어 선택
-     ================================================== -->
-
-<div id="languageMenu">
-
-    <div class="language-title">
-        Select Language
-    </div>
-
-
-    <button
-        type="button"
-        class="language-button"
-        data-url="/main_en/">
-        English
+        aria-label="Find Hospital">
     </button>
 
 
     <button
+        id="findEmergency"
         type="button"
-        class="language-button"
-        data-url="/main_cn/">
-        中文
+        aria-label="Find Emergency Room">
     </button>
 
 
     <button
+        id="medicalInfo"
         type="button"
-        class="language-button"
-        data-url="/main_jp/">
-        日本語
-    </button>
-
-
-    <button
-        type="button"
-        class="language-button"
-        data-url="/main_vn/">
-        Tiếng Việt
-    </button>
-
-
-    <button
-        type="button"
-        class="language-button"
-        data-url="/main_mn/">
-        Монгол
-    </button>
-
-
-    <button
-        type="button"
-        class="language-button"
-        data-url="/main_ph/">
-        Filipino
-    </button>
-
-
-    <button
-        type="button"
-        class="language-button"
-        data-url="/main_ru/">
-        Русский
+        aria-label="Medical Information">
     </button>
 
 </div>
@@ -535,172 +241,83 @@ body {
 
 <script>
 
-/* ==================================================
-   언어 메뉴
-   ================================================== */
-
-const trigger =
-    document.getElementById("languageTrigger");
-
-const menu =
-    document.getElementById("languageMenu");
-
-const closeArea =
-    document.getElementById("languageClose");
-
-
-/* ==================================================
-   언어창 열기 / 닫기
-   ================================================== */
-
-trigger.addEventListener("click", function(e) {
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (menu.style.display === "block") {
-
-        menu.style.display = "none";
-        closeArea.style.display = "none";
-
-    } else {
-
-        menu.style.display = "block";
-        closeArea.style.display = "block";
-
-    }
-
-});
-
-
-/* ==================================================
-   바깥을 누르면 닫기
-   ================================================== */
-
-closeArea.addEventListener("click", function(e) {
-
-    e.preventDefault();
-
-    menu.style.display = "none";
-    closeArea.style.display = "none";
-
-});
-
-
-/* ==================================================
-   나라 선택
-   ================================================== */
-
-document
-.querySelectorAll(".language-button")
-.forEach(function(button) {
-
-    button.addEventListener("click", function(e) {
-
-        e.preventDefault();
-        e.stopPropagation();
-
-        const url =
-            this.getAttribute("data-url");
-
-        if (url) {
-
-            window.location.assign(url);
-
-        }
-
-    });
-
-});
-
-
-/* ==================================================
+/* ================================
    112
-   ================================================== */
+   ================================ */
 
 document
 .getElementById("call112")
-.addEventListener("click", function(e) {
-
-    e.preventDefault();
+.addEventListener("click", function() {
 
     window.location.href = "tel:112";
 
 });
 
 
-/* ==================================================
+/* ================================
    119
-   ================================================== */
+   ================================ */
 
 document
 .getElementById("call119")
-.addEventListener("click", function(e) {
-
-    e.preventDefault();
+.addEventListener("click", function() {
 
     window.location.href = "tel:119";
 
 });
 
 
-/* ==================================================
+/* ================================
    1330
-   ================================================== */
+   ================================ */
 
 document
 .getElementById("call1330")
-.addEventListener("click", function(e) {
-
-    e.preventDefault();
+.addEventListener("click", function() {
 
     window.location.href = "tel:1330";
 
 });
 
 
-/* ==================================================
-   병원
-   ================================================== */
+/* ================================
+   가까운 병원
+   ================================ */
 
 document
-.getElementById("hospitalButton")
-.addEventListener("click", function(e) {
+.getElementById("findHospital")
+.addEventListener("click", function() {
 
-    e.preventDefault();
-
-    window.location.assign("/hospital_en/");
+    window.location.href =
+        "https://www.google.com/maps/search/?api=1&query=hospital+near+me";
 
 });
 
 
-/* ==================================================
-   약국
-   ================================================== */
+/* ================================
+   응급실
+   ================================ */
 
 document
-.getElementById("pharmacyButton")
-.addEventListener("click", function(e) {
+.getElementById("findEmergency")
+.addEventListener("click", function() {
 
-    e.preventDefault();
-
-    window.location.assign("/pharmacy_en/");
+    window.location.href =
+        "https://www.google.com/maps/search/?api=1&query=emergency+room+near+me";
 
 });
 
 
-/* ==================================================
-   ESC
-   ================================================== */
+/* ================================
+   의료정보
+   ================================ */
 
-document.addEventListener("keydown", function(e) {
+document
+.getElementById("medicalInfo")
+.addEventListener("click", function() {
 
-    if (e.key === "Escape") {
-
-        menu.style.display = "none";
-        closeArea.style.display = "none";
-
-    }
+    window.location.href =
+        "../medical-info-en.png";
 
 });
 
