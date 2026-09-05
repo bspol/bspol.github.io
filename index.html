@@ -1,413 +1,638 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Busan Foreigner Safety Platform</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #0b1d3a;
-            overflow-x: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            padding-bottom: 20px;
-        }
-        .main-img {
-            width: 100%;
-            height: auto;
-            display: none;
-        }
-        .main-img.active {
-            display: block;
-        }
-        
-        /* 터치 링크 설정 */
-        .touch-link {
-            position: absolute;
-            cursor: pointer;
-            display: none;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            pointer-events: auto;
-            box-sizing: border-box;
-            background-color: transparent !important;
-            border: none !important;
-            z-index: 999999 !important;
-        }
-
-        /* 1. 홈 화면 */
-        .btn-en { top: 54.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
-        .btn-cn { top: 60.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
-        .btn-jp { top: 66.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
-        .btn-vn { top: 72.0%; left: 6.5%; width: 87.0%; height: 5.2%; }
-
-        .home-phone { top: 82.5%; height: 7.5%; }
-        .home-112 { left: 6.5%; width: 27.5%; }
-        .home-119 { left: 36.2%; width: 27.5%; }
-        .home-1330 { left: 66.0%; width: 27.5%; }
-
-        /* 2. 상단 지구본 드롭다운 버튼 */
-        .btn-lang-dropdown { top: 1.5%; left: 2.5%; width: 26.0%; height: 5.5%; } 
-
-        /* 3. 언어 메인 화면 - 상단 CALL 버튼 3개 */
-        .main-call-112  { top: 38.5%; left: 3.5%; width: 29.5%; height: 10.0%; }
-        .main-call-119  { top: 38.5%; left: 35.2%; width: 29.5%; height: 10.0%; }
-        .main-call-1330 { top: 38.5%; left: 67.0%; width: 29.5%; height: 10.0%; }
-
-        /* 4. 언어 메인 화면 - 6대 카드 메뉴 */
-        .click-hospital  { top: 51.5%; left: 3.0%; width: 46.5%; height: 12.5%; }
-        .click-pharmacy  { top: 51.5%; left: 50.5%; width: 46.5%; height: 12.5%; }
-        .click-embassy   { top: 65.5%; left: 3.0%; width: 46.5%; height: 12.5%; }
-        .click-lost      { top: 65.5%; left: 50.5%; width: 46.5%; height: 12.5%; }
-        .click-rules     { top: 79.5%; left: 3.0%; width: 46.5%; height: 12.5%; }
-        .click-spots     { top: 79.5%; left: 50.5%; width: 46.5%; height: 12.5%; }
-
-        /* 5. 약국 페이지 버튼 */
-        .pharm-call-112  { top: 41.5%; left: 3.5%; width: 22.0%; height: 9.0%; }
-        .pharm-call-119  { top: 41.5%; left: 27.5%; width: 22.0%; height: 9.0%; }
-        .pharm-call-1330 { top: 41.5%; left: 51.5%; width: 22.0%; height: 9.0%; }
-        .pharm-late-link { top: 41.5%; left: 75.5%; width: 22.0%; height: 9.0%; }
-
-        /* 6. 병원 페이지 버튼 */
-        .hosp-call-112   { top: 45.0%; left: 5.0%; width: 28.0%; height: 9.5%; }
-        .hosp-call-119   { top: 45.0%; left: 36.0%; width: 28.0%; height: 9.5%; }
-        .hosp-call-1330  { top: 45.0%; left: 67.0%; width: 28.0%; height: 9.5%; }
-
-        .hosp-find-map   { top: 61.5%; left: 4.5%; width: 29.0%; height: 23.0%; }
-        .hosp-emergency  { top: 61.5%; left: 35.5%; width: 29.0%; height: 23.0%; }
-        .hosp-medinfo    { top: 61.5%; left: 66.5%; width: 29.0%; height: 23.0%; }
-
-        /* 7. 의료정보 페이지 하단 전화 버튼 */
-        .med-call-112    { top: 89.0%; left: 5.5%; width: 29.0%; height: 8.5%; }
-        .med-call-119    { top: 89.0%; left: 35.5%; width: 29.0%; height: 8.5%; }
-        .med-call-1330   { top: 89.0%; left: 65.5%; width: 29.0%; height: 8.5%; }
-
-        /* 8. 기초질서 페이지 하단 긴급신고 버튼 (버튼 너비를 정확히 줄이고 간격 조정하여 빈공간 터치 방지) */
-        .rules-call-112  { top: 86.3%; left: 22.5%; width: 17.5%; height: 7.2%; }
-        .rules-call-119  { top: 86.3%; left: 41.3%; width: 17.5%; height: 7.2%; }
-        .rules-call-1330 { top: 86.3%; left: 60.0%; width: 17.5%; height: 7.2%; }
-
-        /* 영사관 페이지 하단 긴급전화 버튼 */
-        .emb-call-112  { top: 89.8%; left: 29.5%; width: 20.2%; height: 8.5%; }
-        .emb-call-119  { top: 89.8%; left: 49.8%; width: 20.2%; height: 8.5%; }
-        .emb-call-1330 { top: 89.8%; left: 70.2%; width: 27.0%; height: 8.5%; }
-
-        /* 9. 영사관 페이지 버튼 스타일 */
-        .emb-btn-call {
-            position: absolute;
-            display: none;
-            cursor: pointer;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            z-index: 99999999 !important;
-            box-sizing: border-box;
-            background: transparent;
-            border: none;
-        }
-        .emb-btn-home {
-            position: absolute;
-            display: none;
-            cursor: pointer;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            z-index: 99999999 !important;
-            box-sizing: border-box;
-            background: transparent;
-            border: none;
-        }
-
-        .emb-back-btn { top: 1.5%; left: 2.0%; width: 22.0%; height: 4.5%; }
-        .med-back-btn { top: 1.5%; right: 2.0%; left: auto; width: 22.0%; height: 4.5%; }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 7.5%; 
-            left: 2.5%;
-            width: 150px;
-            background-color: #12284c;
-            border: 1px solid #234375;
-            border-radius: 8px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
-            z-index: 9999999;
-            padding: 5px 0;
-        }
-        .dropdown-menu a {
-            display: block;
-            color: #ffffff;
-            padding: 12px 15px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-            border-bottom: 1px solid #1c3966;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <img id="img-home" class="main-img active" src="home.png" alt="Home">
-        <img id="img-en" class="main-img" src="main_en.png" alt="English">
-        <img id="img-cn" class="main-img" src="main_cn.png" alt="Chinese">
-        <img id="img-jp" class="main-img" src="main_jp.png" alt="Japanese">
-        <img id="img-vn" class="main-img" src="main_vn.png" alt="Vietnamese">
-
-        <img id="img-sub-rules" class="main-img" src="basicrules.png" alt="Basic Rules">
-        <img id="img-sub-embassy" class="main-img" src="embassy.png" alt="Embassies">
-
-        <img id="img-sub-hospital-en" class="main-img" src="hospital_en.png" alt="Hospital EN">
-        <img id="img-sub-hospital-cn" class="main-img" src="hospital_cn.png" alt="Hospital CN">
-        <img id="img-sub-hospital-jp" class="main-img" src="hospital_jp.png" alt="Hospital JP">
-        <img id="img-sub-hospital-vn" class="main-img" src="hospital_vn.png" alt="Hospital VN">
-
-        <img id="img-sub-medinfo-en" class="main-img" src="medical-info-en.png" alt="Medical Info EN">
-        <img id="img-sub-medinfo-cn" class="main-img" src="medical-info-cn.png" alt="Medical Info CN">
-        <img id="img-sub-medinfo-jp" class="main-img" src="medical-info-jp.png" alt="Medical Info JP">
-        <img id="img-sub-medinfo-vn" class="main-img" src="medical-info-vn.png" alt="Medical Info VN">
-
-        <img id="img-sub-pharmacy-en" class="main-img" src="pharmacy_en.png" alt="Pharmacy EN">
-        <img id="img-sub-pharmacy-cn" class="main-img" src="pharmacy_cn.png" alt="Pharmacy CN">
-        <img id="img-sub-pharmacy-jp" class="main-img" src="pharmacy_jp.png" alt="Pharmacy JP">
-        <img id="img-sub-pharmacy-vn" class="main-img" src="pharmacy_vn.png" alt="Pharmacy VN">
-
-        <a id="area-en" href="javascript:void(0)" class="touch-link btn-en" onclick="goPage('en')"></a>
-        <a id="area-cn" href="javascript:void(0)" class="touch-link btn-cn" onclick="goPage('cn')"></a>
-        <a id="area-jp" href="javascript:void(0)" class="touch-link btn-jp" onclick="goPage('jp')"></a>
-        <a id="area-vn" href="javascript:void(0)" class="touch-link btn-vn" onclick="goPage('vn')"></a>
-
-        <a id="h-112" href="tel:112" class="touch-link home-phone home-112"></a>
-        <a id="h-119" href="tel:119" class="touch-link home-phone home-119"></a>
-        <a id="h-1330" href="tel:1330" class="touch-link home-phone home-1330"></a>
-
-        <a id="area-lang-dropdown" href="javascript:void(0)" class="touch-link btn-lang-dropdown" onclick="toggleDropdown(event)"></a>
-
-        <div id="langDropdown" class="dropdown-menu">
-            <a href="javascript:void(0)" onclick="goPage('home')">🏠 메인 (Home)</a>
-            <a href="javascript:void(0)" onclick="goPage('en')">🇺🇸 English</a>
-            <a href="javascript:void(0)" onclick="goPage('cn')">🇨🇳 中文 (简体)</a>
-            <a href="javascript:void(0)" onclick="goPage('jp')">🇯🇵 日本語</a>
-            <a href="javascript:void(0)" onclick="goPage('vn')">🇻🇳 Tiếng Việt</a>
-        </div>
-
-        <a id="m-112" href="tel:112" class="touch-link main-call-112"></a>
-        <a id="m-119" href="tel:119" class="touch-link main-call-119"></a>
-        <a id="m-1330" href="tel:1330" class="touch-link main-call-1330"></a>
-
-        <a id="click-hosp" href="javascript:void(0)" class="touch-link click-hospital" onclick="clickSubMenu('hospital')"></a>
-        <a id="click-phar" href="javascript:void(0)" class="touch-link click-pharmacy" onclick="clickSubMenu('pharmacy')"></a>
-        <a id="click-emba" href="javascript:void(0)" class="touch-link click-embassy" onclick="goPage('sub-embassy')"></a>
-        <a id="click-lost" href="https://minwon24.police.go.kr/cvlcpt/cvlcptAply.do?cvlcptId=MW-201&keyword=" target="_blank" class="touch-link click-lost"></a>
-        <a id="click-rule" href="javascript:void(0)" class="touch-link click-rules" onclick="goPage('sub-rules')"></a>
-        <a id="click-spots" href="https://www.google.com/maps/search/Busan+tourist+map" target="_blank" class="touch-link click-spots"></a>
-
-        <a id="p-112" href="tel:112" class="touch-link pharm-call-112"></a>
-        <a id="p-119" href="tel:119" class="touch-link pharm-call-119"></a>
-        <a id="p-1330" href="tel:1330" class="touch-link pharm-call-1330"></a>
-        <a id="p-late" href="https://www.busan.go.kr/eng/bsmedical06" target="_blank" class="touch-link pharm-late-link"></a>
-
-        <a id="hp-112" href="tel:112" class="touch-link hosp-call-112"></a>
-        <a id="hp-119" href="tel:119" class="touch-link hosp-call-119"></a>
-        <a id="hp-1330" href="tel:1330" class="touch-link hosp-call-1330"></a>
-        <a id="hp-find" href="https://www.google.com/maps/search/?api=1&query=hospital" target="_blank" class="touch-link hosp-find-map"></a>
-        <a id="hp-emer" href="https://www.google.com/maps/search/?api=1&query=emergency+room" target="_blank" class="touch-link hosp-emergency"></a>
-        <a id="hp-med" href="javascript:void(0)" class="touch-link hosp-medinfo" onclick="goPage('sub-medinfo-' + currentLang)"></a>
-
-        <a id="med-112" href="tel:112" class="touch-link med-call-112"></a>
-        <a id="med-119" href="tel:119" class="touch-link med-call-119"></a>
-        <a id="med-1330" href="tel:1330" class="touch-link med-call-1330"></a>
-
-        <!-- 기초질서 페이지 하단 긴급신고 버튼 (간격 축소 및 정확한 버튼 영역 매칭) -->
-        <a id="rules-112" href="tel:112" class="touch-link rules-call-112"></a>
-        <a id="rules-119" href="tel:119" class="touch-link rules-call-119"></a>
-        <a id="rules-1330" href="tel:1330" class="touch-link rules-call-1330"></a>
-
-        <!-- 영사관 페이지 하단 긴급전화 버튼 -->
-        <a id="emb-112" href="tel:112" class="touch-link emb-call-112"></a>
-        <a id="emb-119" href="tel:119" class="touch-link emb-call-119"></a>
-        <a id="emb-1330" href="tel:1330" class="touch-link emb-call-1330"></a>
-
-        <a id="emb-back" href="javascript:void(0)" class="touch-link emb-back-btn" onclick="goPage(currentLang)"></a>
-        <a id="med-back" href="javascript:void(0)" class="touch-link med-back-btn" onclick="goPage('sub-hospital-' + currentLang)"></a>
-
-        <!-- 영사관 11개 나라별 버튼 영역 -->
-        <!-- 1. 일본 -->
-        <a id="e1-call" href="tel:051-465-5101" class="emb-btn-call" style="top: 35.2%; left: 4.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e1-home" href="https://www.busan.kr.emb-japan.go.jp/itprtop_ko/index.html" target="_blank" class="emb-btn-home" style="top: 35.2%; left: 20.2%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 2. 중국 -->
-        <a id="e2-call" href="tel:051-743-7990" class="emb-btn-call" style="top: 35.2%; left: 36.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e2-home" href="http://busan.china-consulate.gov.cn/kor/" target="_blank" class="emb-btn-home" style="top: 35.2%; left: 52.2%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 3. 베트남 -->
-        <a id="e3-call" href="tel:051-715-8689" class="emb-btn-call" style="top: 35.2%; left: 68.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e3-home" href="https://vnembassy-seoul.mofa.gov.vn/en-us/Pages/default.aspx" target="_blank" class="emb-btn-home" style="top: 35.2%; left: 84.2%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 4. 러시아 -->
-        <a id="e4-call" href="tel:051-441-9904" class="emb-btn-call" style="top: 48.2%; left: 4.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e4-home" href="https://pusan.mid.ru" target="_blank" class="emb-btn-home" style="top: 48.2%; left: 20.2%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 5. 몽골 -->
-        <a id="e5-call" href="tel:051-465-9996" class="emb-btn-call" style="top: 48.2%; left: 36.5%; width: 31.2%; height: 4.5%;"></a>
-        <script>
-            var e5Home = document.getElementById('e5-home');
-            if(e5Home) e5Home.style.display = 'none';
-        </script>
-
-        <!-- 6. 타이베이 -->
-        <a id="e6-call" href="tel:051-463-7965" class="emb-btn-call" style="top: 48.2%; left: 68.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e6-home" href="https://www.roc-taiwan.org/krpus_ko/index.html" target="_blank" class="emb-btn-home" style="top: 48.2%; left: 84.2%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 7. 카자흐스탄 -->
-        <a id="e7-call" href="tel:051-469-7003" class="emb-btn-call" style="top: 61.2%; left: 4.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e7-home" href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" class="emb-btn-home" style="top: 61.2%; left: 20.2%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 8. 미국 -->
-        <a id="e8-call" href="tel:02-397-4114" class="emb-btn-call" style="top: 61.2%; left: 36.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e8-home" href="https://kr.usembassy.gov/ko/" target="_blank" class="emb-btn-home" style="top: 61.2%; left: 52.2%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 9. 독일 -->
-        <a id="e9-call" href="tel:02-748-4114" class="emb-btn-call" style="top: 61.2%; left: 68.5%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e9-home" href="https://seoul.diplo.de/kr-ko" target="_blank" class="emb-btn-home" style="top: 61.2%; left: 84.2%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 10. 포르투갈 -->
-        <a id="e10-call" href="tel:051-441-2988" class="emb-btn-call" style="top: 74.2%; left: 20.2%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e10-home" href="https://vistos.mne.gov.pt" target="_blank" class="emb-btn-home" style="top: 74.2%; left: 36.0%; width: 15.5%; height: 4.5%;"></a>
-
-        <!-- 11. 뉴질랜드 -->
-        <a id="e11-call" href="tel:02-3701-7700" class="emb-btn-call" style="top: 74.2%; left: 52.2%; width: 15.5%; height: 4.5%;"></a>
-        <a id="e11-home" href="https://www.mfat.govt.nz" target="_blank" class="emb-btn-home" style="top: 74.2%; left: 68.0%; width: 15.5%; height: 4.5%;"></a>
-
-    </div>
-
-    <script>
-        var currentLang = 'en';
-
-        function setDisplay(id, show) {
-            var el = document.getElementById(id);
-            if (el) el.style.display = show ? 'block' : 'none';
-        }
-
-        function goPage(pageId) {
-            if (!pageId) return;
-
-            var dropdown = document.getElementById('langDropdown');
-            if (dropdown) dropdown.style.display = 'none';
-
-            var images = document.getElementsByClassName('main-img');
-            for (var i = 0; i < images.length; i++) {
-                images[i].classList.remove('active');
-            }
-
-            var targetImg = document.getElementById('img-' + pageId);
-            if (targetImg) targetImg.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            if (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn') {
-                currentLang = pageId;
-            }
-
-            var isHome = (pageId === 'home');
-            var isMainLang = (pageId === 'en' || pageId === 'cn' || pageId === 'jp' || pageId === 'vn');
-            var isPharmacySub = pageId.indexOf('pharmacy') !== -1;
-            var isHospitalSub = pageId.indexOf('hospital') !== -1;
-            var isMedInfoSub = pageId.indexOf('medinfo') !== -1;
-            var isEmbassySub = (pageId === 'sub-embassy');
-            var isRulesSub = (pageId === 'sub-rules');
-
-            setDisplay('area-en', isHome);
-            setDisplay('area-cn', isHome);
-            setDisplay('area-jp', isHome);
-            setDisplay('area-vn', isHome);
-            setDisplay('h-112', isHome);
-            setDisplay('h-119', isHome);
-            setDisplay('h-1330', isHome);
-
-            setDisplay('area-lang-dropdown', !isHome);
-
-            setDisplay('m-112', isMainLang);
-            setDisplay('m-119', isMainLang);
-            setDisplay('m-1330', isMainLang);
-            setDisplay('click-hosp', isMainLang);
-            setDisplay('click-phar', isMainLang);
-            setDisplay('click-emba', isMainLang);
-            setDisplay('click-lost', isMainLang);
-            setDisplay('click-rule', isMainLang);
-            setDisplay('click-spots', isMainLang);
-
-            setDisplay('p-112', isPharmacySub);
-            setDisplay('p-119', isPharmacySub);
-            setDisplay('p-1330', isPharmacySub);
-            setDisplay('p-late', isPharmacySub);
-
-            setDisplay('hp-112', isHospitalSub);
-            setDisplay('hp-119', isHospitalSub);
-            setDisplay('hp-1330', isHospitalSub);
-            setDisplay('hp-find', isHospitalSub);
-            setDisplay('hp-emer', isHospitalSub);
-            setDisplay('hp-med', isHospitalSub);
-
-            setDisplay('med-112', isMedInfoSub);
-            setDisplay('med-119', isMedInfoSub);
-            setDisplay('med-1330', isMedInfoSub);
-
-            setDisplay('rules-112', isRulesSub);
-            setDisplay('rules-119', isRulesSub);
-            setDisplay('rules-1330', isRulesSub);
-
-            setDisplay('emb-112', isEmbassySub);
-            setDisplay('emb-119', isEmbassySub);
-            setDisplay('emb-1330', isEmbassySub);
-
-            setDisplay('emb-back', isEmbassySub);
-            setDisplay('med-back', isMedInfoSub);
-
-            for (var i = 1; i <= 11; i++) {
-                setDisplay('e' + i + '-call', isEmbassySub);
-                if (i !== 5) {
-                    setDisplay('e' + i + '-home', isEmbassySub);
-                } else {
-                    setDisplay('e5-home', false);
-                }
-            }
-        }
-
-        function toggleDropdown(event) {
-            if (event) event.stopPropagation(); 
-            var dropdown = document.getElementById('langDropdown');
-            if (dropdown) dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-        }
-
-        document.addEventListener('click', function(e) {
-            var dropdown = document.getElementById('langDropdown');
-            var dropdownBtn = document.getElementById('area-lang-dropdown');
-            if (dropdown && e.target !== dropdownBtn && !dropdown.contains(e.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
-
-        function clickSubMenu(type) {
-            if (type === 'hospital') {
-                goPage('sub-hospital-' + currentLang);
-            } else if (type === 'pharmacy') {
-                goPage('sub-pharmacy-' + currentLang);
-            }
-        }
-
-        window.onload = function() {
-            goPage('home');
-        };
-    </script>
-
-</body>
-</html>
+현재 GitHub Pages 사이트
+bspol.github.io
+
+의 기존 사이트를 수정한다.
+
+이번 작업의 목적은 기존 4개국어 사이트를
+7개국어 사이트로 확장하는 것이다.
+
+절대로 처음부터 새 사이트를 만들지 말고,
+현재 index.html의 기존 구조와 작동 방식을 유지하면서
+필요한 부분만 수정한다.
+
+==================================================
+[1. 가장 중요한 작업 원칙]
+==================================================
+
+기존 사이트의 기능과 구조를 최대한 보존한다.
+
+절대로 다음을 하지 않는다.
+
+- 기존 index.html을 처음부터 새로 작성하지 않는다.
+- 기존 파일을 삭제하지 않는다.
+- 기존 파일명을 임의로 변경하지 않는다.
+- 기존 URL을 변경하지 않는다.
+- 기존 QR 코드 연결 주소를 변경하지 않는다.
+- 기존 4개국어 페이지를 삭제하지 않는다.
+- 기존 외부 링크를 임의로 변경하지 않는다.
+- 기존 이미지의 디자인을 CSS로 다시 제작하지 않는다.
+- 새로운 프레임워크를 사용하지 않는다.
+
+현재 사이트는 하나의 index.html에서
+PNG 이미지들을 화면별로 표시하고
+이미지 위에 투명한 터치 영역을 배치하여
+페이지를 전환하는 구조이다.
+
+이 기존 방식을 그대로 유지한다.
+
+==================================================
+[2. 메인 이미지]
+==================================================
+
+기존 home.png 파일은 이미
+새로운 7개국어 메인 이미지로 교체되어 있다.
+
+현재 repository에 있는 home.png을 그대로 사용한다.
+
+새로운 home.png은 1080x1920 비율의 이미지이며
+다음 7개 언어 버튼이 이미지 안에 표시되어 있다.
+
+1. ENGLISH
+2. 日本語
+3. 中文
+4. TIẾNG VIỆT
+5. МОНГОЛ
+6. FILIPINO
+7. РУССКИЙ
+
+중요:
+
+이미지 안의 글자와 버튼 디자인은 수정하지 않는다.
+
+HTML/CSS로 새로운 버튼을 보이게 만들지 않는다.
+
+이미지 위에 투명한 클릭/터치 영역만 배치한다.
+
+==================================================
+[3. 새로운 home.png의 7개 언어 버튼 위치]
+==================================================
+
+home.png의 실제 이미지 비율을 기준으로
+아래 위치에 투명한 터치 영역을 배치한다.
+
+1행:
+
+ENGLISH
+top 약 58.2%
+left 약 7.5%
+width 약 19%
+height 약 10%
+
+日本語
+top 약 58.2%
+left 약 29.5%
+width 약 18%
+height 약 10%
+
+中文
+top 약 58.2%
+left 약 51.5%
+width 약 18%
+height 약 10%
+
+TIẾNG VIỆT
+top 약 58.2%
+left 약 73.5%
+width 약 19%
+height 약 10%
+
+2행:
+
+МОНГОЛ
+top 약 69.5%
+left 약 12%
+width 약 22%
+height 약 10%
+
+FILIPINO
+top 약 69.5%
+left 약 37.5%
+width 약 23%
+height 약 10%
+
+РУССКИЙ
+top 약 69.5%
+left 약 64%
+width 약 23%
+height 약 10%
+
+위 값은 투명 터치 영역의 기준값이다.
+
+이미지의 실제 버튼과 최대한 정확하게 일치하도록 조정한다.
+
+버튼 사이의 빈 공간이 다른 언어 버튼으로 잘못 인식되지 않도록 한다.
+
+==================================================
+[4. 최종 언어]
+==================================================
+
+최종적으로 총 7개 언어를 지원한다.
+
+English
+Japanese
+Chinese
+Vietnamese
+Mongolian
+Filipino
+Russian
+
+기존 4개 언어는 반드시 그대로 유지한다.
+
+기존:
+
+en
+cn
+jp
+vn
+
+추가:
+
+mn
+ph
+ru
+
+단,
+
+repository에 이미 몽골어/필리핀어/러시아어 파일이 존재한다면
+반드시 실제 파일명을 먼저 확인하고
+그 파일명을 그대로 사용한다.
+
+파일이 있는데도 임의로 새로운 파일명을 만들지 않는다.
+
+==================================================
+[5. 기존 언어 이미지]
+==================================================
+
+현재 기존 코드에는 다음 언어 이미지가 있다.
+
+main_en.png
+main_cn.png
+main_jp.png
+main_vn.png
+
+이 4개는 그대로 유지한다.
+
+기존 하위 페이지도 그대로 유지한다.
+
+hospital_en.png
+hospital_cn.png
+hospital_jp.png
+hospital_vn.png
+
+medical-info-en.png
+medical-info-cn.png
+medical-info-jp.png
+medical-info-vn.png
+
+pharmacy_en.png
+pharmacy_cn.png
+pharmacy_jp.png
+pharmacy_vn.png
+
+기존 파일을 삭제하지 않는다.
+
+==================================================
+[6. 새로운 3개 언어 페이지]
+==================================================
+
+repository를 먼저 확인하여
+
+몽골어
+필리핀어
+러시아어
+
+페이지에 해당하는 실제 PNG 파일이 있는지 확인한다.
+
+있다면 해당 파일을 연결한다.
+
+예를 들어 실제 파일명이
+
+main_mn.png
+main_ph.png
+main_ru.png
+
+이라면 각각 연결한다.
+
+하지만 실제 repository의 파일명이 다르면
+실제 파일명을 사용한다.
+
+없는 파일을 임의로 생성하지 않는다.
+
+==================================================
+[7. goPage() 함수 수정]
+==================================================
+
+현재 goPage() 함수는
+en / cn / jp / vn만 언어로 인식하고 있다.
+
+이를 7개 언어로 확장한다.
+
+언어 ID:
+
+en
+cn
+jp
+vn
+mn
+ph
+ru
+
+currentLang도 7개 언어를 모두 정상적으로 저장해야 한다.
+
+기존:
+
+var currentLang = 'en';
+
+구조를 유지한다.
+
+페이지 이동 방식도 기존 goPage() 방식을 그대로 유지한다.
+
+==================================================
+[8. 메인 화면의 7개 언어 버튼]
+==================================================
+
+기존의
+
+area-en
+area-cn
+area-jp
+area-vn
+
+구조를 유지하면서
+
+area-mn
+area-ph
+area-ru
+
+를 추가한다.
+
+각 버튼은 투명한 <a> 터치 영역으로 만든다.
+
+예:
+
+onclick="goPage('mn')"
+onclick="goPage('ph')"
+onclick="goPage('ru')"
+
+방식으로 연결한다.
+
+==================================================
+[9. 언어 페이지의 공통 메뉴]
+==================================================
+
+각 언어 메인 페이지에서 기존과 동일하게
+
+112
+119
+1330
+
+전화 버튼이 작동해야 한다.
+
+그리고 기존 메뉴인
+
+Hospital
+Pharmacy
+Embassy
+Lost & Found
+Law & Order / Basic Rules
+Busan Tourist Spots
+
+도 작동해야 한다.
+
+새로운 3개 언어에서도 동일하게 작동해야 한다.
+
+==================================================
+[10. 언어 드롭다운]
+==================================================
+
+기존 언어 드롭다운 기능을 유지한다.
+
+현재 드롭다운은
+
+Home
+English
+Chinese
+Japanese
+Vietnamese
+
+구조이다.
+
+이를 7개 언어로 확장한다.
+
+최종:
+
+🏠 메인 (Home)
+🇬🇧 English
+🇯🇵 日本語
+🇨🇳 中文
+🇻🇳 Tiếng Việt
+🇲🇳 Монгол
+🇵🇭 Filipino
+🇷🇺 Русский
+
+각 항목을 누르면 해당 언어 메인 화면으로 이동한다.
+
+==================================================
+[11. 기존 메뉴 기능 유지]
+==================================================
+
+기존 언어 메인 화면의 6개 메뉴 기능을 그대로 유지한다.
+
+1. Hospital
+2. Pharmacy
+3. Embassy
+4. Lost & Found
+5. Law & Order / Basic Rules
+6. Busan Tourist Spots
+
+기존 코드에는 다음과 같은 방식으로
+현재 언어에 따라 Hospital / Pharmacy 페이지를 연결하는 구조가 있다.
+
+sub-hospital-' + currentLang
+sub-pharmacy-' + currentLang
+
+이 구조를 유지하고
+새로운 mn / ph / ru 언어에서도 작동하도록 확장한다.
+
+==================================================
+[12. 병원 / 약국 / 의료정보]
+==================================================
+
+기존 4개 언어의
+
+Hospital
+Pharmacy
+Medical Information
+
+기능을 절대로 깨뜨리지 않는다.
+
+새로운 3개 언어용 이미지가 repository에 존재한다면
+동일한 구조로 연결한다.
+
+각 언어의 병원/약국/의료정보 페이지에서도
+현재 언어가 유지되어야 한다.
+
+예:
+
+mn → 몽골어 하위 페이지
+ph → 필리핀어 하위 페이지
+ru → 러시아어 하위 페이지
+
+==================================================
+[13. LAW & ORDER / BASIC RULES]
+==================================================
+
+현재 사이트에 이미
+
+basicrules.png
+
+가 존재한다.
+
+이 파일과 기존 Basic Rules 연결 구조를 삭제하지 않는다.
+
+새로운 법과 질서 페이지 이미지가 별도로 repository에 존재한다면
+실제 파일명을 확인하여 연결한다.
+
+페이지 하단의
+
+112
+119
+1330
+
+전화 버튼도 기존처럼 작동해야 한다.
+
+현재 코드에는 Basic Rules 페이지의
+rules-call-112
+rules-call-119
+rules-call-1330
+터치 영역이 존재하므로
+이 기능을 유지한다.
+
+==================================================
+[14. Embassy]
+==================================================
+
+현재 embassy.png 페이지와
+각 국가별 전화/홈페이지 버튼 구조를 유지한다.
+
+기존 11개 국가의 대사관 연결을
+삭제하거나 임의 변경하지 않는다.
+
+기존 외부 URL도 그대로 유지한다.
+
+==================================================
+[15. Lost & Found]
+==================================================
+
+기존 분실물 링크를 그대로 유지한다.
+
+현재 연결된 경찰민원24 링크를
+임의 변경하지 않는다.
+
+==================================================
+[16. Tourist Map]
+==================================================
+
+기존 부산 관광지도 링크를 그대로 유지한다.
+
+==================================================
+[17. 전화번호]
+==================================================
+
+모든 언어 페이지에서
+
+112 → tel:112
+119 → tel:119
+1330 → tel:1330
+
+이 정상 작동해야 한다.
+
+기존 전화 버튼의 위치와 기능을 유지한다.
+
+==================================================
+[18. 기존 QR 코드 보호]
+==================================================
+
+매우 중요하다.
+
+현재 이미 배포되어 있는 QR 코드는
+bspol.github.io의 기존 주소로 연결된다.
+
+이번 작업으로 기존 QR 코드가
+절대로 깨지면 안 된다.
+
+따라서
+
+- GitHub Pages 주소 변경 금지
+- repository 구조의 불필요한 변경 금지
+- 기존 index.html의 진입 경로 유지
+- 기존 URL 유지
+- 기존 QR 재발급 불필요
+
+를 원칙으로 한다.
+
+기존 QR을 찍으면
+새로운 7개국어 home.png 화면이 바로 표시되어야 한다.
+
+==================================================
+[19. 모바일 화면]
+==================================================
+
+스마트폰 사용을 기준으로 한다.
+
+1080x1920 이미지 비율을 유지한다.
+
+기존의
+
+width: 100%;
+height: auto;
+
+방식을 유지한다.
+
+이미지를 강제로 crop하거나
+높이를 변경하지 않는다.
+
+가로 스크롤이 발생하지 않도록 한다.
+
+터치 영역이 이미지 위치와 정확하게 일치해야 한다.
+
+특히 iPhone과 Android에서
+7개 언어 버튼을 정확하게 누를 수 있어야 한다.
+
+==================================================
+[20. 기존 코드의 CSS 구조 유지]
+==================================================
+
+현재 사이트에는
+
+.main-img
+.active
+.touch-link
+
+등의 구조가 있다.
+
+이 구조를 그대로 사용한다.
+
+기존 이미지 전환 방식도 그대로 사용한다.
+
+필요한 경우 새로운 언어 버튼용 CSS만 추가한다.
+
+기존 버튼의 CSS를 불필요하게 수정하지 않는다.
+
+==================================================
+[21. 작업 전 반드시 확인]
+==================================================
+
+작업하기 전에 repository의 실제 파일 목록을 확인한다.
+
+특히 다음을 확인한다.
+
+- home.png
+- main_en.png
+- main_cn.png
+- main_jp.png
+- main_vn.png
+- 몽골어 관련 파일
+- 필리핀어 관련 파일
+- 러시아어 관련 파일
+- hospital 관련 파일
+- pharmacy 관련 파일
+- medical information 관련 파일
+- basicrules 관련 파일
+- embassy 관련 파일
+- index.html
+
+실제 존재하는 파일명을 기준으로 작업한다.
+
+==================================================
+[22. 절대로 기존 4개국어를 망가뜨리지 말 것]
+==================================================
+
+작업 후 반드시 확인한다.
+
+English → 정상
+Chinese → 정상
+Japanese → 정상
+Vietnamese → 정상
+
+기존 4개 언어가 기존과 동일하게 작동해야 한다.
+
+그 위에
+
+Mongolian
+Filipino
+Russian
+
+3개 언어를 추가한다.
+
+==================================================
+[23. 최종 테스트]
+==================================================
+
+작업 완료 후 다음을 모두 확인한다.
+
+□ home.png 정상 표시
+
+□ English 버튼 정확한 위치에서 클릭
+□ Japanese 버튼 정확한 위치에서 클릭
+□ Chinese 버튼 정확한 위치에서 클릭
+□ Vietnamese 버튼 정확한 위치에서 클릭
+□ Mongolian 버튼 정확한 위치에서 클릭
+□ Filipino 버튼 정확한 위치에서 클릭
+□ Russian 버튼 정확한 위치에서 클릭
+
+□ 언어 드롭다운 7개 언어 표시
+□ 드롭다운에서 각 언어 이동 가능
+
+□ 112 작동
+□ 119 작동
+□ 1330 작동
+
+□ Hospital 작동
+□ Pharmacy 작동
+□ Embassy 작동
+□ Lost & Found 작동
+□ Law & Order / Basic Rules 작동
+□ Tourist Map 작동
+
+□ 기존 English 하위 페이지 작동
+□ 기존 Chinese 하위 페이지 작동
+□ 기존 Japanese 하위 페이지 작동
+□ 기존 Vietnamese 하위 페이지 작동
+
+□ 새 Mongolian 하위 페이지 작동
+□ 새 Filipino 하위 페이지 작동
+□ 새 Russian 하위 페이지 작동
+
+□ 기존 외부 링크 유지
+□ 기존 QR 주소 유지
+□ GitHub Pages 주소 유지
+□ 모바일 화면 정상
+□ 이미지 비율 유지
+□ 가로 스크롤 없음
+□ 기존 기능 삭제 없음
+
+==================================================
+[24. 작업 완료 보고]
+==================================================
+
+작업이 끝나면 다음만 간단하게 알려준다.
+
+1. 수정한 파일
+2. 추가한 파일
+3. 기존 파일 중 삭제/이름 변경 여부
+4. 7개 언어 연결 상태
+5. 기존 QR 주소 유지 여부
+
+기존 파일을 삭제하거나 이름을 변경했다면
+반드시 그 이유를 설명한다.
+
+가장 중요한 것은
+"새 사이트 제작"이 아니라
+"기존 4개국어 사이트를 안전하게 7개국어로 확장"하는 것이다.
+         
+
+   
+
+    
+   
