@@ -1,11 +1,14 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport"
+     content="width=device-width,
+              initial-scale=1.0,
+              maximum-scale=1.0,
+              user-scalable=no">
 
   <title>SAFE IN BUSAN</title>
 
@@ -20,13 +23,13 @@
     body {
       width: 100%;
       min-height: 100%;
+      padding: 0;
+      margin: 0;
       background: #ffffff;
     }
 
     body {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      width: 100%;
       overflow-x: hidden;
     }
 
@@ -34,6 +37,8 @@
       position: relative;
       width: 100%;
       max-width: 1080px;
+      margin: 0 auto;
+      padding: 0;
       line-height: 0;
     }
 
@@ -41,19 +46,22 @@
       display: block;
       width: 100%;
       height: auto;
+      margin: 0;
+      padding: 0;
+      border: 0;
     }
 
     .language-link {
       position: absolute;
       display: block;
-      z-index: 10;
+      z-index: 100;
       background: transparent;
+      text-decoration: none;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
-      text-decoration: none;
     }
 
-    /* ENGLISH */
+    /* English */
     .english {
       left: 8.1%;
       top: 57.3%;
@@ -61,7 +69,7 @@
       height: 10.7%;
     }
 
-    /* JAPANESE */
+    /* Japanese */
     .japanese {
       left: 29.8%;
       top: 57.3%;
@@ -69,7 +77,7 @@
       height: 10.7%;
     }
 
-    /* CHINESE */
+    /* Chinese */
     .chinese {
       left: 51.7%;
       top: 57.3%;
@@ -77,7 +85,7 @@
       height: 10.7%;
     }
 
-    /* VIETNAMESE */
+    /* Vietnamese */
     .vietnamese {
       left: 73.6%;
       top: 57.3%;
@@ -85,7 +93,7 @@
       height: 10.7%;
     }
 
-    /* MONGOLIAN */
+    /* Mongolian */
     .mongolian {
       left: 12.5%;
       top: 69.2%;
@@ -93,7 +101,7 @@
       height: 10.8%;
     }
 
-    /* FILIPINO */
+    /* Filipino */
     .filipino {
       left: 38.1%;
       top: 69.2%;
@@ -101,83 +109,72 @@
       height: 10.8%;
     }
 
-    /* RUSSIAN */
+    /* Russian */
     .russian {
       left: 63.8%;
       top: 69.2%;
       width: 22.5%;
       height: 10.8%;
     }
-
-    @media (max-width: 600px) {
-      .main-container {
-        width: 100%;
-      }
-    }
   </style>
+
 </head>
 
 <body>
 
   <div class="main-container">
 
-    <img
-      src="home.png"
-      alt="SAFE IN BUSAN"
-      class="main-image"
-    >
+```
+<img
+  src="./home.png"
+  alt="SAFE IN BUSAN"
+  class="main-image"
+>
 
-    <!-- ENGLISH -->
-    <a
-      href="main_en/"
-      class="language-link english"
-      aria-label="English">
-    </a>
+<a
+  href="./main_en/"
+  class="language-link english"
+  aria-label="English">
+</a>
 
-    <!-- JAPANESE -->
-    <a
-      href="main_jp/"
-      class="language-link japanese"
-      aria-label="Japanese">
-    </a>
+<a
+  href="./main_jp/"
+  class="language-link japanese"
+  aria-label="Japanese">
+</a>
 
-    <!-- CHINESE -->
-    <a
-      href="main_cn/"
-      class="language-link chinese"
-      aria-label="Chinese">
-    </a>
+<a
+  href="./main_cn/"
+  class="language-link chinese"
+  aria-label="Chinese">
+</a>
 
-    <!-- VIETNAMESE -->
-    <a
-      href="main_vn/"
-      class="language-link vietnamese"
-      aria-label="Vietnamese">
-    </a>
+<a
+  href="./main_vn/"
+  class="language-link vietnamese"
+  aria-label="Vietnamese">
+</a>
 
-    <!-- MONGOLIAN -->
-    <a
-      href="main_mn/"
-      class="language-link mongolian"
-      aria-label="Mongolian">
-    </a>
+<a
+  href="./main_mn/"
+  class="language-link mongolian"
+  aria-label="Mongolian">
+</a>
 
-    <!-- FILIPINO -->
-    <a
-      href="main_ph/"
-      class="language-link filipino"
-      aria-label="Filipino">
-    </a>
+<a
+  href="./main_ph/"
+  class="language-link filipino"
+  aria-label="Filipino">
+</a>
 
-    <!-- RUSSIAN -->
-    <a
-      href="main_ru/"
-      class="language-link russian"
-      aria-label="Russian">
-    </a>
+<a
+  href="./main_ru/"
+  class="language-link russian"
+  aria-label="Russian">
+</a>
+```
 
   </div>
 
 </body>
 </html>
-```
