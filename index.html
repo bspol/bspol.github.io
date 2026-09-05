@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +33,10 @@
       overflow-x: hidden;
     }
 
-    /* 전체 화면 */
+    /* ==============================
+       전체 메인 영역
+       ============================== */
+
     .main-container {
       position: relative;
       width: 100%;
@@ -40,39 +44,46 @@
       line-height: 0;
     }
 
-    /* 1080 × 1920 메인 이미지 */
+    /* ==============================
+       1080 × 1920 메인 이미지
+       ============================== */
+
     .main-image {
       display: block;
       width: 100%;
       height: auto;
     }
 
-    /*
-      투명 클릭 영역
-      이미지 위에 absolute로 배치
-    */
+    /* ==============================
+       투명 클릭 영역
+       ============================== */
+
     .language-link {
       position: absolute;
       display: block;
       z-index: 10;
 
-      /* 투명 */
       background: transparent;
-
-      /* 클릭 영역 확인할 때만 사용
-         background: rgba(255,0,0,0.2);
-      */
 
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
+
+      text-decoration: none;
     }
 
-    /* --------------------------------
-       1. ENGLISH
-       이미지 기준:
-       x 약 70~235
-       y 약 880~1045
-       -------------------------------- */
+    /*
+      클릭 영역 확인이 필요할 경우
+
+      background: rgba(255, 0, 0, 0.2);
+
+      로 변경하면 위치를 확인할 수 있음.
+    */
+
+
+    /* ==============================
+       1. ENGLISH 🇺🇸
+       ============================== */
+
     .english {
       left: 8.1%;
       top: 57.3%;
@@ -80,9 +91,11 @@
       height: 10.7%;
     }
 
-    /* --------------------------------
-       2. JAPANESE
-       -------------------------------- */
+
+    /* ==============================
+       2. JAPANESE 🇯🇵
+       ============================== */
+
     .japanese {
       left: 29.8%;
       top: 57.3%;
@@ -90,9 +103,11 @@
       height: 10.7%;
     }
 
-    /* --------------------------------
-       3. CHINESE
-       -------------------------------- */
+
+    /* ==============================
+       3. CHINESE 🇨🇳
+       ============================== */
+
     .chinese {
       left: 51.7%;
       top: 57.3%;
@@ -100,9 +115,11 @@
       height: 10.7%;
     }
 
-    /* --------------------------------
-       4. VIETNAMESE
-       -------------------------------- */
+
+    /* ==============================
+       4. VIETNAMESE 🇻🇳
+       ============================== */
+
     .vietnamese {
       left: 73.6%;
       top: 57.3%;
@@ -110,9 +127,11 @@
       height: 10.7%;
     }
 
-    /* --------------------------------
-       5. MONGOLIAN
-       -------------------------------- */
+
+    /* ==============================
+       5. MONGOLIAN 🇲🇳
+       ============================== */
+
     .mongolian {
       left: 12.5%;
       top: 69.2%;
@@ -120,9 +139,11 @@
       height: 10.8%;
     }
 
-    /* --------------------------------
-       6. FILIPINO
-       -------------------------------- */
+
+    /* ==============================
+       6. FILIPINO 🇵🇭
+       ============================== */
+
     .filipino {
       left: 38.1%;
       top: 69.2%;
@@ -130,9 +151,11 @@
       height: 10.8%;
     }
 
-    /* --------------------------------
-       7. RUSSIAN
-       -------------------------------- */
+
+    /* ==============================
+       7. RUSSIAN 🇷🇺
+       ============================== */
+
     .russian {
       left: 63.8%;
       top: 69.2%;
@@ -140,87 +163,109 @@
       height: 10.8%;
     }
 
-    /*
-      작은 화면에서도 이미지 비율 유지
-    */
+
+    /* ==============================
+       모바일 화면
+       ============================== */
+
     @media (max-width: 600px) {
 
       .main-container {
         width: 100%;
+        max-width: 1080px;
+      }
+
+      .main-image {
+        width: 100%;
+        height: auto;
       }
 
     }
+
   </style>
 </head>
+
 
 <body>
 
   <div class="main-container">
 
-    <!-- 메인 이미지 -->
+    <!-- =================================
+         메인 이미지
+         파일명: main.png
+         권장 사이즈: 1080 × 1920
+         ================================= -->
+
     <img
       src="main.png"
       alt="SAFE IN BUSAN"
       class="main-image"
     >
 
-    <!-- =========================
-         언어 선택 영역
-         ========================= -->
 
-    <!-- ENGLISH -->
+    <!-- =================================
+         7개국 언어 선택
+         ================================= -->
+
+
+    <!-- 🇺🇸 ENGLISH -->
     <a
       href="main_en/"
       class="language-link english"
       aria-label="English">
     </a>
 
-    <!-- 日本語 -->
+
+    <!-- 🇯🇵 JAPANESE -->
     <a
       href="main_jp/"
       class="language-link japanese"
-      aria-label="日本語">
+      aria-label="Japanese">
     </a>
 
-    <!-- 中文 -->
+
+    <!-- 🇨🇳 CHINESE -->
     <a
       href="main_cn/"
       class="language-link chinese"
-      aria-label="中文">
+      aria-label="Chinese">
     </a>
 
-    <!-- TIẾNG VIỆT -->
+
+    <!-- 🇻🇳 VIETNAMESE -->
     <a
       href="main_vn/"
       class="language-link vietnamese"
-      aria-label="Tiếng Việt">
+      aria-label="Vietnamese">
     </a>
 
-    <!-- МОНГОЛ -->
+
+    <!-- 🇲🇳 MONGOLIAN -->
     <a
       href="main_mn/"
       class="language-link mongolian"
-      aria-label="Монгол">
+      aria-label="Mongolian">
     </a>
 
-    <!-- FILIPINO -->
+
+    <!-- 🇵🇭 FILIPINO -->
     <a
       href="main_ph/"
       class="language-link filipino"
       aria-label="Filipino">
     </a>
 
-    <!-- РУССКИЙ -->
+
+    <!-- 🇷🇺 RUSSIAN -->
     <a
       href="main_ru/"
       class="language-link russian"
-      aria-label="Русский">
+      aria-label="Russian">
     </a>
 
   </div>
 
 </body>
 </html>
+```
 
-    
-   
