@@ -1,180 +1,519 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-
+<meta charset="UTF-8">
 <meta name="viewport"
-     content="width=device-width,
-              initial-scale=1.0,
-              maximum-scale=1.0,
-              user-scalable=no">
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
 
-  <title>SAFE IN BUSAN</title>
+<title>Emergency & Tourist Guide</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+  1080 x 1920 기준
+  home.png 파일은 HTML과 같은 폴더에 있어야 합니다.
+*/
+
+#app {
+    position: relative;
+
+    width: min(100vw, 56.25vh);
+    height: min(100vh, 177.7778vw);
+
+    max-width: 1080px;
+    max-height: 1920px;
+
+    aspect-ratio: 1080 / 1920;
+
+    overflow: hidden;
+    background: #000;
+}
+
+#homeImage {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    display: block;
+}
+
+/*
+  --------------------------------
+  언어 버튼 영역
+  --------------------------------
+
+  필요하면 아래 위치 숫자만 조절하면 됩니다.
+  모든 언어는 같은 위치를 사용합니다.
+*/
+
+.language-area {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+}
+
+.language-area.active {
+    display: block;
+}
+
+/*
+  7개 언어 선택 버튼
+  같은 위치를 사용하도록 고정
+*/
+
+.lang {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 82%;
+    height: 6%;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+/*
+  언어 버튼 위치
+  1~7번 모두 동일한 간격 구조
+*/
+
+.lang1 { top: 38%; }
+.lang2 { top: 45%; }
+.lang3 { top: 52%; }
+.lang4 { top: 59%; }
+.lang5 { top: 66%; }
+.lang6 { top: 73%; }
+.lang7 { top: 80%; }
+
+
+/*
+  --------------------------------
+  긴급전화 버튼
+  --------------------------------
+
+  112 = 경찰
+  119 = 소방 / 구급
+  1330 = 관광안내
+*/
+
+.call-button {
+    position: absolute;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    width: 26%;
+    height: 7%;
+
+    z-index: 20;
+}
+
+/*
+  아래 위치는 1080x1920 화면 기준입니다.
+  home.png의 실제 버튼 위치에 맞춰
+  top / left 값만 조정하면 됩니다.
+*/
+
+.call112 {
+    left: 8%;
+    top: 86%;
+}
+
+.call119 {
+    left: 37%;
+    top: 86%;
+}
+
+.call1330 {
+    left: 66%;
+    top: 86%;
+}
+
+
+/*
+  클릭 시 나타나는 안내창
+*/
+
+#notice {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 82%;
+
+    padding: 35px 20px;
+
+    background: rgba(0,0,0,0.92);
+
+    border-radius: 25px;
+
+    color: #fff;
+
+    text-align: center;
+
+    font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
+    z-index: 100;
+
+    display: none;
+}
+
+#notice.show {
+    display: block;
+}
+
+#notice h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+#notice p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+#notice button {
+    width: 80%;
+    height: 55px;
+
+    border: 0;
+    border-radius: 15px;
+
+    background: #fff;
+    color: #000;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/*
+  PC에서 확인할 때도
+  1080 x 1920 비율 유지
+*/
+
+@media (min-width: 1081px) {
+
+    #app {
+        width: 540px;
+        height: 960px;
     }
 
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
-      padding: 0;
-      margin: 0;
-      background: #ffffff;
+}
+
+
+/*
+  작은 휴대폰 화면에서도
+  전체 화면에 맞춰 표시
+*/
+
+@media (max-width: 600px) {
+
+    #app {
+        width: 100vw;
+        height: 100vh;
+        aspect-ratio: auto;
     }
 
-    body {
-      width: 100%;
-      overflow-x: hidden;
-    }
-
-    .main-container {
-      position: relative;
-      width: 100%;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0;
-      line-height: 0;
-    }
-
-    .main-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
-
-    .language-link {
-      position: absolute;
-      display: block;
-      z-index: 100;
-      background: transparent;
-      text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
-
-    /* English */
-    .english {
-      left: 8.1%;
-      top: 57.3%;
-      width: 19.5%;
-      height: 10.7%;
-    }
-
-    /* Japanese */
-    .japanese {
-      left: 29.8%;
-      top: 57.3%;
-      width: 19.5%;
-      height: 10.7%;
-    }
-
-    /* Chinese */
-    .chinese {
-      left: 51.7%;
-      top: 57.3%;
-      width: 19.5%;
-      height: 10.7%;
-    }
-
-    /* Vietnamese */
-    .vietnamese {
-      left: 73.6%;
-      top: 57.3%;
-      width: 19.5%;
-      height: 10.7%;
-    }
-
-    /* Mongolian */
-    .mongolian {
-      left: 12.5%;
-      top: 69.2%;
-      width: 22.5%;
-      height: 10.8%;
-    }
-
-    /* Filipino */
-    .filipino {
-      left: 38.1%;
-      top: 69.2%;
-      width: 22.5%;
-      height: 10.8%;
-    }
-
-    /* Russian */
-    .russian {
-      left: 63.8%;
-      top: 69.2%;
-      width: 22.5%;
-      height: 10.8%;
-    }
-  </style>
-
+}
+</style>
 </head>
+
 
 <body>
 
-  <div class="main-container">
+<div id="app">
 
-```
-<img
-  src="./home.png"
-  alt="SAFE IN BUSAN"
-  class="main-image"
->
+    <!-- 배경 이미지 -->
+    <img
+        id="homeImage"
+        src="home.png"
+        alt="Home"
+    >
 
-<a
-  href="./main_en/"
-  class="language-link english"
-  aria-label="English">
-</a>
 
-<a
-  href="./main_jp/"
-  class="language-link japanese"
-  aria-label="Japanese">
-</a>
+    <!--
+      ==========================
+      7개 언어
+      ==========================
+    -->
 
-<a
-  href="./main_cn/"
-  class="language-link chinese"
-  aria-label="Chinese">
-</a>
+    <div
+        id="languageArea"
+        class="language-area active"
+    >
 
-<a
-  href="./main_vn/"
-  class="language-link vietnamese"
-  aria-label="Vietnamese">
-</a>
+        <!-- 한국어 -->
+        <button
+            class="lang lang1"
+            onclick="setLanguage('ko')"
+            aria-label="한국어">
+        </button>
 
-<a
-  href="./main_mn/"
-  class="language-link mongolian"
-  aria-label="Mongolian">
-</a>
+        <!-- English -->
+        <button
+            class="lang lang2"
+            onclick="setLanguage('en')"
+            aria-label="English">
+        </button>
 
-<a
-  href="./main_ph/"
-  class="language-link filipino"
-  aria-label="Filipino">
-</a>
+        <!-- 中文 -->
+        <button
+            class="lang lang3"
+            onclick="setLanguage('zh')"
+            aria-label="Chinese">
+        </button>
 
-<a
-  href="./main_ru/"
-  class="language-link russian"
-  aria-label="Russian">
-</a>
-```
+        <!-- 日本語 -->
+        <button
+            class="lang lang4"
+            onclick="setLanguage('ja')"
+            aria-label="Japanese">
+        </button>
 
-  </div>
+        <!-- Tiếng Việt -->
+        <button
+            class="lang lang5"
+            onclick="setLanguage('vi')"
+            aria-label="Vietnamese">
+        </button>
+
+        <!-- Русский -->
+        <button
+            class="lang lang6"
+            onclick="setLanguage('ru')"
+            aria-label="Russian">
+        </button>
+
+        <!-- ไทย -->
+        <button
+            class="lang lang7"
+            onclick="setLanguage('th')"
+            aria-label="Thai">
+        </button>
+
+    </div>
+
+
+    <!--
+      ==========================
+      긴급전화
+      ==========================
+    -->
+
+    <!-- 112 경찰 -->
+    <button
+        class="call-button call112"
+        onclick="callNumber('112')"
+        aria-label="112 경찰">
+    </button>
+
+
+    <!-- 119 소방 / 구급 -->
+    <button
+        class="call-button call119"
+        onclick="callNumber('119')"
+        aria-label="119 소방 구급">
+    </button>
+
+
+    <!-- 1330 관광안내 -->
+    <button
+        class="call-button call1330"
+        onclick="callNumber('1330')"
+        aria-label="1330 관광안내">
+    </button>
+
+
+    <!-- 안내창 -->
+    <div id="notice">
+
+        <h2 id="noticeTitle">
+            전화 연결
+        </h2>
+
+        <p id="noticeText">
+            전화 연결을 시작합니다.
+        </p>
+
+        <button onclick="closeNotice()">
+            확인
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/*
+  ==========================
+  언어 설정
+  ==========================
+*/
+
+const languages = {
+
+    ko: {
+        title: "긴급전화",
+        text: "전화 연결을 시작합니다."
+    },
+
+    en: {
+        title: "Emergency Call",
+        text: "Starting the phone call."
+    },
+
+    zh: {
+        title: "紧急电话",
+        text: "正在连接电话。"
+    },
+
+    ja: {
+        title: "緊急電話",
+        text: "電話を接続します。"
+    },
+
+    vi: {
+        title: "Cuộc gọi khẩn cấp",
+        text: "Đang kết nối cuộc gọi."
+    },
+
+    ru: {
+        title: "Экстренный звонок",
+        text: "Начинается телефонный звонок."
+    },
+
+    th: {
+        title: "โทรฉุกเฉิน",
+        text: "กำลังเชื่อมต่อสายโทรศัพท์"
+    }
+
+};
+
+
+/*
+  현재 언어
+*/
+
+let currentLanguage = "ko";
+
+
+/*
+  언어 변경
+*/
+
+function setLanguage(language) {
+
+    currentLanguage = language;
+
+    /*
+      같은 화면을 유지하면서
+      언어만 변경
+    */
+
+    document.documentElement.lang = language;
+
+}
+
+
+/*
+  전화 연결
+*/
+
+function callNumber(number) {
+
+    const language =
+        languages[currentLanguage] || languages.ko;
+
+    document.getElementById(
+        "noticeTitle"
+    ).textContent = language.title;
+
+    document.getElementById(
+        "noticeText"
+    ).textContent =
+        language.text + "\n\n" + number;
+
+    document.getElementById(
+        "notice"
+    ).classList.add("show");
+
+
+    /*
+      확인 후 실제 전화 연결
+    */
+
+    setTimeout(function() {
+
+        window.location.href =
+            "tel:" + number;
+
+    }, 300);
+
+}
+
+
+/*
+  안내창 닫기
+*/
+
+function closeNotice() {
+
+    document.getElementById(
+        "notice"
+    ).classList.remove("show");
+
+}
+
+</script>
 
 </body>
 </html>
