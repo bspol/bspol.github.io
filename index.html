@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,11 +53,6 @@ body {
     display: block;
 }
 
-
-/* ==================================================
-   투명 터치 영역
-   ================================================== */
-
 .touch {
     position: absolute;
     background: transparent;
@@ -69,10 +63,9 @@ body {
     z-index: 20;
 }
 
-
-/* ==================================================
-   MAIN
-   ================================================== */
+/* =========================
+   메인 화면
+   ========================= */
 
 .main-language-button {
     left: 0%;
@@ -117,9 +110,9 @@ body {
 }
 
 
-/* ==================================================
-   HOSPITAL
-   ================================================== */
+/* =========================
+   병원 화면
+   ========================= */
 
 #hospitalPage {
     display: none;
@@ -175,24 +168,12 @@ body {
 }
 
 
-/* ==================================================
-   LANGUAGE MENU
-   ================================================== */
-
-#languageClose {
-    position: fixed;
-    inset: 0;
-
-    display: none;
-
-    background: rgba(0,0,0,0.35);
-
-    z-index: 900;
-}
+/* =========================
+   언어 선택 메뉴
+   ========================= */
 
 #languageMenu {
     position: absolute;
-
     display: none;
 
     left: 5%;
@@ -202,7 +183,6 @@ body {
     background: rgba(255,255,255,0.97);
 
     border-radius: 20px;
-
     padding: 20px;
 
     z-index: 1000;
@@ -213,10 +193,8 @@ body {
 
 .language-title {
     text-align: center;
-
     font-size: 26px;
     font-weight: bold;
-
     margin-bottom: 15px;
 }
 
@@ -229,7 +207,6 @@ body {
     margin-bottom: 10px;
 
     border: none;
-
     border-radius: 12px;
 
     background: #f0f0f0;
@@ -248,6 +225,20 @@ body {
     transform: scale(0.98);
 }
 
+
+/* 메뉴 바깥 닫기 */
+
+#languageClose {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    background: rgba(0,0,0,0.35);
+
+    z-index: 900;
+}
+
 </style>
 
 </head>
@@ -258,21 +249,21 @@ body {
 <div id="app">
 
 
-    <!-- ==================================================
-         MAIN PAGE
-         ================================================== -->
+    <!-- =========================
+         메인 화면
+         ========================= -->
 
     <div id="mainPage" class="screen">
 
-        <img
-            id="mainImage"
-            src="./main_en.png"
-            alt="SAFE IN BUSAN"
-        >
+        <img id="mainImage"
+             src="./main_en.png"
+             alt="SAFE IN BUSAN">
 
 
-        <!-- 언어 -->
+        <!-- 언어 선택 -->
+
         <button
+            type="button"
             class="touch main-language-button"
             onclick="openLanguageMenu()"
             aria-label="Select language">
@@ -280,6 +271,7 @@ body {
 
 
         <!-- 112 -->
+
         <a
             class="touch main-112"
             href="tel:112"
@@ -288,6 +280,7 @@ body {
 
 
         <!-- 119 -->
+
         <a
             class="touch main-119"
             href="tel:119"
@@ -296,6 +289,7 @@ body {
 
 
         <!-- 1330 -->
+
         <a
             class="touch main-1330"
             href="tel:1330"
@@ -304,7 +298,9 @@ body {
 
 
         <!-- 병원 -->
+
         <button
+            type="button"
             class="touch main-hospital"
             onclick="openHospital()"
             aria-label="Hospital">
@@ -312,31 +308,33 @@ body {
 
 
         <!-- 약국 -->
-        <button
+
+        <a
+            id="pharmacyButton"
             class="touch main-pharmacy"
-            onclick="openPharmacy()"
+            href="./pharmacy_en.png"
             aria-label="Pharmacy">
-        </button>
+        </a>
 
     </div>
 
 
 
-    <!-- ==================================================
-         HOSPITAL PAGE
-         ================================================== -->
+    <!-- =========================
+         병원 화면
+         ========================= -->
 
     <div id="hospitalPage" class="screen">
 
-        <img
-            id="hospitalImage"
-            src="./hospital_en.png"
-            alt="Hospital"
-        >
+        <img id="hospitalImage"
+             src="./hospital_en.png"
+             alt="Hospital">
 
 
-        <!-- 언어 -->
+        <!-- 언어 선택 -->
+
         <button
+            type="button"
             class="touch hospital-language-button"
             onclick="openLanguageMenu()"
             aria-label="Select language">
@@ -344,6 +342,7 @@ body {
 
 
         <!-- 112 -->
+
         <a
             class="touch hospital-112"
             href="tel:112"
@@ -352,6 +351,7 @@ body {
 
 
         <!-- 119 -->
+
         <a
             class="touch hospital-119"
             href="tel:119"
@@ -360,6 +360,7 @@ body {
 
 
         <!-- 1330 -->
+
         <a
             class="touch hospital-1330"
             href="tel:1330"
@@ -368,7 +369,9 @@ body {
 
 
         <!-- 병원 찾기 -->
+
         <button
+            type="button"
             class="touch find-hospital"
             onclick="findHospital()"
             aria-label="Find hospital">
@@ -376,7 +379,9 @@ body {
 
 
         <!-- 응급실 찾기 -->
+
         <button
+            type="button"
             class="touch find-emergency"
             onclick="findEmergency()"
             aria-label="Find emergency room">
@@ -384,7 +389,9 @@ body {
 
 
         <!-- 의료정보 -->
+
         <button
+            type="button"
             class="touch medical-info"
             onclick="openMedicalInfo()"
             aria-label="Medical information">
@@ -394,20 +401,19 @@ body {
 
 
 
-    <!-- ==================================================
-         LANGUAGE BACKGROUND
-         ================================================== -->
+    <!-- =========================
+         언어 선택 배경
+         ========================= -->
 
-    <div
-        id="languageClose"
-        onclick="closeLanguageMenu()">
+    <div id="languageClose"
+         onclick="closeLanguageMenu()">
     </div>
 
 
 
-    <!-- ==================================================
-         LANGUAGE MENU
-         ================================================== -->
+    <!-- =========================
+         언어 선택 메뉴
+         ========================= -->
 
     <div id="languageMenu">
 
@@ -417,6 +423,7 @@ body {
 
 
         <button
+            type="button"
             class="language-button"
             onclick="selectLanguage('en')">
             English
@@ -424,6 +431,7 @@ body {
 
 
         <button
+            type="button"
             class="language-button"
             onclick="selectLanguage('jp')">
             日本語
@@ -431,6 +439,7 @@ body {
 
 
         <button
+            type="button"
             class="language-button"
             onclick="selectLanguage('cn')">
             中文
@@ -438,6 +447,7 @@ body {
 
 
         <button
+            type="button"
             class="language-button"
             onclick="selectLanguage('ru')">
             Русский
@@ -445,6 +455,7 @@ body {
 
 
         <button
+            type="button"
             class="language-button"
             onclick="selectLanguage('vn')">
             Tiếng Việt
@@ -452,6 +463,7 @@ body {
 
 
         <button
+            type="button"
             class="language-button"
             onclick="selectLanguage('mn')">
             Монгол
@@ -459,6 +471,7 @@ body {
 
 
         <button
+            type="button"
             class="language-button"
             onclick="selectLanguage('ph')">
             Filipino
@@ -473,7 +486,7 @@ body {
 <script>
 
 /* ==================================================
-   LANGUAGE DATA
+   나라별 PNG 설정
    ================================================== */
 
 const languages = {
@@ -531,14 +544,14 @@ const languages = {
 
 
 /* ==================================================
-   CURRENT LANGUAGE
+   현재 언어
    ================================================== */
 
 let currentLanguage = "en";
 
 
 /* ==================================================
-   OPEN LANGUAGE MENU
+   언어 메뉴 열기
    ================================================== */
 
 function openLanguageMenu() {
@@ -550,7 +563,7 @@ function openLanguageMenu() {
 
 
 /* ==================================================
-   CLOSE LANGUAGE MENU
+   언어 메뉴 닫기
    ================================================== */
 
 function closeLanguageMenu() {
@@ -562,69 +575,86 @@ function closeLanguageMenu() {
 
 
 /* ==================================================
-   SELECT LANGUAGE
+   나라 선택
    ================================================== */
 
 function selectLanguage(lang) {
 
-    console.log("Selected language:", lang);
+    /*
+       존재하지 않는 나라면 중단
+    */
 
     if (!languages[lang]) {
-
-        console.error("Language not found:", lang);
-
+        console.error("존재하지 않는 언어:", lang);
         return;
     }
 
 
-    /* 현재 언어 저장 */
+    /*
+       현재 언어 저장
+    */
+
     currentLanguage = lang;
 
 
-    const data = languages[lang];
+    /*
+       선택한 나라의 파일 가져오기
+    */
+
+    const data = languages[currentLanguage];
 
 
-    /* ==================================================
-       해당 나라 MAIN 화면으로 변경
-       ================================================== */
+    /*
+       MAIN PNG 변경
+
+       예:
+       en → main_en.png
+       jp → main_jp.png
+       cn → main_cn.png
+       ru → main_ru.png
+       vn → main_vn.png
+       mn → main_mn.png
+       ph → main_ph.png
+    */
 
     document.getElementById("mainImage").src = data.main;
 
 
-    /* ==================================================
-       병원 화면도 해당 나라로 변경
-       ================================================== */
+    /*
+       병원 PNG도 같은 나라로 변경
+    */
 
     document.getElementById("hospitalImage").src = data.hospital;
 
 
-    /* ==================================================
+    /*
+       약국 PNG도 같은 나라로 변경
+    */
+
+    document.getElementById("pharmacyButton").href = data.pharmacy;
+
+
+    /*
        메뉴 닫기
-       ================================================== */
+    */
 
     closeLanguageMenu();
 
 
-    /* ==================================================
-       병원 화면에서 언어를 눌렀더라도
-       해당 나라 MAIN으로 이동
-       ================================================== */
+    /*
+       나라를 선택하면
+       항상 해당 나라의 MAIN 화면으로 이동
+    */
 
     document.getElementById("hospitalPage").style.display = "none";
 
     document.getElementById("mainPage").style.display = "block";
 
-
-    /* ==================================================
-       페이지 맨 앞으로 이동
-       ================================================== */
-
-    window.scrollTo(0, 0);
 }
 
 
 /* ==================================================
-   OPEN HOSPITAL
+   병원 화면 열기
    ================================================== */
 
 function openHospital() {
@@ -632,41 +662,47 @@ function openHospital() {
     const data = languages[currentLanguage];
 
 
-    /* 현재 언어의 병원 이미지 */
+    /*
+       현재 선택된 나라의 병원 PNG
+    */
+
     document.getElementById("hospitalImage").src =
         data.hospital;
 
 
-    /* MAIN 숨기기 */
+    /*
+       MAIN 숨기기
+    */
+
     document.getElementById("mainPage").style.display =
         "none";
 
 
-    /* HOSPITAL 표시 */
+    /*
+       병원 화면 표시
+    */
+
     document.getElementById("hospitalPage").style.display =
         "block";
+
 }
 
 
 /* ==================================================
-   OPEN PHARMACY
+   약국
    ================================================== */
 
 function openPharmacy() {
 
     const data = languages[currentLanguage];
 
-
-    /*
-       현재 선택된 나라의 약국 이미지로 이동
-    */
-
     window.location.href = data.pharmacy;
+
 }
 
 
 /* ==================================================
-   FIND HOSPITAL
+   병원 찾기
    ================================================== */
 
 function findHospital() {
@@ -675,11 +711,12 @@ function findHospital() {
         "https://www.google.com/maps/search/?api=1&query=hospital+near+me",
         "_blank"
     );
+
 }
 
 
 /* ==================================================
-   FIND EMERGENCY ROOM
+   응급실 찾기
    ================================================== */
 
 function findEmergency() {
@@ -688,53 +725,69 @@ function findEmergency() {
         "https://www.google.com/maps/search/?api=1&query=emergency+room+near+me",
         "_blank"
     );
+
 }
 
 
 /* ==================================================
-   OPEN MEDICAL INFORMATION
+   의료정보
    ================================================== */
 
 function openMedicalInfo() {
 
     const data = languages[currentLanguage];
 
-
     window.location.href = data.medical;
+
 }
 
 
 /* ==================================================
-   INITIALIZATION
+   초기화
    ================================================== */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+document.addEventListener("DOMContentLoaded", function() {
 
-        currentLanguage = "en";
+    /*
+       처음에는 영어 MAIN
+    */
 
-
-        document.getElementById("mainPage").style.display =
-            "block";
+    currentLanguage = "en";
 
 
-        document.getElementById("hospitalPage").style.display =
-            "none";
+    /*
+       MAIN 화면 표시
+    */
+
+    document.getElementById("mainPage").style.display =
+        "block";
 
 
-        document.getElementById("mainImage").src =
-            languages.en.main;
+    /*
+       병원 화면 숨김
+    */
+
+    document.getElementById("hospitalPage").style.display =
+        "none";
 
 
-        document.getElementById("hospitalImage").src =
-            languages.en.hospital;
+    /*
+       영어 이미지 적용
+    */
 
-    }
-);
+    document.getElementById("mainImage").src =
+        languages.en.main;
+
+    document.getElementById("hospitalImage").src =
+        languages.en.hospital;
+
+    document.getElementById("pharmacyButton").href =
+        languages.en.pharmacy;
+
+});
 
 </script>
 
 </body>
 </html>
-```
+
