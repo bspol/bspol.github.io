@@ -1,7 +1,8 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -14,6 +15,10 @@
 
 <style>
 
+/* ==========================
+   기본 설정
+   ========================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -23,39 +28,55 @@
 
 html,
 body {
+
     width: 100%;
     height: 100%;
+
     overflow: hidden;
+
     background: #000;
 }
 
 body {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 }
 
+
+/* ==========================
+   1080 × 1920 화면
+   ========================== */
+
 #app {
+
     position: relative;
 
     width: min(100vw, 56.25vh);
+
     height: min(100vh, 177.7778vw);
 
     max-width: 1080px;
+
     max-height: 1920px;
 
     aspect-ratio: 1080 / 1920;
 
     overflow: hidden;
-    background: #000;
+
+    background: #fff;
 }
 
 
 /* ==========================
-   HOME IMAGE
+   메인 이미지
    ========================== */
 
-#homeImage {
+#mainImage {
+
     position: absolute;
 
     left: 0;
@@ -69,15 +90,17 @@ body {
     display: block;
 
     user-select: none;
+
     -webkit-user-drag: none;
 }
 
 
 /* ==========================
-   7개 언어 버튼
+   모든 터치 버튼
    ========================== */
 
-.language-link {
+.touch-button {
+
     position: absolute;
 
     display: block;
@@ -86,145 +109,118 @@ body {
 
     background: transparent;
 
-    border: 0;
+    border: none;
+
     outline: none;
+
+    text-decoration: none;
 
     cursor: pointer;
 
-    -webkit-tap-highlight-color: transparent;
-
     touch-action: manipulation;
 
-    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
-/* English */
+/* ==================================================
+   112 POLICE
+   사진 속 왼쪽 파란색 긴급전화 박스
+   ================================================== */
 
-.english {
-    left: 8.1%;
-    top: 57.3%;
-    width: 19.5%;
-    height: 10.7%;
+.call112 {
+
+    left: 2%;
+
+    top: 32.3%;
+
+    width: 31%;
+
+    height: 13.7%;
 }
 
 
-/* Japanese */
+/* ==================================================
+   119 EMERGENCY
+   사진 속 가운데 빨간색 긴급전화 박스
+   ================================================== */
 
-.japanese {
-    left: 29.8%;
-    top: 57.3%;
-    width: 19.5%;
-    height: 10.7%;
+.call119 {
+
+    left: 34%;
+
+    top: 32.3%;
+
+    width: 31%;
+
+    height: 13.7%;
 }
 
 
-/* Chinese */
+/* ==================================================
+   1330 TOURIST INFORMATION
+   사진 속 오른쪽 초록색 긴급전화 박스
+   ================================================== */
 
-.chinese {
-    left: 51.7%;
-    top: 57.3%;
-    width: 19.5%;
-    height: 10.7%;
+.call1330 {
+
+    left: 66%;
+
+    top: 32.3%;
+
+    width: 32%;
+
+    height: 13.7%;
 }
 
 
-/* Vietnamese */
+/* ==================================================
+   HOSPITAL
+   사진 속 왼쪽 첫 번째 카드
+   ================================================== */
 
-.vietnamese {
-    left: 73.6%;
-    top: 57.3%;
-    width: 19.5%;
-    height: 10.7%;
+.hospital {
+
+    left: 2%;
+
+    top: 47.0%;
+
+    width: 47.8%;
+
+    height: 16.8%;
 }
 
 
-/* Mongolian */
+/* ==================================================
+   PHARMACY
+   사진 속 오른쪽 첫 번째 카드
+   ================================================== */
 
-.mongolian {
-    left: 12.5%;
-    top: 69.2%;
-    width: 22.5%;
-    height: 10.8%;
-}
+.pharmacy {
 
+    left: 50.2%;
 
-/* Filipino */
+    top: 47.0%;
 
-.filipino {
-    left: 38.1%;
-    top: 69.2%;
-    width: 22.5%;
-    height: 10.8%;
-}
+    width: 47.8%;
 
-
-/* Russian */
-
-.russian {
-    left: 63.8%;
-    top: 69.2%;
-    width: 22.5%;
-    height: 10.8%;
+    height: 16.8%;
 }
 
 
 /* ==========================
-   긴급전화 버튼
+   PC 화면
    ========================== */
 
-.call-button {
-    position: absolute;
+@media (min-width: 1081px) {
 
-    display: block;
+    #app {
 
-    border: 0;
-    outline: none;
+        width: 540px;
 
-    background: transparent;
+        height: 960px;
+    }
 
-    cursor: pointer;
-
-    z-index: 30;
-
-    -webkit-tap-highlight-color: transparent;
-
-    touch-action: manipulation;
-
-    text-decoration: none;
-}
-
-
-/* 112 경찰 */
-
-.call112 {
-    left: 8%;
-    top: 86%;
-
-    width: 26%;
-    height: 7%;
-}
-
-
-/* 119 소방 / 구급 */
-
-.call119 {
-    left: 37%;
-    top: 86%;
-
-    width: 26%;
-    height: 7%;
-}
-
-
-/* 1330 관광안내 */
-
-.call1330 {
-    left: 66%;
-    top: 86%;
-
-    width: 26%;
-    height: 7%;
 }
 
 
@@ -235,14 +231,18 @@ body {
 @media (max-width: 600px) {
 
     #app {
+
         width: 100vw;
+
         height: 100vh;
+
         aspect-ratio: auto;
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -251,108 +251,75 @@ body {
 <div id="app">
 
 
-    <!-- ==========================
-         대표 HOME 이미지
-         ========================== -->
+    <!-- =================================
+         영어 메인 이미지
+         ================================= -->
 
     <img
-        id="homeImage"
-        src="./home.png"
+        id="mainImage"
+        src="./main_en.png"
         alt="SAFE IN BUSAN"
         draggable="false"
     >
 
 
-    <!-- ==========================
-         7개 언어
-         ========================== -->
+    <!-- =================================
+         112 경찰
+         ================================= -->
 
-    <!-- English -->
-    <a
-        href="./main_en.png"
-        class="language-link english"
-        aria-label="English">
-    </a>
-
-
-    <!-- Japanese -->
-    <a
-        href="./main_jp.png"
-        class="language-link japanese"
-        aria-label="Japanese">
-    </a>
-
-
-    <!-- Chinese -->
-    <a
-        href="./main_cn.png"
-        class="language-link chinese"
-        aria-label="Chinese">
-    </a>
-
-
-    <!-- Vietnamese -->
-    <a
-        href="./main_vn.png"
-        class="language-link vietnamese"
-        aria-label="Vietnamese">
-    </a>
-
-
-    <!-- Mongolian -->
-    <a
-        href="./main_mn.png"
-        class="language-link mongolian"
-        aria-label="Mongolian">
-    </a>
-
-
-    <!-- Filipino -->
-    <a
-        href="./main_ph.png"
-        class="language-link filipino"
-        aria-label="Filipino">
-    </a>
-
-
-    <!-- Russian -->
-    <a
-        href="./main_ru.png"
-        class="language-link russian"
-        aria-label="Russian">
-    </a>
-
-
-    <!-- ==========================
-         긴급전화
-         ========================== -->
-
-    <!-- 112 경찰 -->
     <a
         href="tel:112"
-        class="call-button call112"
-        aria-label="112 경찰 전화">
+        class="touch-button call112"
+        aria-label="Call Police 112">
     </a>
 
 
-    <!-- 119 소방 / 구급 -->
+    <!-- =================================
+         119 소방 / 구급
+         ================================= -->
+
     <a
         href="tel:119"
-        class="call-button call119"
-        aria-label="119 소방 구급 전화">
+        class="touch-button call119"
+        aria-label="Call Emergency 119">
     </a>
 
 
-    <!-- 1330 관광안내 -->
+    <!-- =================================
+         1330 관광안내
+         ================================= -->
+
     <a
         href="tel:1330"
-        class="call-button call1330"
-        aria-label="1330 관광안내 전화">
+        class="touch-button call1330"
+        aria-label="Call Tourist Information 1330">
+    </a>
+
+
+    <!-- =================================
+         병원
+         ================================= -->
+
+    <a
+        href="./hospital_en.png"
+        class="touch-button hospital"
+        aria-label="Hospitals">
+    </a>
+
+
+    <!-- =================================
+         약국
+         ================================= -->
+
+    <a
+        href="./pharmacy_en.png"
+        class="touch-button pharmacy"
+        aria-label="Pharmacies">
     </a>
 
 
 </div>
 
 </body>
+
 </html>
-```
