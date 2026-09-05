@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,20 +49,31 @@ body {
     background: #000;
 }
 
+
+/* ==========================
+   HOME IMAGE
+   ========================== */
+
 #homeImage {
     position: absolute;
-    inset: 0;
+
+    left: 0;
+    top: 0;
 
     width: 100%;
     height: 100%;
 
     object-fit: fill;
+
     display: block;
+
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 
 /* ==========================
-   언어 버튼
+   7개 언어 버튼
    ========================== */
 
 .language-link {
@@ -76,16 +86,21 @@ body {
     background: transparent;
 
     border: 0;
+    outline: none;
 
     cursor: pointer;
 
     -webkit-tap-highlight-color: transparent;
 
     touch-action: manipulation;
+
+    text-decoration: none;
 }
 
 
-/* English */
+/* ==========================
+   English
+   ========================== */
 
 .english {
     left: 8.1%;
@@ -95,7 +110,9 @@ body {
 }
 
 
-/* Japanese */
+/* ==========================
+   Japanese
+   ========================== */
 
 .japanese {
     left: 29.8%;
@@ -105,7 +122,9 @@ body {
 }
 
 
-/* Chinese */
+/* ==========================
+   Chinese
+   ========================== */
 
 .chinese {
     left: 51.7%;
@@ -115,7 +134,9 @@ body {
 }
 
 
-/* Vietnamese */
+/* ==========================
+   Vietnamese
+   ========================== */
 
 .vietnamese {
     left: 73.6%;
@@ -125,7 +146,9 @@ body {
 }
 
 
-/* Mongolian */
+/* ==========================
+   Mongolian
+   ========================== */
 
 .mongolian {
     left: 12.5%;
@@ -135,7 +158,9 @@ body {
 }
 
 
-/* Filipino */
+/* ==========================
+   Filipino
+   ========================== */
 
 .filipino {
     left: 38.1%;
@@ -145,7 +170,9 @@ body {
 }
 
 
-/* Russian */
+/* ==========================
+   Russian
+   ========================== */
 
 .russian {
     left: 63.8%;
@@ -162,7 +189,10 @@ body {
 .call-button {
     position: absolute;
 
+    display: block;
+
     border: 0;
+    outline: none;
 
     background: transparent;
 
@@ -173,8 +203,14 @@ body {
     -webkit-tap-highlight-color: transparent;
 
     touch-action: manipulation;
+
+    text-decoration: none;
 }
 
+
+/* ==========================
+   112 경찰
+   ========================== */
 
 .call112 {
     left: 8%;
@@ -184,6 +220,11 @@ body {
     height: 7%;
 }
 
+
+/* ==========================
+   119 소방 / 구급
+   ========================== */
+
 .call119 {
     left: 37%;
     top: 86%;
@@ -191,6 +232,11 @@ body {
     width: 26%;
     height: 7%;
 }
+
+
+/* ==========================
+   1330 관광안내
+   ========================== */
 
 .call1330 {
     left: 66%;
@@ -216,7 +262,7 @@ body {
 
 
 /* ==========================
-   휴대폰
+   휴대폰 화면
    ========================== */
 
 @media (max-width: 600px) {
@@ -246,6 +292,7 @@ body {
         id="homeImage"
         src="./home.png"
         alt="SAFE IN BUSAN"
+        draggable="false"
     >
 
 
@@ -327,7 +374,7 @@ body {
     <a
         href="tel:112"
         class="call-button call112"
-        aria-label="112 경찰">
+        aria-label="112 경찰 전화">
     </a>
 
 
@@ -336,7 +383,7 @@ body {
     <a
         href="tel:119"
         class="call-button call119"
-        aria-label="119 소방 구급">
+        aria-label="119 소방 구급 전화">
     </a>
 
 
@@ -345,7 +392,7 @@ body {
     <a
         href="tel:1330"
         class="call-button call1330"
-        aria-label="1330 관광안내">
+        aria-label="1330 관광안내 전화">
     </a>
 
 
@@ -353,4 +400,3 @@ body {
 
 </body>
 </html>
-```
