@@ -92,13 +92,6 @@ body {
     user-select: none;
 
     -webkit-user-drag: none;
-
-    /*
-     * 이미지가 터치를 가로채지 않도록 설정
-     */
-    pointer-events: none;
-
-    z-index: 1;
 }
 
 
@@ -112,7 +105,7 @@ body {
 
     display: block;
 
-    z-index: 9999;
+    z-index: 20;
 
     background: transparent;
 
@@ -120,29 +113,18 @@ body {
 
     outline: none;
 
-    padding: 0;
-
-    margin: 0;
-
     text-decoration: none;
 
     cursor: pointer;
 
     touch-action: manipulation;
 
-    pointer-events: auto;
-
     -webkit-tap-highlight-color: transparent;
-
-    -webkit-appearance: none;
-
-    appearance: none;
 }
 
 
 /* ==================================================
    112 POLICE
-   기존 위치 그대로
    ================================================== */
 
 .call112 {
@@ -159,7 +141,6 @@ body {
 
 /* ==================================================
    119 EMERGENCY
-   기존 위치 그대로
    ================================================== */
 
 .call119 {
@@ -176,7 +157,6 @@ body {
 
 /* ==================================================
    1330 TOURIST INFORMATION
-   기존 위치 그대로
    ================================================== */
 
 .call1330 {
@@ -193,7 +173,6 @@ body {
 
 /* ==================================================
    HOSPITAL
-   기존 위치 그대로
    ================================================== */
 
 .hospital {
@@ -210,7 +189,6 @@ body {
 
 /* ==================================================
    PHARMACY
-   기존 위치 그대로
    ================================================== */
 
 .pharmacy {
@@ -236,7 +214,6 @@ body {
         width: 540px;
 
         height: 960px;
-
     }
 
 }
@@ -255,7 +232,6 @@ body {
         height: 100vh;
 
         aspect-ratio: auto;
-
     }
 
 }
@@ -272,6 +248,7 @@ body {
 
     <!-- =================================
          영어 메인 이미지
+         기존 그대로
          ================================= -->
 
     <img
@@ -338,6 +315,83 @@ body {
 
 
 </div>
+
+
+<script>
+
+/* ==================================================
+   터치 연결
+   홈 화면 디자인에는 영향을 주지 않음
+   ================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const buttons = document.querySelectorAll(".touch-button");
+
+    buttons.forEach(function (button) {
+
+        /* 터치 시작 */
+        button.addEventListener(
+            "touchstart",
+            function (event) {
+
+                event.stopPropagation();
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /* 터치 종료 */
+        button.addEventListener(
+            "touchend",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                const link = button.getAttribute("href");
+
+                if (link) {
+
+                    window.location.href = link;
+
+                }
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* PC 클릭 */
+        button.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                const link = button.getAttribute("href");
+
+                if (link) {
+
+                    window.location.href = link;
+
+                }
+
+            }
+        );
+
+    });
+
+});
+
+</script>
+
 
 </body>
 
