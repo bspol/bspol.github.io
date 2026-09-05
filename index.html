@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -37,8 +38,8 @@ body {
 
 
 /* ==================================================
-   첫 메인 화면
-   ★ home.png 그대로 사용
+   영어 메인 화면
+   ★ main_en.png 그대로 사용
    ================================================== */
 
 .home-container {
@@ -68,7 +69,9 @@ body {
 
 
 /* ==================================================
-   왼쪽 상단 지구본 + English 터치 영역
+   왼쪽 상단
+   🌐 English
+   터치 영역
    ================================================== */
 
 #languageTrigger {
@@ -76,17 +79,17 @@ body {
     position: absolute;
 
     left: 2%;
-    top: 1%;
+    top: 0;
 
     width: 24%;
-    height: 6%;
+    height: 7%;
 
     padding: 0;
     margin: 0;
 
     background: transparent;
 
-    border: 0;
+    border: none;
     outline: none;
 
     z-index: 1000;
@@ -100,7 +103,7 @@ body {
 
 
 /* ==================================================
-   언어창 바깥 닫기 영역
+   언어창 바깥 영역
    ================================================== */
 
 #languageClose {
@@ -132,11 +135,11 @@ body {
 
     display: none;
 
-    padding: 10px;
+    padding: 9px;
 
     background: rgba(255,255,255,0.98);
 
-    border-radius: 12px;
+    border-radius: 11px;
 
     box-shadow:
         0 5px 18px rgba(0,0,0,0.30);
@@ -153,14 +156,15 @@ body {
 
 .language-title {
 
-    margin: 0 0 8px 0;
+    margin: 0 0 7px 0;
 
     padding: 0;
 
     text-align: center;
 
     font-size: 15px;
-    line-height: 22px;
+
+    line-height: 21px;
 
     font-weight: bold;
 
@@ -177,22 +181,26 @@ body {
     display: block;
 
     width: 100%;
-    height: 38px;
 
-    margin: 0 0 6px 0;
+    height: 35px;
+
+    margin: 0 0 5px 0;
+
     padding: 0;
 
-    border: 0;
+    border: none;
+
     border-radius: 8px;
 
     background: #f0f0f0;
 
     color: #111;
 
-    font-size: 15px;
+    font-size: 14px;
+
     font-weight: bold;
 
-    line-height: 38px;
+    line-height: 35px;
 
     text-align: center;
 
@@ -203,15 +211,18 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
+
 .language-button:last-child {
     margin-bottom: 0;
 }
+
 
 .language-button:active {
     transform: scale(0.97);
 }
 
 </style>
+
 </head>
 
 
@@ -219,23 +230,23 @@ body {
 
 
 <!-- ==================================================
-     ★ 첫 메인 화면
+     영어 메인 화면
+     ★ home.png 아님
+     ★ main_en.png
      ================================================== -->
 
 <div class="home-container">
 
     <img
-        src="home.png"
+        src="main_en.png"
         class="home-image"
         alt="BUSAN SAFETY GUIDE"
     >
 
 
-    <!--
-        왼쪽 위
-        🌐 English
-        터치 영역
-    -->
+    <!-- ==================================================
+         왼쪽 상단 English 터치
+         ================================================== -->
 
     <button
         id="languageTrigger"
@@ -246,17 +257,16 @@ body {
 </div>
 
 
-
 <!-- ==================================================
-     언어창 바깥 영역
+     언어창 바깥 닫기
      ================================================== -->
 
 <div id="languageClose"></div>
 
 
-
 <!-- ==================================================
-     작은 언어 선택창
+     7개 언어
+     한국어 제외
      ================================================== -->
 
 <div id="languageMenu">
@@ -266,71 +276,76 @@ body {
     </div>
 
 
-    <button
-        type="button"
-        class="language-button"
-        data-url="index.html">
-        한국어
-    </button>
-
+    <!-- English -->
 
     <button
         type="button"
         class="language-button"
-        data-url="en/">
+        data-url="../main_en/">
         English
     </button>
 
 
+    <!-- Chinese -->
+
     <button
         type="button"
         class="language-button"
-        data-url="cn/">
+        data-url="../main_cn/">
         中文
     </button>
 
 
+    <!-- Japanese -->
+
     <button
         type="button"
         class="language-button"
-        data-url="jp/">
+        data-url="../main_jp/">
         日本語
     </button>
 
 
+    <!-- Vietnamese -->
+
     <button
         type="button"
         class="language-button"
-        data-url="vn/">
+        data-url="../main_vn/">
         Tiếng Việt
     </button>
 
 
+    <!-- Mongolian -->
+
     <button
         type="button"
         class="language-button"
-        data-url="mn/">
+        data-url="../main_mn/">
         Монгол
     </button>
 
 
+    <!-- Filipino -->
+
     <button
         type="button"
         class="language-button"
-        data-url="ph/">
+        data-url="../main_ph/">
         Filipino
     </button>
 
 
+    <!-- Russian -->
+
     <button
         type="button"
         class="language-button"
-        data-url="ru/">
+        data-url="../main_ru/">
         Русский
     </button>
 
 </div>
-
 
 
 <script>
@@ -350,7 +365,7 @@ const closeArea =
 
 
 /* ==================================================
-   열기
+   언어창 열기 / 닫기
    ================================================== */
 
 trigger.addEventListener("click", function(e) {
@@ -374,10 +389,12 @@ trigger.addEventListener("click", function(e) {
 
 
 /* ==================================================
-   바깥쪽 터치 → 닫기
+   바깥을 누르면 닫기
    ================================================== */
 
-closeArea.addEventListener("click", function() {
+closeArea.addEventListener("click", function(e) {
+
+    e.preventDefault();
 
     menu.style.display = "none";
     closeArea.style.display = "none";
@@ -402,7 +419,9 @@ document
             this.getAttribute("data-url");
 
         if (url) {
+
             window.location.href = url;
+
         }
 
     });
@@ -411,7 +430,7 @@ document
 
 
 /* ==================================================
-   ESC → 닫기
+   ESC 닫기
    ================================================== */
 
 document.addEventListener("keydown", function(e) {
@@ -429,4 +448,5 @@ document.addEventListener("keydown", function(e) {
 
 
 </body>
+
 </html>
