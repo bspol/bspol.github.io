@@ -54,9 +54,8 @@ body {
     display: block;
 }
 
-
 /* ==================================================
-   공통 투명 터치 영역
+   투명 터치 영역
    ================================================== */
 
 .touch {
@@ -69,11 +68,16 @@ body {
     z-index: 20;
 }
 
-
 /* ==================================================
-   MAIN 화면
+   메인 화면
    ================================================== */
 
+/*
+   PNG 안에 이미 있는
+   🌐 + 나라 이름 부분을 누르는 영역
+
+   HTML에서는 아무 글자도 표시하지 않음.
+*/
 .main-language-button {
     left: 0%;
     top: 0%;
@@ -81,6 +85,7 @@ body {
     height: 10%;
 }
 
+/* 112 */
 .main-112 {
     left: 2%;
     top: 32.3%;
@@ -88,6 +93,7 @@ body {
     height: 13.7%;
 }
 
+/* 119 */
 .main-119 {
     left: 34%;
     top: 32.3%;
@@ -95,6 +101,7 @@ body {
     height: 13.7%;
 }
 
+/* 1330 */
 .main-1330 {
     left: 66%;
     top: 32.3%;
@@ -102,6 +109,7 @@ body {
     height: 13.7%;
 }
 
+/* 병원 */
 .main-hospital {
     left: 2%;
     top: 47%;
@@ -109,6 +117,7 @@ body {
     height: 16.8%;
 }
 
+/* 약국 */
 .main-pharmacy {
     left: 50.2%;
     top: 47%;
@@ -118,13 +127,20 @@ body {
 
 
 /* ==================================================
-   HOSPITAL 화면
+   병원 화면
    ================================================== */
 
 #hospitalPage {
     display: none;
 }
 
+/*
+   병원 PNG에도 이미
+   🌐 + 나라 이름이 들어 있으므로
+   HTML에서 표시하지 않음.
+   
+   PNG 위에 투명 영역만 설치.
+*/
 .hospital-language-button {
     left: 0%;
     top: 0%;
@@ -132,6 +148,7 @@ body {
     height: 10%;
 }
 
+/* 112 */
 .hospital-112 {
     left: 4%;
     top: 45%;
@@ -139,6 +156,7 @@ body {
     height: 14%;
 }
 
+/* 119 */
 .hospital-119 {
     left: 36%;
     top: 45%;
@@ -146,6 +164,7 @@ body {
     height: 14%;
 }
 
+/* 1330 */
 .hospital-1330 {
     left: 68%;
     top: 45%;
@@ -153,6 +172,7 @@ body {
     height: 14%;
 }
 
+/* 병원 찾기 */
 .find-hospital {
     left: 4%;
     top: 61%;
@@ -160,6 +180,7 @@ body {
     height: 26%;
 }
 
+/* 응급실 찾기 */
 .find-emergency {
     left: 36%;
     top: 61%;
@@ -167,6 +188,7 @@ body {
     height: 26%;
 }
 
+/* 의료정보 */
 .medical-info {
     left: 68%;
     top: 61%;
@@ -176,118 +198,73 @@ body {
 
 
 /* ==================================================
-   PHARMACY 화면
-   ================================================== */
-
-#pharmacyPage {
-    display: none;
-}
-
-
-/*
-   약국 PNG에 이미 있는
-   지구본 + 나라 이름을 누르는 투명 영역
-*/
-.pharmacy-language-button {
-    left: 0%;
-    top: 0%;
-    width: 35%;
-    height: 10%;
-}
-
-
-/* ==================================================
-   언어 선택 바깥 영역
-   ================================================== */
-
-#languageClose {
-    position: fixed;
-
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-
-    display: none;
-
-    background: rgba(0,0,0,0.25);
-
-    z-index: 900;
-}
-
-
-/* ==================================================
-   작은 언어 선택창
+   언어 선택 메뉴
    ================================================== */
 
 #languageMenu {
     position: absolute;
-
     display: none;
 
-    left: 15%;
-    top: 12%;
+    left: 5%;
+    top: 8%;
+    width: 90%;
 
-    width: 70%;
+    background: rgba(255,255,255,0.97);
 
-    background: rgba(255,255,255,0.98);
-
-    border-radius: 18px;
-
-    padding: 15px;
+    border-radius: 20px;
+    padding: 20px;
 
     z-index: 1000;
 
     box-shadow:
-        0 6px 25px rgba(0,0,0,0.4);
+        0 8px 30px rgba(0,0,0,0.4);
 }
-
 
 .language-title {
     text-align: center;
-
-    font-size: 23px;
-
+    font-size: 26px;
     font-weight: bold;
-
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
-
-
-/*
-   7개 언어를 작은 창 안에서
-   2열로 표시
-*/
-.language-list {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 8px;
-}
-
 
 .language-button {
-    width: 100%;
+    display: block;
 
-    min-height: 50px;
+    width: 100%;
+    min-height: 60px;
+
+    margin-bottom: 10px;
 
     border: none;
-
-    border-radius: 10px;
+    border-radius: 12px;
 
     background: #f0f0f0;
 
-    font-size: 18px;
-
+    font-size: 21px;
     font-weight: bold;
 
     cursor: pointer;
 }
 
+.language-button:last-child {
+    margin-bottom: 0;
+}
 
 .language-button:active {
-    transform: scale(0.97);
+    transform: scale(0.98);
+}
+
+
+/* 메뉴 바깥 닫기 */
+#languageClose {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    background: rgba(0,0,0,0.35);
+
+    z-index: 900;
 }
 
 </style>
@@ -301,7 +278,7 @@ body {
 
 
     <!-- ==================================================
-         MAIN PAGE
+         메인 화면
          ================================================== -->
 
     <div id="mainPage" class="screen">
@@ -310,12 +287,13 @@ body {
              src="./main_en.png"
              alt="SAFE IN BUSAN">
 
-
-        <!-- PNG 안의 지구본 + 나라 이름 -->
+        <!--
+            PNG 안의 기존 🌐 + 나라 이름을
+            투명하게 누르는 버튼
+        -->
         <button
-            type="button"
             class="touch main-language-button"
-            onclick="openLanguageMenu(event)"
+            onclick="openLanguageMenu()"
             aria-label="Select language">
         </button>
 
@@ -346,7 +324,6 @@ body {
 
         <!-- 병원 -->
         <button
-            type="button"
             class="touch main-hospital"
             onclick="openHospital()"
             aria-label="Hospital">
@@ -354,19 +331,19 @@ body {
 
 
         <!-- 약국 -->
-        <button
-            type="button"
+        <a
+            id="pharmacyButton"
             class="touch main-pharmacy"
-            onclick="openPharmacy()"
+            href="./pharmacy_en.png"
             aria-label="Pharmacy">
-        </button>
+        </a>
 
     </div>
 
 
 
     <!-- ==================================================
-         HOSPITAL PAGE
+         병원 화면
          ================================================== -->
 
     <div id="hospitalPage" class="screen">
@@ -375,12 +352,14 @@ body {
              src="./hospital_en.png"
              alt="Hospital">
 
-
-        <!-- 병원 PNG 안의 지구본 + 나라 이름 -->
+        <!--
+            병원 PNG에 이미 있는
+            🌐 + 나라 이름 위에
+            투명 버튼만 설치
+        -->
         <button
-            type="button"
             class="touch hospital-language-button"
-            onclick="openLanguageMenu(event)"
+            onclick="openLanguageMenu()"
             aria-label="Select language">
         </button>
 
@@ -411,7 +390,6 @@ body {
 
         <!-- 병원 찾기 -->
         <button
-            type="button"
             class="touch find-hospital"
             onclick="findHospital()"
             aria-label="Find hospital">
@@ -420,7 +398,6 @@ body {
 
         <!-- 응급실 찾기 -->
         <button
-            type="button"
             class="touch find-emergency"
             onclick="findEmergency()"
             aria-label="Find emergency room">
@@ -429,7 +406,6 @@ body {
 
         <!-- 의료정보 -->
         <button
-            type="button"
             class="touch medical-info"
             onclick="openMedicalInfo()"
             aria-label="Medical information">
@@ -440,108 +416,65 @@ body {
 
 
     <!-- ==================================================
-         PHARMACY PAGE
-         ================================================== -->
-
-    <div id="pharmacyPage" class="screen">
-
-        <img id="pharmacyImage"
-             src="./pharmacy_en.png"
-             alt="Pharmacy">
-
-
-        <!-- 약국 PNG 안의 지구본 + 나라 이름 -->
-        <button
-            type="button"
-            class="touch pharmacy-language-button"
-            onclick="openLanguageMenu(event)"
-            aria-label="Select language">
-        </button>
-
-    </div>
-
-
-
-    <!-- ==================================================
-         언어 선택 바깥 영역
+         언어 선택 배경
          ================================================== -->
 
     <div id="languageClose"
-         onclick="closeLanguageMenu(event)">
+         onclick="closeLanguageMenu()">
     </div>
 
 
-
     <!-- ==================================================
-         작은 언어 선택창
+         언어 선택 메뉴
          ================================================== -->
 
-    <div id="languageMenu"
-         onclick="event.stopPropagation()">
+    <div id="languageMenu">
 
         <div class="language-title">
             Select Language
         </div>
 
+        <button
+            class="language-button"
+            onclick="selectLanguage('en')">
+            English
+        </button>
 
-        <div class="language-list">
+        <button
+            class="language-button"
+            onclick="selectLanguage('jp')">
+            日本語
+        </button>
 
-            <button
-                type="button"
-                class="language-button"
-                onclick="selectLanguage('en')">
-                English
-            </button>
+        <button
+            class="language-button"
+            onclick="selectLanguage('cn')">
+            中文
+        </button>
 
+        <button
+            class="language-button"
+            onclick="selectLanguage('ru')">
+            Русский
+        </button>
 
-            <button
-                type="button"
-                class="language-button"
-                onclick="selectLanguage('jp')">
-                日本語
-            </button>
+        <button
+            class="language-button"
+            onclick="selectLanguage('vn')">
+            Tiếng Việt
+        </button>
 
+        <button
+            class="language-button"
+            onclick="selectLanguage('mn')">
+            Монгол
+        </button>
 
-            <button
-                type="button"
-                class="language-button"
-                onclick="selectLanguage('cn')">
-                中文
-            </button>
-
-
-            <button
-                type="button"
-                class="language-button"
-                onclick="selectLanguage('ru')">
-                Русский
-            </button>
-
-
-            <button
-                type="button"
-                class="language-button"
-                onclick="selectLanguage('vn')">
-                Tiếng Việt
-            </button>
-
-
-            <button
-                type="button"
-                class="language-button"
-                onclick="selectLanguage('mn')">
-                Монгол
-            </button>
-
-
-            <button
-                type="button"
-                class="language-button"
-                onclick="selectLanguage('ph')">
-                Filipino
-            </button>
-
-        </div>
+        <button
+            class="language-button"
+            onclick="selectLanguage('ph')">
+            Filipino
+        </button>
 
     </div>
 
@@ -551,7 +484,7 @@ body {
 <script>
 
 /* ==================================================
-   7개 언어 파일
+   언어별 파일 설정
    ================================================== */
 
 const languages = {
@@ -616,38 +549,26 @@ let currentLanguage = "en";
 
 
 /* ==================================================
-   언어 선택창 열기
+   언어 메뉴 열기
    ================================================== */
 
-function openLanguageMenu(event) {
+function openLanguageMenu() {
 
-    if (event) {
-        event.stopPropagation();
-    }
+    document.getElementById("languageClose").style.display = "block";
 
-    document.getElementById("languageClose").style.display =
-        "block";
-
-    document.getElementById("languageMenu").style.display =
-        "block";
+    document.getElementById("languageMenu").style.display = "block";
 }
 
 
 /* ==================================================
-   언어 선택창 닫기
+   언어 메뉴 닫기
    ================================================== */
 
-function closeLanguageMenu(event) {
+function closeLanguageMenu() {
 
-    if (event) {
-        event.stopPropagation();
-    }
+    document.getElementById("languageClose").style.display = "none";
 
-    document.getElementById("languageMenu").style.display =
-        "none";
-
-    document.getElementById("languageClose").style.display =
-        "none";
+    document.getElementById("languageMenu").style.display = "none";
 }
 
 
@@ -665,100 +586,65 @@ function selectLanguage(lang) {
 
     const data = languages[lang];
 
-
     /*
-       MAIN
+       메인 화면 이미지 변경
     */
-    document.getElementById("mainImage").src =
-        data.main;
+    document.getElementById("mainImage").src = data.main;
 
 
     /*
-       HOSPITAL
+       약국 링크도 현재 언어에 맞게 변경
     */
-    document.getElementById("hospitalImage").src =
-        data.hospital;
+    document.getElementById("pharmacyButton").href = data.pharmacy;
 
 
     /*
-       PHARMACY
+       병원 이미지도 현재 언어로 변경
     */
-    document.getElementById("pharmacyImage").src =
-        data.pharmacy;
+    document.getElementById("hospitalImage").src = data.hospital;
 
 
     /*
-       언어창 닫기
+       언어 선택 메뉴 닫기
     */
     closeLanguageMenu();
 
 
     /*
-       기존 방식대로
-       언어 선택 후 해당 언어 MAIN 화면
+       언어를 선택하면
+       항상 해당 국가의 MAIN 화면으로 이동
     */
-    showMain();
+    document.getElementById("hospitalPage").style.display = "none";
+
+    document.getElementById("mainPage").style.display = "block";
 }
 
 
 /* ==================================================
-   MAIN 화면
-   ================================================== */
-
-function showMain() {
-
-    document.getElementById("mainPage").style.display =
-        "block";
-
-    document.getElementById("hospitalPage").style.display =
-        "none";
-
-    document.getElementById("pharmacyPage").style.display =
-        "none";
-}
-
-
-/* ==================================================
-   HOSPITAL 화면
+   병원 페이지 열기
    ================================================== */
 
 function openHospital() {
 
     const data = languages[currentLanguage];
 
-    document.getElementById("hospitalImage").src =
-        data.hospital;
+    document.getElementById("hospitalImage").src = data.hospital;
 
-    document.getElementById("mainPage").style.display =
-        "none";
+    document.getElementById("mainPage").style.display = "none";
 
-    document.getElementById("pharmacyPage").style.display =
-        "none";
-
-    document.getElementById("hospitalPage").style.display =
-        "block";
+    document.getElementById("hospitalPage").style.display = "block";
 }
 
 
 /* ==================================================
-   PHARMACY 화면
+   약국
    ================================================== */
 
 function openPharmacy() {
 
     const data = languages[currentLanguage];
 
-    document.getElementById("pharmacyImage").src =
-        data.pharmacy;
-
-    document.getElementById("mainPage").style.display =
-        "none";
-
-    document.getElementById("hospitalPage").style.display =
-        "none";
-
-    document.getElementById("pharmacyPage").style.display =
-        "block";
+    window.location.href = data.pharmacy;
 }
 
 
@@ -796,57 +682,8 @@ function openMedicalInfo() {
 
     const data = languages[currentLanguage];
 
-    window.location.href =
-        data.medical;
+    window.location.href = data.medical;
 }
-
-
-/* ==================================================
-   언어창 바깥을 누르면 닫기
-   ================================================== */
-
-document.addEventListener("click", function(event) {
-
-    const menu =
-        document.getElementById("languageMenu");
-
-    const backdrop =
-        document.getElementById("languageClose");
-
-
-    if (menu.style.display !== "block") {
-        return;
-    }
-
-
-    /*
-       언어창 안쪽을 누른 경우
-       아무것도 하지 않음
-    */
-    if (menu.contains(event.target)) {
-        return;
-    }
-
-
-    /*
-       언어창 바깥을 누르면 닫음
-    */
-    closeLanguageMenu();
-
-});
-
-
-/* ==================================================
-   ESC로 닫기
-   ================================================== */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-        closeLanguageMenu();
-    }
-
-});
 
 
 /* ==================================================
@@ -855,20 +692,18 @@ document.addEventListener("keydown", function(event) {
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    const data = languages[currentLanguage];
+    document.getElementById("mainPage").style.display = "block";
 
+    document.getElementById("hospitalPage").style.display = "none";
 
     document.getElementById("mainImage").src =
-        data.main;
+        languages[currentLanguage].main;
 
     document.getElementById("hospitalImage").src =
-        data.hospital;
+        languages[currentLanguage].hospital;
 
-    document.getElementById("pharmacyImage").src =
-        data.pharmacy;
-
-
-    showMain();
+    document.getElementById("pharmacyButton").href =
+        languages[currentLanguage].pharmacy;
 
 });
 
