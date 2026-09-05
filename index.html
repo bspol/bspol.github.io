@@ -72,7 +72,6 @@ body {
 /* ==================================================
    왼쪽 상단
    🌐 English
-   터치 영역
    ================================================== */
 
 #languageTrigger {
@@ -104,7 +103,7 @@ body {
 
 
 /* ==================================================
-   ★ 하단 긴급신고 터치 영역
+   112
    ================================================== */
 
 #call112 {
@@ -135,6 +134,10 @@ body {
 }
 
 
+/* ==================================================
+   119
+   ================================================== */
+
 #call119 {
 
     position: absolute;
@@ -162,6 +165,10 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
+
+/* ==================================================
+   1330
+   ================================================== */
 
 #call1330 {
 
@@ -192,7 +199,7 @@ body {
 
 
 /* ==================================================
-   ★ 병원 터치 영역
+   병원
    ================================================== */
 
 #hospitalButton {
@@ -224,7 +231,7 @@ body {
 
 
 /* ==================================================
-   ★ 약국 터치 영역
+   약국
    ================================================== */
 
 #pharmacyButton {
@@ -256,7 +263,7 @@ body {
 
 
 /* ==================================================
-   언어창 바깥 영역
+   언어창 바깥
    ================================================== */
 
 #languageClose {
@@ -274,7 +281,7 @@ body {
 
 
 /* ==================================================
-   ★ 작은 세로형 언어창
+   작은 언어창
    ================================================== */
 
 #languageMenu {
@@ -364,11 +371,9 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-
 .language-button:last-child {
     margin-bottom: 0;
 }
-
 
 .language-button:active {
     transform: scale(0.97);
@@ -383,8 +388,7 @@ body {
 
 
 <!-- ==================================================
-     영어 메인 화면
-     ★ home.png 아님
+     HOME
      ★ main_en.png
      ================================================== -->
 
@@ -397,9 +401,7 @@ body {
     >
 
 
-    <!-- ==================================================
-         왼쪽 상단 English 터치
-         ================================================== -->
+    <!-- 언어 -->
 
     <button
         id="languageTrigger"
@@ -408,9 +410,7 @@ body {
     </button>
 
 
-    <!-- ==================================================
-         하단 긴급신고
-         ================================================== -->
+    <!-- 112 -->
 
     <button
         id="call112"
@@ -418,11 +418,17 @@ body {
         aria-label="112">
     </button>
 
+
+    <!-- 119 -->
+
     <button
         id="call119"
         type="button"
         aria-label="119">
     </button>
+
+
+    <!-- 1330 -->
 
     <button
         id="call1330"
@@ -431,15 +437,16 @@ body {
     </button>
 
 
-    <!-- ==================================================
-         병원 / 약국
-         ================================================== -->
+    <!-- 병원 -->
 
     <button
         id="hospitalButton"
         type="button"
         aria-label="Hospital">
     </button>
+
+
+    <!-- 약국 -->
 
     <button
         id="pharmacyButton"
@@ -451,15 +458,14 @@ body {
 
 
 <!-- ==================================================
-     언어창 바깥 닫기
+     언어창 바깥
      ================================================== -->
 
 <div id="languageClose"></div>
 
 
 <!-- ==================================================
-     7개 언어
-     한국어 제외
+     언어 선택
      ================================================== -->
 
 <div id="languageMenu">
@@ -469,72 +475,58 @@ body {
     </div>
 
 
-    <!-- English -->
-
     <button
         type="button"
         class="language-button"
-        data-url="main_en/">
+        data-url="/main_en/">
         English
     </button>
 
 
-    <!-- Chinese -->
-
     <button
         type="button"
         class="language-button"
-        data-url="main_cn/">
+        data-url="/main_cn/">
         中文
     </button>
 
 
-    <!-- Japanese -->
-
     <button
         type="button"
         class="language-button"
-        data-url="main_jp/">
+        data-url="/main_jp/">
         日本語
     </button>
 
 
-    <!-- Vietnamese -->
-
     <button
         type="button"
         class="language-button"
-        data-url="main_vn/">
+        data-url="/main_vn/">
         Tiếng Việt
     </button>
 
 
-    <!-- Mongolian -->
-
     <button
         type="button"
         class="language-button"
-        data-url="main_mn/">
+        data-url="/main_mn/">
         Монгол
     </button>
 
 
-    <!-- Filipino -->
-
     <button
         type="button"
         class="language-button"
-        data-url="main_ph/">
+        data-url="/main_ph/">
         Filipino
     </button>
 
 
-    <!-- Russian -->
-
     <button
         type="button"
         class="language-button"
-        data-url="main_ru/">
+        data-url="/main_ru/">
         Русский
     </button>
 
@@ -596,8 +588,7 @@ closeArea.addEventListener("click", function(e) {
 
 
 /* ==================================================
-   언어 선택
-   ★ ../ 제거
+   나라 선택
    ================================================== */
 
 document
@@ -614,7 +605,7 @@ document
 
         if (url) {
 
-            window.location.href = url;
+            window.location.assign(url);
 
         }
 
@@ -629,7 +620,9 @@ document
 
 document
 .getElementById("call112")
-.addEventListener("click", function() {
+.addEventListener("click", function(e) {
+
+    e.preventDefault();
 
     window.location.href = "tel:112";
 
@@ -642,7 +635,9 @@ document
 
 document
 .getElementById("call119")
-.addEventListener("click", function() {
+.addEventListener("click", function(e) {
+
+    e.preventDefault();
 
     window.location.href = "tel:119";
 
@@ -655,7 +650,9 @@ document
 
 document
 .getElementById("call1330")
-.addEventListener("click", function() {
+.addEventListener("click", function(e) {
+
+    e.preventDefault();
 
     window.location.href = "tel:1330";
 
@@ -668,9 +665,11 @@ document
 
 document
 .getElementById("hospitalButton")
-.addEventListener("click", function() {
+.addEventListener("click", function(e) {
 
-    window.location.href = "hospital_en/";
+    e.preventDefault();
+
+    window.location.assign("/hospital_en/");
 
 });
 
@@ -681,15 +680,17 @@ document
 
 document
 .getElementById("pharmacyButton")
-.addEventListener("click", function() {
+.addEventListener("click", function(e) {
 
-    window.location.href = "pharmacy_en/";
+    e.preventDefault();
+
+    window.location.assign("/pharmacy_en/");
 
 });
 
 
 /* ==================================================
-   ESC 닫기
+   ESC
    ================================================== */
 
 document.addEventListener("keydown", function(e) {
