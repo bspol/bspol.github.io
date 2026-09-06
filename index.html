@@ -599,6 +599,19 @@ body {
 #e6-call, #e6-home { top: 58.6%; } /* 필리핀 */
 #e7-call, #e7-home { top: 65.9%; } /* 러시아 */
 
+
+/* =========================================================
+   LAW 상세페이지 왼쪽 상단 뒤로가기
+   law-sexual / driving / theft / voice / drugs / basicrules
+   ========================================================= */
+.law-detail-back-btn {
+    top: 0.5%;
+    left: 0.5%;
+    width: 20%;
+    height: 7.5%;
+    z-index: 100000000;
+}
+
 </style>
 </head>
 
@@ -1384,6 +1397,12 @@ body {
      LAW BACK
      ===================================================== -->
 
+<a id="law-detail-back"
+   href="javascript:void(0)"
+   class="touch-link law-detail-back-btn"
+   onclick="goPage('sub-law-' + currentLang)">
+</a>
+
 <a id="law-back"
    href="javascript:void(0)"
    class="touch-link law-back-btn"
@@ -1720,6 +1739,7 @@ function goPage(pageId) {
     setDisplay("law-item-05", isLawOverview);
     setDisplay("law-item-06", isLawOverview);
 
+    setDisplay("law-detail-back", isLawDetail);
     setDisplay("law-back", isRulesSub);
 
 
