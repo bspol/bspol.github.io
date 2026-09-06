@@ -1813,32 +1813,9 @@ function selectLanguage(lang) {
         dropdown.style.display = "none";
     }
 
-    if (
-        currentPage === "sub-law-en" ||
-        currentPage === "sub-law-jp" ||
-        currentPage === "sub-law-cn" ||
-        currentPage === "sub-law-vn" ||
-        currentPage === "sub-law-mn" ||
-        currentPage === "sub-law-ph" ||
-        currentPage === "sub-law-ru"
-    ) {
-        currentLang = lang;
-        goPage("sub-law-" + lang);
-        return;
-    }
-
-    if (currentPage.indexOf("sub-hospital-") === 0) {
-        currentLang = lang;
-        goPage("sub-hospital-" + lang);
-        return;
-    }
-
-    if (currentPage.indexOf("sub-pharmacy-") === 0) {
-        currentLang = lang;
-        goPage("sub-pharmacy-" + lang);
-        return;
-    }
-
+    /* 어떤 서브페이지에서 언어를 선택해도
+       해당 언어의 MAIN 페이지로 이동 */
+    currentLang = lang;
     goPage(lang);
 }
 
