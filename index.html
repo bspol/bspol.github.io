@@ -253,24 +253,24 @@ body {
    ========================================================= */
 
 .main-call-112 {
-    top: 88.9%;
-    left: 5.2%;
-    width: 27.8%;
-    height: 7.4%;
+    top: 87.0%;
+    left: 3.5%;
+    width: 30.0%;
+    height: 10.0%;
 }
 
 .main-call-119 {
-    top: 88.9%;
-    left: 36.1%;
-    width: 27.8%;
-    height: 7.4%;
+    top: 87.0%;
+    left: 35.0%;
+    width: 30.0%;
+    height: 10.0%;
 }
 
 .main-call-1330 {
-    top: 88.9%;
-    left: 67.0%;
-    width: 27.8%;
-    height: 7.4%;
+    top: 87.0%;
+    left: 66.5%;
+    width: 30.0%;
+    height: 10.0%;
 }
 
 
@@ -450,6 +450,19 @@ body {
     left: 60%;
     width: 17.5%;
     height: 7.2%;
+}
+
+
+/* =========================================================
+   LAW 뒤로가기
+   ========================================================= */
+
+.law-back-btn {
+    top: 1.5%;
+    right: 2%;
+    left: auto;
+    width: 22%;
+    height: 4.5%;
 }
 
 
@@ -766,10 +779,40 @@ body {
      공통 SUB
      ===================================================== -->
 
-<img id="img-sub-rules"
+<img id="img-sub-law-en"
      class="main-img"
-     src="basicrules.png"
-     alt="Basic Rules">
+     src="law_en.png"
+     alt="Law English">
+
+<img id="img-sub-law-cn"
+     class="main-img"
+     src="law_cn.png"
+     alt="Law Chinese">
+
+<img id="img-sub-law-jp"
+     class="main-img"
+     src="law_jp.png"
+     alt="Law Japanese">
+
+<img id="img-sub-law-vn"
+     class="main-img"
+     src="law_vn.png"
+     alt="Law Vietnamese">
+
+<img id="img-sub-law-ru"
+     class="main-img"
+     src="law_ru.png"
+     alt="Law Russian">
+
+<img id="img-sub-law-mn"
+     class="main-img"
+     src="law_mn.png"
+     alt="Law Mongolian">
+
+<img id="img-sub-law-ph"
+     class="main-img"
+     src="law_ph.png"
+     alt="Law Filipino">
 
 <img id="img-sub-embassy"
      class="main-img"
@@ -1068,7 +1111,8 @@ body {
 
 <a id="click-phar"
    href="javascript:void(0)"
-   class="touch-link click-pharmacy">
+   class="touch-link click-pharmacy"
+   onclick="clickSubMenu('pharmacy')">
 </a>
 
 <a id="click-emba"
@@ -1086,7 +1130,7 @@ body {
 <a id="click-rule"
    href="javascript:void(0)"
    class="touch-link click-rules"
-   onclick="goPage('sub-rules')">
+   onclick="goPage('sub-law-' + currentLang)">
 </a>
 
 <a id="click-spots"
@@ -1197,6 +1241,17 @@ body {
 <a id="rules-1330"
    href="tel:1330"
    class="touch-link rules-call-1330">
+</a>
+
+
+<!-- =====================================================
+     LAW BACK
+     ===================================================== -->
+
+<a id="law-back"
+   href="javascript:void(0)"
+   class="touch-link law-back-btn"
+   onclick="goPage(currentLang)">
 </a>
 
 
@@ -1499,7 +1554,7 @@ function goPage(pageId) {
 
 
     var isRulesSub =
-        pageId === "sub-rules";
+        pageId.indexOf("sub-law-") === 0;
 
 
     /* =====================================================
@@ -1591,6 +1646,7 @@ function goPage(pageId) {
     setDisplay("rules-112", isRulesSub);
     setDisplay("rules-119", isRulesSub);
     setDisplay("rules-1330", isRulesSub);
+    setDisplay("law-back", isRulesSub);
 
 
     /* =====================================================
