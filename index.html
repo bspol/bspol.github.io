@@ -781,21 +781,6 @@ body {
    BUSAN SAFE TALK / 부산안심톡
    기존 이미지/핫스팟과 독립된 fixed UI
    ========================================================= */
-.safe-talk-fab {
-    position: fixed;
-    right: max(16px, calc((100vw - 600px) / 2 + 16px));
-    bottom: 20px;
-    z-index: 2147483645;
-    border: 0;
-    border-radius: 999px;
-    padding: 13px 17px;
-    background: #0b67d1;
-    color: #fff;
-    font-weight: 800;
-    font-size: 14px;
-    box-shadow: 0 6px 22px rgba(0,0,0,.28);
-    cursor: pointer;
-}
 .safe-talk-overlay {
     display: none;
     position: fixed;
@@ -920,9 +905,21 @@ body {
 }
 .safe-talk-empty { color: #777; font-size: 13px; }
 @media (max-width: 640px) {
-    .safe-talk-fab { right: 14px; bottom: 14px; }
-    .safe-talk-overlay { padding: 10px; }
+.safe-talk-overlay { padding: 10px; }
     .safe-talk-modal { margin: 10px auto; }
+}
+
+
+/* =========================================================
+   각 나라 MAIN 이미지 속 BUSAN SAFETY TALK 영역
+   ========================================================= */
+.main-safe-talk-link {
+    top: 79.0%;
+    left: 3.0%;
+    width: 94.0%;
+    height: 6.5%;
+    z-index: 1000000000;
+    pointer-events: auto !important;
 }
 
 </style>
@@ -2084,12 +2081,17 @@ body {
 
 
 
+
+<!-- 각 나라 MAIN 이미지 속 BUSAN SAFETY TALK -->
+<a id="main-safe-talk-link"
+   href="javascript:void(0)"
+   class="touch-link main-safe-talk-link"
+   onclick="openSafeTalk(event)">
+</a>
+
 <!-- =====================================================
      BUSAN SAFE TALK / 부산안심톡
      ===================================================== -->
-<button id="safeTalkFab" class="safe-talk-fab" type="button"
-        onclick="openSafeTalk(event)">💬 BUSAN SAFE TALK</button>
-
 <div id="safeTalkOverlay" class="safe-talk-overlay"
      onclick="safeTalkOverlayClick(event)">
   <div class="safe-talk-modal" role="dialog" aria-modal="true"
@@ -2394,6 +2396,7 @@ function goPage(pageId) {
     setDisplay("click-lost", isMainLang);
     setDisplay("click-rule", isMainLang);
     setDisplay("click-spots", isMainLang);
+    setDisplay("main-safe-talk-link", isMainLang);
 
 
     /* =====================================================
