@@ -660,34 +660,34 @@ body {
    law-basicrules-*.png 공통 배치
    ========================================================= */
 .basic-item-walk {
-    top: 22.2%;
-    left: 2.5%;
-    width: 95.0%;
-    height: 10.8%;
+    top: 31.0%;
+    left: 34.0%;
+    width: 31.0%;
+    height: 20.0%;
 }
 .basic-item-littering {
-    top: 34.4%;
-    left: 2.5%;
-    width: 95.0%;
-    height: 10.8%;
+    top: 46.5%;
+    left: 8.5%;
+    width: 30.0%;
+    height: 19.0%;
 }
 .basic-item-smoking {
-    top: 46.8%;
-    left: 2.5%;
-    width: 95.0%;
-    height: 10.8%;
+    top: 47.0%;
+    left: 58.0%;
+    width: 31.0%;
+    height: 18.5%;
 }
 .basic-item-noise {
-    top: 59.2%;
-    left: 2.5%;
-    width: 95.0%;
-    height: 10.8%;
+    top: 63.5%;
+    left: 6.5%;
+    width: 33.0%;
+    height: 19.0%;
 }
 .basic-item-spitting {
-    top: 71.6%;
-    left: 2.5%;
-    width: 95.0%;
-    height: 10.8%;
+    top: 63.5%;
+    left: 67.0%;
+    width: 31.0%;
+    height: 19.0%;
 }
 
 /* 기초질서 개별 상세페이지의 뒤로가기:
@@ -2079,9 +2079,9 @@ function goPage(pageId) {
        RULES
        ===================================================== */
 
-    setDisplay("rules-112", isRulesSub);
-    setDisplay("rules-119", isRulesSub);
-    setDisplay("rules-1330", isRulesSub);
+    setDisplay("rules-112", (isRulesSub) || isLawOverview);
+    setDisplay("rules-119", (isRulesSub) || isLawOverview);
+    setDisplay("rules-1330", (isRulesSub) || isLawOverview);
 
     setDisplay("law-item-01", isLawOverview);
     setDisplay("law-item-02", isLawOverview);
@@ -2129,6 +2129,53 @@ function goPage(pageId) {
         setDisplay("e" + i + "-home", isEmbassySub);
     }
 
+
+    /* -----------------------------------------------------
+       LAW 개요 페이지 하단 112 / 119 / 1330 전화버튼 위치
+       ----------------------------------------------------- */
+    var r112 = document.getElementById("rules-112");
+    var r119 = document.getElementById("rules-119");
+    var r1330 = document.getElementById("rules-1330");
+
+    if (isLawOverview) {
+        if (r112) {
+            r112.style.top = "88.0%";
+            r112.style.left = "3.0%";
+            r112.style.width = "30.0%";
+            r112.style.height = "8.0%";
+        }
+        if (r119) {
+            r119.style.top = "88.0%";
+            r119.style.left = "35.0%";
+            r119.style.width = "30.0%";
+            r119.style.height = "8.0%";
+        }
+        if (r1330) {
+            r1330.style.top = "88.0%";
+            r1330.style.left = "67.0%";
+            r1330.style.width = "30.0%";
+            r1330.style.height = "8.0%";
+        }
+    } else {
+        if (r112) {
+            r112.style.top = "";
+            r112.style.left = "";
+            r112.style.width = "";
+            r112.style.height = "";
+        }
+        if (r119) {
+            r119.style.top = "";
+            r119.style.left = "";
+            r119.style.width = "";
+            r119.style.height = "";
+        }
+        if (r1330) {
+            r1330.style.top = "";
+            r1330.style.left = "";
+            r1330.style.width = "";
+            r1330.style.height = "";
+        }
+    }
 
     /* -----------------------------------------------------
        페이지 맨 위
