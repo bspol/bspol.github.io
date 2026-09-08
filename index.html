@@ -497,7 +497,7 @@ body {
     top: 69.5%;
     left: 51.0%;
     width: 46.0%;
-    height: 18.7%;
+    height: 15.0%;
 }
 
 
@@ -511,6 +511,29 @@ body {
     left: auto;
     width: 22%;
     height: 4.5%;
+}
+
+
+/* =========================================================
+   LAW 개요 하단 신고전화 전용
+   ★ 기초질서 카드와 겹치지 않도록 최상단 터치영역
+   ========================================================= */
+.law-overview-call {
+    top: 85.0%;
+    height: 11.5%;
+    z-index: 1000000000;
+}
+.law-overview-112 {
+    left: 2.0%;
+    width: 31.0%;
+}
+.law-overview-119 {
+    left: 34.5%;
+    width: 31.0%;
+}
+.law-overview-1330 {
+    left: 67.0%;
+    width: 31.0%;
 }
 
 
@@ -1027,7 +1050,7 @@ body {
 
 <img id="img-sub-law-basicrules-noise-en"
      class="main-img"
-     src="law-basicrules-noice-en.png"
+     src="law-basicrules-noise-en.png"
      alt="Basic Rules Noise EN">
 
 <img id="img-sub-law-basicrules-spitting-en"
@@ -1410,40 +1433,40 @@ body {
      ★ 7개 언어만
      ===================================================== -->
 
-<div id="langDropdown" class="dropdown-menu">
+<div id="langDropdown" class="dropdown-menu" onclick="event.stopPropagation()">
 
     <a href="javascript:void(0)"
-       onclick="selectLanguage('en')">
+       onclick="selectLanguage('en', event)">
        🇺🇸 English
     </a>
 
     <a href="javascript:void(0)"
-       onclick="selectLanguage('jp')">
+       onclick="selectLanguage('jp', event)">
        🇯🇵 日本語
     </a>
 
     <a href="javascript:void(0)"
-       onclick="selectLanguage('cn')">
+       onclick="selectLanguage('cn', event)">
        🇨🇳 中文
     </a>
 
     <a href="javascript:void(0)"
-       onclick="selectLanguage('vn')">
+       onclick="selectLanguage('vn', event)">
        🇻🇳 Tiếng Việt
     </a>
 
     <a href="javascript:void(0)"
-       onclick="selectLanguage('ru')">
+       onclick="selectLanguage('ru', event)">
        🇷🇺 Русский
     </a>
 
     <a href="javascript:void(0)"
-       onclick="selectLanguage('mn')">
+       onclick="selectLanguage('mn', event)">
        🇲🇳 Монгол
     </a>
 
     <a href="javascript:void(0)"
-       onclick="selectLanguage('ph')">
+       onclick="selectLanguage('ph', event)">
        🇵🇭 Filipino
     </a>
 
@@ -1592,6 +1615,25 @@ body {
 <a id="med-1330"
    href="tel:1330"
    class="touch-link med-call-1330">
+</a>
+
+
+<!-- =====================================================
+     LAW 개요 전용 신고전화
+     ===================================================== -->
+<a id="law-overview-112"
+   href="tel:112"
+   class="touch-link law-overview-call law-overview-112">
+</a>
+
+<a id="law-overview-119"
+   href="tel:119"
+   class="touch-link law-overview-call law-overview-119">
+</a>
+
+<a id="law-overview-1330"
+   href="tel:1330"
+   class="touch-link law-overview-call law-overview-1330">
 </a>
 
 
@@ -2079,9 +2121,9 @@ function goPage(pageId) {
        RULES
        ===================================================== */
 
-    setDisplay("rules-112", (isRulesSub) || isLawOverview);
-    setDisplay("rules-119", (isRulesSub) || isLawOverview);
-    setDisplay("rules-1330", (isRulesSub) || isLawOverview);
+    setDisplay("rules-112", isBasicRulesOverview);
+    setDisplay("rules-119", isBasicRulesOverview);
+    setDisplay("rules-1330", isBasicRulesOverview);
 
     setDisplay("law-item-01", isLawOverview);
     setDisplay("law-item-02", isLawOverview);
@@ -2089,6 +2131,10 @@ function goPage(pageId) {
     setDisplay("law-item-04", isLawOverview);
     setDisplay("law-item-05", isLawOverview);
     setDisplay("law-item-06", isLawOverview);
+
+    setDisplay("law-overview-112", isLawOverview);
+    setDisplay("law-overview-119", isLawOverview);
+    setDisplay("law-overview-1330", isLawOverview);
 
     setDisplay("basic-walk", isBasicRulesOverview);
     setDisplay("basic-littering", isBasicRulesOverview);
@@ -2127,54 +2173,6 @@ function goPage(pageId) {
 
         setDisplay("e" + i + "-call", isEmbassySub);
         setDisplay("e" + i + "-home", isEmbassySub);
-    }
-
-
-    /* -----------------------------------------------------
-       LAW 개요 페이지 하단 112 / 119 / 1330 전화버튼 위치
-       ----------------------------------------------------- */
-    var r112 = document.getElementById("rules-112");
-    var r119 = document.getElementById("rules-119");
-    var r1330 = document.getElementById("rules-1330");
-
-    if (isLawOverview) {
-        if (r112) {
-            r112.style.top = "88.0%";
-            r112.style.left = "3.0%";
-            r112.style.width = "30.0%";
-            r112.style.height = "8.0%";
-        }
-        if (r119) {
-            r119.style.top = "88.0%";
-            r119.style.left = "35.0%";
-            r119.style.width = "30.0%";
-            r119.style.height = "8.0%";
-        }
-        if (r1330) {
-            r1330.style.top = "88.0%";
-            r1330.style.left = "67.0%";
-            r1330.style.width = "30.0%";
-            r1330.style.height = "8.0%";
-        }
-    } else {
-        if (r112) {
-            r112.style.top = "";
-            r112.style.left = "";
-            r112.style.width = "";
-            r112.style.height = "";
-        }
-        if (r119) {
-            r119.style.top = "";
-            r119.style.left = "";
-            r119.style.width = "";
-            r119.style.height = "";
-        }
-        if (r1330) {
-            r1330.style.top = "";
-            r1330.style.left = "";
-            r1330.style.width = "";
-            r1330.style.height = "";
-        }
     }
 
     /* -----------------------------------------------------
@@ -2223,23 +2221,28 @@ function goLawBack() {
    언어 선택
    ========================================================= */
 
-function selectLanguage(lang) {
+function selectLanguage(lang, event) {
 
-    if (!lang) {
-        return;
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
     }
 
-    var dropdown =
-        document.getElementById("langDropdown");
+    if (!lang) {
+        return false;
+    }
+
+    var dropdown = document.getElementById("langDropdown");
 
     if (dropdown) {
         dropdown.style.display = "none";
     }
 
-    /* 병원 / 약국 / 영사관 / 법과질서 등
-       어디에서 언어를 선택하든 해당 언어 MAIN으로 이동 */
+    /* 영사관 포함 어느 페이지에서든 선택한 언어 MAIN으로 이동 */
     currentLang = lang;
     goPage(lang);
+
+    return false;
 }
 
 
