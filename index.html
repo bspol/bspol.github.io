@@ -2752,7 +2752,7 @@ function safeTalkLanguageName(code) {
     return names[code] || code || "";
 }
 
-async function submitSafeTalk(event) {
+function submitSafeTalk(event) {
     event.preventDefault();
     event.stopPropagation();
 
@@ -2771,65 +2771,65 @@ async function submitSafeTalk(event) {
     button.disabled = true;
     status.textContent = "Submitting...";
 
-    try {
-        var response = await fetch(
-            SAFE_TALK_URL + "/rest/v1/safe_talk_reviews",
-            {
-                method: "POST",
-                headers: safeTalkHeaders(true),
-                body: JSON.stringify({
-                    nickname: nickname,
-                    language: language,
-                    message: message,
-                    status: "pending"
-                })
-            }
-        );
-
+    fetch(SAFE_TALK_URL + "/rest/v1/safe_talk_reviews", {
+        method: "POST",
+        headers: safeTalkHeaders(true),
+        body: JSON.stringify({
+            nickname: nickname,
+            language: language,
+            message: message,
+            status: "pending"
+        })
+    })
+    .then(function(response) {
         if (!response.ok) {
-            var detail = await response.text();
-            throw new Error(detail || ("HTTP " + response.status));
+            return response.text().then(function(detail) {
+                throw new Error(detail || ("HTTP " + response.status));
+            });
         }
 
         document.getElementById("safeTalkMessage").value = "";
         document.getElementById("safeTalkConsent").checked = false;
         updateSafeTalkCounter();
         status.textContent = "Submitted. It will appear after administrator approval.";
-    } catch (err) {
+    })
+    .catch(function(err) {
         console.error("Safe Talk submit error:", err);
         status.textContent = "Could not submit. Please try again.";
-    } finally {
+    })
+    .then(function() {
         button.disabled = false;
-    }
+    });
 
     return false;
 }
 
-async function loadSafeTalkMessages() {
+function loadSafeTalkMessages() {
     var list = document.getElementById("safeTalkList");
     if (!list) return;
+
     list.innerHTML = '<div class="safe-talk-empty">Loading...</div>';
 
-    try {
-        var url = SAFE_TALK_URL +
-            "/rest/v1/safe_talk_reviews" +
-            "?select=nickname,language,message,created_at" +
-            "&status=eq.approved" +
-            "&order=created_at.desc" +
-            "&limit=20";
+    var url = SAFE_TALK_URL +
+        "/rest/v1/safe_talk_reviews" +
+        "?select=nickname,language,message,created_at" +
+        "&status=eq.approved" +
+        "&order=created_at.desc" +
+        "&limit=20";
 
-        var response = await fetch(url, {
-            method: "GET",
-            headers: safeTalkHeaders(false)
-        });
-
+    fetch(url, {
+        method: "GET",
+        headers: safeTalkHeaders(false)
+    })
+    .then(function(response) {
         if (!response.ok) {
-            var detail = await response.text();
-            throw new Error(detail || ("HTTP " + response.status));
+            return response.text().then(function(detail) {
+                throw new Error(detail || ("HTTP " + response.status));
+            });
         }
-
-        var rows = await response.json();
-
+        return response.json();
+    })
+    .then(function(rows) {
         if (!rows.length) {
             list.innerHTML = '<div class="safe-talk-empty">No approved messages yet.</div>';
             return;
@@ -2852,12 +2852,12 @@ async function loadSafeTalkMessages() {
                 '</div>' +
             '</div>';
         }).join("");
-    } catch (err) {
+    })
+    .catch(function(err) {
         console.error("Safe Talk load error:", err);
         list.innerHTML = '<div class="safe-talk-empty">Could not load messages.</div>';
-    }
+    });
 }
-
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") closeSafeTalk();
 });
