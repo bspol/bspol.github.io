@@ -1027,7 +1027,7 @@ body {
 
 <img id="img-sub-law-basicrules-noise-en"
      class="main-img"
-     src="law-basicruels-noise-en.png"
+     src="law-basicrules-noice-en.png"
      alt="Basic Rules Noise EN">
 
 <img id="img-sub-law-basicrules-spitting-en"
@@ -2023,10 +2023,7 @@ function goPage(pageId) {
         isPharmacySub ||
         isLawOverview;
 
-    setDisplay(
-        "area-lang-dropdown",
-        showLanguageSelector
-    );
+    setDisplay("area-lang-dropdown", (showLanguageSelector) || isEmbassySub);
 
 
     /* =====================================================
@@ -2118,7 +2115,7 @@ function goPage(pageId) {
        ===================================================== */
 
 
-    setDisplay("emb-back", isEmbassySub);
+    setDisplay("emb-back", false);
     setDisplay("med-back", isMedInfoSub);
 
 
@@ -2192,8 +2189,14 @@ function selectLanguage(lang) {
         dropdown.style.display = "none";
     }
 
-    /* 어떤 서브페이지에서 언어를 선택해도
-       해당 언어의 MAIN 페이지로 이동 */
+    /* 영사관에서는 7개 언어 선택창을 사용하되 영사관 화면 유지 */
+    if (currentPage === "sub-embassy") {
+        currentLang = lang;
+        goPage("sub-embassy");
+        return;
+    }
+
+    /* 그 외 페이지는 기존 방식 유지 */
     currentLang = lang;
     goPage(lang);
 }
