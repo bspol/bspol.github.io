@@ -2236,14 +2236,8 @@ function selectLanguage(lang) {
         dropdown.style.display = "none";
     }
 
-    /* 영사관에서는 7개 언어 선택창을 사용하되 영사관 화면 유지 */
-    if (currentPage === "sub-embassy") {
-        currentLang = lang;
-        goPage("sub-embassy");
-        return;
-    }
-
-    /* 그 외 페이지는 기존 방식 유지 */
+    /* 병원 / 약국 / 영사관 / 법과질서 등
+       어디에서 언어를 선택하든 해당 언어 MAIN으로 이동 */
     currentLang = lang;
     goPage(lang);
 }
