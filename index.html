@@ -733,6 +733,49 @@ body {
     z-index: 100000002;
 }
 
+
+/* =========================================================
+   마약 상세페이지 전용 신고전화
+   숫자 112 / 119 / 1330 및 바로 주변 글자까지 터치
+   ========================================================= */
+.drugs-call {
+    top: 80.5%;
+    height: 17.0%;
+    z-index: 2147483640;
+    pointer-events: auto !important;
+}
+.drugs-call-112 {
+    left: 1.0%;
+    width: 32.0%;
+}
+.drugs-call-119 {
+    left: 34.0%;
+    width: 32.0%;
+}
+.drugs-call-1330 {
+    left: 67.0%;
+    width: 32.0%;
+}
+
+/* =========================================================
+   보이스피싱 상세페이지 전용 신고전화
+   숫자 + 신고하기 글자 전체 터치
+   ========================================================= */
+.voice-call {
+    top: 80.5%;
+    height: 17.0%;
+    z-index: 2147483640;
+    pointer-events: auto !important;
+}
+.voice-call-112 {
+    left: 5.0%;
+    width: 43.0%;
+}
+.voice-call-1330 {
+    left: 52.0%;
+    width: 43.0%;
+}
+
 </style>
 </head>
 
@@ -1855,6 +1898,39 @@ body {
 <a id="e7-home" href="https://pusan.mid.ru/" target="_blank" rel="noopener noreferrer" class="emb-btn-home"></a>
 
 
+
+<!-- 마약 상세페이지 전용 신고전화 -->
+<a id="drugs-call-112"
+   href="tel:112"
+   class="touch-link drugs-call drugs-call-112"
+   onclick="window.location.href='tel:112'; return false;">
+</a>
+
+<a id="drugs-call-119"
+   href="tel:119"
+   class="touch-link drugs-call drugs-call-119"
+   onclick="window.location.href='tel:119'; return false;">
+</a>
+
+<a id="drugs-call-1330"
+   href="tel:1330"
+   class="touch-link drugs-call drugs-call-1330"
+   onclick="window.location.href='tel:1330'; return false;">
+</a>
+
+<!-- 보이스피싱 상세페이지 전용 신고전화 -->
+<a id="voice-call-112"
+   href="tel:112"
+   class="touch-link voice-call voice-call-112"
+   onclick="window.location.href='tel:112'; return false;">
+</a>
+
+<a id="voice-call-1330"
+   href="tel:1330"
+   class="touch-link voice-call voice-call-1330"
+   onclick="window.location.href='tel:1330'; return false;">
+</a>
+
 </div>
 
 
@@ -2027,11 +2103,15 @@ function goPage(pageId) {
 
     var isLawThreeCallDetail =
         pageId.indexOf("sub-law-sexual-") === 0 ||
-        pageId.indexOf("sub-law-theft-") === 0 ||
-        pageId.indexOf("sub-law-drugs-") === 0;
+        pageId.indexOf("sub-law-theft-") === 0;
 
     var isLawTwoCallDetail =
-        pageId.indexOf("sub-law-driving-") === 0 ||
+        pageId.indexOf("sub-law-driving-") === 0;
+
+    var isDrugsDetail =
+        pageId.indexOf("sub-law-drugs-") === 0;
+
+    var isVoiceDetail =
         pageId.indexOf("sub-law-voice-") === 0;
 
     var isLawDetail =
@@ -2164,6 +2244,13 @@ function goPage(pageId) {
 
     setDisplay("law-detail-112-2", isLawTwoCallDetail);
     setDisplay("law-detail-1330-2", isLawTwoCallDetail);
+
+    setDisplay("drugs-call-112", isDrugsDetail);
+    setDisplay("drugs-call-119", isDrugsDetail);
+    setDisplay("drugs-call-1330", isDrugsDetail);
+
+    setDisplay("voice-call-112", isVoiceDetail);
+    setDisplay("voice-call-1330", isVoiceDetail);
 
 
     /* =====================================================
