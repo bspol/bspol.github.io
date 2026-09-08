@@ -172,7 +172,6 @@ body {
    MAIN HOME 버튼
    ★ 7개 나라별 MAIN 화면 좌측 상단 홈 아이콘 터치영역
    ========================================================= */
-
 .main-home-btn {
     top: 1.0%;
     left: 2%;
@@ -585,7 +584,8 @@ body {
 
 /* =========================================================
    영사관 국가별 버튼
-   ★ embassy.png 실제 위치 기준
+   ★ 새 embassy.png (864 × 1536) 기준
+   ★ 상단 7개 언어 선택창은 그대로 유지
    ========================================================= */
 
 .emb-btn-call,
@@ -597,32 +597,37 @@ body {
     -webkit-tap-highlight-color: transparent;
     z-index: 99999999;
     box-sizing: border-box;
-    background: transparent;
-    border: none;
+    background: transparent !important;
+    border: none !important;
+    text-decoration: none;
+    pointer-events: auto;
 }
 
-/* 전화하기 */
-#e1-call, #e2-call, #e3-call, #e4-call, #e5-call, #e6-call, #e7-call {
-    left: 59.4%;
-    width: 19.4%;
-    height: 6.0%;
+/* 전화번호 버튼 */
+#e1-call, #e2-call, #e3-call, #e4-call,
+#e5-call, #e6-call, #e7-call, #e8-call {
+    left: 56.8%;
+    width: 20.9%;
+    height: 4.8%;
 }
 
-/* 홈페이지 */
-#e1-home, #e2-home, #e3-home, #e4-home, #e5-home, #e6-home, #e7-home {
-    left: 79.8%;
-    width: 15.4%;
-    height: 6.0%;
+/* 홈페이지 버튼 */
+#e1-home, #e2-home, #e3-home, #e4-home,
+#e5-home, #e6-home, #e7-home, #e8-home {
+    left: 78.8%;
+    width: 18.4%;
+    height: 4.8%;
 }
 
-#e1-call, #e1-home { top: 22.0%; } /* 미국 */
-#e2-call, #e2-home { top: 29.4%; } /* 일본 */
-#e3-call, #e3-home { top: 36.7%; } /* 중국 */
-#e4-call, #e4-home { top: 44.0%; } /* 베트남 */
-#e5-call, #e5-home { top: 51.3%; } /* 몽골 */
-#e6-call, #e6-home { top: 58.6%; } /* 필리핀 */
-#e7-call, #e7-home { top: 65.9%; } /* 러시아 */
-
+/* 각 나라 세로 위치 */
+#e1-call, #e1-home { top: 20.4%; } /* 미국 */
+#e2-call, #e2-home { top: 26.1%; } /* 일본 */
+#e3-call, #e3-home { top: 31.8%; } /* 중국 */
+#e4-call, #e4-home { top: 37.8%; } /* 베트남 */
+#e5-call, #e5-home { top: 44.0%; } /* 몽골 */
+#e6-call, #e6-home { top: 50.2%; } /* 필리핀 */
+#e7-call, #e7-home { top: 56.4%; } /* 러시아 */
+#e8-call, #e8-home { top: 62.8%; } /* 카자흐스탄 */
 
 /* =========================================================
    LAW 상세페이지 왼쪽 상단 뒤로가기
@@ -2012,7 +2017,7 @@ body {
 
 <!-- =====================================================
      EMBASSY BUTTONS
-     ★ embassy.png 기준 7개국
+     ★ 새 embassy.png 기준 8개국
      ===================================================== -->
 
 <!-- 미국 -->
@@ -2043,7 +2048,9 @@ body {
 <a id="e7-call" href="tel:051-742-1024" class="emb-btn-call"></a>
 <a id="e7-home" href="https://pusan.mid.ru/" target="_blank" rel="noopener noreferrer" class="emb-btn-home"></a>
 
-
+<!-- 카자흐스탄 -->
+<a id="e8-call" href="tel:051-747-5300" class="emb-btn-call"></a>
+<a id="e8-home" href="https://www.gov.kz/memleket/entities/mfa-busan?lang=en" target="_blank" rel="noopener noreferrer" class="emb-btn-home"></a>
 
 <!-- 마약 상세페이지 전용 신고전화 -->
 <a id="drugs-call-112"
@@ -2489,7 +2496,7 @@ function goPage(pageId) {
        영사관 국가 버튼
        ===================================================== */
 
-    for (var i = 1; i <= 7; i++) {
+    for (var i = 1; i <= 8; i++) {
 
         setDisplay("e" + i + "-call", isEmbassySub);
         setDisplay("e" + i + "-home", isEmbassySub);
@@ -2858,6 +2865,7 @@ function loadSafeTalkMessages() {
         list.innerHTML = '<div class="safe-talk-empty">Could not load messages.</div>';
     });
 }
+
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") closeSafeTalk();
 });
