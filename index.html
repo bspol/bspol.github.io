@@ -776,6 +776,155 @@ body {
     width: 43.0%;
 }
 
+
+/* =========================================================
+   BUSAN SAFE TALK / 부산안심톡
+   기존 이미지/핫스팟과 독립된 fixed UI
+   ========================================================= */
+.safe-talk-fab {
+    position: fixed;
+    right: max(16px, calc((100vw - 600px) / 2 + 16px));
+    bottom: 20px;
+    z-index: 2147483645;
+    border: 0;
+    border-radius: 999px;
+    padding: 13px 17px;
+    background: #0b67d1;
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.28);
+    cursor: pointer;
+}
+.safe-talk-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2147483646;
+    background: rgba(0,0,0,.55);
+    padding: 18px;
+    overflow-y: auto;
+}
+.safe-talk-overlay.open { display: block; }
+.safe-talk-modal {
+    width: min(560px, 100%);
+    margin: 28px auto;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 45px rgba(0,0,0,.35);
+    font-family: Arial, "Noto Sans KR", sans-serif;
+}
+.safe-talk-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 18px;
+    background: #0b67d1;
+    color: #fff;
+}
+.safe-talk-head h2 { margin: 0; font-size: 20px; }
+.safe-talk-close {
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+.safe-talk-body { padding: 18px; color: #222; }
+.safe-talk-note {
+    margin: 0 0 14px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #555;
+}
+.safe-talk-field { margin-bottom: 13px; }
+.safe-talk-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.safe-talk-field input,
+.safe-talk-field select,
+.safe-talk-field textarea {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #cfd6df;
+    border-radius: 10px;
+    padding: 11px 12px;
+    font-size: 15px;
+    background: #fff;
+}
+.safe-talk-field textarea { min-height: 112px; resize: vertical; }
+.safe-talk-counter {
+    margin-top: 4px;
+    text-align: right;
+    color: #777;
+    font-size: 12px;
+}
+.safe-talk-consent {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin: 12px 0;
+    font-size: 12px;
+    line-height: 1.4;
+}
+.safe-talk-consent input { margin-top: 2px; }
+.safe-talk-submit {
+    width: 100%;
+    border: 0;
+    border-radius: 11px;
+    padding: 13px;
+    background: #0b67d1;
+    color: #fff;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+}
+.safe-talk-submit:disabled { opacity: .55; cursor: default; }
+.safe-talk-status {
+    min-height: 20px;
+    margin: 10px 0 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+.safe-talk-divider {
+    height: 1px;
+    background: #e6e9ed;
+    margin: 20px 0 15px;
+}
+.safe-talk-list-title { margin: 0 0 10px; font-size: 16px; }
+.safe-talk-list { display: grid; gap: 9px; }
+.safe-talk-card {
+    border: 1px solid #e0e5ea;
+    border-radius: 11px;
+    padding: 11px 12px;
+    background: #fafbfc;
+}
+.safe-talk-card-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #667;
+}
+.safe-talk-card-message {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 14px;
+    line-height: 1.45;
+}
+.safe-talk-empty { color: #777; font-size: 13px; }
+@media (max-width: 640px) {
+    .safe-talk-fab { right: 14px; bottom: 14px; }
+    .safe-talk-overlay { padding: 10px; }
+    .safe-talk-modal { margin: 10px auto; }
+}
+
 </style>
 </head>
 
@@ -1934,6 +2083,77 @@ body {
 </div>
 
 
+
+<!-- =====================================================
+     BUSAN SAFE TALK / 부산안심톡
+     ===================================================== -->
+<button id="safeTalkFab" class="safe-talk-fab" type="button"
+        onclick="openSafeTalk(event)">💬 BUSAN SAFE TALK</button>
+
+<div id="safeTalkOverlay" class="safe-talk-overlay"
+     onclick="safeTalkOverlayClick(event)">
+  <div class="safe-talk-modal" role="dialog" aria-modal="true"
+       aria-labelledby="safeTalkTitle" onclick="event.stopPropagation()">
+    <div class="safe-talk-head">
+      <h2 id="safeTalkTitle">BUSAN SAFE TALK</h2>
+      <button class="safe-talk-close" type="button"
+              aria-label="Close" onclick="closeSafeTalk(event)">×</button>
+    </div>
+
+    <div class="safe-talk-body">
+      <p class="safe-talk-note">
+        Share a short safety message or feedback about Busan.
+        Submitted messages are shown only after administrator approval.
+      </p>
+
+      <form id="safeTalkForm" onsubmit="submitSafeTalk(event)">
+        <div class="safe-talk-field">
+          <label for="safeTalkNickname">Nickname</label>
+          <input id="safeTalkNickname" type="text" maxlength="30"
+                 autocomplete="nickname" required>
+        </div>
+
+        <div class="safe-talk-field">
+          <label for="safeTalkLanguage">Language</label>
+          <select id="safeTalkLanguage" required>
+            <option value="en">🇺🇸 English</option>
+            <option value="jp">🇯🇵 日本語</option>
+            <option value="cn">🇨🇳 中文</option>
+            <option value="vn">🇻🇳 Tiếng Việt</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="mn">🇲🇳 Монгол</option>
+            <option value="ph">🇵🇭 Filipino</option>
+          </select>
+        </div>
+
+        <div class="safe-talk-field">
+          <label for="safeTalkMessage">Message</label>
+          <textarea id="safeTalkMessage" maxlength="500" required
+                    oninput="updateSafeTalkCounter()"></textarea>
+          <div id="safeTalkCounter" class="safe-talk-counter">0 / 500</div>
+        </div>
+
+        <label class="safe-talk-consent">
+          <input id="safeTalkConsent" type="checkbox" required>
+          <span>I agree that the nickname, selected language and message
+          will be stored for review and publication.</span>
+        </label>
+
+        <button id="safeTalkSubmit" class="safe-talk-submit" type="submit">
+          Submit
+        </button>
+        <div id="safeTalkStatus" class="safe-talk-status" aria-live="polite"></div>
+      </form>
+
+      <div class="safe-talk-divider"></div>
+      <h3 class="safe-talk-list-title">Approved messages</h3>
+      <div id="safeTalkList" class="safe-talk-list">
+        <div class="safe-talk-empty">Loading...</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 
 /* =========================================================
@@ -2449,6 +2669,195 @@ window.addEventListener(
 
     }
 );
+
+
+/* =========================================================
+   BUSAN SAFE TALK - Supabase REST 연결
+   ========================================================= */
+var SAFE_TALK_URL = "https://pahecokxhwyytobfuogt.supabase.co";
+var SAFE_TALK_KEY = "sb_publishable_iYyOHrIRX1KSpkMZWuzkaA_nGZ9VtAe";
+
+function safeTalkHeaders(includeJson) {
+    var h = {
+        "apikey": SAFE_TALK_KEY,
+        "Authorization": "Bearer " + SAFE_TALK_KEY
+    };
+    if (includeJson) {
+        h["Content-Type"] = "application/json";
+        h["Prefer"] = "return=minimal";
+    }
+    return h;
+}
+
+function openSafeTalk(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    var overlay = document.getElementById("safeTalkOverlay");
+    if (!overlay) return false;
+
+    var langSelect = document.getElementById("safeTalkLanguage");
+    if (langSelect && ["en","jp","cn","vn","ru","mn","ph"].indexOf(currentLang) >= 0) {
+        langSelect.value = currentLang;
+    }
+
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+    loadSafeTalkMessages();
+    return false;
+}
+
+function closeSafeTalk(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    var overlay = document.getElementById("safeTalkOverlay");
+    if (overlay) overlay.classList.remove("open");
+    document.body.style.overflow = "";
+    return false;
+}
+
+function safeTalkOverlayClick(event) {
+    if (event && event.target && event.target.id === "safeTalkOverlay") {
+        closeSafeTalk(event);
+    }
+}
+
+function updateSafeTalkCounter() {
+    var el = document.getElementById("safeTalkMessage");
+    var counter = document.getElementById("safeTalkCounter");
+    if (el && counter) counter.textContent = el.value.length + " / 500";
+}
+
+function escapeSafeTalkHtml(value) {
+    return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function safeTalkLanguageName(code) {
+    var names = {
+        en: "English", jp: "日本語", cn: "中文",
+        vn: "Tiếng Việt", ru: "Русский",
+        mn: "Монгол", ph: "Filipino"
+    };
+    return names[code] || code || "";
+}
+
+async function submitSafeTalk(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    var nickname = document.getElementById("safeTalkNickname").value.trim();
+    var language = document.getElementById("safeTalkLanguage").value;
+    var message = document.getElementById("safeTalkMessage").value.trim();
+    var consent = document.getElementById("safeTalkConsent").checked;
+    var status = document.getElementById("safeTalkStatus");
+    var button = document.getElementById("safeTalkSubmit");
+
+    if (!nickname || nickname.length > 30 || !message || message.length > 500 || !consent) {
+        status.textContent = "Please complete all fields.";
+        return false;
+    }
+
+    button.disabled = true;
+    status.textContent = "Submitting...";
+
+    try {
+        var response = await fetch(
+            SAFE_TALK_URL + "/rest/v1/safe_talk_reviews",
+            {
+                method: "POST",
+                headers: safeTalkHeaders(true),
+                body: JSON.stringify({
+                    nickname: nickname,
+                    language: language,
+                    message: message,
+                    status: "pending"
+                })
+            }
+        );
+
+        if (!response.ok) {
+            var detail = await response.text();
+            throw new Error(detail || ("HTTP " + response.status));
+        }
+
+        document.getElementById("safeTalkMessage").value = "";
+        document.getElementById("safeTalkConsent").checked = false;
+        updateSafeTalkCounter();
+        status.textContent = "Submitted. It will appear after administrator approval.";
+    } catch (err) {
+        console.error("Safe Talk submit error:", err);
+        status.textContent = "Could not submit. Please try again.";
+    } finally {
+        button.disabled = false;
+    }
+
+    return false;
+}
+
+async function loadSafeTalkMessages() {
+    var list = document.getElementById("safeTalkList");
+    if (!list) return;
+    list.innerHTML = '<div class="safe-talk-empty">Loading...</div>';
+
+    try {
+        var url = SAFE_TALK_URL +
+            "/rest/v1/safe_talk_reviews" +
+            "?select=nickname,language,message,created_at" +
+            "&status=eq.approved" +
+            "&order=created_at.desc" +
+            "&limit=20";
+
+        var response = await fetch(url, {
+            method: "GET",
+            headers: safeTalkHeaders(false)
+        });
+
+        if (!response.ok) {
+            var detail = await response.text();
+            throw new Error(detail || ("HTTP " + response.status));
+        }
+
+        var rows = await response.json();
+
+        if (!rows.length) {
+            list.innerHTML = '<div class="safe-talk-empty">No approved messages yet.</div>';
+            return;
+        }
+
+        list.innerHTML = rows.map(function(row) {
+            var dateText = "";
+            try {
+                dateText = new Date(row.created_at).toLocaleDateString();
+            } catch (e) {}
+
+            return '<div class="safe-talk-card">' +
+                '<div class="safe-talk-card-top">' +
+                    '<strong>' + escapeSafeTalkHtml(row.nickname) + '</strong>' +
+                    '<span>' + escapeSafeTalkHtml(safeTalkLanguageName(row.language)) +
+                    (dateText ? " · " + escapeSafeTalkHtml(dateText) : "") + '</span>' +
+                '</div>' +
+                '<div class="safe-talk-card-message">' +
+                    escapeSafeTalkHtml(row.message) +
+                '</div>' +
+            '</div>';
+        }).join("");
+    } catch (err) {
+        console.error("Safe Talk load error:", err);
+        list.innerHTML = '<div class="safe-talk-empty">Could not load messages.</div>';
+    }
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") closeSafeTalk();
+});
 
 </script>
 
