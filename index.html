@@ -626,6 +626,33 @@ body {
 }
 
 /* =========================================================
+   신규 LAW 상세페이지 신고 버튼
+   firearms / exemption : 112 / 119 / 1330
+   ★ 새 포스터의 실제 하단 신고띠 위치 기준
+   ========================================================= */
+.new-law-call-112 {
+    top: 82.2%;
+    left: 2.0%;
+    width: 31.0%;
+    height: 6.8%;
+    z-index: 100000010;
+}
+.new-law-call-119 {
+    top: 82.2%;
+    left: 34.5%;
+    width: 31.0%;
+    height: 6.8%;
+    z-index: 100000010;
+}
+.new-law-call-1330 {
+    top: 82.2%;
+    left: 67.0%;
+    width: 31.0%;
+    height: 6.8%;
+    z-index: 100000010;
+}
+
+/* =========================================================
    기초질서 5개 세부 메뉴
    law-basicrules-*.png 공통 배치
    ========================================================= */
@@ -1690,6 +1717,11 @@ body {
    class="touch-link law-detail-call-1330-2">
 </a>
 
+<!-- 신규 07 총기 / 08 통보의무 면제 전용 긴급신고 -->
+<a id="new-law-112" href="tel:112" class="touch-link new-law-call-112" onclick="window.location.href='tel:112'; return false;"></a>
+<a id="new-law-119" href="tel:119" class="touch-link new-law-call-119" onclick="window.location.href='tel:119'; return false;"></a>
+<a id="new-law-1330" href="tel:1330" class="touch-link new-law-call-1330" onclick="window.location.href='tel:1330'; return false;"></a>
+
 <!-- =====================================================
      LAW BACK
      ===================================================== -->
@@ -1939,13 +1971,15 @@ function goPage(pageId) {
     var isLawThreeCallDetail =
         pageId.indexOf("sub-law-sexual-") === 0 ||
         pageId.indexOf("sub-law-theft-") === 0 ||
-        pageId.indexOf("sub-law-drugs-") === 0 ||
-        pageId.indexOf("sub-law-firearms-") === 0 ||
-        pageId.indexOf("sub-law-exemption-") === 0;
+        pageId.indexOf("sub-law-drugs-") === 0;
 
     var isLawTwoCallDetail =
         pageId.indexOf("sub-law-driving-") === 0 ||
         pageId.indexOf("sub-law-voice-") === 0;
+
+    var isNewLawDetail =
+        pageId.indexOf("sub-law-firearms-") === 0 ||
+        pageId.indexOf("sub-law-exemption-") === 0;
 
     var isLawDetail =
         pageId.indexOf("sub-law-sexual-") === 0 ||
@@ -2080,6 +2114,11 @@ function goPage(pageId) {
 
     setDisplay("law-detail-112-2", isLawTwoCallDetail);
     setDisplay("law-detail-1330-2", isLawTwoCallDetail);
+
+    /* 신규 07 총기 / 08 통보의무 면제 전용 신고버튼 */
+    setDisplay("new-law-112", isNewLawDetail);
+    setDisplay("new-law-119", isNewLawDetail);
+    setDisplay("new-law-1330", isNewLawDetail);
 
 
     /* =====================================================
