@@ -626,31 +626,21 @@ body {
 }
 
 /* =========================================================
+   LAW 메인(8개 목록) 하단 긴급신고
+   ★ 아이콘 + 숫자 + 설명까지 각 1/3 칸 전체 터치
+   ========================================================= */
+.law-overview-call-112 { top: 87.4%; left: 2.0%; width: 31.5%; height: 6.2%; z-index: 100000020; }
+.law-overview-call-119 { top: 87.4%; left: 34.2%; width: 31.5%; height: 6.2%; z-index: 100000020; }
+.law-overview-call-1330 { top: 87.4%; left: 66.4%; width: 31.5%; height: 6.2%; z-index: 100000020; }
+
+/* =========================================================
    신규 LAW 상세페이지 신고 버튼
    firearms / exemption : 112 / 119 / 1330
-   ★ 새 포스터의 실제 하단 신고띠 위치 기준
+   ★ 보이는 신고띠보다 살짝 위부터 잡아 아이콘/숫자/문구 전체 터치
    ========================================================= */
-.new-law-call-112 {
-    top: 82.2%;
-    left: 2.0%;
-    width: 31.0%;
-    height: 6.8%;
-    z-index: 100000010;
-}
-.new-law-call-119 {
-    top: 82.2%;
-    left: 34.5%;
-    width: 31.0%;
-    height: 6.8%;
-    z-index: 100000010;
-}
-.new-law-call-1330 {
-    top: 82.2%;
-    left: 67.0%;
-    width: 31.0%;
-    height: 6.8%;
-    z-index: 100000010;
-}
+.new-law-call-112 { top: 81.0%; left: 2.0%; width: 31.5%; height: 7.8%; z-index: 100000020; }
+.new-law-call-119 { top: 81.0%; left: 34.2%; width: 31.5%; height: 7.8%; z-index: 100000020; }
+.new-law-call-1330 { top: 81.0%; left: 66.4%; width: 31.5%; height: 7.8%; z-index: 100000020; }
 
 /* =========================================================
    기초질서 5개 세부 메뉴
@@ -1718,6 +1708,11 @@ body {
 </a>
 
 <!-- 신규 07 총기 / 08 통보의무 면제 전용 긴급신고 -->
+<!-- LAW 8개 메인 하단 긴급신고: 아이콘 포함 각 칸 전체 -->
+<a id="law-overview-112" href="tel:112" class="touch-link law-overview-call-112" onclick="window.location.href='tel:112'; return false;"></a>
+<a id="law-overview-119" href="tel:119" class="touch-link law-overview-call-119" onclick="window.location.href='tel:119'; return false;"></a>
+<a id="law-overview-1330" href="tel:1330" class="touch-link law-overview-call-1330" onclick="window.location.href='tel:1330'; return false;"></a>
+
 <a id="new-law-112" href="tel:112" class="touch-link new-law-call-112" onclick="window.location.href='tel:112'; return false;"></a>
 <a id="new-law-119" href="tel:119" class="touch-link new-law-call-119" onclick="window.location.href='tel:119'; return false;"></a>
 <a id="new-law-1330" href="tel:1330" class="touch-link new-law-call-1330" onclick="window.location.href='tel:1330'; return false;"></a>
@@ -2083,9 +2078,9 @@ function goPage(pageId) {
        RULES
        ===================================================== */
 
-    setDisplay("rules-112", isRulesSub);
-    setDisplay("rules-119", isRulesSub);
-    setDisplay("rules-1330", isRulesSub);
+    setDisplay("rules-112", isBasicRulesOverview);
+    setDisplay("rules-119", isBasicRulesOverview);
+    setDisplay("rules-1330", isBasicRulesOverview);
 
     setDisplay("law-item-01", isLawOverview);
     setDisplay("law-item-02", isLawOverview);
@@ -2095,6 +2090,11 @@ function goPage(pageId) {
     setDisplay("law-item-06", isLawOverview);
     setDisplay("law-item-07", isLawOverview);
     setDisplay("law-item-08", isLawOverview);
+
+    /* LAW 8개 메인 하단 112 / 119 / 1330 */
+    setDisplay("law-overview-112", isLawOverview);
+    setDisplay("law-overview-119", isLawOverview);
+    setDisplay("law-overview-1330", isLawOverview);
 
     setDisplay("basic-walk", isBasicRulesOverview);
     setDisplay("basic-littering", isBasicRulesOverview);
