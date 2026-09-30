@@ -2728,5 +2728,69 @@ document.addEventListener("keydown", function(event) {
 
 </script>
 
+<!-- =====================================================
+     화면 전환 속도 개선: 다음에 열 가능성이 높은 이미지만 미리 로딩
+     기존 터치영역/페이지 연결은 변경하지 않음
+     ===================================================== -->
+<script>
+(function () {
+    var cached = {};
+
+    function preloadSrc(src) {
+        if (!src || cached[src]) return;
+        cached[src] = true;
+        var img = new Image();
+        img.src = src;
+    }
+
+    function preloadIds(ids) {
+        ids.forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) preloadSrc(el.getAttribute("src"));
+        });
+    }
+
+    window.preloadMainDestinations = function (lang) {
+        preloadIds([
+            "img-sub-law-" + lang,
+            "img-sub-hospital-" + lang,
+            "img-sub-pharmacy-" + lang,
+            "img-sub-medinfo-" + lang
+        ]);
+    };
+
+    window.preloadLawDestinations = function (lang) {
+        preloadIds([
+            "img-sub-law-basicrules-" + lang,
+            "img-sub-law-sexual-" + lang,
+            "img-sub-law-theft-" + lang,
+            "img-sub-law-drugs-" + lang,
+            "img-sub-law-driving-" + lang,
+            "img-sub-law-voice-" + lang,
+            "img-sub-law-firearms-" + lang,
+            "img-sub-law-exemption-" + lang
+        ]);
+    };
+
+    document.addEventListener("click", function (e) {
+        var a = e.target.closest ? e.target.closest("a") : null;
+        if (!a) return;
+
+        if (a.id && a.id.indexOf("area-") === 0 &&
+            ["area-en","area-jp","area-cn","area-vn","area-mn","area-ph","area-ru"].indexOf(a.id) >= 0) {
+            setTimeout(function () { preloadMainDestinations(currentLang); }, 0);
+        }
+
+        if (a.id === "click-rule") {
+            setTimeout(function () { preloadLawDestinations(currentLang); }, 0);
+        }
+    }, true);
+})();
+</script>
+
+<!-- GoatCounter 방문 통계 -->
+<script data-goatcounter="https://bspolsafe.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 </body>
 </html>
