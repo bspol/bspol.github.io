@@ -1938,15 +1938,17 @@ body {
 <a id="e7-home" href="https://pusan.mid.ru/" target="_blank" rel="noopener noreferrer" class="emb-btn-home"></a>
 
 
-</div>
-
-
 <!-- 각 나라 MAIN 이미지 속 BUSAN SAFETY TALK -->
 <a id="main-safe-talk-link"
-   href="javascript:void(0)"
+   href="#"
    class="touch-link main-safe-talk-link"
-   onclick="openSafeTalk(event)">
+   role="button"
+   aria-label="Open Busan Safe Talk"
+   onclick="return openSafeTalk(event)">
 </a>
+
+</div>
+
 
 <!-- =====================================================
      BUSAN SAFE TALK / 부산안심톡
@@ -2524,7 +2526,7 @@ function clickSubMenu(type) {
    ========================================================= */
 
 window.addEventListener(
-    "load",
+    "DOMContentLoaded",
     function() {
 
         /*
