@@ -11,8 +11,9 @@
                user-scalable=no">
 
 <title>Safe in Busan</title>
+<!-- PNG DIRECT FAST LOAD VERSION -->
 
-<link rel="preload" as="image" href="main_kr.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="main_kr.png" fetchpriority="high">
 
 <link rel="apple-touch-icon" href="./icon.png">
 <link rel="icon" type="image/png" href="./icon.png">
@@ -55,6 +56,7 @@ body {
 }
 
 .main-img {
+    background-color: #ffffff;
     content-visibility: auto;
     width: 100%;
     height: auto;
@@ -828,8 +830,8 @@ body {
 
 <img id="img-home"
      class="main-img"
-     src="home.webp"
-     data-fallback="home.png"
+     src="home.png"
+     
      fetchpriority="high"
      decoding="async"
      alt="Home"
@@ -3555,21 +3557,17 @@ var imagePrefetchCache = Object.create(null);
 function loadOptimizedImage(img) {
     if (!img || img.getAttribute("src")) return;
 
+    /* 현재 GitHub에는 PNG가 준비되어 있으므로
+       없는 WebP를 먼저 찾지 않고 PNG를 즉시 표시 */
+    var png = img.getAttribute("data-png");
     var webp = img.getAttribute("data-webp");
-    var png  = img.getAttribute("data-png");
-
-    if (!webp && !png) return;
 
     img.decoding = "async";
 
-    if (webp) {
-        img.onerror = function() {
-            img.onerror = null;
-            if (png) img.src = png;
-        };
-        img.src = webp;
-    } else if (png) {
+    if (png) {
         img.src = png;
+    } else if (webp) {
+        img.src = webp;
     }
 }
 
@@ -3594,11 +3592,12 @@ function prefetchPage(pageId) {
     var img = document.getElementById("img-" + pageId);
     if (!img) return;
 
-    var webp = img.getAttribute("data-webp");
     var png  = img.getAttribute("data-png");
+    var webp = img.getAttribute("data-webp");
 
-    if (webp || png) {
-        prefetchImage(webp || png, webp ? png : null);
+    /* 현재는 PNG가 실제 업로드되어 있으므로 PNG를 바로 미리받음 */
+    if (png || webp) {
+        prefetchImage(png || webp, null);
     }
 }
 
