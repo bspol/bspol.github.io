@@ -12,10 +12,10 @@
 
 <title>Safe in Busan</title>
 
-<link rel="preload" as="image" href="home.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="main_kr.webp" type="image/webp" fetchpriority="high">
 
-<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-<link rel="icon" type="image/png" href="./icon.png">     
+<link rel="apple-touch-icon" href="./icon.png">
+<link rel="icon" type="image/png" href="./icon.png">
 <link rel="manifest" href="./manifest.webmanifest">
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -827,7 +827,7 @@ body {
      ===================================================== -->
 
 <img id="img-home"
-     class="main-img active"
+     class="main-img"
      src="home.webp"
      data-fallback="home.png"
      fetchpriority="high"
@@ -850,6 +850,7 @@ body {
 <img id="img-kr"
      class="main-img"
      decoding="async"
+     fetchpriority="high"
      data-webp="main_kr.webp"
      data-png="main_kr.png"
      alt="English KR">
@@ -2843,112 +2844,112 @@ body {
    href="javascript:void(0)"
    class="touch-link btn-kr"
    aria-label="🇰🇷 한국어"
-   onpointerdown="prefetchPage('kr')" onclick="goPage('kr')">
+   onpointerdown="prefetchPage('kr')" onclick="setStartupLanguage('kr'); goPage('kr')">
 </a>
 
 <a id="area-en"
    href="javascript:void(0)"
    class="touch-link btn-en"
    aria-label="🇺🇸 English"
-   onpointerdown="prefetchPage('en')" onclick="goPage('en')">
+   onpointerdown="prefetchPage('en')" onclick="setStartupLanguage('en'); goPage('en')">
 </a>
 
 <a id="area-jp"
    href="javascript:void(0)"
    class="touch-link btn-jp"
    aria-label="🇯🇵 日本語"
-   onpointerdown="prefetchPage('jp')" onclick="goPage('jp')">
+   onpointerdown="prefetchPage('jp')" onclick="setStartupLanguage('jp'); goPage('jp')">
 </a>
 
 <a id="area-cn"
    href="javascript:void(0)"
    class="touch-link btn-cn"
    aria-label="🇨🇳 中文"
-   onpointerdown="prefetchPage('cn')" onclick="goPage('cn')">
+   onpointerdown="prefetchPage('cn')" onclick="setStartupLanguage('cn'); goPage('cn')">
 </a>
 
 <a id="area-vn"
    href="javascript:void(0)"
    class="touch-link btn-vn"
    aria-label="🇻🇳 Tiếng Việt"
-   onpointerdown="prefetchPage('vn')" onclick="goPage('vn')">
+   onpointerdown="prefetchPage('vn')" onclick="setStartupLanguage('vn'); goPage('vn')">
 </a>
 
 <a id="area-mn"
    href="javascript:void(0)"
    class="touch-link btn-mn"
    aria-label="🇲🇳 Монгол"
-   onpointerdown="prefetchPage('mn')" onclick="goPage('mn')">
+   onpointerdown="prefetchPage('mn')" onclick="setStartupLanguage('mn'); goPage('mn')">
 </a>
 
 <a id="area-ph"
    href="javascript:void(0)"
    class="touch-link btn-ph"
    aria-label="🇵🇭 Filipino"
-   onpointerdown="prefetchPage('ph')" onclick="goPage('ph')">
+   onpointerdown="prefetchPage('ph')" onclick="setStartupLanguage('ph'); goPage('ph')">
 </a>
 
 <a id="area-ru"
    href="javascript:void(0)"
    class="touch-link btn-ru"
    aria-label="🇷🇺 Русский"
-   onpointerdown="prefetchPage('ru')" onclick="goPage('ru')">
+   onpointerdown="prefetchPage('ru')" onclick="setStartupLanguage('ru'); goPage('ru')">
 </a>
 
 <a id="area-id"
    href="javascript:void(0)"
    class="touch-link btn-id"
    aria-label="🇮🇩 Indonesia"
-   onpointerdown="prefetchPage('id')" onclick="goPage('id')">
+   onpointerdown="prefetchPage('id')" onclick="setStartupLanguage('id'); goPage('id')">
 </a>
 
 <a id="area-uz"
    href="javascript:void(0)"
    class="touch-link btn-uz"
    aria-label="🇺🇿 O‘zbekcha"
-   onpointerdown="prefetchPage('uz')" onclick="goPage('uz')">
+   onpointerdown="prefetchPage('uz')" onclick="setStartupLanguage('uz'); goPage('uz')">
 </a>
 
 <a id="area-th"
    href="javascript:void(0)"
    class="touch-link btn-th"
    aria-label="🇹🇭 ไทย"
-   onpointerdown="prefetchPage('th')" onclick="goPage('th')">
+   onpointerdown="prefetchPage('th')" onclick="setStartupLanguage('th'); goPage('th')">
 </a>
 
 <a id="area-kh"
    href="javascript:void(0)"
    class="touch-link btn-kh"
    aria-label="🇰🇭 ខ្មែរ"
-   onpointerdown="prefetchPage('kh')" onclick="goPage('kh')">
+   onpointerdown="prefetchPage('kh')" onclick="setStartupLanguage('kh'); goPage('kh')">
 </a>
 
 <a id="area-mm"
    href="javascript:void(0)"
    class="touch-link btn-mm"
    aria-label="🇲🇲 မြန်မာ"
-   onpointerdown="prefetchPage('mm')" onclick="goPage('mm')">
+   onpointerdown="prefetchPage('mm')" onclick="setStartupLanguage('mm'); goPage('mm')">
 </a>
 
 <a id="area-tl"
    href="javascript:void(0)"
    class="touch-link btn-tl"
    aria-label="🇵🇭 Tagalog"
-   onpointerdown="prefetchPage('tl')" onclick="goPage('tl')">
+   onpointerdown="prefetchPage('tl')" onclick="setStartupLanguage('tl'); goPage('tl')">
 </a>
 
 <a id="area-np"
    href="javascript:void(0)"
    class="touch-link btn-np"
    aria-label="🇳🇵 नेपाली"
-   onpointerdown="prefetchPage('np')" onclick="goPage('np')">
+   onpointerdown="prefetchPage('np')" onclick="setStartupLanguage('np'); goPage('np')">
 </a>
 
 <a id="area-tr"
    href="javascript:void(0)"
    class="touch-link btn-tr"
    aria-label="🇹🇷 Türkçe"
-   onpointerdown="prefetchPage('tr')" onclick="goPage('tr')">
+   onpointerdown="prefetchPage('tr')" onclick="setStartupLanguage('tr'); goPage('tr')">
 </a>
 
 
@@ -2981,7 +2982,7 @@ body {
 <a id="main-home"
    href="javascript:void(0)"
    class="touch-link main-home-btn"
-   onclick="goPage('home')">
+   onclick="goPage(getStartupLanguage())">
 </a>
 
 
@@ -3517,6 +3518,30 @@ body {
 </div>
 
 <script>
+
+/* =========================================================
+   START DIRECTLY ON LANGUAGE MAIN
+   - 첫 실행: 한국어 main_kr
+   - 이후: 마지막으로 선택한 언어 main 화면
+   ========================================================= */
+function setStartupLanguage(lang) {
+    currentLang = lang;
+    try {
+        localStorage.setItem("safeBusanLang", lang);
+    } catch (e) {}
+}
+
+function getStartupLanguage() {
+    var supported = ["kr","en","jp","cn","vn","mn","ph","ru",
+                     "id","uz","th","kh","mm","tl","np","tr"];
+    try {
+        var saved = localStorage.getItem("safeBusanLang");
+        if (supported.indexOf(saved) >= 0) return saved;
+    } catch (e) {}
+    return "kr";
+}
+
+
 
 /* =========================================================
    FAST IMAGE LOADER
@@ -4135,7 +4160,8 @@ window.addEventListener(
          * 반드시 HOME부터 시작
          */
 
-        goPage("home");
+        currentLang = getStartupLanguage();
+    goPage(currentLang);
 
     }
 );
