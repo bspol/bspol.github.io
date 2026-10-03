@@ -186,27 +186,75 @@ body {
    ★ 16개 언어 / 4 × 4
    ========================================================= */
 
+
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 6.3%;
+    top: 6.4%;
     left: 2.5%;
     width: 95%;
-    padding: 8px;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-    background: rgba(11, 29, 58, 0.82);
+    padding: 10px;
+    box-sizing: border-box;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+
+    background: rgba(10, 28, 55, 0.90);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.25);
+
     border-radius: 14px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.24);
-    z-index: 999999999;
+    z-index: 9999;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,.22);
 }
 
 .dropdown-menu.open {
     display: grid;
 }
+
+.dropdown-menu button {
+    min-width: 0;
+    min-height: 50px;
+    padding: 7px 5px;
+
+    border: 1px solid rgba(255,255,255,.20);
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.10);
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dropdown-menu button:active {
+    background: rgba(255,255,255,.22);
+    transform: scale(.98);
+}
+
+.dropdown-menu .flag {
+    font-size: 19px;
+    line-height: 1;
+    flex: 0 0 auto;
+}
+
+.dropdown-menu .lang-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 
 .dropdown-menu a {
     display: flex;
@@ -3009,87 +3057,26 @@ body {
 
 <div id="langDropdown" class="dropdown-menu">
 
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('kr')">
-       🇰🇷 한국어
-    </a>
+        <button type="button" onclick="selectLanguage('kr')"><span class="flag">🇰🇷</span><span class="lang-name">한국</span></button>
+        <button type="button" onclick="selectLanguage('en')"><span class="flag">🇺🇸</span><span class="lang-name">English</span></button>
+        <button type="button" onclick="selectLanguage('jp')"><span class="flag">🇯🇵</span><span class="lang-name">日本語</span></button>
+        <button type="button" onclick="selectLanguage('cn')"><span class="flag">🇨🇳</span><span class="lang-name">中文</span></button>
 
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('en')">
-       🇺🇸 English
-    </a>
+        <button type="button" onclick="selectLanguage('vn')"><span class="flag">🇻🇳</span><span class="lang-name">Tiếng Việt</span></button>
+        <button type="button" onclick="selectLanguage('mn')"><span class="flag">🇲🇳</span><span class="lang-name">Монгол</span></button>
+        <button type="button" onclick="selectLanguage('ph')"><span class="flag">🇵🇭</span><span class="lang-name">Filipino</span></button>
+        <button type="button" onclick="selectLanguage('ru')"><span class="flag">🇷🇺</span><span class="lang-name">Русский</span></button>
 
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('jp')">
-       🇯🇵 日本語
-    </a>
+        <button type="button" onclick="selectLanguage('id')"><span class="flag">🇮🇩</span><span class="lang-name">Indonesia</span></button>
+        <button type="button" onclick="selectLanguage('uz')"><span class="flag">🇺🇿</span><span class="lang-name">O‘zbekcha</span></button>
+        <button type="button" onclick="selectLanguage('th')"><span class="flag">🇹🇭</span><span class="lang-name">ไทย</span></button>
+        <button type="button" onclick="selectLanguage('kh')"><span class="flag">🇰🇭</span><span class="lang-name">ខ្មែរ</span></button>
 
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('cn')">
-       🇨🇳 中文
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('vn')">
-       🇻🇳 Tiếng Việt
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('mn')">
-       🇲🇳 Монгол
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('ph')">
-       🇵🇭 Filipino
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('ru')">
-       🇷🇺 Русский
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('id')">
-       🇮🇩 Indonesia
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('uz')">
-       🇺🇿 O‘zbekcha
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('th')">
-       🇹🇭 ไทย
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('kh')">
-       🇰🇭 ខ្មែរ
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('mm')">
-       🇲🇲 မြန်မာ
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('tl')">
-       🇵🇭 Tagalog
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('np')">
-       🇳🇵 नेपाली
-    </a>
-
-    <a href="javascript:void(0)"
-       onclick="selectLanguage('tr')">
-       🇹🇷 Türkçe
-    </a>
-
-</div>
+        <button type="button" onclick="selectLanguage('mm')"><span class="flag">🇲🇲</span><span class="lang-name">မြန်မာ</span></button>
+        <button type="button" onclick="selectLanguage('tl')"><span class="flag">🇵🇭</span><span class="lang-name">Tagalog</span></button>
+        <button type="button" onclick="selectLanguage('np')"><span class="flag">🇳🇵</span><span class="lang-name">नेपाली</span></button>
+        <button type="button" onclick="selectLanguage('tr')"><span class="flag">🇹🇷</span><span class="lang-name">Türkçe</span></button>
+    </div>
 
 
 <!-- =====================================================
