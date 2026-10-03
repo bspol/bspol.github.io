@@ -11,6 +11,7 @@
                user-scalable=no">
 
 <title>Safe in Busan</title>
+<!-- HOME ROUTING FIX FINAL -->
 <!-- WEBP FAST LOAD + PNG FALLBACK VERSION -->
 
 <link rel="preload" as="image" href="main_kr.webp" type="image/webp" fetchpriority="high">
@@ -829,12 +830,13 @@ body {
      ===================================================== -->
 
 <img id="img-home"
-     class="main-img"
+     class="main-img active"
      src="home.png"
      
      fetchpriority="high"
      decoding="async"
-     alt="Home">
+     alt="Home"
+     onerror="if(this.src.indexOf('home.webp')!==-1){this.onerror=null;this.src=this.dataset.fallback;}">
 
 
 <!-- =====================================================
@@ -3521,9 +3523,9 @@ body {
 <script>
 
 /* =========================================================
-   START LANGUAGE MEMORY
-   - 홈화면 앱 실행: 마지막 선택 언어 MAIN
-   - 일반 주소/QR 접속: HOME
+   START DIRECTLY ON LANGUAGE MAIN
+   - 첫 실행: 한국어 main_kr
+   - 이후: 마지막으로 선택한 언어 main 화면
    ========================================================= */
 function setStartupLanguage(lang) {
     currentLang = lang;
@@ -3543,25 +3545,13 @@ function getStartupLanguage() {
 }
 
 
-/* =========================================================
-   실행 방식 구분
-   - 일반 주소/QR 접속: HOME(home.png)
-   - 휴대폰 홈화면 아이콘(PWA) 실행: 마지막 선택 언어 MAIN
-   ========================================================= */
-function isStandaloneLaunch() {
-    var displayStandalone = false;
-
+function isHomeScreenAppLaunch() {
     try {
-        displayStandalone =
-            window.matchMedia &&
-            window.matchMedia("(display-mode: standalone)").matches;
-    } catch (e) {}
-
-    var iosStandalone =
-        (typeof navigator.standalone !== "undefined" &&
-         navigator.standalone === true);
-
-    return displayStandalone || iosStandalone;
+        var params = new URLSearchParams(window.location.search);
+        return params.get("app") === "1";
+    } catch (e) {
+        return false;
+    }
 }
 
 
@@ -4181,15 +4171,7 @@ window.addEventListener(
 
         currentLang = getStartupLanguage();
 
-        /*
-         * 일반 주소/QR로 접속:
-         *   → HOME(home.png)부터 시작
-         *
-         * 휴대폰 홈화면 아이콘(PWA)으로 실행:
-         *   → 마지막으로 선택한 언어 MAIN으로 바로 시작
-         *   → 저장된 언어가 없으면 main_kr
-         */
-        if (isStandaloneLaunch()) {
+        if (isHomeScreenAppLaunch()) {
             goPage(currentLang);
         } else {
             goPage("home");
