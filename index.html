@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="x-dns-prefetch-control" content="on">
 
 <meta name="viewport"
       content="width=device-width,
@@ -11,8 +12,13 @@
 
 <title>Safe in Busan</title>
 
-<link rel="apple-touch-icon" href="icon.png">
-<link rel="icon" type="image/png" href="icon.png">
+<link rel="preload" as="image" href="home.webp" type="image/webp" fetchpriority="high">
+
+<link rel="apple-touch-icon" href="./icon.png">
+<link rel="icon" type="image/png" href="./icon.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="SAFE BUSAN">
 
@@ -49,6 +55,7 @@ body {
 }
 
 .main-img {
+    content-visibility: auto;
     width: 100%;
     height: auto;
     display: none;
@@ -821,8 +828,12 @@ body {
 
 <img id="img-home"
      class="main-img active"
-     src="home.png"
-     alt="Home">
+     src="home.webp"
+     data-fallback="home.png"
+     fetchpriority="high"
+     decoding="async"
+     alt="Home"
+     onerror="if(this.src.indexOf('home.webp')!==-1){this.onerror=null;this.src=this.dataset.fallback;}">
 
 
 <!-- =====================================================
@@ -831,82 +842,114 @@ body {
 
 <img id="img-en"
      class="main-img"
-     src="main_en.png"
+     decoding="async"
+     data-webp="main_en.webp"
+     data-png="main_en.png"
      alt="English">
 
 <img id="img-kr"
      class="main-img"
-     src="main_kr.png"
+     decoding="async"
+     data-webp="main_kr.webp"
+     data-png="main_kr.png"
      alt="English KR">
 
 <img id="img-id"
      class="main-img"
-     src="main_id.png"
+     decoding="async"
+     data-webp="main_id.webp"
+     data-png="main_id.png"
      alt="English ID">
 
 <img id="img-uz"
      class="main-img"
-     src="main_uz.png"
+     decoding="async"
+     data-webp="main_uz.webp"
+     data-png="main_uz.png"
      alt="English UZ">
 
 <img id="img-th"
      class="main-img"
-     src="main_th.png"
+     decoding="async"
+     data-webp="main_th.webp"
+     data-png="main_th.png"
      alt="English TH">
 
 <img id="img-kh"
      class="main-img"
-     src="main_kh.png"
+     decoding="async"
+     data-webp="main_kh.webp"
+     data-png="main_kh.png"
      alt="English KH">
 
 <img id="img-mm"
      class="main-img"
-     src="main_mm.png"
+     decoding="async"
+     data-webp="main_mm.webp"
+     data-png="main_mm.png"
      alt="English MM">
 
 <img id="img-tl"
      class="main-img"
-     src="main_tl.png"
+     decoding="async"
+     data-webp="main_tl.webp"
+     data-png="main_tl.png"
      alt="English TL">
 
 <img id="img-np"
      class="main-img"
-     src="main_np.png"
+     decoding="async"
+     data-webp="main_np.webp"
+     data-png="main_np.png"
      alt="English NP">
 
 <img id="img-tr"
      class="main-img"
-     src="main_tr.png"
+     decoding="async"
+     data-webp="main_tr.webp"
+     data-png="main_tr.png"
      alt="English TR">
 
 <img id="img-cn"
      class="main-img"
-     src="main_cn.png"
+     decoding="async"
+     data-webp="main_cn.webp"
+     data-png="main_cn.png"
      alt="Chinese">
 
 <img id="img-jp"
      class="main-img"
-     src="main_jp.png"
+     decoding="async"
+     data-webp="main_jp.webp"
+     data-png="main_jp.png"
      alt="Japanese">
 
 <img id="img-vn"
      class="main-img"
-     src="main_vn.png"
+     decoding="async"
+     data-webp="main_vn.webp"
+     data-png="main_vn.png"
      alt="Vietnamese">
 
 <img id="img-ru"
      class="main-img"
-     src="main_ru.png"
+     decoding="async"
+     data-webp="main_ru.webp"
+     data-png="main_ru.png"
      alt="Russian">
 
 <img id="img-mn"
      class="main-img"
-     src="main_mn.png"
+     decoding="async"
+     data-webp="main_mn.webp"
+     data-png="main_mn.png"
      alt="Mongolian">
 
 <img id="img-ph"
      class="main-img"
-     src="main_ph.png"
+     decoding="async"
+     data-webp="main_ph.webp"
+     data-png="main_ph.png"
      alt="Filipino">
 
 
@@ -916,1078 +959,1528 @@ body {
 
 <img id="img-sub-law-en"
      class="main-img"
-     src="law_en.png"
+     decoding="async"
+     data-webp="law_en.webp"
+     data-png="law_en.png"
      alt="Law English">
 
 <img id="img-sub-law-kr"
      class="main-img"
-     src="law_kr.png"
+     decoding="async"
+     data-webp="law_kr.webp"
+     data-png="law_kr.png"
      alt="Law English KR">
 
 <img id="img-sub-law-id"
      class="main-img"
-     src="law_id.png"
+     decoding="async"
+     data-webp="law_id.webp"
+     data-png="law_id.png"
      alt="Law English ID">
 
 <img id="img-sub-law-uz"
      class="main-img"
-     src="law_uz.png"
+     decoding="async"
+     data-webp="law_uz.webp"
+     data-png="law_uz.png"
      alt="Law English UZ">
 
 <img id="img-sub-law-th"
      class="main-img"
-     src="law_th.png"
+     decoding="async"
+     data-webp="law_th.webp"
+     data-png="law_th.png"
      alt="Law English TH">
 
 <img id="img-sub-law-kh"
      class="main-img"
-     src="law_kh.png"
+     decoding="async"
+     data-webp="law_kh.webp"
+     data-png="law_kh.png"
      alt="Law English KH">
 
 <img id="img-sub-law-mm"
      class="main-img"
-     src="law_mm.png"
+     decoding="async"
+     data-webp="law_mm.webp"
+     data-png="law_mm.png"
      alt="Law English MM">
 
 <img id="img-sub-law-tl"
      class="main-img"
-     src="law_tl.png"
+     decoding="async"
+     data-webp="law_tl.webp"
+     data-png="law_tl.png"
      alt="Law English TL">
 
 <img id="img-sub-law-np"
      class="main-img"
-     src="law_np.png"
+     decoding="async"
+     data-webp="law_np.webp"
+     data-png="law_np.png"
      alt="Law English NP">
 
 <img id="img-sub-law-tr"
      class="main-img"
-     src="law_tr.png"
+     decoding="async"
+     data-webp="law_tr.webp"
+     data-png="law_tr.png"
      alt="Law English TR">
 
 <img id="img-sub-law-cn"
      class="main-img"
-     src="law_cn.png"
+     decoding="async"
+     data-webp="law_cn.webp"
+     data-png="law_cn.png"
      alt="Law Chinese">
 
 <img id="img-sub-law-jp"
      class="main-img"
-     src="law_jp.png"
+     decoding="async"
+     data-webp="law_jp.webp"
+     data-png="law_jp.png"
      alt="Law Japanese">
 
 <img id="img-sub-law-vn"
      class="main-img"
-     src="law_vn.png"
+     decoding="async"
+     data-webp="law_vn.webp"
+     data-png="law_vn.png"
      alt="Law Vietnamese">
 
 <img id="img-sub-law-ru"
      class="main-img"
-     src="law_ru.png"
+     decoding="async"
+     data-webp="law_ru.webp"
+     data-png="law_ru.png"
      alt="Law Russian">
 
 <img id="img-sub-law-mn"
      class="main-img"
-     src="law_mn.png"
+     decoding="async"
+     data-webp="law_mn.webp"
+     data-png="law_mn.png"
      alt="Law Mongolian">
 
 <img id="img-sub-law-ph"
      class="main-img"
-     src="law_ph.png"
+     decoding="async"
+     data-webp="law_ph.webp"
+     data-png="law_ph.png"
      alt="Law Filipino">
 
 <img id="img-sub-law-sexual-en"
      class="main-img"
-     src="law-sexual-en.png"
+     decoding="async"
+     data-webp="law-sexual-en.webp"
+     data-png="law-sexual-en.png"
      alt="Sexual Violence EN">
 
 <img id="img-sub-law-sexual-kr"
      class="main-img"
-     src="law-sexual-kr.png"
+     decoding="async"
+     data-webp="law-sexual-kr.webp"
+     data-png="law-sexual-kr.png"
      alt="Sexual Violence EN KR">
 
 <img id="img-sub-law-sexual-id"
      class="main-img"
-     src="law-sexual-id.png"
+     decoding="async"
+     data-webp="law-sexual-id.webp"
+     data-png="law-sexual-id.png"
      alt="Sexual Violence EN ID">
 
 <img id="img-sub-law-sexual-uz"
      class="main-img"
-     src="law-sexual-uz.png"
+     decoding="async"
+     data-webp="law-sexual-uz.webp"
+     data-png="law-sexual-uz.png"
      alt="Sexual Violence EN UZ">
 
 <img id="img-sub-law-sexual-th"
      class="main-img"
-     src="law-sexual-th.png"
+     decoding="async"
+     data-webp="law-sexual-th.webp"
+     data-png="law-sexual-th.png"
      alt="Sexual Violence EN TH">
 
 <img id="img-sub-law-sexual-kh"
      class="main-img"
-     src="law-sexual-kh.png"
+     decoding="async"
+     data-webp="law-sexual-kh.webp"
+     data-png="law-sexual-kh.png"
      alt="Sexual Violence EN KH">
 
 <img id="img-sub-law-sexual-mm"
      class="main-img"
-     src="law-sexual-mm.png"
+     decoding="async"
+     data-webp="law-sexual-mm.webp"
+     data-png="law-sexual-mm.png"
      alt="Sexual Violence EN MM">
 
 <img id="img-sub-law-sexual-tl"
      class="main-img"
-     src="law-sexual-tl.png"
+     decoding="async"
+     data-webp="law-sexual-tl.webp"
+     data-png="law-sexual-tl.png"
      alt="Sexual Violence EN TL">
 
 <img id="img-sub-law-sexual-np"
      class="main-img"
-     src="law-sexual-np.png"
+     decoding="async"
+     data-webp="law-sexual-np.webp"
+     data-png="law-sexual-np.png"
      alt="Sexual Violence EN NP">
 
 <img id="img-sub-law-sexual-tr"
      class="main-img"
-     src="law-sexual-tr.png"
+     decoding="async"
+     data-webp="law-sexual-tr.webp"
+     data-png="law-sexual-tr.png"
      alt="Sexual Violence EN TR">
 
 <img id="img-sub-law-sexual-jp"
      class="main-img"
-     src="law-sexual-jp.png"
+     decoding="async"
+     data-webp="law-sexual-jp.webp"
+     data-png="law-sexual-jp.png"
      alt="Sexual Violence JP">
 
 <img id="img-sub-law-sexual-cn"
      class="main-img"
-     src="law-sexual-cn.png"
+     decoding="async"
+     data-webp="law-sexual-cn.webp"
+     data-png="law-sexual-cn.png"
      alt="Sexual Violence CN">
 
 <img id="img-sub-law-sexual-vn"
      class="main-img"
-     src="law-sexual-vn.png"
+     decoding="async"
+     data-webp="law-sexual-vn.webp"
+     data-png="law-sexual-vn.png"
      alt="Sexual Violence VN">
 
 <img id="img-sub-law-sexual-mn"
      class="main-img"
-     src="law-sexual-mn.png"
+     decoding="async"
+     data-webp="law-sexual-mn.webp"
+     data-png="law-sexual-mn.png"
      alt="Sexual Violence MN">
 
 <img id="img-sub-law-sexual-ph"
      class="main-img"
-     src="law-sexual-ph.png"
+     decoding="async"
+     data-webp="law-sexual-ph.webp"
+     data-png="law-sexual-ph.png"
      alt="Sexual Violence PH">
 
 <img id="img-sub-law-sexual-ru"
      class="main-img"
-     src="law-sexual-ru.png"
+     decoding="async"
+     data-webp="law-sexual-ru.webp"
+     data-png="law-sexual-ru.png"
      alt="Sexual Violence RU">
 
 <img id="img-sub-law-driving-en"
      class="main-img"
-     src="law-driving-en.png"
+     decoding="async"
+     data-webp="law-driving-en.webp"
+     data-png="law-driving-en.png"
      alt="Drunk Driving EN">
 
 <img id="img-sub-law-driving-kr"
      class="main-img"
-     src="law-driving-kr.png"
+     decoding="async"
+     data-webp="law-driving-kr.webp"
+     data-png="law-driving-kr.png"
      alt="Drunk Driving EN KR">
 
 <img id="img-sub-law-driving-id"
      class="main-img"
-     src="law-driving-id.png"
+     decoding="async"
+     data-webp="law-driving-id.webp"
+     data-png="law-driving-id.png"
      alt="Drunk Driving EN ID">
 
 <img id="img-sub-law-driving-uz"
      class="main-img"
-     src="law-driving-uz.png"
+     decoding="async"
+     data-webp="law-driving-uz.webp"
+     data-png="law-driving-uz.png"
      alt="Drunk Driving EN UZ">
 
 <img id="img-sub-law-driving-th"
      class="main-img"
-     src="law-driving-th.png"
+     decoding="async"
+     data-webp="law-driving-th.webp"
+     data-png="law-driving-th.png"
      alt="Drunk Driving EN TH">
 
 <img id="img-sub-law-driving-kh"
      class="main-img"
-     src="law-driving-kh.png"
+     decoding="async"
+     data-webp="law-driving-kh.webp"
+     data-png="law-driving-kh.png"
      alt="Drunk Driving EN KH">
 
 <img id="img-sub-law-driving-mm"
      class="main-img"
-     src="law-driving-mm.png"
+     decoding="async"
+     data-webp="law-driving-mm.webp"
+     data-png="law-driving-mm.png"
      alt="Drunk Driving EN MM">
 
 <img id="img-sub-law-driving-tl"
      class="main-img"
-     src="law-driving-tl.png"
+     decoding="async"
+     data-webp="law-driving-tl.webp"
+     data-png="law-driving-tl.png"
      alt="Drunk Driving EN TL">
 
 <img id="img-sub-law-driving-np"
      class="main-img"
-     src="law-driving-np.png"
+     decoding="async"
+     data-webp="law-driving-np.webp"
+     data-png="law-driving-np.png"
      alt="Drunk Driving EN NP">
 
 <img id="img-sub-law-driving-tr"
      class="main-img"
-     src="law-driving-tr.png"
+     decoding="async"
+     data-webp="law-driving-tr.webp"
+     data-png="law-driving-tr.png"
      alt="Drunk Driving EN TR">
 
 <img id="img-sub-law-driving-jp"
      class="main-img"
-     src="law-driving-jp.png"
+     decoding="async"
+     data-webp="law-driving-jp.webp"
+     data-png="law-driving-jp.png"
      alt="Drunk Driving JP">
 
 <img id="img-sub-law-driving-cn"
      class="main-img"
-     src="law-driving-cn.png"
+     decoding="async"
+     data-webp="law-driving-cn.webp"
+     data-png="law-driving-cn.png"
      alt="Drunk Driving CN">
 
 <img id="img-sub-law-driving-vn"
      class="main-img"
-     src="law-driving-vn.png"
+     decoding="async"
+     data-webp="law-driving-vn.webp"
+     data-png="law-driving-vn.png"
      alt="Drunk Driving VN">
 
 <img id="img-sub-law-driving-mn"
      class="main-img"
-     src="law-driving-mn.png"
+     decoding="async"
+     data-webp="law-driving-mn.webp"
+     data-png="law-driving-mn.png"
      alt="Drunk Driving MN">
 
 <img id="img-sub-law-driving-ph"
      class="main-img"
-     src="law-driving-ph.png"
+     decoding="async"
+     data-webp="law-driving-ph.webp"
+     data-png="law-driving-ph.png"
      alt="Drunk Driving PH">
 
 <img id="img-sub-law-driving-ru"
      class="main-img"
-     src="law-driving-ru.png"
+     decoding="async"
+     data-webp="law-driving-ru.webp"
+     data-png="law-driving-ru.png"
      alt="Drunk Driving RU">
 
 <img id="img-sub-law-theft-en"
      class="main-img"
-     src="law-theft-en.png"
+     decoding="async"
+     data-webp="law-theft-en.webp"
+     data-png="law-theft-en.png"
      alt="Violence and Theft EN">
 
 <img id="img-sub-law-theft-kr"
      class="main-img"
-     src="law-theft-kr.png"
+     decoding="async"
+     data-webp="law-theft-kr.webp"
+     data-png="law-theft-kr.png"
      alt="Violence and Theft EN KR">
 
 <img id="img-sub-law-theft-id"
      class="main-img"
-     src="law-theft-id.png"
+     decoding="async"
+     data-webp="law-theft-id.webp"
+     data-png="law-theft-id.png"
      alt="Violence and Theft EN ID">
 
 <img id="img-sub-law-theft-uz"
      class="main-img"
-     src="law-theft-uz.png"
+     decoding="async"
+     data-webp="law-theft-uz.webp"
+     data-png="law-theft-uz.png"
      alt="Violence and Theft EN UZ">
 
 <img id="img-sub-law-theft-th"
      class="main-img"
-     src="law-theft-th.png"
+     decoding="async"
+     data-webp="law-theft-th.webp"
+     data-png="law-theft-th.png"
      alt="Violence and Theft EN TH">
 
 <img id="img-sub-law-theft-kh"
      class="main-img"
-     src="law-theft-kh.png"
+     decoding="async"
+     data-webp="law-theft-kh.webp"
+     data-png="law-theft-kh.png"
      alt="Violence and Theft EN KH">
 
 <img id="img-sub-law-theft-mm"
      class="main-img"
-     src="law-theft-mm.png"
+     decoding="async"
+     data-webp="law-theft-mm.webp"
+     data-png="law-theft-mm.png"
      alt="Violence and Theft EN MM">
 
 <img id="img-sub-law-theft-tl"
      class="main-img"
-     src="law-theft-tl.png"
+     decoding="async"
+     data-webp="law-theft-tl.webp"
+     data-png="law-theft-tl.png"
      alt="Violence and Theft EN TL">
 
 <img id="img-sub-law-theft-np"
      class="main-img"
-     src="law-theft-np.png"
+     decoding="async"
+     data-webp="law-theft-np.webp"
+     data-png="law-theft-np.png"
      alt="Violence and Theft EN NP">
 
 <img id="img-sub-law-theft-tr"
      class="main-img"
-     src="law-theft-tr.png"
+     decoding="async"
+     data-webp="law-theft-tr.webp"
+     data-png="law-theft-tr.png"
      alt="Violence and Theft EN TR">
 
 <img id="img-sub-law-theft-jp"
      class="main-img"
-     src="law-theft-jp.png"
+     decoding="async"
+     data-webp="law-theft-jp.webp"
+     data-png="law-theft-jp.png"
      alt="Violence and Theft JP">
 
 <img id="img-sub-law-theft-cn"
      class="main-img"
-     src="law-theft-cn.png"
+     decoding="async"
+     data-webp="law-theft-cn.webp"
+     data-png="law-theft-cn.png"
      alt="Violence and Theft CN">
 
 <img id="img-sub-law-theft-vn"
      class="main-img"
-     src="law-theft-vn.png"
+     decoding="async"
+     data-webp="law-theft-vn.webp"
+     data-png="law-theft-vn.png"
      alt="Violence and Theft VN">
 
 <img id="img-sub-law-theft-mn"
      class="main-img"
-     src="law-theft-mn.png"
+     decoding="async"
+     data-webp="law-theft-mn.webp"
+     data-png="law-theft-mn.png"
      alt="Violence and Theft MN">
 
 <img id="img-sub-law-theft-ph"
      class="main-img"
-     src="law-theft-ph.png"
+     decoding="async"
+     data-webp="law-theft-ph.webp"
+     data-png="law-theft-ph.png"
      alt="Violence and Theft PH">
 
 <img id="img-sub-law-theft-ru"
      class="main-img"
-     src="law-theft-ru.png"
+     decoding="async"
+     data-webp="law-theft-ru.webp"
+     data-png="law-theft-ru.png"
      alt="Violence and Theft RU">
 
 <img id="img-sub-law-voice-en"
      class="main-img"
-     src="law-voice-en.png"
+     decoding="async"
+     data-webp="law-voice-en.webp"
+     data-png="law-voice-en.png"
      alt="Voice Phishing EN">
 
 <img id="img-sub-law-voice-kr"
      class="main-img"
-     src="law-voice-kr.png"
+     decoding="async"
+     data-webp="law-voice-kr.webp"
+     data-png="law-voice-kr.png"
      alt="Voice Phishing EN KR">
 
 <img id="img-sub-law-voice-id"
      class="main-img"
-     src="law-voice-id.png"
+     decoding="async"
+     data-webp="law-voice-id.webp"
+     data-png="law-voice-id.png"
      alt="Voice Phishing EN ID">
 
 <img id="img-sub-law-voice-uz"
      class="main-img"
-     src="law-voice-uz.png"
+     decoding="async"
+     data-webp="law-voice-uz.webp"
+     data-png="law-voice-uz.png"
      alt="Voice Phishing EN UZ">
 
 <img id="img-sub-law-voice-th"
      class="main-img"
-     src="law-voice-th.png"
+     decoding="async"
+     data-webp="law-voice-th.webp"
+     data-png="law-voice-th.png"
      alt="Voice Phishing EN TH">
 
 <img id="img-sub-law-voice-kh"
      class="main-img"
-     src="law-voice-kh.png"
+     decoding="async"
+     data-webp="law-voice-kh.webp"
+     data-png="law-voice-kh.png"
      alt="Voice Phishing EN KH">
 
 <img id="img-sub-law-voice-mm"
      class="main-img"
-     src="law-voice-mm.png"
+     decoding="async"
+     data-webp="law-voice-mm.webp"
+     data-png="law-voice-mm.png"
      alt="Voice Phishing EN MM">
 
 <img id="img-sub-law-voice-tl"
      class="main-img"
-     src="law-voice-tl.png"
+     decoding="async"
+     data-webp="law-voice-tl.webp"
+     data-png="law-voice-tl.png"
      alt="Voice Phishing EN TL">
 
 <img id="img-sub-law-voice-np"
      class="main-img"
-     src="law-voice-np.png"
+     decoding="async"
+     data-webp="law-voice-np.webp"
+     data-png="law-voice-np.png"
      alt="Voice Phishing EN NP">
 
 <img id="img-sub-law-voice-tr"
      class="main-img"
-     src="law-voice-tr.png"
+     decoding="async"
+     data-webp="law-voice-tr.webp"
+     data-png="law-voice-tr.png"
      alt="Voice Phishing EN TR">
 
 <img id="img-sub-law-voice-jp"
      class="main-img"
-     src="law-voice-jp.png"
+     decoding="async"
+     data-webp="law-voice-jp.webp"
+     data-png="law-voice-jp.png"
      alt="Voice Phishing JP">
 
 <img id="img-sub-law-voice-cn"
      class="main-img"
-     src="law-voice-cn.png"
+     decoding="async"
+     data-webp="law-voice-cn.webp"
+     data-png="law-voice-cn.png"
      alt="Voice Phishing CN">
 
 <img id="img-sub-law-voice-vn"
      class="main-img"
-     src="law-voice-vn.png"
+     decoding="async"
+     data-webp="law-voice-vn.webp"
+     data-png="law-voice-vn.png"
      alt="Voice Phishing VN">
 
 <img id="img-sub-law-voice-mn"
      class="main-img"
-     src="law-voice-mn.png"
+     decoding="async"
+     data-webp="law-voice-mn.webp"
+     data-png="law-voice-mn.png"
      alt="Voice Phishing MN">
 
 <img id="img-sub-law-voice-ph"
      class="main-img"
-     src="law-voice-ph.png"
+     decoding="async"
+     data-webp="law-voice-ph.webp"
+     data-png="law-voice-ph.png"
      alt="Voice Phishing PH">
 
 <img id="img-sub-law-voice-ru"
      class="main-img"
-     src="law-voice-ru.png"
+     decoding="async"
+     data-webp="law-voice-ru.webp"
+     data-png="law-voice-ru.png"
      alt="Voice Phishing RU">
 
 <img id="img-sub-law-drugs-en"
      class="main-img"
-     src="law-drugs-en.png"
+     decoding="async"
+     data-webp="law-drugs-en.webp"
+     data-png="law-drugs-en.png"
      alt="Drugs EN">
 
 <img id="img-sub-law-drugs-kr"
      class="main-img"
-     src="law-drugs-kr.png"
+     decoding="async"
+     data-webp="law-drugs-kr.webp"
+     data-png="law-drugs-kr.png"
      alt="Drugs EN KR">
 
 <img id="img-sub-law-drugs-id"
      class="main-img"
-     src="law-drugs-id.png"
+     decoding="async"
+     data-webp="law-drugs-id.webp"
+     data-png="law-drugs-id.png"
      alt="Drugs EN ID">
 
 <img id="img-sub-law-drugs-uz"
      class="main-img"
-     src="law-drugs-uz.png"
+     decoding="async"
+     data-webp="law-drugs-uz.webp"
+     data-png="law-drugs-uz.png"
      alt="Drugs EN UZ">
 
 <img id="img-sub-law-drugs-th"
      class="main-img"
-     src="law-drugs-th.png"
+     decoding="async"
+     data-webp="law-drugs-th.webp"
+     data-png="law-drugs-th.png"
      alt="Drugs EN TH">
 
 <img id="img-sub-law-drugs-kh"
      class="main-img"
-     src="law-drugs-kh.png"
+     decoding="async"
+     data-webp="law-drugs-kh.webp"
+     data-png="law-drugs-kh.png"
      alt="Drugs EN KH">
 
 <img id="img-sub-law-drugs-mm"
      class="main-img"
-     src="law-drugs-mm.png"
+     decoding="async"
+     data-webp="law-drugs-mm.webp"
+     data-png="law-drugs-mm.png"
      alt="Drugs EN MM">
 
 <img id="img-sub-law-drugs-tl"
      class="main-img"
-     src="law-drugs-tl.png"
+     decoding="async"
+     data-webp="law-drugs-tl.webp"
+     data-png="law-drugs-tl.png"
      alt="Drugs EN TL">
 
 <img id="img-sub-law-drugs-np"
      class="main-img"
-     src="law-drugs-np.png"
+     decoding="async"
+     data-webp="law-drugs-np.webp"
+     data-png="law-drugs-np.png"
      alt="Drugs EN NP">
 
 <img id="img-sub-law-drugs-tr"
      class="main-img"
-     src="law-drugs-tr.png"
+     decoding="async"
+     data-webp="law-drugs-tr.webp"
+     data-png="law-drugs-tr.png"
      alt="Drugs EN TR">
 
 <img id="img-sub-law-drugs-jp"
      class="main-img"
-     src="law-drugs-jp.png"
+     decoding="async"
+     data-webp="law-drugs-jp.webp"
+     data-png="law-drugs-jp.png"
      alt="Drugs JP">
 
 <img id="img-sub-law-drugs-cn"
      class="main-img"
-     src="law-drugs-cn.png"
+     decoding="async"
+     data-webp="law-drugs-cn.webp"
+     data-png="law-drugs-cn.png"
      alt="Drugs CN">
 
 <img id="img-sub-law-drugs-vn"
      class="main-img"
-     src="law-drugs-vn.png"
+     decoding="async"
+     data-webp="law-drugs-vn.webp"
+     data-png="law-drugs-vn.png"
      alt="Drugs VN">
 
 <img id="img-sub-law-drugs-mn"
      class="main-img"
-     src="law-drugs-mn.png"
+     decoding="async"
+     data-webp="law-drugs-mn.webp"
+     data-png="law-drugs-mn.png"
      alt="Drugs MN">
 
 <img id="img-sub-law-drugs-ph"
      class="main-img"
-     src="law-drugs-ph.png"
+     decoding="async"
+     data-webp="law-drugs-ph.webp"
+     data-png="law-drugs-ph.png"
      alt="Drugs PH">
 
 <img id="img-sub-law-drugs-ru"
      class="main-img"
-     src="law-drugs-ru.png"
+     decoding="async"
+     data-webp="law-drugs-ru.webp"
+     data-png="law-drugs-ru.png"
      alt="Drugs RU">
 
 <!-- =====================================================
      LAW 07 총기 / 08 통보의무 면제제도 - 7개 언어
      ===================================================== -->
 
-<img id="img-sub-law-firearms-en" class="main-img" src="law-firearms-en.png" alt="Firearms EN">
+<img id="img-sub-law-firearms-en" class="main-img"
+     decoding="async" data-webp="law-firearms-en.webp"
+     data-png="law-firearms-en.png" alt="Firearms EN">
 
 <img id="img-sub-law-firearms-kr"
      class="main-img"
-     src="law-firearms-kr.png"
+     decoding="async"
+     data-webp="law-firearms-kr.webp"
+     data-png="law-firearms-kr.png"
      alt="Firearms EN KR">
 
 <img id="img-sub-law-firearms-id"
      class="main-img"
-     src="law-firearms-id.png"
+     decoding="async"
+     data-webp="law-firearms-id.webp"
+     data-png="law-firearms-id.png"
      alt="Firearms EN ID">
 
 <img id="img-sub-law-firearms-uz"
      class="main-img"
-     src="law-firearms-uz.png"
+     decoding="async"
+     data-webp="law-firearms-uz.webp"
+     data-png="law-firearms-uz.png"
      alt="Firearms EN UZ">
 
 <img id="img-sub-law-firearms-th"
      class="main-img"
-     src="law-firearms-th.png"
+     decoding="async"
+     data-webp="law-firearms-th.webp"
+     data-png="law-firearms-th.png"
      alt="Firearms EN TH">
 
 <img id="img-sub-law-firearms-kh"
      class="main-img"
-     src="law-firearms-kh.png"
+     decoding="async"
+     data-webp="law-firearms-kh.webp"
+     data-png="law-firearms-kh.png"
      alt="Firearms EN KH">
 
 <img id="img-sub-law-firearms-mm"
      class="main-img"
-     src="law-firearms-mm.png"
+     decoding="async"
+     data-webp="law-firearms-mm.webp"
+     data-png="law-firearms-mm.png"
      alt="Firearms EN MM">
 
 <img id="img-sub-law-firearms-tl"
      class="main-img"
-     src="law-firearms-tl.png"
+     decoding="async"
+     data-webp="law-firearms-tl.webp"
+     data-png="law-firearms-tl.png"
      alt="Firearms EN TL">
 
 <img id="img-sub-law-firearms-np"
      class="main-img"
-     src="law-firearms-np.png"
+     decoding="async"
+     data-webp="law-firearms-np.webp"
+     data-png="law-firearms-np.png"
      alt="Firearms EN NP">
 
 <img id="img-sub-law-firearms-tr"
      class="main-img"
-     src="law-firearms-tr.png"
+     decoding="async"
+     data-webp="law-firearms-tr.webp"
+     data-png="law-firearms-tr.png"
      alt="Firearms EN TR">
-<img id="img-sub-law-firearms-jp" class="main-img" src="law-firearms-jp.png" alt="Firearms JP">
-<img id="img-sub-law-firearms-cn" class="main-img" src="law-firearms-cn.png" alt="Firearms CN">
-<img id="img-sub-law-firearms-vn" class="main-img" src="law-firearms-vn.png" alt="Firearms VN">
-<img id="img-sub-law-firearms-mn" class="main-img" src="law-firearms-mn.png" alt="Firearms MN">
-<img id="img-sub-law-firearms-ph" class="main-img" src="law-firearms-ph.png" alt="Firearms PH">
-<img id="img-sub-law-firearms-ru" class="main-img" src="law-firearms-ru.png" alt="Firearms RU">
+<img id="img-sub-law-firearms-jp" class="main-img"
+     decoding="async" data-webp="law-firearms-jp.webp"
+     data-png="law-firearms-jp.png" alt="Firearms JP">
+<img id="img-sub-law-firearms-cn" class="main-img"
+     decoding="async" data-webp="law-firearms-cn.webp"
+     data-png="law-firearms-cn.png" alt="Firearms CN">
+<img id="img-sub-law-firearms-vn" class="main-img"
+     decoding="async" data-webp="law-firearms-vn.webp"
+     data-png="law-firearms-vn.png" alt="Firearms VN">
+<img id="img-sub-law-firearms-mn" class="main-img"
+     decoding="async" data-webp="law-firearms-mn.webp"
+     data-png="law-firearms-mn.png" alt="Firearms MN">
+<img id="img-sub-law-firearms-ph" class="main-img"
+     decoding="async" data-webp="law-firearms-ph.webp"
+     data-png="law-firearms-ph.png" alt="Firearms PH">
+<img id="img-sub-law-firearms-ru" class="main-img"
+     decoding="async" data-webp="law-firearms-ru.webp"
+     data-png="law-firearms-ru.png" alt="Firearms RU">
 
-<img id="img-sub-law-exemption-en" class="main-img" src="law-exemption-en.png" alt="Exemption EN">
+<img id="img-sub-law-exemption-en" class="main-img"
+     decoding="async" data-webp="law-exemption-en.webp"
+     data-png="law-exemption-en.png" alt="Exemption EN">
 
 <img id="img-sub-law-exemption-kr"
      class="main-img"
-     src="law-exemption-kr.png"
+     decoding="async"
+     data-webp="law-exemption-kr.webp"
+     data-png="law-exemption-kr.png"
      alt="Exemption EN KR">
 
 <img id="img-sub-law-exemption-id"
      class="main-img"
-     src="law-exemption-id.png"
+     decoding="async"
+     data-webp="law-exemption-id.webp"
+     data-png="law-exemption-id.png"
      alt="Exemption EN ID">
 
 <img id="img-sub-law-exemption-uz"
      class="main-img"
-     src="law-exemption-uz.png"
+     decoding="async"
+     data-webp="law-exemption-uz.webp"
+     data-png="law-exemption-uz.png"
      alt="Exemption EN UZ">
 
 <img id="img-sub-law-exemption-th"
      class="main-img"
-     src="law-exemption-th.png"
+     decoding="async"
+     data-webp="law-exemption-th.webp"
+     data-png="law-exemption-th.png"
      alt="Exemption EN TH">
 
 <img id="img-sub-law-exemption-kh"
      class="main-img"
-     src="law-exemption-kh.png"
+     decoding="async"
+     data-webp="law-exemption-kh.webp"
+     data-png="law-exemption-kh.png"
      alt="Exemption EN KH">
 
 <img id="img-sub-law-exemption-mm"
      class="main-img"
-     src="law-exemption-mm.png"
+     decoding="async"
+     data-webp="law-exemption-mm.webp"
+     data-png="law-exemption-mm.png"
      alt="Exemption EN MM">
 
 <img id="img-sub-law-exemption-tl"
      class="main-img"
-     src="law-exemption-tl.png"
+     decoding="async"
+     data-webp="law-exemption-tl.webp"
+     data-png="law-exemption-tl.png"
      alt="Exemption EN TL">
 
 <img id="img-sub-law-exemption-np"
      class="main-img"
-     src="law-exemption-np.png"
+     decoding="async"
+     data-webp="law-exemption-np.webp"
+     data-png="law-exemption-np.png"
      alt="Exemption EN NP">
 
 <img id="img-sub-law-exemption-tr"
      class="main-img"
-     src="law-exemption-tr.png"
+     decoding="async"
+     data-webp="law-exemption-tr.webp"
+     data-png="law-exemption-tr.png"
      alt="Exemption EN TR">
-<img id="img-sub-law-exemption-jp" class="main-img" src="law-exemption-jp.png" alt="Exemption JP">
-<img id="img-sub-law-exemption-cn" class="main-img" src="law-exemption-cn.png" alt="Exemption CN">
-<img id="img-sub-law-exemption-vn" class="main-img" src="law-exemption-vn.png" alt="Exemption VN">
-<img id="img-sub-law-exemption-mn" class="main-img" src="law-exemption-mn.png" alt="Exemption MN">
-<img id="img-sub-law-exemption-ph" class="main-img" src="law-exemption-ph.png" alt="Exemption PH">
-<img id="img-sub-law-exemption-ru" class="main-img" src="law-exemption-ru.png" alt="Exemption RU">
+<img id="img-sub-law-exemption-jp" class="main-img"
+     decoding="async" data-webp="law-exemption-jp.webp"
+     data-png="law-exemption-jp.png" alt="Exemption JP">
+<img id="img-sub-law-exemption-cn" class="main-img"
+     decoding="async" data-webp="law-exemption-cn.webp"
+     data-png="law-exemption-cn.png" alt="Exemption CN">
+<img id="img-sub-law-exemption-vn" class="main-img"
+     decoding="async" data-webp="law-exemption-vn.webp"
+     data-png="law-exemption-vn.png" alt="Exemption VN">
+<img id="img-sub-law-exemption-mn" class="main-img"
+     decoding="async" data-webp="law-exemption-mn.webp"
+     data-png="law-exemption-mn.png" alt="Exemption MN">
+<img id="img-sub-law-exemption-ph" class="main-img"
+     decoding="async" data-webp="law-exemption-ph.webp"
+     data-png="law-exemption-ph.png" alt="Exemption PH">
+<img id="img-sub-law-exemption-ru" class="main-img"
+     decoding="async" data-webp="law-exemption-ru.webp"
+     data-png="law-exemption-ru.png" alt="Exemption RU">
 
 <img id="img-sub-law-basicrules-en"
      class="main-img"
-     src="law-basicrules-en.png"
+     decoding="async"
+     data-webp="law-basicrules-en.webp"
+     data-png="law-basicrules-en.png"
      alt="Basic Rules EN">
 
 <img id="img-sub-law-basicrules-kr"
      class="main-img"
-     src="law-basicrules-kr.png"
+     decoding="async"
+     data-webp="law-basicrules-kr.webp"
+     data-png="law-basicrules-kr.png"
      alt="Basic Rules EN KR">
 
 <img id="img-sub-law-basicrules-id"
      class="main-img"
-     src="law-basicrules-id.png"
+     decoding="async"
+     data-webp="law-basicrules-id.webp"
+     data-png="law-basicrules-id.png"
      alt="Basic Rules EN ID">
 
 <img id="img-sub-law-basicrules-uz"
      class="main-img"
-     src="law-basicrules-uz.png"
+     decoding="async"
+     data-webp="law-basicrules-uz.webp"
+     data-png="law-basicrules-uz.png"
      alt="Basic Rules EN UZ">
 
 <img id="img-sub-law-basicrules-th"
      class="main-img"
-     src="law-basicrules-th.png"
+     decoding="async"
+     data-webp="law-basicrules-th.webp"
+     data-png="law-basicrules-th.png"
      alt="Basic Rules EN TH">
 
 <img id="img-sub-law-basicrules-kh"
      class="main-img"
-     src="law-basicrules-kh.png"
+     decoding="async"
+     data-webp="law-basicrules-kh.webp"
+     data-png="law-basicrules-kh.png"
      alt="Basic Rules EN KH">
 
 <img id="img-sub-law-basicrules-mm"
      class="main-img"
-     src="law-basicrules-mm.png"
+     decoding="async"
+     data-webp="law-basicrules-mm.webp"
+     data-png="law-basicrules-mm.png"
      alt="Basic Rules EN MM">
 
 <img id="img-sub-law-basicrules-tl"
      class="main-img"
-     src="law-basicrules-tl.png"
+     decoding="async"
+     data-webp="law-basicrules-tl.webp"
+     data-png="law-basicrules-tl.png"
      alt="Basic Rules EN TL">
 
 <img id="img-sub-law-basicrules-np"
      class="main-img"
-     src="law-basicrules-np.png"
+     decoding="async"
+     data-webp="law-basicrules-np.webp"
+     data-png="law-basicrules-np.png"
      alt="Basic Rules EN NP">
 
 <img id="img-sub-law-basicrules-tr"
      class="main-img"
-     src="law-basicrules-tr.png"
+     decoding="async"
+     data-webp="law-basicrules-tr.webp"
+     data-png="law-basicrules-tr.png"
      alt="Basic Rules EN TR">
 
 <img id="img-sub-law-basicrules-jp"
      class="main-img"
-     src="law-basicrules-jp.png"
+     decoding="async"
+     data-webp="law-basicrules-jp.webp"
+     data-png="law-basicrules-jp.png"
      alt="Basic Rules JP">
 
 <img id="img-sub-law-basicrules-cn"
      class="main-img"
-     src="law-basicrules-cn.png"
+     decoding="async"
+     data-webp="law-basicrules-cn.webp"
+     data-png="law-basicrules-cn.png"
      alt="Basic Rules CN">
 
 <img id="img-sub-law-basicrules-vn"
      class="main-img"
-     src="law-basicrules-vn.png"
+     decoding="async"
+     data-webp="law-basicrules-vn.webp"
+     data-png="law-basicrules-vn.png"
      alt="Basic Rules VN">
 
 <img id="img-sub-law-basicrules-mn"
      class="main-img"
-     src="law-basicrules-mn.png"
+     decoding="async"
+     data-webp="law-basicrules-mn.webp"
+     data-png="law-basicrules-mn.png"
      alt="Basic Rules MN">
 
 <img id="img-sub-law-basicrules-ph"
      class="main-img"
-     src="law-basicrules-ph.png"
+     decoding="async"
+     data-webp="law-basicrules-ph.webp"
+     data-png="law-basicrules-ph.png"
      alt="Basic Rules PH">
 
 <img id="img-sub-law-basicrules-ru"
      class="main-img"
-     src="law-basicrules-ru.png"
+     decoding="async"
+     data-webp="law-basicrules-ru.webp"
+     data-png="law-basicrules-ru.png"
      alt="Basic Rules RU">
 
 
 <img id="img-sub-law-basicrules-walk-en"
      class="main-img"
-     src="law-basicrules-walk-en.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-en.webp"
+     data-png="law-basicrules-walk-en.png"
      alt="Basic Rules Walk EN">
 
 <img id="img-sub-law-basicrules-walk-kr"
      class="main-img"
-     src="law-basicrules-walk-kr.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-kr.webp"
+     data-png="law-basicrules-walk-kr.png"
      alt="Basic Rules Walk EN KR">
 
 <img id="img-sub-law-basicrules-walk-id"
      class="main-img"
-     src="law-basicrules-walk-id.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-id.webp"
+     data-png="law-basicrules-walk-id.png"
      alt="Basic Rules Walk EN ID">
 
 <img id="img-sub-law-basicrules-walk-uz"
      class="main-img"
-     src="law-basicrules-walk-uz.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-uz.webp"
+     data-png="law-basicrules-walk-uz.png"
      alt="Basic Rules Walk EN UZ">
 
 <img id="img-sub-law-basicrules-walk-th"
      class="main-img"
-     src="law-basicrules-walk-th.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-th.webp"
+     data-png="law-basicrules-walk-th.png"
      alt="Basic Rules Walk EN TH">
 
 <img id="img-sub-law-basicrules-walk-kh"
      class="main-img"
-     src="law-basicrules-walk-kh.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-kh.webp"
+     data-png="law-basicrules-walk-kh.png"
      alt="Basic Rules Walk EN KH">
 
 <img id="img-sub-law-basicrules-walk-mm"
      class="main-img"
-     src="law-basicrules-walk-mm.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-mm.webp"
+     data-png="law-basicrules-walk-mm.png"
      alt="Basic Rules Walk EN MM">
 
 <img id="img-sub-law-basicrules-walk-tl"
      class="main-img"
-     src="law-basicrules-walk-tl.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-tl.webp"
+     data-png="law-basicrules-walk-tl.png"
      alt="Basic Rules Walk EN TL">
 
 <img id="img-sub-law-basicrules-walk-np"
      class="main-img"
-     src="law-basicrules-walk-np.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-np.webp"
+     data-png="law-basicrules-walk-np.png"
      alt="Basic Rules Walk EN NP">
 
 <img id="img-sub-law-basicrules-walk-tr"
      class="main-img"
-     src="law-basicrules-walk-tr.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-tr.webp"
+     data-png="law-basicrules-walk-tr.png"
      alt="Basic Rules Walk EN TR">
 
 <img id="img-sub-law-basicrules-littering-en"
      class="main-img"
-     src="law-basicrules-littering-en.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-en.webp"
+     data-png="law-basicrules-littering-en.png"
      alt="Basic Rules Littering EN">
 
 <img id="img-sub-law-basicrules-littering-kr"
      class="main-img"
-     src="law-basicrules-littering-kr.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-kr.webp"
+     data-png="law-basicrules-littering-kr.png"
      alt="Basic Rules Littering EN KR">
 
 <img id="img-sub-law-basicrules-littering-id"
      class="main-img"
-     src="law-basicrules-littering-id.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-id.webp"
+     data-png="law-basicrules-littering-id.png"
      alt="Basic Rules Littering EN ID">
 
 <img id="img-sub-law-basicrules-littering-uz"
      class="main-img"
-     src="law-basicrules-littering-uz.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-uz.webp"
+     data-png="law-basicrules-littering-uz.png"
      alt="Basic Rules Littering EN UZ">
 
 <img id="img-sub-law-basicrules-littering-th"
      class="main-img"
-     src="law-basicrules-littering-th.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-th.webp"
+     data-png="law-basicrules-littering-th.png"
      alt="Basic Rules Littering EN TH">
 
 <img id="img-sub-law-basicrules-littering-kh"
      class="main-img"
-     src="law-basicrules-littering-kh.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-kh.webp"
+     data-png="law-basicrules-littering-kh.png"
      alt="Basic Rules Littering EN KH">
 
 <img id="img-sub-law-basicrules-littering-mm"
      class="main-img"
-     src="law-basicrules-littering-mm.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-mm.webp"
+     data-png="law-basicrules-littering-mm.png"
      alt="Basic Rules Littering EN MM">
 
 <img id="img-sub-law-basicrules-littering-tl"
      class="main-img"
-     src="law-basicrules-littering-tl.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-tl.webp"
+     data-png="law-basicrules-littering-tl.png"
      alt="Basic Rules Littering EN TL">
 
 <img id="img-sub-law-basicrules-littering-np"
      class="main-img"
-     src="law-basicrules-littering-np.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-np.webp"
+     data-png="law-basicrules-littering-np.png"
      alt="Basic Rules Littering EN NP">
 
 <img id="img-sub-law-basicrules-littering-tr"
      class="main-img"
-     src="law-basicrules-littering-tr.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-tr.webp"
+     data-png="law-basicrules-littering-tr.png"
      alt="Basic Rules Littering EN TR">
 
 <img id="img-sub-law-basicrules-smoking-en"
      class="main-img"
-     src="law-basicrules-smoking-en.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-en.webp"
+     data-png="law-basicrules-smoking-en.png"
      alt="Basic Rules Smoking EN">
 
 <img id="img-sub-law-basicrules-smoking-kr"
      class="main-img"
-     src="law-basicrules-smoking-kr.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-kr.webp"
+     data-png="law-basicrules-smoking-kr.png"
      alt="Basic Rules Smoking EN KR">
 
 <img id="img-sub-law-basicrules-smoking-id"
      class="main-img"
-     src="law-basicrules-smoking-id.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-id.webp"
+     data-png="law-basicrules-smoking-id.png"
      alt="Basic Rules Smoking EN ID">
 
 <img id="img-sub-law-basicrules-smoking-uz"
      class="main-img"
-     src="law-basicrules-smoking-uz.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-uz.webp"
+     data-png="law-basicrules-smoking-uz.png"
      alt="Basic Rules Smoking EN UZ">
 
 <img id="img-sub-law-basicrules-smoking-th"
      class="main-img"
-     src="law-basicrules-smoking-th.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-th.webp"
+     data-png="law-basicrules-smoking-th.png"
      alt="Basic Rules Smoking EN TH">
 
 <img id="img-sub-law-basicrules-smoking-kh"
      class="main-img"
-     src="law-basicrules-smoking-kh.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-kh.webp"
+     data-png="law-basicrules-smoking-kh.png"
      alt="Basic Rules Smoking EN KH">
 
 <img id="img-sub-law-basicrules-smoking-mm"
      class="main-img"
-     src="law-basicrules-smoking-mm.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-mm.webp"
+     data-png="law-basicrules-smoking-mm.png"
      alt="Basic Rules Smoking EN MM">
 
 <img id="img-sub-law-basicrules-smoking-tl"
      class="main-img"
-     src="law-basicrules-smoking-tl.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-tl.webp"
+     data-png="law-basicrules-smoking-tl.png"
      alt="Basic Rules Smoking EN TL">
 
 <img id="img-sub-law-basicrules-smoking-np"
      class="main-img"
-     src="law-basicrules-smoking-np.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-np.webp"
+     data-png="law-basicrules-smoking-np.png"
      alt="Basic Rules Smoking EN NP">
 
 <img id="img-sub-law-basicrules-smoking-tr"
      class="main-img"
-     src="law-basicrules-smoking-tr.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-tr.webp"
+     data-png="law-basicrules-smoking-tr.png"
      alt="Basic Rules Smoking EN TR">
 
 <img id="img-sub-law-basicrules-noise-en"
      class="main-img"
-     src="law-basicruels-noise-en.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-en.webp"
+     data-png="law-basicruels-noise-en.png"
      alt="Basic Rules Noise EN">
 
 <img id="img-sub-law-basicrules-noise-kr"
      class="main-img"
-     src="law-basicruels-noise-kr.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-kr.webp"
+     data-png="law-basicruels-noise-kr.png"
      alt="Basic Rules Noise EN KR">
 
 <img id="img-sub-law-basicrules-noise-id"
      class="main-img"
-     src="law-basicruels-noise-id.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-id.webp"
+     data-png="law-basicruels-noise-id.png"
      alt="Basic Rules Noise EN ID">
 
 <img id="img-sub-law-basicrules-noise-uz"
      class="main-img"
-     src="law-basicruels-noise-uz.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-uz.webp"
+     data-png="law-basicruels-noise-uz.png"
      alt="Basic Rules Noise EN UZ">
 
 <img id="img-sub-law-basicrules-noise-th"
      class="main-img"
-     src="law-basicruels-noise-th.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-th.webp"
+     data-png="law-basicruels-noise-th.png"
      alt="Basic Rules Noise EN TH">
 
 <img id="img-sub-law-basicrules-noise-kh"
      class="main-img"
-     src="law-basicruels-noise-kh.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-kh.webp"
+     data-png="law-basicruels-noise-kh.png"
      alt="Basic Rules Noise EN KH">
 
 <img id="img-sub-law-basicrules-noise-mm"
      class="main-img"
-     src="law-basicruels-noise-mm.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-mm.webp"
+     data-png="law-basicruels-noise-mm.png"
      alt="Basic Rules Noise EN MM">
 
 <img id="img-sub-law-basicrules-noise-tl"
      class="main-img"
-     src="law-basicruels-noise-tl.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-tl.webp"
+     data-png="law-basicruels-noise-tl.png"
      alt="Basic Rules Noise EN TL">
 
 <img id="img-sub-law-basicrules-noise-np"
      class="main-img"
-     src="law-basicruels-noise-np.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-np.webp"
+     data-png="law-basicruels-noise-np.png"
      alt="Basic Rules Noise EN NP">
 
 <img id="img-sub-law-basicrules-noise-tr"
      class="main-img"
-     src="law-basicruels-noise-tr.png"
+     decoding="async"
+     data-webp="law-basicruels-noise-tr.webp"
+     data-png="law-basicruels-noise-tr.png"
      alt="Basic Rules Noise EN TR">
 
 <img id="img-sub-law-basicrules-spitting-en"
      class="main-img"
-     src="law-basicrules-spitting-en.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-en.webp"
+     data-png="law-basicrules-spitting-en.png"
      alt="Basic Rules Spitting EN">
 
 <img id="img-sub-law-basicrules-spitting-kr"
      class="main-img"
-     src="law-basicrules-spitting-kr.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-kr.webp"
+     data-png="law-basicrules-spitting-kr.png"
      alt="Basic Rules Spitting EN KR">
 
 <img id="img-sub-law-basicrules-spitting-id"
      class="main-img"
-     src="law-basicrules-spitting-id.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-id.webp"
+     data-png="law-basicrules-spitting-id.png"
      alt="Basic Rules Spitting EN ID">
 
 <img id="img-sub-law-basicrules-spitting-uz"
      class="main-img"
-     src="law-basicrules-spitting-uz.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-uz.webp"
+     data-png="law-basicrules-spitting-uz.png"
      alt="Basic Rules Spitting EN UZ">
 
 <img id="img-sub-law-basicrules-spitting-th"
      class="main-img"
-     src="law-basicrules-spitting-th.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-th.webp"
+     data-png="law-basicrules-spitting-th.png"
      alt="Basic Rules Spitting EN TH">
 
 <img id="img-sub-law-basicrules-spitting-kh"
      class="main-img"
-     src="law-basicrules-spitting-kh.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-kh.webp"
+     data-png="law-basicrules-spitting-kh.png"
      alt="Basic Rules Spitting EN KH">
 
 <img id="img-sub-law-basicrules-spitting-mm"
      class="main-img"
-     src="law-basicrules-spitting-mm.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-mm.webp"
+     data-png="law-basicrules-spitting-mm.png"
      alt="Basic Rules Spitting EN MM">
 
 <img id="img-sub-law-basicrules-spitting-tl"
      class="main-img"
-     src="law-basicrules-spitting-tl.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-tl.webp"
+     data-png="law-basicrules-spitting-tl.png"
      alt="Basic Rules Spitting EN TL">
 
 <img id="img-sub-law-basicrules-spitting-np"
      class="main-img"
-     src="law-basicrules-spitting-np.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-np.webp"
+     data-png="law-basicrules-spitting-np.png"
      alt="Basic Rules Spitting EN NP">
 
 <img id="img-sub-law-basicrules-spitting-tr"
      class="main-img"
-     src="law-basicrules-spitting-tr.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-tr.webp"
+     data-png="law-basicrules-spitting-tr.png"
      alt="Basic Rules Spitting EN TR">
 
 <img id="img-sub-law-basicrules-walk-jp"
      class="main-img"
-     src="law-basicrules-walk-jp.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-jp.webp"
+     data-png="law-basicrules-walk-jp.png"
      alt="Basic Rules Walk JP">
 
 <img id="img-sub-law-basicrules-littering-jp"
      class="main-img"
-     src="law-basicrules-littering-jp.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-jp.webp"
+     data-png="law-basicrules-littering-jp.png"
      alt="Basic Rules Littering JP">
 
 <img id="img-sub-law-basicrules-smoking-jp"
      class="main-img"
-     src="law-basicrules-smoking-jp.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-jp.webp"
+     data-png="law-basicrules-smoking-jp.png"
      alt="Basic Rules Smoking JP">
 
 <img id="img-sub-law-basicrules-noise-jp"
      class="main-img"
-     src="law-basicrules-noise-jp.png"
+     decoding="async"
+     data-webp="law-basicrules-noise-jp.webp"
+     data-png="law-basicrules-noise-jp.png"
      alt="Basic Rules Noise JP">
 
 <img id="img-sub-law-basicrules-spitting-jp"
      class="main-img"
-     src="law-basicrules-spitting-jp.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-jp.webp"
+     data-png="law-basicrules-spitting-jp.png"
      alt="Basic Rules Spitting JP">
 
 <img id="img-sub-law-basicrules-walk-cn"
      class="main-img"
-     src="law-basicrules-walk-cn.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-cn.webp"
+     data-png="law-basicrules-walk-cn.png"
      alt="Basic Rules Walk CN">
 
 <img id="img-sub-law-basicrules-littering-cn"
      class="main-img"
-     src="law-basicrules-littering-cn.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-cn.webp"
+     data-png="law-basicrules-littering-cn.png"
      alt="Basic Rules Littering CN">
 
 <img id="img-sub-law-basicrules-smoking-cn"
      class="main-img"
-     src="law-basicrules-smoking-cn.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-cn.webp"
+     data-png="law-basicrules-smoking-cn.png"
      alt="Basic Rules Smoking CN">
 
 <img id="img-sub-law-basicrules-noise-cn"
      class="main-img"
-     src="law-basicrules-noise-cn.png"
+     decoding="async"
+     data-webp="law-basicrules-noise-cn.webp"
+     data-png="law-basicrules-noise-cn.png"
      alt="Basic Rules Noise CN">
 
 <img id="img-sub-law-basicrules-spitting-cn"
      class="main-img"
-     src="law-basicrules-spitting-cn.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-cn.webp"
+     data-png="law-basicrules-spitting-cn.png"
      alt="Basic Rules Spitting CN">
 
 <img id="img-sub-law-basicrules-walk-vn"
      class="main-img"
-     src="law-basicrules-walk-vn.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-vn.webp"
+     data-png="law-basicrules-walk-vn.png"
      alt="Basic Rules Walk VN">
 
 <img id="img-sub-law-basicrules-littering-vn"
      class="main-img"
-     src="law-basicrules-littering-vn.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-vn.webp"
+     data-png="law-basicrules-littering-vn.png"
      alt="Basic Rules Littering VN">
 
 <img id="img-sub-law-basicrules-smoking-vn"
      class="main-img"
-     src="law-basicrules-smoking-vn.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-vn.webp"
+     data-png="law-basicrules-smoking-vn.png"
      alt="Basic Rules Smoking VN">
 
 <img id="img-sub-law-basicrules-noise-vn"
      class="main-img"
-     src="law-basicrules-noise-vn.png"
+     decoding="async"
+     data-webp="law-basicrules-noise-vn.webp"
+     data-png="law-basicrules-noise-vn.png"
      alt="Basic Rules Noise VN">
 
 <img id="img-sub-law-basicrules-spitting-vn"
      class="main-img"
-     src="law-basicrules-spitting-vn.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-vn.webp"
+     data-png="law-basicrules-spitting-vn.png"
      alt="Basic Rules Spitting VN">
 
 <img id="img-sub-law-basicrules-walk-mn"
      class="main-img"
-     src="law-basicrules-walk-mn.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-mn.webp"
+     data-png="law-basicrules-walk-mn.png"
      alt="Basic Rules Walk MN">
 
 <img id="img-sub-law-basicrules-littering-mn"
      class="main-img"
-     src="law-basicrules-littering-mn.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-mn.webp"
+     data-png="law-basicrules-littering-mn.png"
      alt="Basic Rules Littering MN">
 
 <img id="img-sub-law-basicrules-smoking-mn"
      class="main-img"
-     src="law-basicrules-smoking-mn.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-mn.webp"
+     data-png="law-basicrules-smoking-mn.png"
      alt="Basic Rules Smoking MN">
 
 <img id="img-sub-law-basicrules-noise-mn"
      class="main-img"
-     src="law-basicrules-noise-mn.png"
+     decoding="async"
+     data-webp="law-basicrules-noise-mn.webp"
+     data-png="law-basicrules-noise-mn.png"
      alt="Basic Rules Noise MN">
 
 <img id="img-sub-law-basicrules-spitting-mn"
      class="main-img"
-     src="law-basicrules-spitting-mn.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-mn.webp"
+     data-png="law-basicrules-spitting-mn.png"
      alt="Basic Rules Spitting MN">
 
 <img id="img-sub-law-basicrules-walk-ph"
      class="main-img"
-     src="law-basicrules-walk-ph.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-ph.webp"
+     data-png="law-basicrules-walk-ph.png"
      alt="Basic Rules Walk PH">
 
 <img id="img-sub-law-basicrules-littering-ph"
      class="main-img"
-     src="law-basicrules-littering-ph.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-ph.webp"
+     data-png="law-basicrules-littering-ph.png"
      alt="Basic Rules Littering PH">
 
 <img id="img-sub-law-basicrules-smoking-ph"
      class="main-img"
-     src="law-basicrules-smoking-ph.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-ph.webp"
+     data-png="law-basicrules-smoking-ph.png"
      alt="Basic Rules Smoking PH">
 
 <img id="img-sub-law-basicrules-noise-ph"
      class="main-img"
-     src="law-basicrules-noise-ph.png"
+     decoding="async"
+     data-webp="law-basicrules-noise-ph.webp"
+     data-png="law-basicrules-noise-ph.png"
      alt="Basic Rules Noise PH">
 
 <img id="img-sub-law-basicrules-spitting-ph"
      class="main-img"
-     src="law-basicrules-spitting-ph.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-ph.webp"
+     data-png="law-basicrules-spitting-ph.png"
      alt="Basic Rules Spitting PH">
 
 <img id="img-sub-law-basicrules-walk-ru"
      class="main-img"
-     src="law-basicrules-walk-ru.png"
+     decoding="async"
+     data-webp="law-basicrules-walk-ru.webp"
+     data-png="law-basicrules-walk-ru.png"
      alt="Basic Rules Walk RU">
 
 <img id="img-sub-law-basicrules-littering-ru"
      class="main-img"
-     src="law-basicrules-littering-ru.png"
+     decoding="async"
+     data-webp="law-basicrules-littering-ru.webp"
+     data-png="law-basicrules-littering-ru.png"
      alt="Basic Rules Littering RU">
 
 <img id="img-sub-law-basicrules-smoking-ru"
      class="main-img"
-     src="law-basicrules-smoking-ru.png"
+     decoding="async"
+     data-webp="law-basicrules-smoking-ru.webp"
+     data-png="law-basicrules-smoking-ru.png"
      alt="Basic Rules Smoking RU">
 
 <img id="img-sub-law-basicrules-noise-ru"
      class="main-img"
-     src="law-basicrules-noise-ru.png"
+     decoding="async"
+     data-webp="law-basicrules-noise-ru.webp"
+     data-png="law-basicrules-noise-ru.png"
      alt="Basic Rules Noise RU">
 
 <img id="img-sub-law-basicrules-spitting-ru"
      class="main-img"
-     src="law-basicrules-spitting-ru.png"
+     decoding="async"
+     data-webp="law-basicrules-spitting-ru.webp"
+     data-png="law-basicrules-spitting-ru.png"
      alt="Basic Rules Spitting RU">
 
 <img id="img-sub-embassy"
      class="main-img"
-     src="embassy.png"
+     decoding="async"
+     data-webp="embassy.webp"
+     data-png="embassy.png"
      alt="Embassy">
 
 
@@ -1997,82 +2490,114 @@ body {
 
 <img id="img-sub-hospital-en"
      class="main-img"
-     src="hospital_en.png"
+     decoding="async"
+     data-webp="hospital_en.webp"
+     data-png="hospital_en.png"
      alt="Hospital English">
 
 <img id="img-sub-hospital-kr"
      class="main-img"
-     src="hospital_kr.png"
+     decoding="async"
+     data-webp="hospital_kr.webp"
+     data-png="hospital_kr.png"
      alt="Hospital English KR">
 
 <img id="img-sub-hospital-id"
      class="main-img"
-     src="hospital_id.png"
+     decoding="async"
+     data-webp="hospital_id.webp"
+     data-png="hospital_id.png"
      alt="Hospital English ID">
 
 <img id="img-sub-hospital-uz"
      class="main-img"
-     src="hospital_uz.png"
+     decoding="async"
+     data-webp="hospital_uz.webp"
+     data-png="hospital_uz.png"
      alt="Hospital English UZ">
 
 <img id="img-sub-hospital-th"
      class="main-img"
-     src="hospital_th.png"
+     decoding="async"
+     data-webp="hospital_th.webp"
+     data-png="hospital_th.png"
      alt="Hospital English TH">
 
 <img id="img-sub-hospital-kh"
      class="main-img"
-     src="hospital_kh.png"
+     decoding="async"
+     data-webp="hospital_kh.webp"
+     data-png="hospital_kh.png"
      alt="Hospital English KH">
 
 <img id="img-sub-hospital-mm"
      class="main-img"
-     src="hospital_mm.png"
+     decoding="async"
+     data-webp="hospital_mm.webp"
+     data-png="hospital_mm.png"
      alt="Hospital English MM">
 
 <img id="img-sub-hospital-tl"
      class="main-img"
-     src="hospital_tl.png"
+     decoding="async"
+     data-webp="hospital_tl.webp"
+     data-png="hospital_tl.png"
      alt="Hospital English TL">
 
 <img id="img-sub-hospital-np"
      class="main-img"
-     src="hospital_np.png"
+     decoding="async"
+     data-webp="hospital_np.webp"
+     data-png="hospital_np.png"
      alt="Hospital English NP">
 
 <img id="img-sub-hospital-tr"
      class="main-img"
-     src="hospital_tr.png"
+     decoding="async"
+     data-webp="hospital_tr.webp"
+     data-png="hospital_tr.png"
      alt="Hospital English TR">
 
 <img id="img-sub-hospital-cn"
      class="main-img"
-     src="hospital_cn.png"
+     decoding="async"
+     data-webp="hospital_cn.webp"
+     data-png="hospital_cn.png"
      alt="Hospital Chinese">
 
 <img id="img-sub-hospital-jp"
      class="main-img"
-     src="hospital_jp.png"
+     decoding="async"
+     data-webp="hospital_jp.webp"
+     data-png="hospital_jp.png"
      alt="Hospital Japanese">
 
 <img id="img-sub-hospital-vn"
      class="main-img"
-     src="hospital_vn.png"
+     decoding="async"
+     data-webp="hospital_vn.webp"
+     data-png="hospital_vn.png"
      alt="Hospital Vietnamese">
 
 <img id="img-sub-hospital-ru"
      class="main-img"
-     src="hospital_ru.png"
+     decoding="async"
+     data-webp="hospital_ru.webp"
+     data-png="hospital_ru.png"
      alt="Hospital Russian">
 
 <img id="img-sub-hospital-mn"
      class="main-img"
-     src="hospital_mn.png"
+     decoding="async"
+     data-webp="hospital_mn.webp"
+     data-png="hospital_mn.png"
      alt="Hospital Mongolian">
 
 <img id="img-sub-hospital-ph"
      class="main-img"
-     src="hospital_ph.png"
+     decoding="async"
+     data-webp="hospital_ph.webp"
+     data-png="hospital_ph.png"
      alt="Hospital Filipino">
 
 
@@ -2082,82 +2607,114 @@ body {
 
 <img id="img-sub-medinfo-en"
      class="main-img"
-     src="hospital-info-en.png"
+     decoding="async"
+     data-webp="hospital-info-en.webp"
+     data-png="hospital-info-en.png"
      alt="Medical English">
 
 <img id="img-sub-medinfo-kr"
      class="main-img"
-     src="hospital-info-kr.png"
+     decoding="async"
+     data-webp="hospital-info-kr.webp"
+     data-png="hospital-info-kr.png"
      alt="Medical English KR">
 
 <img id="img-sub-medinfo-id"
      class="main-img"
-     src="hospital-info-id.png"
+     decoding="async"
+     data-webp="hospital-info-id.webp"
+     data-png="hospital-info-id.png"
      alt="Medical English ID">
 
 <img id="img-sub-medinfo-uz"
      class="main-img"
-     src="hospital-info-uz.png"
+     decoding="async"
+     data-webp="hospital-info-uz.webp"
+     data-png="hospital-info-uz.png"
      alt="Medical English UZ">
 
 <img id="img-sub-medinfo-th"
      class="main-img"
-     src="hospital-info-th.png"
+     decoding="async"
+     data-webp="hospital-info-th.webp"
+     data-png="hospital-info-th.png"
      alt="Medical English TH">
 
 <img id="img-sub-medinfo-kh"
      class="main-img"
-     src="hospital-info-kh.png"
+     decoding="async"
+     data-webp="hospital-info-kh.webp"
+     data-png="hospital-info-kh.png"
      alt="Medical English KH">
 
 <img id="img-sub-medinfo-mm"
      class="main-img"
-     src="hospital-info-mm.png"
+     decoding="async"
+     data-webp="hospital-info-mm.webp"
+     data-png="hospital-info-mm.png"
      alt="Medical English MM">
 
 <img id="img-sub-medinfo-tl"
      class="main-img"
-     src="hospital-info-tl.png"
+     decoding="async"
+     data-webp="hospital-info-tl.webp"
+     data-png="hospital-info-tl.png"
      alt="Medical English TL">
 
 <img id="img-sub-medinfo-np"
      class="main-img"
-     src="hospital-info-np.png"
+     decoding="async"
+     data-webp="hospital-info-np.webp"
+     data-png="hospital-info-np.png"
      alt="Medical English NP">
 
 <img id="img-sub-medinfo-tr"
      class="main-img"
-     src="hospital-info-tr.png"
+     decoding="async"
+     data-webp="hospital-info-tr.webp"
+     data-png="hospital-info-tr.png"
      alt="Medical English TR">
 
 <img id="img-sub-medinfo-cn"
      class="main-img"
-     src="hospital-info-cn.png"
+     decoding="async"
+     data-webp="hospital-info-cn.webp"
+     data-png="hospital-info-cn.png"
      alt="Medical Chinese">
 
 <img id="img-sub-medinfo-jp"
      class="main-img"
-     src="hospital-info-jp.png"
+     decoding="async"
+     data-webp="hospital-info-jp.webp"
+     data-png="hospital-info-jp.png"
      alt="Medical Japanese">
 
 <img id="img-sub-medinfo-vn"
      class="main-img"
-     src="hospital-info-vn.png"
+     decoding="async"
+     data-webp="hospital-info-vn.webp"
+     data-png="hospital-info-vn.png"
      alt="Medical Vietnamese">
 
 <img id="img-sub-medinfo-ru"
      class="main-img"
-     src="hospital-info-ru.png"
+     decoding="async"
+     data-webp="hospital-info-ru.webp"
+     data-png="hospital-info-ru.png"
      alt="Medical Russian">
 
 <img id="img-sub-medinfo-mn"
      class="main-img"
-     src="hospital-info-mn.png"
+     decoding="async"
+     data-webp="hospital-info-mn.webp"
+     data-png="hospital-info-mn.png"
      alt="Medical Mongolian">
 
 <img id="img-sub-medinfo-ph"
      class="main-img"
-     src="hospital-info-ph.png"
+     decoding="async"
+     data-webp="hospital-info-ph.webp"
+     data-png="hospital-info-ph.png"
      alt="Medical Filipino">
 
 
@@ -2167,82 +2724,114 @@ body {
 
 <img id="img-sub-pharmacy-en"
      class="main-img"
-     src="pharmacy_en.png"
+     decoding="async"
+     data-webp="pharmacy_en.webp"
+     data-png="pharmacy_en.png"
      alt="Pharmacy English">
 
 <img id="img-sub-pharmacy-kr"
      class="main-img"
-     src="pharmacy_kr.png"
+     decoding="async"
+     data-webp="pharmacy_kr.webp"
+     data-png="pharmacy_kr.png"
      alt="Pharmacy English KR">
 
 <img id="img-sub-pharmacy-id"
      class="main-img"
-     src="pharmacy_id.png"
+     decoding="async"
+     data-webp="pharmacy_id.webp"
+     data-png="pharmacy_id.png"
      alt="Pharmacy English ID">
 
 <img id="img-sub-pharmacy-uz"
      class="main-img"
-     src="pharmacy_uz.png"
+     decoding="async"
+     data-webp="pharmacy_uz.webp"
+     data-png="pharmacy_uz.png"
      alt="Pharmacy English UZ">
 
 <img id="img-sub-pharmacy-th"
      class="main-img"
-     src="pharmacy_th.png"
+     decoding="async"
+     data-webp="pharmacy_th.webp"
+     data-png="pharmacy_th.png"
      alt="Pharmacy English TH">
 
 <img id="img-sub-pharmacy-kh"
      class="main-img"
-     src="pharmacy_kh.png"
+     decoding="async"
+     data-webp="pharmacy_kh.webp"
+     data-png="pharmacy_kh.png"
      alt="Pharmacy English KH">
 
 <img id="img-sub-pharmacy-mm"
      class="main-img"
-     src="pharmacy_mm.png"
+     decoding="async"
+     data-webp="pharmacy_mm.webp"
+     data-png="pharmacy_mm.png"
      alt="Pharmacy English MM">
 
 <img id="img-sub-pharmacy-tl"
      class="main-img"
-     src="pharmacy_tl.png"
+     decoding="async"
+     data-webp="pharmacy_tl.webp"
+     data-png="pharmacy_tl.png"
      alt="Pharmacy English TL">
 
 <img id="img-sub-pharmacy-np"
      class="main-img"
-     src="pharmacy_np.png"
+     decoding="async"
+     data-webp="pharmacy_np.webp"
+     data-png="pharmacy_np.png"
      alt="Pharmacy English NP">
 
 <img id="img-sub-pharmacy-tr"
      class="main-img"
-     src="pharmacy_tr.png"
+     decoding="async"
+     data-webp="pharmacy_tr.webp"
+     data-png="pharmacy_tr.png"
      alt="Pharmacy English TR">
 
 <img id="img-sub-pharmacy-cn"
      class="main-img"
-     src="pharmacy_cn.png"
+     decoding="async"
+     data-webp="pharmacy_cn.webp"
+     data-png="pharmacy_cn.png"
      alt="Pharmacy Chinese">
 
 <img id="img-sub-pharmacy-jp"
      class="main-img"
-     src="pharmacy_jp.png"
+     decoding="async"
+     data-webp="pharmacy_jp.webp"
+     data-png="pharmacy_jp.png"
      alt="Pharmacy Japanese">
 
 <img id="img-sub-pharmacy-vn"
      class="main-img"
-     src="pharmacy_vn.png"
+     decoding="async"
+     data-webp="pharmacy_vn.webp"
+     data-png="pharmacy_vn.png"
      alt="Pharmacy Vietnamese">
 
 <img id="img-sub-pharmacy-ru"
      class="main-img"
-     src="pharmacy_ru.png"
+     decoding="async"
+     data-webp="pharmacy_ru.webp"
+     data-png="pharmacy_ru.png"
      alt="Pharmacy Russian">
 
 <img id="img-sub-pharmacy-mn"
      class="main-img"
-     src="pharmacy_mn.png"
+     decoding="async"
+     data-webp="pharmacy_mn.webp"
+     data-png="pharmacy_mn.png"
      alt="Pharmacy Mongolian">
 
 <img id="img-sub-pharmacy-ph"
      class="main-img"
-     src="pharmacy_ph.png"
+     decoding="async"
+     data-webp="pharmacy_ph.webp"
+     data-png="pharmacy_ph.png"
      alt="Pharmacy Filipino">
 
 
@@ -2254,112 +2843,112 @@ body {
    href="javascript:void(0)"
    class="touch-link btn-kr"
    aria-label="🇰🇷 한국어"
-   onclick="goPage('kr')">
+   onpointerdown="prefetchPage('kr')" onclick="goPage('kr')">
 </a>
 
 <a id="area-en"
    href="javascript:void(0)"
    class="touch-link btn-en"
    aria-label="🇺🇸 English"
-   onclick="goPage('en')">
+   onpointerdown="prefetchPage('en')" onclick="goPage('en')">
 </a>
 
 <a id="area-jp"
    href="javascript:void(0)"
    class="touch-link btn-jp"
    aria-label="🇯🇵 日本語"
-   onclick="goPage('jp')">
+   onpointerdown="prefetchPage('jp')" onclick="goPage('jp')">
 </a>
 
 <a id="area-cn"
    href="javascript:void(0)"
    class="touch-link btn-cn"
    aria-label="🇨🇳 中文"
-   onclick="goPage('cn')">
+   onpointerdown="prefetchPage('cn')" onclick="goPage('cn')">
 </a>
 
 <a id="area-vn"
    href="javascript:void(0)"
    class="touch-link btn-vn"
    aria-label="🇻🇳 Tiếng Việt"
-   onclick="goPage('vn')">
+   onpointerdown="prefetchPage('vn')" onclick="goPage('vn')">
 </a>
 
 <a id="area-mn"
    href="javascript:void(0)"
    class="touch-link btn-mn"
    aria-label="🇲🇳 Монгол"
-   onclick="goPage('mn')">
+   onpointerdown="prefetchPage('mn')" onclick="goPage('mn')">
 </a>
 
 <a id="area-ph"
    href="javascript:void(0)"
    class="touch-link btn-ph"
    aria-label="🇵🇭 Filipino"
-   onclick="goPage('ph')">
+   onpointerdown="prefetchPage('ph')" onclick="goPage('ph')">
 </a>
 
 <a id="area-ru"
    href="javascript:void(0)"
    class="touch-link btn-ru"
    aria-label="🇷🇺 Русский"
-   onclick="goPage('ru')">
+   onpointerdown="prefetchPage('ru')" onclick="goPage('ru')">
 </a>
 
 <a id="area-id"
    href="javascript:void(0)"
    class="touch-link btn-id"
    aria-label="🇮🇩 Indonesia"
-   onclick="goPage('id')">
+   onpointerdown="prefetchPage('id')" onclick="goPage('id')">
 </a>
 
 <a id="area-uz"
    href="javascript:void(0)"
    class="touch-link btn-uz"
    aria-label="🇺🇿 O‘zbekcha"
-   onclick="goPage('uz')">
+   onpointerdown="prefetchPage('uz')" onclick="goPage('uz')">
 </a>
 
 <a id="area-th"
    href="javascript:void(0)"
    class="touch-link btn-th"
    aria-label="🇹🇭 ไทย"
-   onclick="goPage('th')">
+   onpointerdown="prefetchPage('th')" onclick="goPage('th')">
 </a>
 
 <a id="area-kh"
    href="javascript:void(0)"
    class="touch-link btn-kh"
    aria-label="🇰🇭 ខ្មែរ"
-   onclick="goPage('kh')">
+   onpointerdown="prefetchPage('kh')" onclick="goPage('kh')">
 </a>
 
 <a id="area-mm"
    href="javascript:void(0)"
    class="touch-link btn-mm"
    aria-label="🇲🇲 မြန်မာ"
-   onclick="goPage('mm')">
+   onpointerdown="prefetchPage('mm')" onclick="goPage('mm')">
 </a>
 
 <a id="area-tl"
    href="javascript:void(0)"
    class="touch-link btn-tl"
    aria-label="🇵🇭 Tagalog"
-   onclick="goPage('tl')">
+   onpointerdown="prefetchPage('tl')" onclick="goPage('tl')">
 </a>
 
 <a id="area-np"
    href="javascript:void(0)"
    class="touch-link btn-np"
    aria-label="🇳🇵 नेपाली"
-   onclick="goPage('np')">
+   onpointerdown="prefetchPage('np')" onclick="goPage('np')">
 </a>
 
 <a id="area-tr"
    href="javascript:void(0)"
    class="touch-link btn-tr"
    aria-label="🇹🇷 Türkçe"
-   onclick="goPage('tr')">
+   onpointerdown="prefetchPage('tr')" onclick="goPage('tr')">
 </a>
 
 
@@ -2526,13 +3115,13 @@ body {
 <a id="click-hosp"
    href="javascript:void(0)"
    class="touch-link click-hospital"
-   onclick="clickSubMenu('hospital')">
+   data-prefetch-page="sub-hospital-en" onclick="clickSubMenu('hospital')">
 </a>
 
 <a id="click-phar"
    href="javascript:void(0)"
    class="touch-link click-pharmacy"
-   onclick="clickSubMenu('pharmacy')">
+   data-prefetch-page="sub-pharmacy-en" onclick="clickSubMenu('pharmacy')">
 </a>
 
 <a id="click-emba"
@@ -2930,6 +3519,122 @@ body {
 <script>
 
 /* =========================================================
+   FAST IMAGE LOADER
+   - WebP 우선
+   - PNG 자동 fallback
+   - 사용자가 누를 가능성이 높은 다음 화면 미리받기
+   ========================================================= */
+
+var imagePrefetchCache = Object.create(null);
+
+function loadOptimizedImage(img) {
+    if (!img || img.getAttribute("src")) return;
+
+    var webp = img.getAttribute("data-webp");
+    var png  = img.getAttribute("data-png");
+
+    if (!webp && !png) return;
+
+    img.decoding = "async";
+
+    if (webp) {
+        img.onerror = function() {
+            img.onerror = null;
+            if (png) img.src = png;
+        };
+        img.src = webp;
+    } else if (png) {
+        img.src = png;
+    }
+}
+
+function prefetchImage(url, fallbackUrl) {
+    if (!url || imagePrefetchCache[url]) return;
+    imagePrefetchCache[url] = true;
+
+    var img = new Image();
+    img.decoding = "async";
+    if (fallbackUrl) {
+        img.onerror = function() {
+            img.onerror = null;
+            var fallback = new Image();
+            fallback.decoding = "async";
+            fallback.src = fallbackUrl;
+        };
+    }
+    img.src = url;
+}
+
+function prefetchPage(pageId) {
+    var img = document.getElementById("img-" + pageId);
+    if (!img) return;
+
+    var webp = img.getAttribute("data-webp");
+    var png  = img.getAttribute("data-png");
+
+    if (webp || png) {
+        prefetchImage(webp || png, webp ? png : null);
+    }
+}
+
+function canSmartPrefetch() {
+    var c = navigator.connection ||
+            navigator.mozConnection ||
+            navigator.webkitConnection;
+
+    if (!c) return true;
+    if (c.saveData) return false;
+
+    /* 2G/slow-2g에서는 사용자가 누르기 전까지 추가 다운로드 금지 */
+    if (c.effectiveType === "2g" || c.effectiveType === "slow-2g") {
+        return false;
+    }
+    return true;
+}
+
+function idleRun(fn) {
+    if ("requestIdleCallback" in window) {
+        requestIdleCallback(fn, { timeout: 1200 });
+    } else {
+        setTimeout(fn, 250);
+    }
+}
+
+function scheduleSmartPrefetch(pageId) {
+    if (!canSmartPrefetch()) return;
+
+    idleRun(function() {
+        /* 언어 MAIN 화면 진입 후 자주 쓰는 3개 메뉴를 먼저 준비 */
+        if (["kr","en","jp","cn","vn","mn","ph","ru","id","uz","th","kh","mm","tl","np","tr"].indexOf(pageId) >= 0) {
+            prefetchPage("sub-hospital-" + currentLang);
+            prefetchPage("sub-pharmacy-" + currentLang);
+            prefetchPage("sub-law-" + currentLang);
+        }
+
+        /* 병원 화면에서는 의료정보를 미리 준비 */
+        if (pageId === "sub-hospital-" + currentLang) {
+            prefetchPage("sub-medinfo-" + currentLang);
+        }
+    });
+}
+
+/* 사용자가 누르기 시작하는 순간 다음 화면 다운로드를 바로 시작 */
+document.addEventListener("pointerdown", function(e) {
+    var el = e.target.closest("[data-prefetch-page]");
+    if (!el) return;
+    prefetchPage(el.getAttribute("data-prefetch-page"));
+}, { passive: true });
+
+/* 서비스워커 캐시 */
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker.register("./sw.js").catch(function() {});
+    });
+}
+
+
+
+/* =========================================================
    현재 언어
    ========================================================= */
 
@@ -3003,7 +3708,18 @@ function goPage(pageId) {
 
     if (target) {
 
+        /* -------------------------------------------------
+           ★ 3G 최적화
+           최초 접속에는 home.png만 다운로드하고,
+           사용자가 실제로 여는 페이지만 그때 로딩
+           ------------------------------------------------- */
+        loadOptimizedImage(target);
+
         target.classList.add("active");
+
+        /* 5G/와이파이에서는 다음에 누를 가능성이 높은 화면을
+           브라우저가 한가할 때 미리 받아 전환 지연을 줄임 */
+        scheduleSmartPrefetch(pageId);
 
     } else {
 
