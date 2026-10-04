@@ -230,9 +230,10 @@ body {
     text-align: center;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
 
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -244,15 +245,20 @@ body {
 }
 
 .dropdown-menu .flag {
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1;
     flex: 0 0 auto;
 }
 
 .dropdown-menu .lang-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 1.05;
+    text-align: center;
     white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
 }
 
 
@@ -861,6 +867,26 @@ body {
     height: 7.8%;
     z-index: 1000000000;
     pointer-events: auto !important;
+}
+
+
+.dropdown-menu .dropdown-home {
+    grid-column: 1 / -1;
+    min-height: 42px;
+    margin-top: 2px;
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 10px;
+    background: rgba(255,255,255,.16);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
 }
 
 </style>
@@ -3076,7 +3102,12 @@ body {
         <button type="button" onclick="selectLanguage('tl')"><span class="flag">🇵🇭</span><span class="lang-name">Tagalog</span></button>
         <button type="button" onclick="selectLanguage('np')"><span class="flag">🇳🇵</span><span class="lang-name">नेपाली</span></button>
         <button type="button" onclick="selectLanguage('tr')"><span class="flag">🇹🇷</span><span class="lang-name">Türkçe</span></button>
-    </div>
+
+        <button type="button" class="dropdown-home" onclick="goPage('home'); closeDropdownIfOpen();">
+            <span style="font-size:18px;">🏠</span>
+            <span>HOME</span>
+        </button>
+</div>
 
 
 <!-- =====================================================
@@ -3508,6 +3539,12 @@ body {
 </div>
 
 <script>
+
+function closeDropdownIfOpen() {
+    var menu = document.querySelector(".dropdown-menu");
+    if (menu) menu.classList.remove("open");
+}
+
 
 /* =========================================================
    START DIRECTLY ON LANGUAGE MAIN
