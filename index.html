@@ -3752,6 +3752,52 @@ function canSmartPrefetch() {
     return true;
 }
 
+/* =========================================================
+   LAW 상세페이지 즉시 사전 로딩
+   - 법과 질서 8개 메뉴 화면에 들어오는 순간
+     현재 언어의 상세 이미지를 바로 다운로드 시작
+   - 기존 이동/터치 로직은 변경하지 않음
+   ========================================================= */
+function preloadLawMenuDetails(lang) {
+    if (!lang || !canSmartPrefetch()) return;
+
+    var pages = [
+        "sub-law-basicrules-",
+        "sub-law-sexual-",
+        "sub-law-theft-",
+        "sub-law-drugs-",
+        "sub-law-driving-",
+        "sub-law-voice-",
+        "sub-law-firearms-",
+        "sub-law-exemption-"
+    ];
+
+    for (var i = 0; i < pages.length; i++) {
+        loadOptimizedImage(
+            document.getElementById("img-" + pages[i] + lang)
+        );
+    }
+}
+
+/* 기초질서 목록에 들어오면 5개 세부페이지도 바로 준비 */
+function preloadBasicRulesDetails(lang) {
+    if (!lang || !canSmartPrefetch()) return;
+
+    var pages = [
+        "sub-law-basicrules-walk-",
+        "sub-law-basicrules-littering-",
+        "sub-law-basicrules-smoking-",
+        "sub-law-basicrules-noise-",
+        "sub-law-basicrules-spitting-"
+    ];
+
+    for (var i = 0; i < pages.length; i++) {
+        loadOptimizedImage(
+            document.getElementById("img-" + pages[i] + lang)
+        );
+    }
+}
+
 function idleRun(fn) {
     if ("requestIdleCallback" in window) {
         requestIdleCallback(fn, { timeout: 1200 });
@@ -3888,6 +3934,26 @@ function goPage(pageId) {
         /* 5G/와이파이에서는 다음에 누를 가능성이 높은 화면을
            브라우저가 한가할 때 미리 받아 전환 지연을 줄임 */
         scheduleSmartPrefetch(pageId);
+
+        /* -------------------------------------------------
+           ★ LAW 전환속도 개선
+           법과 질서 목록이 보이는 즉시 8개 상세 이미지를 준비해
+           성폭력/절도/마약/음주운전/보이스피싱 등의 첫 진입 지연을 줄임
+           ------------------------------------------------- */
+        var preloadLawLangMatch =
+            pageId.match(/-(kr|en|jp|cn|vn|mn|ph|ru|id|uz|th|kh|mm|tl|np|tr)$/);
+
+        var preloadLawLang = preloadLawLangMatch
+            ? preloadLawLangMatch[1]
+            : currentLang;
+
+        if (/^sub-law-(kr|en|jp|cn|vn|mn|ph|ru|id|uz|th|kh|mm|tl|np|tr)$/.test(pageId)) {
+            preloadLawMenuDetails(preloadLawLang);
+        }
+
+        if (/^sub-law-basicrules-(kr|en|jp|cn|vn|mn|ph|ru|id|uz|th|kh|mm|tl|np|tr)$/.test(pageId)) {
+            preloadBasicRulesDetails(preloadLawLang);
+        }
 
     } else {
 
