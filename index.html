@@ -759,6 +759,16 @@ body {
     z-index: 100000020;
 }
 
+/* 안전지원 상세페이지(실종예방 / 법률상담) 상단 '이전으로'
+   상세 → safe_kr.webp */
+.safe-detail-back-btn {
+    top: 0%;
+    left: 0%;
+    width: 25%;
+    height: 6.5%;
+    z-index: 100000050;
+}
+
 /* =========================================================
    BUSAN SAFE TALK / 부산안심톡
    기존 이미지/핫스팟과 독립된 fixed UI
@@ -3243,6 +3253,8 @@ body {
    href="javascript:void(0)"
    class="touch-link safe-item-missing"
    aria-label="Missing Prevention"
+   data-prefetch-page="sub-safe-missing-kr"
+   onpointerdown="prefetchPage('sub-safe-missing-kr')"
    onclick="goPage('sub-safe-missing-kr')">
 </a>
 
@@ -3250,7 +3262,16 @@ body {
    href="javascript:void(0)"
    class="touch-link safe-item-law"
    aria-label="Legal Consultation"
+   data-prefetch-page="sub-safe-law-kr"
+   onpointerdown="prefetchPage('sub-safe-law-kr')"
    onclick="goPage('sub-safe-law-kr')">
+</a>
+
+<a id="safe-detail-back"
+   href="javascript:void(0)"
+   class="touch-link safe-detail-back-btn"
+   aria-label="Back to Safety Support"
+   onclick="goPage('sub-safe-kr')">
 </a>
 
 
@@ -3757,6 +3778,13 @@ function scheduleSmartPrefetch(pageId) {
         if (pageId === "sub-hospital-" + currentLang) {
             prefetchPage("sub-medinfo-" + currentLang);
         }
+
+
+        /* 한국어 안전지원 화면에서는 상세 2개 이미지를 즉시 미리 로딩 */
+        if (pageId === "sub-safe-kr") {
+            loadOptimizedImage(document.getElementById("img-sub-safe-missing-kr"));
+            loadOptimizedImage(document.getElementById("img-sub-safe-law-kr"));
+        }
     });
 }
 
@@ -3919,6 +3947,10 @@ function goPage(pageId) {
     var isSafetyKrMain =
         pageId === "sub-safe-kr";
 
+    var isSafetyDetail =
+        pageId === "sub-safe-missing-kr" ||
+        pageId === "sub-safe-law-kr";
+
 
     var isEmbassySub =
         pageId === "sub-embassy";
@@ -4032,6 +4064,7 @@ function goPage(pageId) {
     setDisplay("safe-lost-link", isSafetyKrMain);
     setDisplay("safe-missing-link", isSafetyKrMain);
     setDisplay("safe-law-link", isSafetyKrMain);
+    setDisplay("safe-detail-back", isSafetyDetail);
 
 
     /* =====================================================
