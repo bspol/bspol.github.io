@@ -3741,6 +3741,31 @@ function prefetchPage(pageId) {
     }
 }
 
+/* =========================================================
+   15개 언어 MAIN 전환 속도 개선
+   - MAIN 화면에 들어오면 나머지 언어 MAIN 이미지를 백그라운드 로딩
+   - 지구본을 누르는 순간에는 15개 MAIN 로딩을 즉시 보강
+   - 기존 페이지/터치/전화/안심톡 로직은 변경하지 않음
+   ========================================================= */
+var MAIN_LANGUAGE_CODES = [
+    "kr","en","jp","cn","vn",
+    "mn","ph","ru","id","uz",
+    "th","kh","mm","np","tr"
+];
+
+function preloadAllMainLanguages(force) {
+    if (!force && !canSmartPrefetch()) return;
+
+    for (var i = 0; i < MAIN_LANGUAGE_CODES.length; i++) {
+        var lang = MAIN_LANGUAGE_CODES[i];
+        var img = document.getElementById("img-" + lang);
+        if (!img) continue;
+
+        /* 실제 숨은 img에 src를 넣어 다운로드 + 디코딩까지 미리 준비 */
+        loadOptimizedImage(img);
+    }
+}
+
 function canSmartPrefetch() {
     var c = navigator.connection ||
             navigator.mozConnection ||
@@ -3938,6 +3963,13 @@ function goPage(pageId) {
         /* 5G/와이파이에서는 다음에 누를 가능성이 높은 화면을
            브라우저가 한가할 때 미리 받아 전환 지연을 줄임 */
         scheduleSmartPrefetch(pageId);
+
+        /* 15개 언어 MAIN 중 하나가 열리면 다른 언어 MAIN을 미리 준비 */
+        if (MAIN_LANGUAGE_CODES.indexOf(pageId) >= 0) {
+            idleRun(function() {
+                preloadAllMainLanguages(false);
+            });
+        }
 
         /* -------------------------------------------------
            ★ LAW 전환속도 개선
@@ -4310,6 +4342,10 @@ function toggleDropdown(event) {
         event.preventDefault();
         event.stopPropagation();
     }
+
+    /* 사용자가 지구본을 눌렀다는 것은 언어 변경 의도가 명확하므로
+       네팔어를 포함한 15개 MAIN 이미지를 즉시 준비 */
+    preloadAllMainLanguages(true);
 
     var dropdown = document.getElementById("langDropdown");
     if (!dropdown) return;
