@@ -99,30 +99,31 @@ body {
 
 /* =========================================================
    HOME
-   ★ 15개 국가 / 화면상 16개 언어 선택칸
-     (필리핀: Filipino + Tagalog 2개 언어)
-   ★ 새 home.webp 레이아웃 기준 / 퍼센트 좌표 재보정
+   ★ 15개 국가 / 5열 × 3행
+   ★ 최종 home.webp(941×1672) 레이아웃 기준
+   ★ 카드 전체(국기/언어명/화살표)를 넉넉하게 터치
    ========================================================= */
 
-.btn-kr { top: 49.5%; left: 4.0%; width: 22.1%; height: 7.0%; }
-.btn-en { top: 49.5%; left: 26.8%; width: 22.1%; height: 7.0%; }
-.btn-jp { top: 49.5%; left: 49.7%; width: 22.1%; height: 7.0%; }
-.btn-cn { top: 49.5%; left: 72.5%; width: 23.0%; height: 7.0%; }
+/* 1행 : 한국 / 영어 / 일본 / 중국 / 베트남 */
+.btn-kr { top: 49.6%; left: 3.7%;  width: 18.2%; height: 8.6%; }
+.btn-en { top: 49.6%; left: 22.0%; width: 18.2%; height: 8.6%; }
+.btn-jp { top: 49.6%; left: 40.3%; width: 18.2%; height: 8.6%; }
+.btn-cn { top: 49.6%; left: 58.6%; width: 18.2%; height: 8.6%; }
+.btn-vn { top: 49.6%; left: 76.9%; width: 18.2%; height: 8.6%; }
 
-.btn-vn { top: 57.0%; left: 4.0%; width: 22.1%; height: 6.9%; }
-.btn-mn { top: 57.0%; left: 26.8%; width: 22.1%; height: 6.9%; }
-.btn-ph { top: 57.0%; left: 49.7%; width: 22.1%; height: 6.9%; }
-.btn-ru { top: 57.0%; left: 72.5%; width: 23.0%; height: 6.9%; }
+/* 2행 : 몽골 / 필리핀 / 러시아 / 인도네시아 / 우즈베키스탄 */
+.btn-mn { top: 58.7%; left: 3.7%;  width: 18.2%; height: 9.0%; }
+.btn-ph { top: 58.7%; left: 22.0%; width: 18.2%; height: 9.0%; }
+.btn-ru { top: 58.7%; left: 40.3%; width: 18.2%; height: 9.0%; }
+.btn-id { top: 58.7%; left: 58.6%; width: 18.2%; height: 9.0%; }
+.btn-uz { top: 58.7%; left: 76.9%; width: 18.2%; height: 9.0%; }
 
-.btn-id { top: 64.2%; left: 4.0%; width: 22.1%; height: 6.9%; }
-.btn-uz { top: 64.2%; left: 26.8%; width: 22.1%; height: 6.9%; }
-.btn-th { top: 64.2%; left: 49.7%; width: 22.1%; height: 6.9%; }
-.btn-kh { top: 64.2%; left: 72.5%; width: 23.0%; height: 6.9%; }
-
-.btn-mm { top: 71.4%; left: 4.0%; width: 22.1%; height: 7.0%; }
-.btn-tl { top: 71.4%; left: 26.8%; width: 22.1%; height: 7.0%; }
-.btn-np { top: 71.4%; left: 49.7%; width: 22.1%; height: 7.0%; }
-.btn-tr { top: 71.4%; left: 72.5%; width: 23.0%; height: 7.0%; }
+/* 3행 : 태국 / 캄보디아 / 미얀마 / 네팔 / 튀르키예 */
+.btn-th { top: 68.2%; left: 3.7%;  width: 18.2%; height: 9.5%; }
+.btn-kh { top: 68.2%; left: 22.0%; width: 18.2%; height: 9.5%; }
+.btn-mm { top: 68.2%; left: 40.3%; width: 18.2%; height: 9.5%; }
+.btn-np { top: 68.2%; left: 58.6%; width: 18.2%; height: 9.5%; }
+.btn-tr { top: 68.2%; left: 76.9%; width: 18.2%; height: 9.5%; }
 
 
 /* =========================================================
@@ -152,7 +153,7 @@ body {
 
 /* =========================================================
    MAIN HOME 버튼
-   ★ 16개 언어 MAIN 화면 좌측 상단 홈 아이콘 터치영역
+   ★ 15개 언어 MAIN 화면 좌측 상단 홈 아이콘 터치영역
    ========================================================= */
 
 .main-home-btn {
@@ -185,7 +186,8 @@ body {
 
 /* =========================================================
    언어 드롭다운
-   ★ 15개 국가 / 16개 언어 선택
+   ★ 15개 국가 / 5열 × 3행
+   ★ HOME과 같은 국가 순서
    ★ 모든 투명 터치영역보다 위에 올라오도록 z-index 고정
    ========================================================= */
 
@@ -199,7 +201,7 @@ body {
     padding: 10px;
     box-sizing: border-box;
 
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 7px;
 
     background: rgba(10, 28, 55, 0.90);
@@ -2940,7 +2942,7 @@ body {
 
 
 <!-- =====================================================
-     HOME 15개 국가 / 16개 언어 버튼
+     HOME 15개 국가 / 5열 × 3행 버튼
      ===================================================== -->
 
 <a id="area-kr"
@@ -3034,12 +3036,6 @@ body {
    onpointerdown="prefetchPage('mm')" onclick="setStartupLanguage('mm'); goPage('mm')">
 </a>
 
-<a id="area-tl"
-   href="javascript:void(0)"
-   class="touch-link btn-tl"
-   aria-label="🇵🇭 Tagalog"
-   onpointerdown="prefetchPage('tl')" onclick="setStartupLanguage('tl'); goPage('tl')">
-</a>
 
 <a id="area-np"
    href="javascript:void(0)"
@@ -3104,7 +3100,7 @@ body {
 
 <!-- =====================================================
      언어 메뉴
-     ★ 15개 국가 / 16개 언어 선택
+     ★ 15개 국가 / 5열 × 3행
      ★ HOME 화면 순서와 동일
      ===================================================== -->
 
@@ -3114,19 +3110,17 @@ body {
         <button type="button" onclick="selectLanguage('en')"><span class="flag">🇺🇸</span><span class="lang-name">English</span></button>
         <button type="button" onclick="selectLanguage('jp')"><span class="flag">🇯🇵</span><span class="lang-name">日本語</span></button>
         <button type="button" onclick="selectLanguage('cn')"><span class="flag">🇨🇳</span><span class="lang-name">中文</span></button>
-
         <button type="button" onclick="selectLanguage('vn')"><span class="flag">🇻🇳</span><span class="lang-name">Tiếng Việt</span></button>
+
         <button type="button" onclick="selectLanguage('mn')"><span class="flag">🇲🇳</span><span class="lang-name">Монгол</span></button>
         <button type="button" onclick="selectLanguage('ph')"><span class="flag">🇵🇭</span><span class="lang-name">Filipino</span></button>
         <button type="button" onclick="selectLanguage('ru')"><span class="flag">🇷🇺</span><span class="lang-name">Русский</span></button>
-
         <button type="button" onclick="selectLanguage('id')"><span class="flag">🇮🇩</span><span class="lang-name">Indonesia</span></button>
         <button type="button" onclick="selectLanguage('uz')"><span class="flag">🇺🇿</span><span class="lang-name">O‘zbekcha</span></button>
+
         <button type="button" onclick="selectLanguage('th')"><span class="flag">🇹🇭</span><span class="lang-name">ไทย</span></button>
         <button type="button" onclick="selectLanguage('kh')"><span class="flag">🇰🇭</span><span class="lang-name">ខ្មែរ</span></button>
-
         <button type="button" onclick="selectLanguage('mm')"><span class="flag">🇲🇲</span><span class="lang-name">မြန်မာ</span></button>
-        <button type="button" onclick="selectLanguage('tl')"><span class="flag">🇵🇭</span><span class="lang-name">Tagalog</span></button>
         <button type="button" onclick="selectLanguage('np')"><span class="flag">🇳🇵</span><span class="lang-name">नेपाली</span></button>
         <button type="button" onclick="selectLanguage('tr')"><span class="flag">🇹🇷</span><span class="lang-name">Türkçe</span></button>
 
@@ -3531,7 +3525,6 @@ body {
             <option value="th">🇹🇭 ไทย</option>
             <option value="kh">🇰🇭 ខ្មែរ</option>
             <option value="mm">🇲🇲 မြန်မာ</option>
-            <option value="tl">🇵🇭 Tagalog</option>
             <option value="np">🇳🇵 नेपाली</option>
             <option value="tr">🇹🇷 Türkçe</option>
           </select>
@@ -3925,7 +3918,6 @@ function goPage(pageId) {
     setDisplay("area-th", isHome);
     setDisplay("area-kh", isHome);
     setDisplay("area-mm", isHome);
-    setDisplay("area-tl", isHome);
     setDisplay("area-np", isHome);
     setDisplay("area-tr", isHome);
 
