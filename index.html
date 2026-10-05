@@ -731,6 +731,35 @@ body {
 }
 
 /* =========================================================
+   SAFETY SUPPORT - safe_kr.webp 3개 메뉴
+   ★ 분실물 / 실종예방 / 법률상담
+   ★ 현재 안전지원 카드 실제 배치 기준
+   ========================================================= */
+.safe-item-lost {
+    top: 31.0%;
+    left: 3.2%;
+    width: 93.6%;
+    height: 11.8%;
+    z-index: 100000020;
+}
+
+.safe-item-missing {
+    top: 44.1%;
+    left: 3.2%;
+    width: 93.6%;
+    height: 14.0%;
+    z-index: 100000020;
+}
+
+.safe-item-law {
+    top: 59.0%;
+    left: 3.2%;
+    width: 93.6%;
+    height: 13.0%;
+    z-index: 100000020;
+}
+
+/* =========================================================
    BUSAN SAFE TALK / 부산안심톡
    기존 이미지/핫스팟과 독립된 fixed UI
    ========================================================= */
@@ -2940,6 +2969,10 @@ body {
 <img id="img-sub-safe-np" class="main-img" decoding="async" data-webp="safe_np.webp" alt="Safety Support NP">
 <img id="img-sub-safe-tr" class="main-img" decoding="async" data-webp="safe_tr.webp" alt="Safety Support TR">
 
+<!-- SAFETY SUPPORT KR 상세 -->
+<img id="img-sub-safe-missing-kr" class="main-img" decoding="async" data-webp="safe-missing-kr.webp" alt="Missing Prevention KR">
+<img id="img-sub-safe-law-kr" class="main-img" decoding="async" data-webp="safe-law-kr.webp" alt="Legal Consultation KR">
+
 
 <!-- =====================================================
      HOME 15개 국가 / 5열 × 3행 버튼
@@ -3191,6 +3224,33 @@ body {
    target="_blank"
    rel="noopener noreferrer"
    class="touch-link click-spots">
+</a>
+
+
+<!-- =====================================================
+     SAFETY SUPPORT KR 3개 메뉴
+     ===================================================== -->
+
+<a id="safe-lost-link"
+   href="https://www.lost112.go.kr/manyLanguage.do?langType=en"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="touch-link safe-item-lost"
+   aria-label="Lost and Found">
+</a>
+
+<a id="safe-missing-link"
+   href="javascript:void(0)"
+   class="touch-link safe-item-missing"
+   aria-label="Missing Prevention"
+   onclick="goPage('sub-safe-missing-kr')">
+</a>
+
+<a id="safe-law-link"
+   href="javascript:void(0)"
+   class="touch-link safe-item-law"
+   aria-label="Legal Consultation"
+   onclick="goPage('sub-safe-law-kr')">
 </a>
 
 
@@ -3856,6 +3916,9 @@ function goPage(pageId) {
     var isSafetySub =
         /^sub-safe-(kr|en|jp|cn|vn|mn|ph|ru|id|uz|th|kh|mm|tl|np|tr)$/.test(pageId);
 
+    var isSafetyKrMain =
+        pageId === "sub-safe-kr";
+
 
     var isEmbassySub =
         pageId === "sub-embassy";
@@ -3964,6 +4027,11 @@ function goPage(pageId) {
     setDisplay("click-rule", isMainLang);
     setDisplay("click-spots", isMainLang);
     setDisplay("main-safe-talk-link", isMainLang);
+
+    /* SAFETY SUPPORT KR - 분실물 / 실종예방 / 법률상담 */
+    setDisplay("safe-lost-link", isSafetyKrMain);
+    setDisplay("safe-missing-link", isSafetyKrMain);
+    setDisplay("safe-law-link", isSafetyKrMain);
 
 
     /* =====================================================
