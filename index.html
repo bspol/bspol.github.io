@@ -99,29 +99,30 @@ body {
 
 /* =========================================================
    HOME
-   ★ 16개 언어 / 4열 × 4행
-   ★ 현재 최종 home.webp 레이아웃 기준 / 퍼센트 좌표
+   ★ 15개 국가 / 화면상 16개 언어 선택칸
+     (필리핀: Filipino + Tagalog 2개 언어)
+   ★ 새 home.webp 레이아웃 기준 / 퍼센트 좌표 재보정
    ========================================================= */
 
-.btn-kr { top: 47.5%; left: 4.0%; width: 22.1%; height: 7.1%; }
-.btn-en { top: 47.5%; left: 26.8%; width: 22.1%; height: 7.1%; }
-.btn-jp { top: 47.5%; left: 49.7%; width: 22.1%; height: 7.1%; }
-.btn-cn { top: 47.5%; left: 72.5%; width: 23.0%; height: 7.1%; }
+.btn-kr { top: 49.5%; left: 4.0%; width: 22.1%; height: 7.0%; }
+.btn-en { top: 49.5%; left: 26.8%; width: 22.1%; height: 7.0%; }
+.btn-jp { top: 49.5%; left: 49.7%; width: 22.1%; height: 7.0%; }
+.btn-cn { top: 49.5%; left: 72.5%; width: 23.0%; height: 7.0%; }
 
-.btn-vn { top: 55.0%; left: 4.0%; width: 22.1%; height: 7.1%; }
-.btn-mn { top: 55.0%; left: 26.8%; width: 22.1%; height: 7.1%; }
-.btn-ph { top: 55.0%; left: 49.7%; width: 22.1%; height: 7.1%; }
-.btn-ru { top: 55.0%; left: 72.5%; width: 23.0%; height: 7.1%; }
+.btn-vn { top: 57.0%; left: 4.0%; width: 22.1%; height: 6.9%; }
+.btn-mn { top: 57.0%; left: 26.8%; width: 22.1%; height: 6.9%; }
+.btn-ph { top: 57.0%; left: 49.7%; width: 22.1%; height: 6.9%; }
+.btn-ru { top: 57.0%; left: 72.5%; width: 23.0%; height: 6.9%; }
 
-.btn-id { top: 62.4%; left: 4.0%; width: 22.1%; height: 7.1%; }
-.btn-uz { top: 62.4%; left: 26.8%; width: 22.1%; height: 7.1%; }
-.btn-th { top: 62.4%; left: 49.7%; width: 22.1%; height: 7.1%; }
-.btn-kh { top: 62.4%; left: 72.5%; width: 23.0%; height: 7.1%; }
+.btn-id { top: 64.2%; left: 4.0%; width: 22.1%; height: 6.9%; }
+.btn-uz { top: 64.2%; left: 26.8%; width: 22.1%; height: 6.9%; }
+.btn-th { top: 64.2%; left: 49.7%; width: 22.1%; height: 6.9%; }
+.btn-kh { top: 64.2%; left: 72.5%; width: 23.0%; height: 6.9%; }
 
-.btn-mm { top: 69.9%; left: 4.0%; width: 22.1%; height: 7.1%; }
-.btn-tl { top: 69.9%; left: 26.8%; width: 22.1%; height: 7.1%; }
-.btn-np { top: 69.9%; left: 49.7%; width: 22.1%; height: 7.1%; }
-.btn-tr { top: 69.9%; left: 72.5%; width: 23.0%; height: 7.1%; }
+.btn-mm { top: 71.4%; left: 4.0%; width: 22.1%; height: 7.0%; }
+.btn-tl { top: 71.4%; left: 26.8%; width: 22.1%; height: 7.0%; }
+.btn-np { top: 71.4%; left: 49.7%; width: 22.1%; height: 7.0%; }
+.btn-tr { top: 71.4%; left: 72.5%; width: 23.0%; height: 7.0%; }
 
 
 /* =========================================================
@@ -184,7 +185,8 @@ body {
 
 /* =========================================================
    언어 드롭다운
-   ★ 16개 언어 / 4 × 4
+   ★ 15개 국가 / 16개 언어 선택
+   ★ 모든 투명 터치영역보다 위에 올라오도록 z-index 고정
    ========================================================= */
 
 
@@ -205,7 +207,8 @@ body {
     -webkit-backdrop-filter: blur(8px);
 
     border-radius: 14px;
-    z-index: 9999;
+    z-index: 2147483600;
+    pointer-events: auto;
 
     box-shadow: 0 6px 20px rgba(0,0,0,.22);
 }
@@ -2914,7 +2917,30 @@ body {
 
 
 <!-- =====================================================
-     HOME 16개 언어 버튼
+     SAFETY SUPPORT
+     ★ safe_언어코드.webp
+     ===================================================== -->
+
+<img id="img-sub-safe-kr" class="main-img" decoding="async" data-webp="safe_kr.webp" alt="Safety Support KR">
+<img id="img-sub-safe-en" class="main-img" decoding="async" data-webp="safe_en.webp" alt="Safety Support EN">
+<img id="img-sub-safe-jp" class="main-img" decoding="async" data-webp="safe_jp.webp" alt="Safety Support JP">
+<img id="img-sub-safe-cn" class="main-img" decoding="async" data-webp="safe_cn.webp" alt="Safety Support CN">
+<img id="img-sub-safe-vn" class="main-img" decoding="async" data-webp="safe_vn.webp" alt="Safety Support VN">
+<img id="img-sub-safe-mn" class="main-img" decoding="async" data-webp="safe_mn.webp" alt="Safety Support MN">
+<img id="img-sub-safe-ph" class="main-img" decoding="async" data-webp="safe_ph.webp" alt="Safety Support PH">
+<img id="img-sub-safe-ru" class="main-img" decoding="async" data-webp="safe_ru.webp" alt="Safety Support RU">
+<img id="img-sub-safe-id" class="main-img" decoding="async" data-webp="safe_id.webp" alt="Safety Support ID">
+<img id="img-sub-safe-uz" class="main-img" decoding="async" data-webp="safe_uz.webp" alt="Safety Support UZ">
+<img id="img-sub-safe-th" class="main-img" decoding="async" data-webp="safe_th.webp" alt="Safety Support TH">
+<img id="img-sub-safe-kh" class="main-img" decoding="async" data-webp="safe_kh.webp" alt="Safety Support KH">
+<img id="img-sub-safe-mm" class="main-img" decoding="async" data-webp="safe_mm.webp" alt="Safety Support MM">
+<img id="img-sub-safe-tl" class="main-img" decoding="async" data-webp="safe_tl.webp" alt="Safety Support TL">
+<img id="img-sub-safe-np" class="main-img" decoding="async" data-webp="safe_np.webp" alt="Safety Support NP">
+<img id="img-sub-safe-tr" class="main-img" decoding="async" data-webp="safe_tr.webp" alt="Safety Support TR">
+
+
+<!-- =====================================================
+     HOME 15개 국가 / 16개 언어 버튼
      ===================================================== -->
 
 <a id="area-kr"
@@ -3078,7 +3104,8 @@ body {
 
 <!-- =====================================================
      언어 메뉴
-     ★ 16개 언어 / 4×4
+     ★ 15개 국가 / 16개 언어 선택
+     ★ HOME 화면 순서와 동일
      ===================================================== -->
 
 <div id="langDropdown" class="dropdown-menu">
@@ -3103,7 +3130,7 @@ body {
         <button type="button" onclick="selectLanguage('np')"><span class="flag">🇳🇵</span><span class="lang-name">नेपाली</span></button>
         <button type="button" onclick="selectLanguage('tr')"><span class="flag">🇹🇷</span><span class="lang-name">Türkçe</span></button>
 
-        <button type="button" class="dropdown-home" onclick="goPage('home'); closeDropdownIfOpen();">
+        <button type="button" class="dropdown-home" onclick="return goHomeFromDropdown(event);">
             <span style="font-size:18px;">🏠</span>
             <span>HOME</span>
         </button>
@@ -3131,7 +3158,7 @@ body {
 
 
 <!-- =====================================================
-     MAIN 6개 메뉴
+     MAIN 6개 메뉴 (4번: SAFETY SUPPORT)
      ===================================================== -->
 
 <a id="click-hosp"
@@ -3156,7 +3183,7 @@ body {
    href="javascript:void(0)"
    class="touch-link click-lost"
    aria-label="Safety Support"
-   onclick="showSafetyComingSoon()">
+   onclick="goPage('sub-safe-' + currentLang)">
 </a>
 
 <a id="click-rule"
@@ -3545,6 +3572,18 @@ function closeDropdownIfOpen() {
     if (menu) menu.classList.remove("open");
 }
 
+/* 지구본 메뉴의 HOME은 반드시 home.webp로만 이동 */
+function goHomeFromDropdown(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    closeDropdownIfOpen();
+    goPage("home");
+    return false;
+}
+
 
 /* =========================================================
    START DIRECTLY ON LANGUAGE MAIN
@@ -3657,6 +3696,7 @@ function scheduleSmartPrefetch(pageId) {
         if (["kr","en","jp","cn","vn","mn","ph","ru","id","uz","th","kh","mm","tl","np","tr"].indexOf(pageId) >= 0) {
             prefetchPage("sub-hospital-" + currentLang);
             prefetchPage("sub-pharmacy-" + currentLang);
+            prefetchPage("sub-safe-" + currentLang);
             prefetchPage("sub-law-" + currentLang);
         }
 
@@ -3820,6 +3860,10 @@ function goPage(pageId) {
         pageId.indexOf("medinfo") !== -1;
 
 
+    var isSafetySub =
+        /^sub-safe-(kr|en|jp|cn|vn|mn|ph|ru|id|uz|th|kh|mm|tl|np|tr)$/.test(pageId);
+
+
     var isEmbassySub =
         pageId === "sub-embassy";
 
@@ -3901,6 +3945,7 @@ function goPage(pageId) {
         isHospitalSub ||
         isPharmacySub ||
         isMedInfoSub ||
+        isSafetySub ||
         isLawOverview ||
         isLawDetail;
 
@@ -4142,11 +4187,9 @@ document.addEventListener(
 
 /* =========================================================
    SAFETY SUPPORT
-   ★ 분실물 / 실종예방 / 법률상담 이미지 준비 전 임시 처리
+   ★ MAIN 4번 버튼 → safe_현재언어.webp
+   ★ 실제 이동은 click-lost의 goPage('sub-safe-' + currentLang)에서 처리
    ========================================================= */
-function showSafetyComingSoon() {
-    alert("Safety Support content is being prepared.");
-}
 
 
 /* =========================================================
@@ -4198,14 +4241,18 @@ var SAFE_TALK_URL = "https://pahecokxhwvytobfuogt.supabase.co";
 var SAFE_TALK_KEY = "sb_publishable_iYyOHrIRX1KSpkMZWuzkaA_nGZ9VtAe";
 
 function safeTalkHeaders(includeJson) {
+    /* sb_publishable_* 키는 apikey 헤더로 전송한다.
+       Authorization: Bearer 에 publishable key를 넣지 않는다. */
     var h = {
         "apikey": SAFE_TALK_KEY,
-        "Authorization": "Bearer " + SAFE_TALK_KEY
+        "Accept": "application/json"
     };
+
     if (includeJson) {
         h["Content-Type"] = "application/json";
         h["Prefer"] = "return=minimal";
     }
+
     return h;
 }
 
@@ -4301,6 +4348,7 @@ async function submitSafeTalk(event) {
 
         if (!response.ok) {
             var detail = await response.text();
+            console.error("Safe Talk POST failed:", response.status, detail);
             throw new Error(detail || ("HTTP " + response.status));
         }
 
